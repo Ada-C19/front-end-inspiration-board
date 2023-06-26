@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "message": "my first card",
+        "likesCount": 0
+    },
+    {
+        "id": 2,
+        "message": "my second card",
+        "likesCount": 1
+    }
+]
