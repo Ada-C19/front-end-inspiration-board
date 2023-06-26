@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import Card from './Card.js';
 
-const CardList = ({cards}) => {
+const CardList = ({cards, onClick}) => {
     const getCardListJSX = (cards) => {
         return cards.map((card) => {
             return (
@@ -11,6 +11,7 @@ const CardList = ({cards}) => {
                     key={card.id}
                     message={card.message}
                     likesCount={card.likesCount}
+                    onClick={onClick}
                 />
             )
         })
@@ -29,8 +30,8 @@ CardList.propTypes = {
             id: PropTypes.number.isRequired,
             message: PropTypes.string.isRequired,
             likesCount: PropTypes.number.isRequired,
-        })
-    )
+        })).isRequired,
+    // handleLike: PropTypes.func
 }
 
 export default CardList;

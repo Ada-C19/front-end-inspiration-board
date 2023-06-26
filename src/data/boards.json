@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "title": "My First Board",
+        "owner": "Nadia S",
+        "cards": "list of cards goes here?"
+    },
+    {
+        "id": 2,
+        "title": "My Second Board",
+        "owner": "A different owner",
+        "cards": "list of cards goes here?"
+    }
+]
