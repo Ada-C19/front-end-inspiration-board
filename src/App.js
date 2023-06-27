@@ -34,7 +34,8 @@ const App = () => {
     for (let board of boards) {
       if (board.id === id) {
         return (
-          <CardList cards={board.cards} onClick={handleLike} />
+          // <CardList cards={board.cards} onClick={handleLike} />
+          <CardList cards={cards} onClick={handleLike} />
         );
       };
     };

@@ -20,13 +20,13 @@
                 "id": 3,
                 "message": "another new card",
                 "likesCount": 0,
-                "board": 2
+                "board": 1
             },
             {
                 "id": 4,
                 "message": "sooo many cards",
                 "likesCount": 0,
-                "board": 2
+                "board": 1
             }
         ]
     },
@@ -39,13 +39,13 @@
                 "id": 1,
                 "message": "first of second board",
                 "likesCount": 0,
-                "board": 1
+                "board": 2
             },
             {
                 "id": 2,
                 "message": "second of second board",
                 "likesCount": 13,
-                "board": 1
+                "board": 2
             }
         ]
     }
