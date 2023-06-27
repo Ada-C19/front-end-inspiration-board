@@ -29,7 +29,6 @@ const App = () => {
   }
 
   const handleSubmitCard = (newCard) => {
-    // const newCardData = [...cards];
 
     const nextId = Math.max(...cards.map(card => card.id)) + 1;
 
@@ -39,6 +38,7 @@ const App = () => {
       board: newCard.board,
       likesCount: 0,
     };
+
     setCards((prevData) => [newCardObject, ...prevData])
   }
 
@@ -50,7 +50,7 @@ const App = () => {
       <main>
         <CardList cards={cards} onClick={handleLike}/>
         {/* <Board boards={boards}/> */}
-        <NewCardForm onSubmit={handleSubmitCard}/>
+        <NewCardForm addCard={handleSubmitCard}/>
       </main>
     </div>
   );

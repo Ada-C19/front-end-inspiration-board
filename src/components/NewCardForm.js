@@ -6,7 +6,7 @@ import './NewCardForm.css';
 // pass in function addCard
 // call addCard() in onFormSubmit
 
-const NewCardForm = ( {onSubmit} ) => {
+const NewCardForm = ( {addCard} ) => {
     const defaultNewCard = {
         message: '',
         board:'',
@@ -30,7 +30,7 @@ const NewCardForm = ( {onSubmit} ) => {
 
     const onFormSubmit = event => {
         event.preventDefault();
-        onSubmit(formFields);
+        addCard(formFields);
         setFormFields(defaultNewCard);
     }
     
@@ -58,6 +58,10 @@ const NewCardForm = ( {onSubmit} ) => {
             />
         </form>
         );
+}
+
+NewCardForm.propTypes = {
+    addCard: PropTypes.func.isRequired
 }
 
 export default NewCardForm
