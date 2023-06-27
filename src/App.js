@@ -40,9 +40,6 @@ const App = () => {
     };
   };
 
-
-
-
   const handleSubmitCard = (newCard) => {
 
     const nextId = Math.max(...cards.map(card => card.id)) + 1;
