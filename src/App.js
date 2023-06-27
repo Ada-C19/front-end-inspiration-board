@@ -1,6 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
 
+const data = [
+  {
+    id:1,
+    title:"the team",
+    owner:"ADA",
+  },
+  {
+    id:2,
+    title:"homedepot",
+    owner:"tools",
+  },
+  {
+    id:3,
+    title:"house",
+    owner:"parents",
+  }
+]
+
 function App() {
   return (
     <div className="App">
