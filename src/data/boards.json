@@ -3,12 +3,50 @@
         "id": 1,
         "title": "My First Board",
         "owner": "Nadia S",
-        "cards": "list of cards goes here?" 
+        "cards": [
+            {
+                "id": 1,
+                "message": "my first card",
+                "likesCount": 0,
+                "board": 1
+            },
+            {
+                "id": 2,
+                "message": "my second card",
+                "likesCount": 13,
+                "board": 1
+            },
+            {
+                "id": 3,
+                "message": "another new card",
+                "likesCount": 0,
+                "board": 2
+            },
+            {
+                "id": 4,
+                "message": "sooo many cards",
+                "likesCount": 0,
+                "board": 2
+            }
+        ]
     },
     {
         "id": 2,
         "title": "My Second Board",
         "owner": "A different owner",
-        "cards": "list of cards goes here?"
+        "cards": [
+            {
+                "id": 1,
+                "message": "first of second board",
+                "likesCount": 0,
+                "board": 1
+            },
+            {
+                "id": 2,
+                "message": "second of second board",
+                "likesCount": 13,
+                "board": 1
+            }
+        ]
     }
 ]

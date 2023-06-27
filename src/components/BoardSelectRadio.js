@@ -4,25 +4,19 @@ import PropTypes from 'prop-types';
 
 
 const BoardSelectRadio = ({boards}) => {
-    // add state that reads selected board
-    // pass that back up ?
-    // add event handler to each input item to do above
-    // smile :) 
-    
     const getBoardListJSX = boards => {
         return boards.map((board) => {
-            return (
-            <div>
+            return <div>
                 <input
                 type='radio'
                 name='board'
                 id={board.title}
-                value={board.title}
+                value={board.id}
                 key={board.id}
                 />
-            <label for={board.title}>{board.title}</label>
+            <label htmlFor={board.title}>{board.title}</label>
             </div>
-        )})
+        })
     }
 
     return (
@@ -34,6 +28,6 @@ const BoardSelectRadio = ({boards}) => {
 }
 
 
-
-
 export default BoardSelectRadio;
+
+
