@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 
 
 const BoardSelectRadio = ({boards}) => {
+    const [selectedBoard, setSelectedBoard] = useState(1)
+
+    const onPickBoard = (event) => {setSelectedBoard(event.target.value)};
+
     const getBoardListJSX = boards => {
         return boards.map((board) => {
             return <div>
@@ -13,11 +17,12 @@ const BoardSelectRadio = ({boards}) => {
                 id={board.title}
                 value={board.id}
                 key={board.id}
+                onChange={onPickBoard}
                 />
             <label htmlFor={board.title}>{board.title}</label>
             </div>
-        })
-    }
+        });
+    };
 
     return (
         <fieldset>
@@ -25,7 +30,7 @@ const BoardSelectRadio = ({boards}) => {
             <ul>{getBoardListJSX(boards)}</ul>
         </fieldset>
     )
-}
+};
 
 
 export default BoardSelectRadio;
