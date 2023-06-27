@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 
 import CardList from './components/CardList';
-import cardData from './data/cards.json';
+// import cardData from './data/cards.json';
 
 import Board from './components/Board';
 // import Board from './components/CardList';
@@ -15,9 +15,9 @@ import BoardSelectRadio from './components/BoardSelectRadio';
 
 
 const App = () => {
-  const [cards, setCards] = useState(cardData);
   const [boards, setBoards] = useState(boardData);
   const [targetBoard, setTargetBoard] = useState(1);
+  const [cards, setCards] = useState(boards[targetBoard].cards);
 
   const handleLike = id => {
     setCards((prevCards) => {
@@ -31,14 +31,17 @@ const App = () => {
     })
   }
   const displayCards = (id) => {
-    for (let board of boards) {
-      if (board.id === id) {
-        return (
-          // <CardList cards={board.cards} onClick={handleLike} />
-          <CardList cards={cards} onClick={handleLike} />
-        );
-      };
-    };
+    // for (let board of boards) {
+    //   if (board.id === id) {
+    //     return (
+    //       // <CardList cards={board.cards} onClick={handleLike} />
+    //       <CardList cards={cards} onClick={handleLike} />
+    //     );
+    //   };
+    // };
+    return (
+      <CardList cards={cards} onClick={handleLike}/>
+    )
   };
 
   const handleSubmitCard = (newCard) => {
