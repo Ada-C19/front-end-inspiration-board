@@ -17,6 +17,7 @@ import BoardSelectRadio from './components/BoardSelectRadio';
 const App = () => {
   const [cards, setCards] = useState(cardData);
   const [boards, setBoards] = useState(boardData);
+  const [targetBoard, setTargetBoard] = useState(1);
 
   const handleLike = id => {
     setCards((prevCards) => {
@@ -30,7 +31,6 @@ const App = () => {
     })
   }
   const displayCards = (id) => {
-
     for (let board of boards) {
       if (board.id === id) {
         return (
@@ -54,16 +54,20 @@ const App = () => {
     setCards((prevData) => [newCardObject, ...prevData])
   }
 
+  const handleSelectBoard = (boardId) => {
+    setTargetBoard(boardId);
+  }
+
   return (
     <div className="App">
       <header>
         <h1>MMNJ INSPO BOARD</h1>
       </header>
       <main>
-        <BoardSelectRadio boards={boards} displayCards={displayCards} />
-        {displayCards(1)}
+        <BoardSelectRadio boards={boards} onSelect={handleSelectBoard}/>
+        {displayCards(targetBoard)}
         {/* <CardList cards={cards} onClick={handleLike} /> */}
-        <Board board={boards} cards={cards} />
+        {/* <Board board={boards} cards={cards} /> */}
         <NewCardForm addCard={handleSubmitCard} />
       </main>
     </div>
