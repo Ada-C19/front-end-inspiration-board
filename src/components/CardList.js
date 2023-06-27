@@ -31,7 +31,7 @@ CardList.propTypes = {
             message: PropTypes.string.isRequired,
             likesCount: PropTypes.number.isRequired,
         })).isRequired,
-    // handleLike: PropTypes.func
+    handleLike: PropTypes.func
 }
 
 export default CardList;

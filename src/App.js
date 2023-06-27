@@ -1,13 +1,20 @@
+import React, { useState } from 'react';
 import './App.css';
+
 import CardList from './components/CardList';
 import cardData from './data/cards.json';
-import React, { useState } from 'react';
+
+import Board from './components/CardList';
+import boardData from './data/boards.json';
+
+import NewCardForm from './components/NewCardForm';
 
 // use ${process.env.REACT_APP_BACKEND_URL} to make API calls
 
 
 const App = () => {
   const [cards, setCards] = useState(cardData);
+  const [boards, setBoards] = useState(boardData);
 
   const handleLike = id => {
     setCards((prevCards) => {
@@ -26,7 +33,11 @@ const App = () => {
       <header>
         <h1>MMNJ INSPO BOARD</h1>
       </header>
-      <CardList cards={cards} onClick={handleLike}/>
+      <main>
+        <CardList cards={cards} onClick={handleLike}/>
+        {/* <Board boards={boards}/> */}
+        <NewCardForm/>
+      </main>
     </div>
   );
 }

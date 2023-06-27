@@ -2,11 +2,13 @@
     {
         "id": 1,
         "message": "my first card",
-        "likesCount": 0
+        "likesCount": 0,
+        "board": 1
     },
     {
         "id": 2,
         "message": "my second card",
-        "likesCount": 13
+        "likesCount": 13,
+        "board": 2
     }
 ]
