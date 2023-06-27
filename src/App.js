@@ -5,16 +5,17 @@ import CardList from './components/CardList';
 import cardData from './data/cards.json';
 
 // import Board from './components/CardList';
-// import boardData from './data/boards.json';
+import boardData from './data/boards.json';
 
 import NewCardForm from './components/NewCardForm';
+import BoardSelectRadio from './components/BoardSelectRadio';
 
 // use ${process.env.REACT_APP_BACKEND_URL} to make API calls
 
 
 const App = () => {
   const [cards, setCards] = useState(cardData);
-  // const [boards, setBoards] = useState(boardData);
+  const [boards, setBoards] = useState(boardData);
 
   const handleLike = id => {
     setCards((prevCards) => {
@@ -48,6 +49,7 @@ const App = () => {
         <h1>MMNJ INSPO BOARD</h1>
       </header>
       <main>
+        <BoardSelectRadio boards={boards}/>
         <CardList cards={cards} onClick={handleLike}/>
         {/* <Board boards={boards}/> */}
         <NewCardForm addCard={handleSubmitCard}/>
