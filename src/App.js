@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 
 import CardList from './components/CardList';
-// import cardData from './data/cards.json';
+
 
 import Board from './components/Board';
 // import Board from './components/CardList';
@@ -19,6 +19,16 @@ const App = () => {
   const [targetBoard, setTargetBoard] = useState(1);
   const [cards, setCards] = useState(boards[targetBoard].cards);
 
+  const handleSelectBoard = (boardId) => {
+    setTargetBoard(boardId);
+  }
+
+  const displayCards = (id) => {
+    return (
+      <CardList cards={cards} onClick={handleLike}/>
+    )
+  };
+
   const handleLike = id => {
     setCards((prevCards) => {
       return prevCards.map((card) => {
@@ -30,36 +40,16 @@ const App = () => {
       })
     })
   }
-  const displayCards = (id) => {
-    // for (let board of boards) {
-    //   if (board.id === id) {
-    //     return (
-    //       // <CardList cards={board.cards} onClick={handleLike} />
-    //       <CardList cards={cards} onClick={handleLike} />
-    //     );
-    //   };
-    // };
-    return (
-      <CardList cards={cards} onClick={handleLike}/>
-    )
-  };
 
   const handleSubmitCard = (newCard) => {
-
     const nextId = Math.max(...cards.map(card => card.id)) + 1;
-
     const newCardObject = {
       id: nextId,
       message: newCard.message,
       board: newCard.board,
       likesCount: 0,
     };
-
     setCards((prevData) => [newCardObject, ...prevData])
-  }
-
-  const handleSelectBoard = (boardId) => {
-    setTargetBoard(boardId);
   }
 
   return (
