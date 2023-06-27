@@ -1,14 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import './NewCardForm.css';
 
 // pass in function addCard
 // call addCard() in onFormSubmit
 
-const NewCardForm = () => {
+const NewCardForm = ( {onSubmit} ) => {
     const defaultNewCard = {
         message: '',
-        board:''
+        board:'',
     }
 
     const [formFields, setFormFields] = useState(defaultNewCard);
@@ -29,14 +30,12 @@ const NewCardForm = () => {
 
     const onFormSubmit = event => {
         event.preventDefault();
-
-        console.log(formFields);
-
+        onSubmit(formFields);
         setFormFields(defaultNewCard);
     }
     
     return (
-        <form onSubmit={onFormSubmit}>
+        <form className='new-card-form' onSubmit={onFormSubmit}>
             <div>
                 <label htmlFor="message">Message:</label>
                 <input 

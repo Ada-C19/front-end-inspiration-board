@@ -9,6 +9,18 @@
         "id": 2,
         "message": "my second card",
         "likesCount": 13,
+        "board": 1
+    },
+    {
+        "id": 3,
+        "message": "another new card",
+        "likesCount": 0,
+        "board": 2
+    },
+    {
+        "id": 4,
+        "message": "sooo many cards",
+        "likesCount": 0,
         "board": 2
     }
 ]
