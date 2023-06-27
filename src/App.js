@@ -22,13 +22,26 @@ const App = () => {
     setCards((prevCards) => {
       return prevCards.map((card) => {
         if (id === card.id) {
-          return {...card, likesCount: card.likesCount + 1};
+          return { ...card, likesCount: card.likesCount + 1 };
         } else {
           return card;
         };
       })
     })
   }
+  const displayCards = (id) => {
+
+    for (let board of boards) {
+      if (board.id === id) {
+        return (
+          <CardList cards={board.cards} onClick={handleLike} />
+        );
+      };
+    };
+  };
+
+
+
 
   const handleSubmitCard = (newCard) => {
 
@@ -50,10 +63,11 @@ const App = () => {
         <h1>MMNJ INSPO BOARD</h1>
       </header>
       <main>
-        <BoardSelectRadio boards={boards}/>
-        <CardList cards={cards} onClick={handleLike}/>
-        <Board board={boards} cards={cards}/>
-        <NewCardForm addCard={handleSubmitCard}/>
+        <BoardSelectRadio boards={boards} displayCards={displayCards} />
+        {displayCards(1)}
+        {/* <CardList cards={cards} onClick={handleLike} /> */}
+        <Board board={boards} cards={cards} />
+        <NewCardForm addCard={handleSubmitCard} />
       </main>
     </div>
   );
