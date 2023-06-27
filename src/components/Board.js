@@ -1,12 +1,28 @@
 import React from 'react';
+import PropTypes from "prop-types";
+import './Board.css'
 
 const Board = (props) => {
-    return (<p>{props.title}</p>)
+    const boardTitles =  props.data.map((board)=>{
+        return(
+            <p>{board.title}</p>
+        )
+    })
+    return( 
+    <section>
+    <h2>Boards</h2>
+        
+    <div className='board'>
+        
+        {boardTitles}</div>
+    </section>)
 };
 
 
 Board.propType={
-    title: PropType.string.isRequired
+    data: PropTypes.shape({id:PropTypes.number.isRequired,
+        title:PropTypes.string.isRequired,
+        owner:PropTypes.string.isRequired})
 }
 
 
