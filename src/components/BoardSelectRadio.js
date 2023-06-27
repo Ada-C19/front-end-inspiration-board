@@ -3,12 +3,11 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 
-const BoardSelectRadio = ({boards, onSelect}) => {
-    // const [selectedBoard, setSelectedBoard] = useState(1)
-
+const BoardSelectRadio = ({boards, onBoardSelect}) => {
     const onPickBoard = (event) => {
-        console.log(event.target.value)
-        onSelect(event.target.value)
+        let boardIndex = event.target.value - 1;
+        console.log('preparing to display board', boardIndex, boards[boardIndex].title)
+        onBoardSelect(boardIndex);
     };
 
     const getBoardListJSX = boards => {
@@ -21,7 +20,7 @@ const BoardSelectRadio = ({boards, onSelect}) => {
                 value={board.id}
                 key={board.id}
                 form='select-board'
-                // onChange={onPickBoard}
+                onClick={onPickBoard}
                 />
             <label htmlFor={board.title}>{board.title}</label>
             </div>
@@ -29,7 +28,7 @@ const BoardSelectRadio = ({boards, onSelect}) => {
     };
 
     return (
-        <form id='select-board' onChange={onPickBoard}>
+        <form id='select-board'>
             <fieldset form='select-board'>
             <legend>Select a board to display:</legend>
             <ul>{getBoardListJSX(boards)}</ul>

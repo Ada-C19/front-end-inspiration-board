@@ -16,11 +16,13 @@ import BoardSelectRadio from './components/BoardSelectRadio';
 
 const App = () => {
   const [boards, setBoards] = useState(boardData);
-  const [targetBoard, setTargetBoard] = useState(1);
+  const [targetBoard, setTargetBoard] = useState(0);
   const [cards, setCards] = useState(boards[targetBoard].cards);
 
   const handleSelectBoard = (boardId) => {
     setTargetBoard(boardId);
+    // should the next line be something with useEffect instead?
+    setCards(boards[targetBoard].cards);
   }
 
   const displayCards = (id) => {
@@ -58,7 +60,7 @@ const App = () => {
         <h1>MMNJ INSPO BOARD</h1>
       </header>
       <main>
-        <BoardSelectRadio boards={boards} onSelect={handleSelectBoard}/>
+        <BoardSelectRadio boards={boards} onBoardSelect={handleSelectBoard}/>
         {displayCards(targetBoard)}
         {/* <CardList cards={cards} onClick={handleLike} /> */}
         {/* <Board board={boards} cards={cards} /> */}

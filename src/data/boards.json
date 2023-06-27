@@ -48,5 +48,24 @@
                 "board": 2
             }
         ]
+    },
+    {
+        "id": 3,
+        "title": "A very different Board",
+        "owner": "test-subject",
+        "cards": [
+            {
+                "id": 1,
+                "message": "BOARD 3 CARD 1",
+                "likesCount": 0,
+                "board": 2
+            },
+            {
+                "id": 2,
+                "message": "BOARD 3 CARD 2",
+                "likesCount": 13,
+                "board": 2
+            }
+        ]
     }
 ]
