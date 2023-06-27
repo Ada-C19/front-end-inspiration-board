@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import CardList from './components/CardList.js'
+import CardList from './components/CardList'
 
 const cardBoardData = [
   {
