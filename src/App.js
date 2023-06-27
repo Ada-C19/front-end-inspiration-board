@@ -4,6 +4,7 @@ import './App.css';
 import CardList from './components/CardList';
 import cardData from './data/cards.json';
 
+import Board from './components/Board';
 // import Board from './components/CardList';
 import boardData from './data/boards.json';
 
@@ -51,7 +52,7 @@ const App = () => {
       <main>
         <BoardSelectRadio boards={boards}/>
         <CardList cards={cards} onClick={handleLike}/>
-        {/* <Board boards={boards}/> */}
+        <Board board={boards} cards={cards}/>
         <NewCardForm addCard={handleSubmitCard}/>
       </main>
     </div>
