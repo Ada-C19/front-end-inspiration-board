@@ -12,9 +12,9 @@ const Board = (props) => {
     <section>
     <h2>Boards</h2>
         
-    <div className='board'>
+    <ul className='board'>
         
-        {boardTitles}</div>
+        {boardTitles}</ul>
     </section>)
 };
 
