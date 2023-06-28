@@ -5,17 +5,26 @@
   /* border: black 2px dashed; */
   display: flex;
   flex-direction: row;
+  /* background-color for testing purposes */
+  /* background-color: red; */
   width: auto;
-  height: 25vh;
   margin-top: 6vh;
   gap: 3vh;
   margin-left: 2.5vh;
   margin-right: 2.5vh;
 }
 
+.board-container{
+  /* background-color for testing purposes */
+  /* background-color: blue; */
+}
+
 .element {
   border: black 2px solid;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: fit-content;
   width: 100%;
   border-radius: 3px;
   padding: 2vh;
