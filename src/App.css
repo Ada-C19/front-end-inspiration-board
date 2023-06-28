@@ -1,12 +1,15 @@
 .App {
-  background-image: linear-gradient(to bottom right, lightpink, #FFFFE0);
+  background-image: linear-gradient(to bottom right, lightpink, #ffff8fe6);
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  padding-left: 4%;
+  padding-right: 4%;
 }
+
 .container {
   /* border: black 2px dashed; */
   display: flex;
   flex-direction: row;
-  /* background-color for testing purposes */
-  /* background-color: red; */
   width: auto;
   margin-top: 6vh;
   gap: 3vh;
@@ -25,24 +28,18 @@
   flex-direction: column;
   align-items: flex-start;
   height: fit-content;
+  font-weight: bolder;
   width: 100%;
   border-radius: 3px;
   padding: 2vh;
+  border-radius: 2vh;
+  background-color: #a5f1fec6;
 }
 
 .App-header {
   font-size: 5.5vh;
+  font-stretch: ultra-expanded;
+  font-weight: bolder;
   text-align: center;
   height: auto;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 6vh;
-  word-wrap: break-word;
-  flex-wrap: wrap;
-  aspect-ratio: 1/1;
 }

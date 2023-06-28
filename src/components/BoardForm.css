@@ -3,29 +3,29 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 6vh;
+    margin-top: 1vh;
     word-wrap: break-word;
     flex-wrap: wrap;
 }
 
-.new_board_form {
+.new-board-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
   
-  .new_board_fields {
+  .new-board-fields {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 400px;
     row-gap: 20px;
   }
   
-  .new_board_fields label {
-    font-weight: bolder;
+  .new-board-fields label {
+    /* font-weight: bolder; */
     font-size: 1.2em;
   }
   
-  .new_board_submit { 
+  .new-board-submit { 
     grid-column: span 2;
   }

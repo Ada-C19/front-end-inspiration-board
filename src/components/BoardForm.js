@@ -34,8 +34,8 @@ const BoardForm = ({ addBoardCallback }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className='new_board_form'>
-            <div>
+        <form onSubmit={handleSubmit} className='board-form'>
+            <div className='new-board-form'>
                 <label htmlFor="boardTitle">Title:</label>
                 <input
                     name="boardTitle"
@@ -47,6 +47,7 @@ const BoardForm = ({ addBoardCallback }) => {
                 <input name="boardOwner"
                     value={formFields.owner}
                     onChange={onOwnerChange} />
+                    
             </div>
             <input
                 type="submit"
