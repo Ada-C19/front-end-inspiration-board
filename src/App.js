@@ -56,13 +56,14 @@ function App() {
   const boardList = <BoardList boards={boards} callBack={selectBoard}/>
   return (
     // <div className="App">
-    <body className ="App"> 
+    <div className ="App"> 
       <header className="App-header">Inspiration Board</header>
-      <section className="container">
+      <div className="container">
 
         <section className = "element"> {boardList} </section>
 
-        <section className = "element">Create New Board:
+        <section className = "element">
+          <div>Create New Board:</div>
           <div className = "board-form">
             <form className='form'>
               <BoardForm /> 
@@ -77,12 +78,12 @@ function App() {
               </form>
             </div>
         </section>
-      </section>
+      </div>
 
-      <section> 
+      <div className='board-container'> 
         <Board cards = {sample_card} boardsData = {selectedBoard} />
-      </section>
-    </body>
+      </div>
+    </div>
     // </div>
   );
 };
