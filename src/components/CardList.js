@@ -9,11 +9,11 @@ const CardList = ({ cardBoardData }) => {
     
     return (
       <li>
-      <Card
-      id = {card.id}
-      message = {card.message}
-      likesCount = {card.likesCount}
-      />
+        <Card
+        id = {card.id}
+        message = {card.message}
+        likesCount = {card.likesCount}
+        />
       </li>
     )
   })

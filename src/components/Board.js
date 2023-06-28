@@ -1,21 +1,8 @@
 import React from 'react';
-import CardList from './components/CardList';
+import CardList from './CardList';
 
 
-const cardBoardData = [
-    {
-    "id": 1,
-    "message": "This is a quote",
-    "likesCount": 0
-    },
-    {
-    "id": 2,
-    "message": "This is a cooler quote",
-    "likesCount": 0
-    }
-]
-
-function Board() {
+function Board({ cardBoardData }) {
     return (
         <div>
             <CardList cardBoardData={cardBoardData} />

@@ -4,14 +4,15 @@ import PropTypes from 'prop-types';
 const Card = ({ id, message, likesCount }) => {
   console.log('Card props:', message)
   return (
-    <div>
+    <ul>
       <li>
       Quote: {message}
       </li>
       <li>
       Likes: {likesCount}
+      {/* <button onClick={() => increaseLikeCount(id)}>+1</button> */}
       </li>
-    </div>
+    </ul>
   )
 }
 
