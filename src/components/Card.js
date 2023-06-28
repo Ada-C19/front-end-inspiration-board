@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Card = ({ id, message, likesCount }) => {
+const Card = ({ id, message, likesCount, increaseLikeCount }) => {
   console.log('Card props:', message)
   return (
     <ul>
@@ -10,7 +10,7 @@ const Card = ({ id, message, likesCount }) => {
       </li>
       <li>
       Likes: {likesCount}
-      {/* <button onClick={() => increaseLikeCount(id)}>+1</button> */}
+        <button onClick={() => increaseLikeCount(id)}>+1</button>
       </li>
     </ul>
   )

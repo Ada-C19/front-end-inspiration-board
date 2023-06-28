@@ -1,12 +1,12 @@
 import React from 'react'
 
-function BoardList({ boardData, boardSelect }) {
+function BoardList({ boardData, boardSelect, increaseLikeCount }) {
     const boardTitles = boardData.map(board => {
         return <li onClick={() => boardSelect(board.id, board.title)}>{board.title}</li>
     })
-  return (
-    <ol>{boardTitles}</ol>
-  )
+    return (
+        <ol>{boardTitles}</ol>
+    )
 }
 
 export default BoardList;

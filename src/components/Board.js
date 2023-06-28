@@ -2,7 +2,7 @@ import React from 'react';
 import CardList from './CardList';
 
 
-function Board({ cardBoardData }) {
+function Board({ cardBoardData, increaseLikeCount }) {
     return (
         <div>
             <CardList cardBoardData={cardBoardData} />

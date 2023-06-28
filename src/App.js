@@ -34,6 +34,26 @@ function App() {
   const boardSelect = (id, title) => {
       setSelectedBoard({id, title})
   }
+
+  const increaseLikeCount = id => {
+    setLikes(prevLikes => {
+      const updateLikes = prevLikes.map(like => {
+        return like.id === id ? {...like, likesCount: + 1} : like 
+      });
+      return updateLikes;
+    });
+   
+  
+  
+  // const increaseLikes = (id) => {
+  //   setMessages(prevMessages => {
+  //     const updatedMessages = prevMessages.map(message => {
+  //       return message.id  === id ?  {...message, liked: !message.liked} : message;
+  //     });
+  //     return updatedMessages;
+  //   });
+  // };
+
   console.log(selectedBoard)
   return (
     <div className="App">

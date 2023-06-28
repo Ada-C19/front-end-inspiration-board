@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card';
 
-const CardList = ({ cardBoardData }) => {
+const CardList = ({ cardBoardData, increaseLikeCount }) => {
   console.log('CL props:', cardBoardData)
 
   const cardListComponents = cardBoardData.map(card => {
@@ -13,6 +13,7 @@ const CardList = ({ cardBoardData }) => {
         id = {card.id}
         message = {card.message}
         likesCount = {card.likesCount}
+        increaseLikeCount = {increaseLikeCount}
         />
       </li>
     )
