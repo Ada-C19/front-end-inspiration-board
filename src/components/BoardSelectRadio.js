@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 
 const BoardSelectRadio = ({boards, onBoardSelect}) => {
+    // dont use index, use ID
     const onPickBoard = (event) => {
-        let boardIndex = event.target.value - 1;
-        console.log('preparing to display board index:', boardIndex)
-        console.log('Board Title:', boards[boardIndex].title, '... Board Number:', boards[boardIndex].id)
-        onBoardSelect(boardIndex);
+        let boardId = event.target.value;
+        console.log(`Board ID: ${boardId}`);
+        onBoardSelect(boardId);
     };
 
     const getBoardListJSX = boards => {
