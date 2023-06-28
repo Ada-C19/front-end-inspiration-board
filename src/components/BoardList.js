@@ -5,10 +5,9 @@ function BoardList({boards, callBack}) {
     const board = boards.map((board)=> {
         return (
         <section onClick = {()=>{callBack(board.board_id)}} key={board.board_id}>
-            <li> {board.title}</li>
+            <ol><li> {board.title}</li></ol>
         </section>
     )})
-
 
     return (
     <div className="board_list">

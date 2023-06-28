@@ -17,8 +17,8 @@ const CardForm = ({ addCardCallback }) => {
     //     )
 
     return (
-        <form onSubmit={formFields} className='new_card_form'>
-            <div>
+        <form onSubmit={formFields} className='card-form'>
+            <div className='new-card-form'>
                 <label htmlFor="cardMessage">Message:</label>
                 <input
                     name="cardMessage"

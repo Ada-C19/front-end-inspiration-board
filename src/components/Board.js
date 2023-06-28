@@ -18,7 +18,7 @@ function Board({boardsData, cards}) {
     })
     return (
     <section className="board">
-        <header> 
+        <header className='header'> 
             {boardsData.title}
         </header>
         <ul className = "card-container">

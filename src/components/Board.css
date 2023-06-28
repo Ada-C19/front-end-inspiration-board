@@ -10,14 +10,25 @@
 }
 
 header {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     color: black;
     font-size: 4.5vh;
+    font-weight: bolder;
+    font-stretch: ultra-expanded;
+    margin-top: 2vh;
 }
 
 .board {
     /* border: purple solid 2px; */
+    display: flex;
+    flex-direction: column;
+    background-image: radial-gradient( rgb(195, 182, 255), #FFFFE0);
+    opacity: 0.9;
+    border-radius: 2vh;
     margin: 2vh;
     font: monospace;
     height: 100vh;
+    border: black 2px solid;
 }
