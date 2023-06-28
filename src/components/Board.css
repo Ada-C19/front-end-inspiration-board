@@ -1,0 +1,23 @@
+.card-container {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+    text-align: center;
+}
+
+header {
+    text-align: center;
+    color: black;
+    font-size: 4.5vh;
+}
+
+.board {
+    /* border: purple solid 2px; */
+    margin: 2vh;
+    font: monospace;
+    height: 100vh;
+}

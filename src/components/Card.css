@@ -1,0 +1,14 @@
+.card {
+    border-radius: 2vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 30vh;
+    height: 40vh;
+    background-color: lightgray;
+    color: black;
+}
+
+.card-message {
+    font-size: 4vh;
+}
