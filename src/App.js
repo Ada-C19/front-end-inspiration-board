@@ -80,39 +80,38 @@ function App() {
     
 
   const boardList = <BoardList boards={boards} callBack={selectBoard}/>
+
   return (
-    // <div className="App">
-    <body>
+        <div className ="App"> 
+          <header className="App-header">Inspiration Board</header>
+          <div className="container">
+          <section className="element"> {boardList} </section>
 
-      <div className ="App"> 
-        <header className="App-header">Inspiration Board</header>
-        <div className="container">
-
-          <section className = "element"> {boardList} </section>
-
-          <section className = "element">
-            <div>Create New Board:</div>
-            <div className = "board-form">
-              <form className='form'>
-                <BoardForm /> 
-              </form>
-            </div>
-          </section>
-
-          <section className = "element">Create New Card:
-            <div className = "card-form">
-                <form className='form'>
-                  <CardForm /> 
+          <section className = "element">Create New Board:
+              <div className = "board-form">
+                <form className="form">
+                  <BoardForm /> 
                 </form>
               </div>
-          </section>
-        </div>
+            </section>
 
-        <section> 
-          <Board cards = {cards} boardsData ={selectedBoard} increaseLikes = {increaseLikes}/>
-        </section>
+            <section className = "element">Create New Card:
+              <div className = "card-form">
+                  <form className='form'>
+                    <CardForm /> 
+                  </form>
+                </div>
+            </section>
+          </div>
+
+          <section> 
+            <Board cards = {cards} boardsData ={selectedBoard} increaseLikes = {increaseLikes}/>
+          </section>
+
+        <div className='board-container'> 
+          <Board cards = {sample_card} boardsData = {selectedBoard} />
+        </div>
       </div>
-    </body>
   );
 };
 
