@@ -6,8 +6,7 @@ import PropTypes from 'prop-types';
 const BoardSelectRadio = ({boards, onBoardSelect}) => {
     // dont use index, use ID
     const onPickBoard = (event) => {
-        let boardId = event.target.value;
-        console.log(`Board ID: ${boardId}`);
+        let boardId = Number(event.target.value);
         onBoardSelect(boardId);
     };
 

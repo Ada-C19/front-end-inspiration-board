@@ -15,46 +15,23 @@ const App = () => {
   const [targetBoardId, setTargetBoardId] = useState(1);
 
   const handleSelectBoard = (boardId) => {
-    console.log('Changing target board ID to', boardId);
     setTargetBoardId(boardId);
   };
 
   const findIndexOfTargetBoard = () => {
     for (let i = 0; i < boards.length; i++) {
       if (boards[i].id === targetBoardId) {
-        return i
+        return i;
       }
     }
   }
   
-  const displayCards = (boardId) => {
-    // let boardIndex = findIndexOfTargetBoard();
-    let boardIndex = 0;
+  const displayCards = () => {
+    const boardIndex = findIndexOfTargetBoard();
     return (
       <CardList cards={boards[boardIndex].cards} onClick={handleLike}/>
     )
   };
-
-  // const displayCards = (boardId) => {
-  //   for (let board of boards) {
-  //     if (board.id === boardId) {
-  //       console.log(board);
-  //       return <CardList cards={board.cards} onClick={handleLike}/>
-  //     }
-  //   }
-  // };
-  // old version
-  // const handleLikeOld = id => {
-  //   setCards((prevCards) => {
-  //     return prevCards.map((card) => {
-  //       if (id === card.id) {
-  //         return { ...card, likesCount: card.likesCount + 1 };
-  //       } else {
-  //         return card;
-  //       };
-  //     })
-  //   })
-  // }
 
   const handleLike = (cardId, boardId) => {
     let newBoards = [...boards];
@@ -93,7 +70,7 @@ const App = () => {
       </header>
       <main>
         <BoardSelectRadio boards={boards} onBoardSelect={handleSelectBoard}/>
-        {/* <Board board_id={targetBoardId}/> */}
+        <Board board_id={targetBoardId}/>
         {displayCards(targetBoardId)}
         <NewCardForm addCard={handleSubmitCard} />
       </main>
