@@ -23,7 +23,7 @@ const App = () => {
     setTargetBoard(boardId);
     // should the next line be something with useEffect instead?
     setCards(boards[targetBoard].cards);
-  }
+  };
 
   const displayCards = (id) => {
     return (

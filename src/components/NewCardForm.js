@@ -39,7 +39,7 @@ const NewCardForm = ( {addCard} ) => {
             <div>
                 <label htmlFor="message">Message:</label>
                 <input 
-                    name="message" 
+                    id="message" 
                     onChange={onMessageChange}
                     value={formFields.message}
                 />
@@ -47,7 +47,7 @@ const NewCardForm = ( {addCard} ) => {
             <div>
                 <label htmlFor="board">Board:</label>
                 <input 
-                    name="board" 
+                    id="board" 
                     onChange={onBoardChange}
                     value={formFields.board}
                 />
