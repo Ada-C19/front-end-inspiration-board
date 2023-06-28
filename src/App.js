@@ -62,8 +62,9 @@ function App() {
       console.log(response)
       setCards(prevCards => {
         const updatedCards = prevCards.map(card => {
-          return card.id === id? response.data : card
+          return card.card_id === id? response.data : card
         })
+        console.log("updated", updatedCards)
         return updatedCards
       })
     })
