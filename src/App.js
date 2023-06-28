@@ -23,7 +23,7 @@ const data = [
 function App() {
   return (
     <section>
-      <h1>INSPIRATION BOARD</h1>
+      <h1>🌟INSPIRATION BOARD🌟</h1>
     <div className="App">
       <Board data = {data}/>
     </div>
