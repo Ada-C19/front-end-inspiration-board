@@ -2,16 +2,18 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 import "./Card.css"
 
-function Card (props) {
+function Card ({message, id ,likeCount, increaseLikes}) {
+    // const [updateCount, setUpdateCount] = React.useState({likeCount})
+
     return (
     <div className="card">
         <h3 className="card-message">
-            Message: {props.message}
+            Message: {message}
         </h3>
         <section>
-            Likes: {props.likeCount}
+            Likes: {likeCount}
         </section>
-        <button className="card-button">+1</button>
+        <button className="card-button" onClick={()=> increaseLikes(id)}>+1</button>
         <button className="card-button"> Delete </button>
     </div>
     )
