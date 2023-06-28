@@ -11,7 +11,7 @@ const Board = (props) => {
     return( 
     <section>
     <h2>Boards</h2>
-        
+    <Card message={props.message} likeCounts={props.likes_count}/>
     <div className='board'>
         
         {boardTitles}</div>
@@ -24,9 +24,6 @@ Board.propType={
         title:PropTypes.string.isRequired,
         owner:PropTypes.string.isRequired})
 }
-
-
-
 
 export default Board
 
