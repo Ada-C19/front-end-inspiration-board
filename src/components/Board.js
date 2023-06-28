@@ -16,9 +16,10 @@ import cardData from '../data/cards.json';
 const Board = ( {board_id, title, owner, cards} ) => {
     return (
         <div className="board">
-            <div>Board: {title}</div>
-            {/* Cards Need to be here */}
-            <div>Created By: {owner}</div>
+            <h1 className="h1-board">Board:</h1>
+            <div>{title}</div>
+            <p>Created By:</p>
+            <div>{owner}</div>
         </div>
     );
 };
