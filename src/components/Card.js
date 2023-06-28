@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import './Card.css';
 
 
-const Cards = ( {id, message, likesCount, onClick} ) => {
+const Cards = ( {id, message, board, likesCount, onClick} ) => {
 
     const heartDisplay = likesCount > 0 ? '❤️' : '🤍';
 
-    const handleClick = () => onClick(id);
+    const handleClick = () => onClick(id, board);
 
     return (
         <div className="card">

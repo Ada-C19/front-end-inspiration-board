@@ -10,6 +10,7 @@ const CardList = ({cards, onClick, boardId}) => {
                     id={card.id}
                     key={card.id}
                     message={card.message}
+                    board={card.board}
                     likesCount={card.likesCount}
                     onClick={onClick}
                 />

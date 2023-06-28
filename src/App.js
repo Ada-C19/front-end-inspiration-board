@@ -19,16 +19,30 @@ const App = () => {
     setTargetBoardId(boardId);
   };
 
-  const findTargetBoard = (id) => {}
-
-  const displayCards = (boardId) => {
-    for (let board of boards) {
-      if (board.id === boardId) {
-        console.log(board);
-        return <CardList cards={board.cards} onClick={handleLike}/>
+  const findIndexOfTargetBoard = () => {
+    for (let i = 0; i < boards.length; i++) {
+      if (boards[i].id === targetBoardId) {
+        return i
       }
     }
+  }
+  
+  const displayCards = (boardId) => {
+    // let boardIndex = findIndexOfTargetBoard();
+    let boardIndex = 0;
+    return (
+      <CardList cards={boards[boardIndex].cards} onClick={handleLike}/>
+    )
   };
+
+  // const displayCards = (boardId) => {
+  //   for (let board of boards) {
+  //     if (board.id === boardId) {
+  //       console.log(board);
+  //       return <CardList cards={board.cards} onClick={handleLike}/>
+  //     }
+  //   }
+  // };
   // old version
   // const handleLikeOld = id => {
   //   setCards((prevCards) => {
@@ -42,19 +56,23 @@ const App = () => {
   //   })
   // }
 
-  const handleLike = cardId => {
-    setBoards((prevBoards) => {
-      return prevBoards.map((board) => {
-        if (board.id === targetBoardId) {
-          console.log('preparing to map board', board);
-          return board.cards.map((card) => {
-            if (cardId === card.id) {
-              return {...card, likesCount: card.likesCount + 1};
-            } else {return card;};
-          })
-        } else {return board;};
-      })
-    })
+  const handleLike = (cardId, boardId) => {
+    let newBoards = [...boards];
+
+    let targetIndex;
+    for (let i = 0; i < newBoards.length; i++) {
+      if (newBoards[i].id === boardId) {
+        targetIndex = i;
+      }
+    }
+
+    newBoards[targetIndex].cards = newBoards[targetIndex].cards.map((card) => {
+      if (cardId === card.id) {
+        return {...card, likesCount: card.likesCount + 1};
+      } else {return card;};
+    });
+
+    setBoards(newBoards);
   }
 
   const handleSubmitCard = (newCard) => {}
