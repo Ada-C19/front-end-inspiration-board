@@ -12,25 +12,19 @@ import boardData from './data/boards.json';
 
 const App = () => {
   const [boards, setBoards] = useState(boardData);
-  const [targetBoardId, setTargetBoardId] = useState(1); // should be an id
-  // const [cards, setCards] = useState(boards[targetBoardId].cards);
+  const [targetBoardId, setTargetBoardId] = useState(1);
 
   const handleSelectBoard = (boardId) => {
+    console.log('Changing target board ID to', boardId);
     setTargetBoardId(boardId);
-    // setCards(boards[boardId].cards);
   };
 
-  const findTargetBoard = (id) => {
-
-  }
-  // listens for changes to target board and updates cards state accordingly
-  // useEffect(()=> {
-  //   setCards(boards[targetBoardId].cards);
-  // }, [targetBoardId, boards]);
+  const findTargetBoard = (id) => {}
 
   const displayCards = (boardId) => {
     for (let board of boards) {
       if (board.id === boardId) {
+        console.log(board);
         return <CardList cards={board.cards} onClick={handleLike}/>
       }
     }
@@ -81,10 +75,8 @@ const App = () => {
       </header>
       <main>
         <BoardSelectRadio boards={boards} onBoardSelect={handleSelectBoard}/>
-        <Board board_id={targetBoardId}/>
+        {/* <Board board_id={targetBoardId}/> */}
         {displayCards(targetBoardId)}
-        {/* <CardList cards={cards} onClick={handleLike} /> */}
-        {/* <Board board={boards} cards={cards} /> */}
         <NewCardForm addCard={handleSubmitCard} />
       </main>
     </div>
