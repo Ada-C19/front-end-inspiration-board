@@ -11,6 +11,8 @@ function Card (props) {
         <section>
             Likes: {props.likeCount}
         </section>
+        <button className="card-button">+1</button>
+        <button className="card-button"> Delete </button>
     </div>
     )
 }

@@ -12,3 +12,12 @@
 .card-message {
     font-size: 4vh;
 }
+
+.card-button {
+    width: 25%;
+    padding: 1px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1vh;
+}
