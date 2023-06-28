@@ -2,8 +2,9 @@ import React from 'react'
 import './App.css';
 import BoardList from './components/BoardList';
 import Board from './components/Board';
-import BoardForm from './components/BoardForm'
+import BoardForm from './components/BoardForm';
 import CardForm from './components/CardForm';
+import axios from 'axios';
 
 const sample_board = [{
     board_id: 1,
@@ -48,6 +49,17 @@ function App() {
   const [boards, setBoards] = React.useState(sample_board)
   const [selectedBoard, setSelectedBoard] = React.useState({})
 
+  const increaseLikes = (id) => {
+    axios.put(`https://back-end-inspo-rkak.onrender.com/cards/${id}/like`).then(response => {
+      setSelectedBoard(prevBoards => {
+        const updatedBoard = prevBoards.map(board => {
+          return board.id === id? response.data : board
+        })
+        return updatedBoard
+      })
+    })
+  }
+
   const selectBoard = (id) => {
     const matchedBoard = boards.find(board => board.board_id === id)
     setSelectedBoard(matchedBoard)
@@ -80,7 +92,7 @@ function App() {
       </section>
 
       <section> 
-        <Board cards = {sample_card} boardsData = {selectedBoard} />
+        <Board cards = {sample_card} boardsData = {selectedBoard} increaseLike={increaseLikes} />
       </section>
     </body>
     // </div>
