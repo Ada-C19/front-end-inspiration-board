@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Card from './Card';
 
 const CardList = ({ cardBoardData }) => {
-  // console.log('CL props:', props)
+  console.log('CL props:', cardBoardData)
 
   const cardListComponents = cardBoardData.map(card => {
     

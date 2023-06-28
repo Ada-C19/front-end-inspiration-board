@@ -11,7 +11,7 @@ const Card = ({ id, message, likesCount }) => {
       <li>
       Likes: {likesCount}
       </li>
-   </div>
+    </div>
   )
 }
 

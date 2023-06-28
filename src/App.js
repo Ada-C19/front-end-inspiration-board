@@ -1,27 +1,18 @@
 import './App.css';
 import React from 'react';
-import CardList from './components/CardList'
+import Board from './components/Board'
 
-const cardBoardData = [
-  {
-    "id": 1,
-    "message": "This is a quote",
-    "likesCount": 0
-  },
-  {
-    "id": 2,
-    "message": "This is a cooler quote",
-    "likesCount": 0
-  }
-]
+
+
 
 function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <CardList cardBoardData={cardBoardData} />
-      </header>
+      <header className="App-header">Inspiration Board</header>
+      <main>
+        <Board />
+      </main>
     </div>
   );
 }
