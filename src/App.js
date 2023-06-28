@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import CardList from './components/CardList';
@@ -21,9 +21,12 @@ const App = () => {
 
   const handleSelectBoard = (boardId) => {
     setTargetBoard(boardId);
-    // should the next line be something with useEffect instead?
-    setCards(boards[targetBoard].cards);
   };
+
+  // listens for changes to target board and updates cards state accordingly
+  useEffect(()=> {
+    setCards(boards[targetBoard].cards);
+  }, [targetBoard, boards]);
 
   const displayCards = (id) => {
     return (
