@@ -2,5 +2,18 @@
     margin: 1rem;
     border: 2px;
     border-style: solid;
-    background-color: blue;
+    background-color: paleturquoise;
+    color: darkslateblue; 
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: underline;
+}
+
+.board:hover {
+    border-color: pink;
+}
+
+.h1-board:hover {
+    color: pink;
+    text-decoration: underline;
+    text-decoration-color: pink;
 }
