@@ -44,7 +44,7 @@
             {
                 "id": 2,
                 "message": "second of second board",
-                "likesCount": 13,
+                "likesCount": 22,
                 "board": 2
             }
         ]
@@ -63,7 +63,7 @@
             {
                 "id": 2,
                 "message": "BOARD 3 CARD 2",
-                "likesCount": 13,
+                "likesCount": 32,
                 "board": 2
             }
         ]
