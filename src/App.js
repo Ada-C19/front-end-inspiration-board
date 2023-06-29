@@ -95,7 +95,9 @@ function App() {
       <div className="container">
         <section className="element">
           <h3>Select Your Board:</h3>
+          <ol className="board-list">
           {boardList}{" "}
+          </ol>
         </section>
 
         <section className="element">

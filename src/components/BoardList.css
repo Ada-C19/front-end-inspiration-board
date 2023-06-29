@@ -1,0 +1,8 @@
+.board-list-items {
+    padding:.25rem;
+}
+
+.board-list-items:hover {
+    color: palevioletred;
+    cursor:pointer;
+}

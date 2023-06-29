@@ -1,12 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './BoardList.css'
 
 function BoardList({boards, callBack}) {
     const board = boards.map((board)=> {
         return (
-        <section onClick = {()=>{callBack(board.board_id)}} key={board.board_id}>
-            <ol><li> {board.title}</li></ol>
-        </section>
+            <li className="board-list-items" onClick = {()=>{callBack(board.board_id)}} key={board.board_id}> {board.title}</li>
     )})
 
     return (
