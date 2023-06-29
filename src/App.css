@@ -22,8 +22,15 @@ min-height: fit-content;
   max-width: fit-content;
 }
 .selectedBoard {
-  border: solid black;
-  margin: 10px;
+  border: solid;
+  border-width: 5px;
+  border-color: lightcyan;
+  padding: 10px;
+  background-color:darkcyan;
+  border-radius: 20px;
+  height: 30px;
+  margin-top: 40px;
+  min-width: 80px;
 }
 .createBoard {
   border: solid black;
