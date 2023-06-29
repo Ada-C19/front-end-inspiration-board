@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import Card from './Card.js';
 
-const CardList = ({ cards, onClick }) => {
+const CardList = ({ cards, handleLike }) => {
     const getCardListJSX = (cards) => {
         return cards.map((card) => {
             return (
@@ -12,7 +12,7 @@ const CardList = ({ cards, onClick }) => {
                     message={card.message}
                     board={card.board}
                     likesCount={card.likesCount}
-                    onClick={onClick}
+                    handleLike={handleLike}
                 />
             )
         })

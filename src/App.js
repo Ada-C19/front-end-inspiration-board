@@ -29,7 +29,7 @@ const App = () => {
   const displayCards = () => {
     const boardIndex = findIndexOfTargetBoard();
     return (
-      <CardList cards={boards[boardIndex].cards} onClick={handleLike} />
+      <CardList cards={boards[boardIndex].cards} handleLike={handleLike} />
     )
   };
 
