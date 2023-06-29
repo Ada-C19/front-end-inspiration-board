@@ -11,7 +11,7 @@
   margin: .25rem;
 }
 
-.new-board-fields {
+/* .new-board-fields {
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 400px;
@@ -24,4 +24,4 @@
 
 .new-board-submit {
   grid-column: span 2;
-}
+} */

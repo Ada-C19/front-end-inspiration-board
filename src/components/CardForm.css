@@ -8,12 +8,20 @@
   flex-wrap: wrap;
 }
 
-.new-card-form {
+.card-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  word-wrap: break-word;
+  flex-wrap: wrap;
 }
 
+.card-form > * {
+  margin: .25rem;
+}
+
+/* 
 .new-card-fields {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -28,4 +36,4 @@
 
 .new-card-submit {
   grid-column: span 2;
-}
+} */
