@@ -24,6 +24,7 @@ const CardForm = ({ addCardCallback }) => {
         value={formFields.message}
         onChange={setFormFields}
       />
+      <p className="warning-message">Message must be less than 40 characters</p>
       <input className="card-submit-button" type="submit" value="Create New Card" />
     </form>
   );

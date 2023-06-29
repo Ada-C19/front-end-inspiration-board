@@ -32,19 +32,7 @@
   background-color: lightseagreen;
 }
 
-/* 
-.new-card-fields {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 400px;
-  row-gap: 20px;
+.warning-message {
+  font-size: .5rem;
+  color:brown
 }
-
-.new-card-fields label {
-  font-weight: bolder;
-  font-size: 1.2em;
-}
-
-.new-card-submit {
-  grid-column: span 2;
-} */
