@@ -11,6 +11,17 @@
   margin: .25rem;
 }
 
+.board-submit-button {
+  padding: .5rem;
+  border-radius: 10%;
+  border: 1px teal dotted;
+  background-color: turquoise;
+}
+
+.board-submit-button:hover {
+  background-color: lightseagreen;
+}
+
 /* .new-board-fields {
   display: grid;
   grid-template-columns: 1fr 1fr;

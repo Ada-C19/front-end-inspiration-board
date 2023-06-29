@@ -24,7 +24,7 @@ const CardForm = ({ addCardCallback }) => {
         value={formFields.message}
         onChange={setFormFields}
       />
-      <input type="submit" value="Create New Card" />
+      <input className="card-submit-button" type="submit" value="Create New Card" />
     </form>
   );
 };

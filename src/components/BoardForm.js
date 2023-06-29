@@ -47,7 +47,7 @@ const BoardForm = ({ addBoardCallback }) => {
         value={formFields.owner}
         onChange={onOwnerChange}
       />
-      <input type="submit" value="Create New Board" />
+      <input className="board-submit-button" type="submit" value="Create New Board" />
     </form>
   );
 };

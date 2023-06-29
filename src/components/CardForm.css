@@ -21,6 +21,17 @@
   margin: .25rem;
 }
 
+.card-submit-button {
+  padding: .5rem;
+  border-radius: 10%;
+  border: 1px teal dotted;
+  background-color: turquoise;
+}
+
+.card-submit-button:hover {
+  background-color: lightseagreen;
+}
+
 /* 
 .new-card-fields {
   display: grid;
