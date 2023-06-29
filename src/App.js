@@ -25,34 +25,29 @@ const App = () => {
       }
     }
   }
-  
+
   const displayCards = () => {
     const boardIndex = findIndexOfTargetBoard();
     return (
-      <CardList cards={boards[boardIndex].cards} onClick={handleLike}/>
+      <CardList cards={boards[boardIndex].cards} onClick={handleLike} />
     )
   };
 
-  const handleLike = (cardId, boardId) => {
+  const handleLike = (cardId) => {
     let newBoards = [...boards];
 
-    let targetIndex;
-    for (let i = 0; i < newBoards.length; i++) {
-      if (newBoards[i].id === boardId) {
-        targetIndex = i;
-      }
-    }
+    let targetIndex = findIndexOfTargetBoard()
 
     newBoards[targetIndex].cards = newBoards[targetIndex].cards.map((card) => {
       if (cardId === card.id) {
-        return {...card, likesCount: card.likesCount + 1};
-      } else {return card;};
+        return { ...card, likesCount: card.likesCount + 1 };
+      } else { return card; };
     });
 
     setBoards(newBoards);
   }
 
-  const handleSubmitCard = (newCard) => {}
+  const handleSubmitCard = (newCard) => { }
   //   const nextId = Math.max(...cards.map(card => card.id)) + 1;
   //   const newCardObject = {
   //     id: nextId,
@@ -69,8 +64,8 @@ const App = () => {
         <h1>MMNJ INSPO BOARD</h1>
       </header>
       <main>
-        <BoardSelectRadio boards={boards} onBoardSelect={handleSelectBoard}/>
-        <Board board_id={targetBoardId}/>
+        <BoardSelectRadio boards={boards} onBoardSelect={handleSelectBoard} />
+        <Board board_id={targetBoardId} />
         {displayCards(targetBoardId)}
         <NewCardForm addCard={handleSubmitCard} />
       </main>

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import Card from './Card.js';
 
-const CardList = ({cards, onClick, boardId}) => {
+const CardList = ({ cards, onClick }) => {
     const getCardListJSX = (cards) => {
         return cards.map((card) => {
             return (
