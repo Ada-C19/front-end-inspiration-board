@@ -19,9 +19,9 @@ function Board({boardsData, cards, increaseLikes}) {
         <header className='header'> 
             {boardsData.title}
         </header>
-        <ul className = "card-container">
+        <ol className = "card-container">
             {card}
-        </ul>
+        </ol>
     </section>
     )
 }

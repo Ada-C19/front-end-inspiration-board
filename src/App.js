@@ -57,14 +57,11 @@ function App() {
   },[])
 
   const increaseLikes = (id) => {
-    console.log("liked")
     axios.patch(`https://back-end-inspo-rkak.onrender.com/cards/${id}/like`).then(response => {
-      console.log(response)
       setCards(prevCards => {
         const updatedCards = prevCards.map(card => {
           return card.card_id === id? response.data : card
         })
-        console.log("updated", updatedCards)
         return updatedCards
       })
     })
@@ -107,10 +104,6 @@ function App() {
           <section> 
             <Board cards = {cards} boardsData ={selectedBoard} increaseLikes = {increaseLikes}/>
           </section>
-
-        <div className='board-container'> 
-          <Board cards = {sample_card} boardsData = {selectedBoard} />
-        </div>
       </div>
   );
 };
