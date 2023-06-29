@@ -22,6 +22,8 @@ const data = [
 
 function App() {
   return (
+    <section>
+      <h1>🌟INSPIRATION BOARD🌟</h1>
     <div className="App">
       <div className="root">
         <div className="page_container">
@@ -32,6 +34,7 @@ function App() {
 
       <Board data={data} />
     </div>
+    </section>
   );
 }
 

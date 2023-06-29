@@ -11,10 +11,10 @@ const Board = (props) => {
     return( 
     <section>
     <h2>Boards</h2>
-    <Card message={props.message} likeCounts={props.likes_count}/>
-    <div className='board'>
         
-        {boardTitles}</div>
+    <ul className='board'>
+        
+        {boardTitles}</ul>
     </section>)
 };
 
