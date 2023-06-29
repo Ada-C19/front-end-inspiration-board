@@ -24,17 +24,20 @@ function App() {
   return (
     <section>
       <h1>🌟INSPIRATION BOARD🌟</h1>
-    <div className="App">
-      <div className="root">
-        <div className="page_container">
-          <div className="content_container"></div>
-          <footer/>
+    <div className="root">
+      <div className="boardsContainer">
+        <div className="boardList">
+        <Board data={data} />
         </div>
+        <div className="selectedBoard">whatsup </div>
+        <div className="createBoard">hellothere </div>
       </div>
-
-      <Board data={data} />
-    </div>
+      <div className="cardscontainer">hola</div>
+        </div>
+      
+    <footer>This is the footer</footer>
     </section>
+
   );
 }
 

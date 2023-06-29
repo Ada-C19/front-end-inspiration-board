@@ -1,8 +1,35 @@
+.root{
+  display: flex;
+  flex-direction: column;
+}
 
-.App {
+.boardsContainer {
 display: flex;
+justify-content: space-around;
+max-height: 85vh;
+border: solid rgb(16, 14, 14);
+min-height: fit-content;
 
 }
+.cardscontainer {
+  border: solid #bb1111;
+  min-height: 50vh;
+}
+
+.boardList {
+  height: fit-content;
+  margin: 10px;
+  max-width: fit-content;
+}
+.selectedBoard {
+  border: solid black;
+  margin: 10px;
+}
+.createBoard {
+  border: solid black;
+  margin: 10px;
+}
+
 body{
   margin: 0;
   padding: 0;
@@ -15,11 +42,11 @@ body{
   
 }
 
-section{
+/* section{
   max-width: 1280px;
   margin: 6rem ;
   padding: 0 2rem;
-}
+} */
 
 h1{
   text-align: center;
