@@ -13,13 +13,6 @@
   width: auto;
   margin-top: 6vh;
   gap: 3vh;
-  margin-left: 2.5vh;
-  margin-right: 2.5vh;
-}
-
-.board-container{
-  /* background-color for testing purposes */
-  /* background-color: blue; */
 }
 
 .element {
@@ -30,6 +23,7 @@
   height: fit-content;
   font-weight: bolder;
   width: 100%;
+  height: auto;
   border-radius: 3px;
   padding: 2vh;
   border-radius: 2vh;

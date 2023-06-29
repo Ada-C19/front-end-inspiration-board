@@ -11,7 +11,6 @@ function BoardList({boards, callBack}) {
 
     return (
     <div className="board_list">
-        Select Your Board:
         {board}
     </div>
     )
