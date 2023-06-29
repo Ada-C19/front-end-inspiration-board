@@ -11,7 +11,7 @@ border: solid rgb(16, 14, 14);
 min-height: fit-content;
 
 }
-.cardscontainer {
+.cardsContainer {
   border: solid #bb1111;
   min-height: 50vh;
 }

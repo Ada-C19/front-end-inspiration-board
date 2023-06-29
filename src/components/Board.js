@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from "prop-types";
 import './Board.css'
 
+
 const Board = (props) => {
+    const [boardTitle, setBoardTitle] = useState()
     const boardTitles =  props.data.map((board)=>{
         return(
             <p>{board.title}</p>

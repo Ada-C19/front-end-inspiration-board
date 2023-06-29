@@ -32,7 +32,7 @@ function App() {
         <div className="selectedBoard">whatsup </div>
         <div className="createBoard">hellothere </div>
       </div>
-      <div className="cardscontainer">hola</div>
+      <div className="cardsContainer">hola</div>
         </div>
       
     <footer>This is the footer</footer>
