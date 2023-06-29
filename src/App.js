@@ -1,6 +1,6 @@
 
 import './App.css';
-import Board from './components/Board'
+import BoardList from './components/BoardList'
 
 const data = [
   {
@@ -27,7 +27,7 @@ function App() {
     <div className="root">
       <div className="boardsContainer">
         <div className="boardList">
-        <Board data={data} />
+        <BoardList data={data} />
         </div>
         <div className="selectedBoard">whatsup </div>
         <div className="createBoard">hellothere </div>
