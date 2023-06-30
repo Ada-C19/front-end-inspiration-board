@@ -2,20 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card';
 
-const CardList = ({ cardBoardData, increaseLikeCount }) => {
-  console.log('CL props:', cardBoardData)
+const CardList = ({ cardData, deleteCard }) => {
+  console.log('CL props:', cardData)
 
-  const cardListComponents = cardBoardData.map(card => {
+  const cardListComponents = cardData.map(card => {
     
     return (
-      <li>
+      <ul>
         <Card
         id = {card.id}
         message = {card.message}
         likesCount = {card.likesCount}
-        increaseLikeCount = {increaseLikeCount}
+        deleteCard = {deleteCard}
         />
-      </li>
+      </ul>
     )
   })
 
