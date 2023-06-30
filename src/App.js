@@ -77,6 +77,18 @@ function App() {
       });
   };
 
+  const deleteCard = (id) => {
+    console.log("delete");
+    axios
+      .delete(`https://back-end-inspo-rkak.onrender.com/cards/${id}`)
+      .then(() => {
+        setCards((prevCards) => {
+          const updatedCards = prevCards.filter((card) => card.card_id !== id);
+          return updatedCards;
+        });
+      });
+  };
+
   const selectBoard = (id) => {
     const matchedBoard = boards.find((board) => board.board_id === id);
     axios
@@ -95,33 +107,32 @@ function App() {
       <div className="container">
         <section className="element">
           <h3>Select Your Board:</h3>
-          <ol className="board-list">
-          {boardList}{" "}
-          </ol>
+          <ol className="board-list">{boardList} </ol>
         </section>
 
         <section className="element">
           <h3>Create New Board:</h3>
           <div className="board-form-container">
-              <BoardForm />
+            <BoardForm />
           </div>
         </section>
 
         <section className="element">
           <h3>Create New Card:</h3>
           <div className="card-form-container">
-              <CardForm />
+            <CardForm />
           </div>
         </section>
+        
+        <section>
+          <Board
+            cards={cards}
+            boardsData={selectedBoard}
+            increaseLikes={increaseLikes}
+            deleteCard={deleteCard}
+          />
+        </section>
       </div>
-
-      <section>
-        <Board
-          cards={cards}
-          boardsData={selectedBoard}
-          increaseLikes={increaseLikes}
-        />
-      </section>
     </div>
   );
 }

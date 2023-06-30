@@ -2,7 +2,7 @@ import React from 'react'
 // import PropTypes from 'prop-types'
 import "./Card.css"
 
-function Card ({message, id ,likeCount, increaseLikes}) {
+function Card ({message, id ,likeCount, increaseLikes, deleteCard}) {
     // const [updateCount, setUpdateCount] = React.useState({likeCount})
 
     return (
@@ -14,7 +14,7 @@ function Card ({message, id ,likeCount, increaseLikes}) {
             Likes: {likeCount}
         </section>
         <button className="card-button" onClick={()=> increaseLikes(id)}>+1</button>
-        <button className="card-button"> Delete </button>
+        <button className="card-button" onClick ={()=> deleteCard(id)}> Delete </button>
     </div>
     )
 }
