@@ -22,11 +22,11 @@ const data = [
 ]
 
 function App() {
-  const [selectedBoard, setSelectedBoard]= useState("sddf")
+  const [selectedBoard, setSelectedBoard]= useState("Select a Board")
   const selectBoard = (id) =>{
   const selectedItem =  data.filter((ele) => ele.id === id)
-  console.log(selectedItem)
-  setSelectedBoard(selectedItem)
+
+  setSelectedBoard(`${selectedItem[0].title} - ${selectedItem[0].owner}`)
  
 
   }
@@ -40,7 +40,7 @@ function App() {
         <div className="boardList">
         <BoardList boardSelect = {selectBoard} data={data} />
         </div>
-        <div className="selectedBoard"> {selectedBoard[0].title}, .. {selectedBoard[0].owner}</div>
+        <div className="selectedBoard"> {selectedBoard}</div>
         <div className="createBoard">hellothere </div>
       </div>
       <div className="cardscontainer">hola</div>
