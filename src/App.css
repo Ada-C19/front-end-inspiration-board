@@ -43,17 +43,11 @@ body{
   color: white;
   font-size: 1.3rem;
   line-height: 1.5;
-  background-color: aqua;
+  background-color:blue;
   background-image: url("images/background.jpeg");
   background-size: cover;
   
 }
-
-/* section{
-  max-width: 1280px;
-  margin: 6rem ;
-  padding: 0 2rem;
-} */
 
 h1{
   text-align: center;
