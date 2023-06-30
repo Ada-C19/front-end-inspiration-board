@@ -1,31 +1,22 @@
 import React, {useState} from 'react';
 import PropTypes from "prop-types";
-import './Board.css'
+import './Board.css';
+
 
 
 const Board = (props) => {
-    const [boardTitle, setBoardTitle] = useState()
-    const boardTitles =  props.data.map((board)=>{
-        return(
-            <p>{board.title}</p>
-        )
-    })
-    return( 
-    <section>
-    <h2>Boards</h2>
-        
-    <ul className='board'>
-        
-        {boardTitles}</ul>
-    </section>)
+    return (
+        <li onClick={()=>props.clickBoard(props.id)}>{props.title}</li>
+    )
+
 };
 
 
 Board.propType={
-    data: PropTypes.shape({id:PropTypes.number.isRequired,
+        id:PropTypes.number.isRequired,
         title:PropTypes.string.isRequired,
-        owner:PropTypes.string.isRequired})
-}
+        clickBoard : PropTypes.func
+    }
 
 export default Board
 

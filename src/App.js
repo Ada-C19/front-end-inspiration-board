@@ -1,6 +1,7 @@
 
 import './App.css';
-import Board from './components/Board'
+import BoardList from './components/BoardList'
+import {useState, useEffect}  from 'react'
 
 const data = [
   {
@@ -21,15 +22,25 @@ const data = [
 ]
 
 function App() {
+  const [selectedBoard, setSelectedBoard]= useState("Select a Board")
+  const selectBoard = (id) =>{
+  const selectedItem =  data.filter((ele) => ele.id === id)
+
+  setSelectedBoard(`${selectedItem[0].title} - ${selectedItem[0].owner}`)
+ 
+
+  }
+
+
   return (
     <section>
       <h1>🌟INSPIRATION BOARD🌟</h1>
     <div className="root">
       <div className="boardsContainer">
         <div className="boardList">
-        <Board data={data} />
+        <BoardList boardSelect = {selectBoard} data={data} />
         </div>
-        <div className="selectedBoard">whatsup </div>
+        <div className="selectedBoard"> {selectedBoard}</div>
         <div className="createBoard">hellothere </div>
       </div>
       <div className="cardsContainer">hola</div>

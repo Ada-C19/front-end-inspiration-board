@@ -1,0 +1,27 @@
+.board {
+    border: solid;
+    border-width: 5px;
+    border-color: lightcyan;
+    padding-bottom: 10vh;
+    padding-left: 5vh;
+    padding-right: 5vh;
+    border-radius: 20px;
+}
+
+h2{
+    border: solid;
+    border-width: 5px;
+    border-color: lightcyan;
+    padding: 10px;
+    background-color:darkcyan;
+    border-radius: 20px;
+  
+}
+
+ul{
+    background:darkcyan;
+}
+
+ul {
+    list-style-type: '⭐️';
+}
