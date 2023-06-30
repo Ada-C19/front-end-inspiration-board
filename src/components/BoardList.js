@@ -7,8 +7,8 @@ const BoardList = (props) =>{
     const getBoard = props.data.map((board)=>{
         return (
             <Board
-            key = {board.id}
-            id = {board.id}
+            key = {board.board_id}
+            id = {board.board_id}
             title = {board.title}
             owner={board.owner}
             clickBoard = {props.boardSelect}/>
