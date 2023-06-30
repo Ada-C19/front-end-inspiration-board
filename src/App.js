@@ -2,29 +2,42 @@
 import './App.css';
 import BoardList from './components/BoardList'
 import {useState, useEffect}  from 'react'
+import axios from 'axios';
 
-const data = [
-  {
-    id: 1,
-    title: "the team",
-    owner: "ADA",
-  },
-  {
-    id: 2,
-    title: "homedepot",
-    owner: "tools",
-  },
-  {
-    id: 3,
-    title: "house",
-    owner: "parents",
-  }
-]
+
+const baseUrl = 'https://inspiration-board-api-m6he.onrender.com';
+
+const getAllBoards = () =>{
+  return axios.get(`${baseUrl}/board`)
+  .then((response)=>{
+      return response.data;
+})
+  .catch((error)=>{
+      console.log(error);
+});
+
+}
 
 function App() {
+
+  const [boardData, setBoardData] = useState([])
+  const fetchBoards = () =>{
+    getAllBoards()
+      .then((boards) =>{
+        setBoardData(boards);
+      }
+
+      );
+  };
+
+  useEffect(()=>{
+    fetchBoards();
+  },[] );
+
+
   const [selectedBoard, setSelectedBoard]= useState("Select a Board")
   const selectBoard = (id) =>{
-  const selectedItem =  data.filter((ele) => ele.id === id)
+  const selectedItem =  boardData.filter((ele) => ele.id === id)
 
   setSelectedBoard(`${selectedItem[0].title} - ${selectedItem[0].owner}`)
  
@@ -38,7 +51,7 @@ function App() {
     <div className="root">
       <div className="boardsContainer">
         <div className="boardList">
-        <BoardList boardSelect = {selectBoard} data={data} />
+        <BoardList boardSelect = {selectBoard} data={boardData} />
         </div>
         <div className="selectedBoard"> {selectedBoard}</div>
         <div className="createBoard">hellothere </div>
