@@ -37,9 +37,10 @@ const App = () => {
   const [boards, setBoards] = useState(boardData);
   const [targetBoardId, setTargetBoardId] = useState(1);
 
-  // const fetchBoardData = () => {
-  //   getAllBoards().then((boards) => setBoards(boards))
-  // }
+  // does not access CARDS data
+  const fetchBoardData = () => {
+    getAllBoards().then((boards) => setBoards(boards))
+  }
 
   // useEffect( () => {fetchBoardData()}, [])
 
@@ -54,6 +55,11 @@ const App = () => {
         return i;
       }
     }
+  }
+
+  const currentBoard = () => {
+    const boardIndex = findIndexOfTargetBoard();
+    return (boards[boardIndex]);
   }
 
   const displayCards = () => {
@@ -99,7 +105,13 @@ const App = () => {
       owner: newBoard.owner
     }
     axios.post(`${boardsURL}/boards`, params)
-    .then((response) => console.log('Posted!', response.data))
+    .then((response) => console.log('Board Posted!', response.data))
+    .catch((e) => console.log(e));
+  }
+
+  const deleteBoardFromAPI = (boardId) => {
+    axios.delete(`${boardsURL}/boards/${boardId}`)
+    .then((response) => console.log('Board Delted!', response.data))
     .catch((e) => console.log(e));
   }
 
@@ -110,7 +122,12 @@ const App = () => {
       </header>
       <main>
         <BoardSelectRadio boards={boards} onBoardSelect={handleSelectBoard} />
-        {/* <Board board_id={targetBoardId} /> */}
+        <Board 
+          board_id={currentBoard().id} 
+          title={currentBoard().title}
+          owner={currentBoard().owner}
+          deleteBoard={deleteBoardFromAPI}
+          />
         {displayCards(targetBoardId)}
         <NewBoardForm addBoard={handleSubmitBoard}/>
         <NewCardForm addCard={handleSubmitCard} />

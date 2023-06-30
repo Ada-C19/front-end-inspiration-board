@@ -1,31 +1,23 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import './Board.css';
-// change card list to take in an argument (board id)
-// add a selector to App that toggles which boards display
-// card list only gets cards for selected board
 
-import CardList from './CardList';
-import cardData from '../data/cards.json';
+const Board = ( {board_id, title, owner, cards, deleteBoard} ) => {
 
-//cardlist should fetch cards with specific board_id
-//boardlistJSX (own component?) - radio form in app to choose what board to display
-//cardlist only produces cards === board.id
-//board.id needs to be saved in state
+    // delete board API call not working, throws error.
+    const handleDeleteBoard = (board_id) => {deleteBoard(board_id)}
 
-const Board = ( {board_id, title, owner, cards} ) => {
     return (
         <div className="board">
-            <h1 className="h1-board">Board:</h1>
-            <div>{title}</div>
-            <p>Created By:</p>
-            <div>{owner}</div>
+            <h1 className="h1-board">Board: {title}</h1>
+            <p>Created By: {owner}</p>
+            {/* <button onClick={handleDeleteBoard}>Delete Board</button> */}
         </div>
     );
 };
 
 Board.propTypes = {
-    id: PropTypes.number.isRequired,
+    board_id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     owner: PropTypes.string.isRequired,
 }
