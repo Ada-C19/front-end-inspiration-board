@@ -21,7 +21,7 @@ const NewBoardForm = ( {addBoard} ) => {
     const onOwnerChange = (event) => {
         setFormFields({
             ...formFields,
-            Owner: event.target.value
+            owner: event.target.value
         });
     };
 

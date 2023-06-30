@@ -5,10 +5,10 @@ import axios from 'axios';
 import CardList from './components/CardList';
 import Board from './components/Board';
 import NewCardForm from './components/NewCardForm';
+import NewBoardForm from './components/NewBoardForm';
 import BoardSelectRadio from './components/BoardSelectRadio';
 
 import boardData from './data/boards.json';
-import NewBoardForm from './components/NewBoardForm';
 // use ${process.env.REACT_APP_BACKEND_URL} to make API calls
 
 const boardsURL = `${process.env.REACT_APP_BACKEND_URL}`
@@ -89,8 +89,19 @@ const App = () => {
   // }
 
   const handleSubmitBoard = (newBoard) => { 
-    console.log('New Board Form Submitted!') 
+    console.log('New Board Form Submitted!');
+    postBoardToAPI(newBoard);
   };
+
+  const postBoardToAPI = (newBoard) => {
+    let params = {
+      title: newBoard.title,
+      owner: newBoard.owner
+    }
+    axios.post(`${boardsURL}/boards`, params)
+    .then((response) => console.log('Posted!', response.data))
+    .catch((e) => console.log(e));
+  }
 
   return (
     <div className="App">
