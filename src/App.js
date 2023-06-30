@@ -1,6 +1,10 @@
 import './App.css';
-import BoardContainer from './components/BoardContainer';
-import CardContainer from './components/CardContainer';
+import BoardList from './components/BoardList';
+import SelectedBoard from './components/SelectedBoard';
+import NewBoardForm from './components/NewBoardForm';
+import CardEntry from './components/CardEntry';
+import SelectedBoardCardList from './components/SelectedBoardCardList';
+import NewCardForm from './components/NewCardForm';
 
 
 const App = () => {
@@ -10,8 +14,15 @@ const App = () => {
         Inspiration Board
       </header>
       <main>
-        <BoardContainer></BoardContainer>
-        <CardContainer></CardContainer>
+        <section>
+          <BoardList></BoardList>
+          <SelectedBoard></SelectedBoard>
+          <NewBoardForm></NewBoardForm>
+        </section>
+        <section>
+          <SelectedBoardCardList></SelectedBoardCardList>
+          <NewCardForm></NewCardForm>
+        </section>
       </main>
     </div>
   );
