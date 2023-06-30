@@ -13,10 +13,14 @@ const NewBoardForm = ({ addBoard }) => {
 
     console.log('submit')
 
-    addBoard({
-      title: newBoard.title,
-      owner: newBoard.owner
-    });
+    if (newBoard.title === '' || newBoard.owner === '') {
+      alert('Must enter information into both fields.');
+    } else {
+      addBoard({
+        title: newBoard.title,
+        owner: newBoard.owner
+      });
+    }
 
     setNewBoards({
       title: '',
