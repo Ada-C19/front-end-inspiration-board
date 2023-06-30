@@ -1,4 +1,4 @@
-.card-form {
+.card-form-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,26 +8,31 @@
   flex-wrap: wrap;
 }
 
-.new-card-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .new-card-fields {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 400px;
-    row-gap: 20px;
-  }
-  
-  .new-card-fields label {
-    font-weight: bolder;
-    font-size: 1.2em;
-  }
-  
-  .new-card-submit { 
-    grid-column: span 2;
-  }
+.card-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  word-wrap: break-word;
+  flex-wrap: wrap;
+}
 
-  
+.card-form > * {
+  margin: .25rem;
+}
+
+.card-submit-button {
+  padding: .5rem;
+  border-radius: 10%;
+  border: 1px teal dotted;
+  background-color: turquoise;
+}
+
+.card-submit-button:hover {
+  background-color: lightseagreen;
+}
+
+.warning-message {
+  font-size: .5rem;
+  color:brown
+}

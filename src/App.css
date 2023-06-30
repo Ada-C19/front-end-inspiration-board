@@ -13,23 +13,17 @@
   width: auto;
   margin-top: 6vh;
   gap: 3vh;
-  margin-left: 2.5vh;
-  margin-right: 2.5vh;
-}
-
-.board-container{
-  /* background-color for testing purposes */
-  /* background-color: blue; */
 }
 
 .element {
   border: black 2px solid;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   height: fit-content;
   font-weight: bolder;
   width: 100%;
+  height: auto;
   border-radius: 3px;
   padding: 2vh;
   border-radius: 2vh;
@@ -42,4 +36,12 @@
   font-weight: bolder;
   text-align: center;
   height: auto;
+}
+
+.board-list {
+  border: 1px solid #000;
+  max-height: 9rem;
+  min-height: 9rem;
+  overflow: scroll;
+  width: 80%
 }
