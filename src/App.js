@@ -67,6 +67,16 @@ function App() {
     })
   }
 
+  const deleteCard = (id) => {
+    console.log("delete")
+    axios.delete(`https://back-end-inspo-rkak.onrender.com/cards/${id}`).then(() => {
+      setCards(prevCards => {
+        const updatedCards = prevCards.filter(card => card.card_id !== id)
+        return updatedCards
+      })
+    })
+  }
+
   const selectBoard = (id) => {
     const matchedBoard = boards.find(board => board.board_id === id)
     axios.get(`https://back-end-inspo-rkak.onrender.com/boards/${id}/cards`).then((response)=> {
@@ -102,7 +112,7 @@ function App() {
           </div>
 
           <section> 
-            <Board cards = {cards} boardsData ={selectedBoard} increaseLikes = {increaseLikes}/>
+            <Board cards = {cards} boardsData ={selectedBoard} increaseLikes = {increaseLikes} deleteCard={deleteCard}/>
           </section>
       </div>
   );
