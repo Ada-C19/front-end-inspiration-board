@@ -123,7 +123,8 @@ function App() {
             <CardForm />
           </div>
         </section>
-        
+
+      </div>
         <section>
           <Board
             cards={cards}
@@ -132,7 +133,7 @@ function App() {
             deleteCard={deleteCard}
           />
         </section>
-      </div>
+
     </div>
   );
 }
