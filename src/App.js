@@ -8,6 +8,7 @@ import NewCardForm from './components/NewCardForm';
 import BoardSelectRadio from './components/BoardSelectRadio';
 
 import boardData from './data/boards.json';
+import NewBoardForm from './components/NewBoardForm';
 // use ${process.env.REACT_APP_BACKEND_URL} to make API calls
 
 const boardsURL = `${process.env.REACT_APP_BACKEND_URL}`
@@ -87,6 +88,10 @@ const App = () => {
   //   setCards((prevData) => [newCardObject, ...prevData])
   // }
 
+  const handleSubmitBoard = (newBoard) => { 
+    console.log('New Board Form Submitted!') 
+  };
+
   return (
     <div className="App">
       <header>
@@ -96,6 +101,7 @@ const App = () => {
         <BoardSelectRadio boards={boards} onBoardSelect={handleSelectBoard} />
         {/* <Board board_id={targetBoardId} /> */}
         {displayCards(targetBoardId)}
+        <NewBoardForm addBoard={handleSubmitBoard}/>
         <NewCardForm addCard={handleSubmitCard} />
       </main>
     </div>

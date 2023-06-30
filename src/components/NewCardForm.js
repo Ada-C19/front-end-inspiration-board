@@ -3,9 +3,6 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './NewCardForm.css';
 
-// pass in function addCard
-// call addCard() in onFormSubmit
-
 const NewCardForm = ( {addCard} ) => {
     const defaultNewCard = {
         message: '',
@@ -54,7 +51,7 @@ const NewCardForm = ( {addCard} ) => {
             </div>
             <input
                 type="submit"
-                value="Add Task" 
+                value="Add Card" 
             />
         </form>
         );
