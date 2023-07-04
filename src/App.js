@@ -122,16 +122,14 @@ function App() {
       
         const newCards = [...cards];
         const nextCardId = response.data["Cards"]["card_id"]
-        console.log("nextCardId " + nextCardId)
+        
 
-        // console.log("Message: " + response.data["Cards"]["message"]
         newCards.push({
           board_id: selectedBoard.board_id,
           card_id: nextCardId,
           message: response.data.Cards.message,
           likes_count: response.data.Cards.likes_count,
         });
-        //console.log(message)
 
         console.log("newCards " + JSON.stringify(response.data))
 
@@ -141,8 +139,6 @@ function App() {
         console.log(error);
       });
   };
-
-
 
   return (
     <div className="App">
