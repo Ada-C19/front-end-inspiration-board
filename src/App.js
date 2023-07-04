@@ -103,7 +103,8 @@ function App() {
   
   const addCard = (newCardData) => {
     
-    axios
+    if (selectedBoard.board_id !== undefined) {
+      axios
       .post(`https://back-end-inspo-rkak.onrender.com/boards/${selectedBoard.board_id}/cards`, newCardData)
       .then((response) => {
       
@@ -111,13 +112,16 @@ function App() {
         const nextCardId = response.data["Cards"]["card_id"]
         console.log("nextCardId " + nextCardId)
 
-        console.log("Message: " + response.data["Cards"]["message"])
+        // console.log("Message: " + response.data["Cards"]["message"]
         newCards.push({
           board_id: selectedBoard.board_id,
           card_id: nextCardId,
           message: response.data.Cards.message,
           likes_count: response.data.Cards.likes_count,
         });
+
+        // alert("Please select a board to create card!")
+        // alert("Please input a message!")
 
         console.log("newCards " + JSON.stringify(response.data))
 
@@ -126,6 +130,10 @@ function App() {
       .catch((error) => {
         console.log(error);
       });
+    }
+    else {
+      alert("Please select a board to create card!");
+    }
   };
 
 
