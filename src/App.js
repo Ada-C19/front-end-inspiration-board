@@ -102,9 +102,21 @@ function App() {
   const boardList = <BoardList boards={boards} callBack={selectBoard} />;
   
   const addCard = (newCardData) => {
-    
-    if (selectedBoard.board_id !== undefined) {
-      axios
+
+    if (selectedBoard.board_id === undefined) {
+      alert("Please select a board to create card!")
+      return 
+    }
+    if (newCardData.message.length === 0) {
+      alert("Please enter a message!")
+      return 
+    }
+    if (newCardData.message.length >= 40) {
+      alert("Message must be less than 40 characters!")
+      return 
+    }
+
+    axios
       .post(`https://back-end-inspo-rkak.onrender.com/boards/${selectedBoard.board_id}/cards`, newCardData)
       .then((response) => {
       
@@ -119,9 +131,7 @@ function App() {
           message: response.data.Cards.message,
           likes_count: response.data.Cards.likes_count,
         });
-
-        // alert("Please select a board to create card!")
-        // alert("Please input a message!")
+        //console.log(message)
 
         console.log("newCards " + JSON.stringify(response.data))
 
@@ -130,10 +140,6 @@ function App() {
       .catch((error) => {
         console.log(error);
       });
-    }
-    else {
-      alert("Please select a board to create card!");
-    }
   };
 
 
