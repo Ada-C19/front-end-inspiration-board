@@ -5,6 +5,8 @@ import CardList from './components/CardList';
 import NewBoardForm from './components/NewBoardForm';
 import Board from './components/Board';
 
+const boardsURL = `${process.env.REACT_APP_BACKEND_URL}`
+
 
 function App() {
   return (
