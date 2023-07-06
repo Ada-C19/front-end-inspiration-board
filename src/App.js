@@ -1,5 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+import Board from './components/Board';
+import Card from './components/Card';
+
+
+window.axios = axios;
+
+const cardsData = [
+  { id: 1, message: 'Card 1', likesCount: 10 },
+  { id: 2, message: 'Card 2', likesCount: 5 },
+  { id: 3, message: 'Card 3', likesCount: 2 },
+];
 
 function App() {
   return (
@@ -17,6 +29,7 @@ function App() {
         >
           Learn React
         </a>
+        <Board title="My Board" owner="SaySay" cards={cardsData}/>
       </header>
     </div>
   );
