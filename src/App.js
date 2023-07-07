@@ -77,7 +77,7 @@ function App() {
       });
   };
 
-  const deleteCard = (id) => {
+  const deleteCard = (id) => { 
     console.log("delete");
     axios
       .delete(`https://back-end-inspo-rkak.onrender.com/cards/${id}`)
@@ -100,6 +100,45 @@ function App() {
   };
 
   const boardList = <BoardList boards={boards} callBack={selectBoard} />;
+  
+  const addCard = (newCardData) => {
+
+    if (selectedBoard.board_id === undefined) {
+      alert("Please select a board to create card!")
+      return 
+    }
+    if (newCardData.message.length === 0) {
+      alert("Please enter a message!")
+      return 
+    }
+    if (newCardData.message.length >= 40) {
+      alert("Message must be less than 40 characters!")
+      return 
+    }
+
+    axios
+      .post(`https://back-end-inspo-rkak.onrender.com/boards/${selectedBoard.board_id}/cards`, newCardData)
+      .then((response) => {
+      
+        const newCards = [...cards];
+        const nextCardId = response.data["Cards"]["card_id"]
+        
+
+        newCards.push({
+          board_id: selectedBoard.board_id,
+          card_id: nextCardId,
+          message: response.data.Cards.message,
+          likes_count: response.data.Cards.likes_count,
+        });
+
+        console.log("newCards " + JSON.stringify(response.data))
+
+        setCards(newCards);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div className="App">
@@ -120,7 +159,7 @@ function App() {
         <section className="element">
           <h3>Create New Card:</h3>
           <div className="card-form-container">
-            <CardForm />
+            <CardForm addCardCallback={addCard} />
           </div>
         </section>
 
