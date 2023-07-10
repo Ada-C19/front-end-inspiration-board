@@ -7,7 +7,6 @@
 display: flex;
 justify-content: space-around;
 max-height: 85vh;
-border: solid rgb(16, 14, 14);
 min-height: fit-content;
 
 }
@@ -39,7 +38,8 @@ min-height: fit-content;
 
 body{
   margin: 0;
-  padding: 0;
+  padding-left: 50px;
+  padding-right: 50px;
   color: white;
   font-size: 1.3rem;
   line-height: 1.5;
@@ -55,3 +55,4 @@ h1{
   background-color: darkcyan;
   border-radius: 20px;
 }
+
