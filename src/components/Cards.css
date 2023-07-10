@@ -3,11 +3,14 @@
     border-width: thin;
     width: 250px;
     height: 250px;
-    background-color: rgb(217, 217, 82);
+    background-color: rgb(242, 242, 143);
     margin-right: 20px;
     color: green;
     font-size: 24px;
     padding: 15px;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 3px 3px 5px 5px rgb(59, 58, 58);
 }
 
 .card-like{
