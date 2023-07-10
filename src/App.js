@@ -3,6 +3,7 @@ import './App.css';
 import BoardList from './components/BoardList'
 import {useState, useEffect}  from 'react'
 import axios from 'axios';
+import CardList from './components/CardList';
 
 
 const baseUrl = 'https://inspiration-board-api-m6he.onrender.com';
@@ -46,7 +47,7 @@ function App() {
 
   const [selectedBoard, setSelectedBoard]= useState("Select a Board")
   const selectBoard = (id) =>{
-    console.log(id)
+  
   const selectedItem =  boardData.filter((ele) => ele.board_id === id)
   console.log(selectedItem)
 
@@ -59,7 +60,8 @@ function App() {
   const fetchCards = (id) =>{
     getCards(id)
     .then((response) =>{
-      setCardData(response[0].message)
+      setCardData(response)
+   
     }
 
     )
@@ -76,7 +78,7 @@ function App() {
         <div className="selectedBoard"> {selectedBoard}</div>
         <div className="createBoard">hellothere </div>
       </div>
-      <div className="cardscontainer">{cardData}</div>
+      <div className="cardscontainer"><CardList data = {cardData}/></div>
         </div>
       
     <footer>This is the footer</footer>

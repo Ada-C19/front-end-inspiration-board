@@ -1,0 +1,8 @@
+.card-layout{
+    display: flex;
+    margin: 20px;
+}
+
+h2{
+    width: fit-content;
+}
