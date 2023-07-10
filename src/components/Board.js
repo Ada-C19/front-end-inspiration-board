@@ -4,8 +4,12 @@ import './Board.css';
 
 
 const Board = (props) => {
+    const helper = () =>{
+        props.clickBoard(props.id)
+        props.selectCard(props.id)
+    }
     return (
-        <li onClick={()=>props.clickBoard(props.id)}>{props.title}</li>
+        <li onClick={()=>helper()}>{props.title}</li>
     )
 
 };

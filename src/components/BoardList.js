@@ -11,7 +11,8 @@ const BoardList = (props) =>{
             id = {board.board_id}
             title = {board.title}
             owner={board.owner}
-            clickBoard = {props.boardSelect}/>
+            clickBoard = {props.boardSelect}
+            selectCard = {props.fetchCards}/>
         )
     })
     return (<section>
@@ -23,7 +24,8 @@ BoardList.propType={
     data: PropTypes.shape({id:PropTypes.number.isRequired,
         title:PropTypes.string.isRequired,
         owner:PropTypes.string.isRequired}),
-    boardSelect: PropTypes.func
+    boardSelect: PropTypes.func,
+    fetchCards: PropTypes.func
 }
 
 export default BoardList;

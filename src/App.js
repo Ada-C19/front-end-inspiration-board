@@ -18,6 +18,15 @@ const getAllBoards = () =>{
 
 }
 
+const getCards = (id) => {
+  return axios.get(`${baseUrl}/board/${id}/cards`)
+  .then((response)=>{
+    return response.data
+  })
+  .catch((error)=>{
+    console.log(error);
+  });
+}
 function App() {
 
   const [boardData, setBoardData] = useState([])
@@ -46,6 +55,15 @@ function App() {
 
   }
 
+  const [cardData, setCardData] = useState([]);
+  const fetchCards = (id) =>{
+    getCards(id)
+    .then((response) =>{
+      setCardData(response[0].message)
+    }
+
+    )
+  }
 
   return (
     <section>
@@ -53,12 +71,12 @@ function App() {
     <div className="root">
       <div className="boardsContainer">
         <div className="boardList">
-        <BoardList boardSelect = {selectBoard} data={boardData} />
+        <BoardList boardSelect = {selectBoard} data={boardData} fetchCards = {fetchCards} />
         </div>
         <div className="selectedBoard"> {selectedBoard}</div>
         <div className="createBoard">hellothere </div>
       </div>
-      <div className="cardscontainer">hola</div>
+      <div className="cardscontainer">{cardData}</div>
         </div>
       
     <footer>This is the footer</footer>
@@ -68,3 +86,4 @@ function App() {
 }
 
 export default App;
+
