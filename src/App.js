@@ -37,9 +37,7 @@ function App() {
   const [cards, setCards] = useState(cardData)
   const [boardsData, setBoardsData] = useState(boardData)
   const [likes, setLikes] = useState(0)
-  const [selectedBoard, setSelectedBoard] = useState(null)
-
-  console.log('cardData.likesCount', cardData)
+  const [selectedBoard, setSelectedBoard] = useState([])
 
   // ######## Select Board######## 
   // Need to fix this.
@@ -73,6 +71,34 @@ function App() {
     })
   }
 
+  // ######## Increase Like Count ########
+
+  const increaseLikesCount = id => {
+    const updatedCards = cards.map(card => {
+      if (card.id == id) {
+        return {
+          ...card,
+          likesCount: card.likesCount + 1
+        };
+      };
+      return card;
+    });
+    setCards(updatedCards);
+  };
+
+  //  ######## Keep Count of Total Likes ########
+
+  // const totalLikes = () => {
+  //   let total = 0;
+  //   console.log('total:', total)
+  //   console.log('cards:', cards)
+  //   for(let card of cards) {
+  //     console.log('card:', card)
+  //     total += card.likesCount
+  //   }
+  //   return total;
+  // }
+
   return (
     <div className="App">
       <header className="App-header">Inspiration Board</header>
@@ -85,10 +111,12 @@ function App() {
         <Board 
         cardData={cards} 
         deleteCard={deleteCard}
+        increaseLikesCount={increaseLikesCount}
         />
         <NewBoardForm 
         addBoard={addBoard}
         />
+        {/* <p>Total likes: {totalLikes()}</p> */}
       </main>
     </div>
   );
