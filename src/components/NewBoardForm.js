@@ -55,7 +55,7 @@ const NewBoardForm = ({ addBoard }) => {
           onChange={handleChange}
         />
       </label>
-      <input type='submit' value='add' />
+      <input type='submit' value='Submit' />
     </form>
   )
 }
