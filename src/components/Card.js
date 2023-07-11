@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Card = ({ id, message, likesCount, deleteCard }) => {
+const Card = ({ id, message, likesCount, deleteCard, increaseLikesCount }) => {
   console.log('Card props:', message)
 
   return (
     <li>
-      Quote: {message}
+      Message: {message}
       Likes: {likesCount} 💕
-      <button>
+      <button onClick={() => increaseLikesCount(id)}>
         +1
       </button>
       <button onClick={() => deleteCard(id)}>
