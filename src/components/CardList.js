@@ -12,7 +12,7 @@ const CardList = (props) =>{
             likes = {card.likes_count}/>
         )
      } )
-        return <section >
+        return <section className='card-section'>
                     <h2>Cards</h2>
                     <p className='card-layout'>{getCards}</p>
         </section>
