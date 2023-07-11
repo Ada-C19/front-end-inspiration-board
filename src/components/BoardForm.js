@@ -18,6 +18,7 @@ const AddBoard = (props) => {
         <label htmlFor="owner">Owner's Name</label>
         <input type="text" id="owner" name='owner' ></input>
         <input type="submit" value="Submit"></input>
+        <p>Preview: </p>
         </div>
     </form>
     <button className='button' onClick={handleHideBoard}>Hide New Board Form</button>

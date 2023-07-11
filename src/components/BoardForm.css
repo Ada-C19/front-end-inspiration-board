@@ -5,6 +5,9 @@
   margin-left: 50px;
   width: 150px;
   align-self: center;
+  background-color: darkcyan;
+  padding: 20px;
+  border: solid 2px white;
 }
 
 
@@ -20,6 +23,7 @@
 
 button:hover{
     background-color:yellow;
+    color: black;
 }
 
 .button{
