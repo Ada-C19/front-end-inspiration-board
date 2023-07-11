@@ -36,6 +36,9 @@ min-height: fit-content;
  margin-top: 15px;
   margin-left: 15px;
   width: 30%;
+  margin: 20px;
+  box-sizing: border-box;
+  text-align: center;
   
 }
 
