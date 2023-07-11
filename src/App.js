@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Board from './components/Board';
 import BoardList from './components/BoardList';
 import NewBoardForm from './components/NewBoardForm';
+import NewCardForm from './components/NewCardForm';
 
 
 // ######## Dummy Data ######## 
@@ -61,6 +62,20 @@ function App() {
     setBoardsData(newBoardList)
   };
 
+// ######## Add new card ########
+
+  const addCard = newCard => {
+    const newCardList = [...cards];
+    const nextId = crypto.randomUUID();
+    
+    newCardList.push({
+      id: nextId,
+      message: newCard.message,
+      likesCount: 0
+    })
+    setCards(newCardList)
+  };
+
 // ######## Delete individual card ######## 
 
   const deleteCard = id => {
@@ -103,7 +118,9 @@ function App() {
         <NewBoardForm 
         addBoard={addBoard}
         />
-        {/* <p>Total likes: {totalLikes()}</p> */}
+        <NewCardForm 
+        addCard={addCard}
+        />
       </main>
     </div>
   );
