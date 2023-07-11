@@ -6,6 +6,7 @@ const Cards = (props) =>{
         <div className='card-frame'>
           <section>{props.message}</section>
           <button className="card-like" >{props.likes}💕</button>
+          <button className="delete" >delete</button>
           
         </div>)
 }

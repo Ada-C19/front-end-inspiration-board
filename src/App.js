@@ -4,6 +4,7 @@ import BoardList from './components/BoardList'
 import {useState, useEffect}  from 'react'
 import axios from 'axios';
 import CardList from './components/CardList';
+import AddBoard from './components/BoardForm';
 
 
 const baseUrl = 'https://inspiration-board-api-m6he.onrender.com';
@@ -69,14 +70,14 @@ function App() {
 
   return (
     <section>
-      <h1>🌟INSPIRATION BOARD🌟</h1>
+      <h1 id='heading' >🌟INSPIRATION BOARD🌟</h1>
     <div className="root">
       <div className="boardsContainer">
         <div className="boardList">
         <BoardList boardSelect = {selectBoard} data={boardData} fetchCards = {fetchCards} />
         </div>
         <div className="selectedBoard"> {selectedBoard}</div>
-        <div className="createBoard">hellothere </div>
+        <div className="createBoard">< AddBoard/></div>
       </div>
       <div className="cardscontainer"><CardList data = {cardData}/></div>
         </div>

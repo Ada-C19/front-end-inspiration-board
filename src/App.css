@@ -32,8 +32,10 @@ min-height: fit-content;
   min-width: 80px;
 }
 .createBoard {
-  border: solid black;
-  margin: 10px;
+  width: fit-content;
+  margin: 0 auto;
+  box-sizing: border-box;
+  
 }
 
 body{
@@ -49,10 +51,12 @@ body{
   
 }
 
-h1{
+#heading{
   text-align: center;
   border-style: ridge;
   background-color: darkcyan;
   border-radius: 20px;
 }
+
+
 

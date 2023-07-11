@@ -1,0 +1,17 @@
+
+.NewBoardForm {
+    width: 150px;
+    align-self: auto;
+
+}
+.h1{
+    width: 40px;
+}
+#boardtitle {
+    width: 400px;
+    background-color: darkcyan;
+    border: solid white;
+    border-radius: 20px;
+    padding: 5px;
+    text-align: center;
+}
