@@ -18,7 +18,7 @@ const CardList = (props) =>{
         </section>
     }
 
-Cards.propType={
+Cards.propTypes={
     data: PropTypes.shape({
         id: PropTypes.number.isRequired,
         message:PropTypes.string.isRequired,

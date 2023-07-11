@@ -12,7 +12,7 @@ const Cards = (props) =>{
 }
 
 
-Cards.propType={
+Cards.propTypes={
     id:PropTypes.number.isRequired,
     message:PropTypes.string.isRequired,
     likes: PropTypes.number.isRequired

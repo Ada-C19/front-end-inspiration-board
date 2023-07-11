@@ -16,7 +16,7 @@ const Board = (props) => {
 };
 
 
-Board.propType={
+Board.propTypes={
         id:PropTypes.number.isRequired,
         title:PropTypes.string.isRequired,
         clickBoard : PropTypes.func

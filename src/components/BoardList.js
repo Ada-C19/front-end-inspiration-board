@@ -20,7 +20,7 @@ const BoardList = (props) =>{
     <ul className='board'>{getBoard}</ul></section>)
 
 }
-BoardList.propType={
+BoardList.propTypes={
     data: PropTypes.shape({id:PropTypes.number.isRequired,
         title:PropTypes.string.isRequired,
         owner:PropTypes.string.isRequired}),
