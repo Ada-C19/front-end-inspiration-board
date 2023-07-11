@@ -3,6 +3,7 @@ import './App.css';
 import BoardList from './components/BoardList'
 import {useState, useEffect}  from 'react'
 import axios from 'axios';
+import CardList from './components/CardList';
 
 
 const baseUrl = 'https://inspiration-board-api-m6he.onrender.com';
@@ -18,6 +19,15 @@ const getAllBoards = () =>{
 
 }
 
+const getCards = (id) => {
+  return axios.get(`${baseUrl}/board/${id}/cards`)
+  .then((response)=>{
+    return response.data
+  })
+  .catch((error)=>{
+    console.log(error);
+  });
+}
 function App() {
 
   const [boardData, setBoardData] = useState([])
@@ -37,7 +47,7 @@ function App() {
 
   const [selectedBoard, setSelectedBoard]= useState("Select a Board")
   const selectBoard = (id) =>{
-    console.log(id)
+  
   const selectedItem =  boardData.filter((ele) => ele.board_id === id)
   console.log(selectedItem)
 
@@ -46,6 +56,16 @@ function App() {
 
   }
 
+  const [cardData, setCardData] = useState([]);
+  const fetchCards = (id) =>{
+    getCards(id)
+    .then((response) =>{
+      setCardData(response)
+   
+    }
+
+    )
+  }
 
   return (
     <section>
@@ -53,12 +73,12 @@ function App() {
     <div className="root">
       <div className="boardsContainer">
         <div className="boardList">
-        <BoardList boardSelect = {selectBoard} data={boardData} />
+        <BoardList boardSelect = {selectBoard} data={boardData} fetchCards = {fetchCards} />
         </div>
         <div className="selectedBoard"> {selectedBoard}</div>
         <div className="createBoard">hellothere </div>
       </div>
-      <div className="cardsContainer">hola</div>
+      <div className="cardscontainer"><CardList data = {cardData}/></div>
         </div>
       
     <footer>This is the footer</footer>
@@ -68,3 +88,4 @@ function App() {
 }
 
 export default App;
+
