@@ -1,11 +1,10 @@
 
-.NewBoardForm {
-    width: 150px;
-    margin-left: 100px;
-}
+
 
 .input{
   margin-left: 50px;
+  width: 150px;
+  align-self: center;
 }
 
 
@@ -20,14 +19,21 @@
 }
 
 button:hover{
-    background-color:lightblue;
+    background-color:yellow;
 }
 
 .button{
-    background-color:yellow;
-    border: solid 2px;
+    background-color:darkcyan;
+    border: solid 2px white;
     border-radius: 10px;
     padding: 10px;
-    margin: 10px;
+    margin-top: 10px;
+    margin-right: 100px;
     width: 8vw;
+    font-weight: 800;
+    color: white;
+}
+
+.hide-form{
+    display: none;
 }
