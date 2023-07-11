@@ -1,17 +1,29 @@
 
 .NewBoardForm {
     width: 150px;
-    align-self: auto;
+    margin-left: 150px;
 
 }
-.h1{
-    width: 40px;
-}
+
+
 #boardtitle {
-    width: 400px;
+    width: 250px;
     background-color: darkcyan;
     border: solid white;
+    border-width: 5px;
     border-radius: 20px;
     padding: 5px;
     text-align: center;
+}
+
+button:hover{
+    background-color:lightblue;
+}
+
+.button{
+    background-color:yellow;
+    border: solid 2px;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
 }
