@@ -86,19 +86,6 @@ function App() {
     setCards(updatedCards);
   };
 
-  //  ######## Keep Count of Total Likes ########
-
-  // const totalLikes = () => {
-  //   let total = 0;
-  //   console.log('total:', total)
-  //   console.log('cards:', cards)
-  //   for(let card of cards) {
-  //     console.log('card:', card)
-  //     total += card.likesCount
-  //   }
-  //   return total;
-  // }
-
   return (
     <div className="App">
       <header className="App-header">Inspiration Board</header>
