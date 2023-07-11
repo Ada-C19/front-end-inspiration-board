@@ -1,8 +1,11 @@
 
 .NewBoardForm {
     width: 150px;
-    margin-left: 150px;
+    margin-left: 100px;
+}
 
+.input{
+  margin-left: 50px;
 }
 
 
@@ -26,4 +29,5 @@ button:hover{
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
+    width: 8vw;
 }
