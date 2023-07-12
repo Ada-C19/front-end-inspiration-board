@@ -16,11 +16,12 @@ const Board = (props) => {
 };
 
 
-Board.propTypes={
-        id:PropTypes.number.isRequired,
-        title:PropTypes.string.isRequired,
-        clickBoard : PropTypes.func
-    }
+Board.propTypes = {
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        clickBoard: PropTypes.func,
+        selectCard: PropTypes.func
+    };
 
-export default Board
+export default Board;
 

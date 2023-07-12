@@ -3,28 +3,32 @@ import PropTypes from "prop-types";
 import './CardList.css'
 import Cards from "./Cards"
 
-const CardList = (props) =>{
-    const getCards = props.data.map((card)=>{
+const CardList = (props) => {
+    const getCards = props.data.map((card) => {
         return(
-            <Cards id = {card.card_id}
-             key = {card.card_id}
+            <Cards 
+            id = {card.card_id}
+            key = {card.card_id}
             message = {card.message}
-            likes = {card.likes_count}/>
-        )
-     } )
-        return <section className='card-section'>
-                    <h2>Cards</h2>
-                    <p className='card-layout'>{getCards}</p>
-        </section>
-    }
+            likes = {card.likes_count}
+            />
+        );
+});
+        return (
+            <section className='card-section'>
+                <h2>Cards</h2>
+                <p className='card-layout'>{getCards}</p>
+            </section>
+        );
+    };
 
-Cards.propTypes={
+Cards.propTypes = {
     data: PropTypes.shape({
         id: PropTypes.number.isRequired,
-        message:PropTypes.string.isRequired,
-        likes_count:PropTypes.number.isRequired
+        message: PropTypes.string.isRequired,
+        likes_count: PropTypes.number.isRequired
     })
-}
+};
 
 
 export default CardList;
