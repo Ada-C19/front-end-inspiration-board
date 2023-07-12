@@ -8,16 +8,16 @@ const Card = ({ id, message, likesCount, deleteCard, increaseLikesCount }) => {
   return (
     <section className='card-container'>
       <li className='each-card'>
-        <li className='message-line'>
+        <p className='message-line'>
           {message}
-        </li>
-        <li className='likes-line'>
+        </p>
+        <p className='likes-line'>
           {likesCount} 💕
-        </li>
-        <li className='like-delete-btns'>
+        </p>
+        <span className='like-delete-btns'>
           <button 
-          className='likes-btn likes-delete' 
-          onClick={() => increaseLikesCount(id)}
+            className='likes-btn likes-delete' 
+            onClick={() => increaseLikesCount(id)}
           >
             +1
           </button>
@@ -27,7 +27,7 @@ const Card = ({ id, message, likesCount, deleteCard, increaseLikesCount }) => {
           >
             Delete
           </button>
-        </li>
+        </span>
     </li>
     </section>
   )
