@@ -103,7 +103,9 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">Inspiration Board</header>
+      <header className="App-header">
+        <h1 className='heading'>Inspiration Board</h1>
+      </header>
       <main>
         <BoardList 
         boardSelect={boardSelect} 
