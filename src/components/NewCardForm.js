@@ -12,13 +12,15 @@ const NewCardForm = ({ addCard }) => {
     event.preventDefault()
 
     console.log('submit')
-
-    addCard(
-      {
-        message: newCard.message,
-        likesCount: newCard.likesCount
-      }
-    );
+    if (newCard.message.length > 40) {
+      alert('Message too long')
+    } else {
+      addCard(
+        {
+          message: newCard.message,
+          likesCount: newCard.likesCount
+        })
+    };
 
     setNewCards(
       {
@@ -41,17 +43,19 @@ const NewCardForm = ({ addCard }) => {
 
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Card Message:
-        <input
-          value={newCard.message}
-          name='message'
-          onChange={handleChange}
-          type='text'
-        />
-      </label>
-      <input type='submit' value='Submit'/>
-    </form>
+    <section>
+      <form onSubmit={handleSubmit}>
+        <label>Card Message:
+          <input
+            value={newCard.message}
+            name='message'
+            onChange={handleChange}
+            type='text'
+          />
+        </label>
+        <input type='submit' value='Submit'/>
+      </form>
+    </section>
   )
 }
 
