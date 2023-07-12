@@ -8,6 +8,7 @@ const AddBoard = (props) => {
     }
 
     const hidden = hide? 'hide-form':""
+    const hiddenText = hide? "Show New Board Form": "Hide New Board Form"
     return (
     <section>
     <h3 id='boardtitle'>Create New Board</h3>
@@ -21,7 +22,7 @@ const AddBoard = (props) => {
         <p>Preview: </p>
         </div>
     </form>
-    <button className='button' onClick={handleHideBoard}>Hide New Board Form</button>
+    <button className='button' onClick={handleHideBoard}>{hiddenText}</button>
     </section>
     )}
 
