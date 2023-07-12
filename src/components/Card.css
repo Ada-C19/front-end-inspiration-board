@@ -1,0 +1,46 @@
+.each-card {
+    text-align: center;
+    background-color: #fff8a5;
+    /* border: solid red; */
+    margin: 10px;
+    padding: 10px;
+    list-style-type: none;
+    height: 65vh;
+    width: 40vh;
+    font-family: 'Concert One', cursive;
+    font-size: 22.4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.message-line {
+    /* border: solid pink; */
+    padding: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+
+.likes-line {
+    margin-bottom: 20px;
+}
+
+.likes-delete {
+    margin: 10px;
+    background-color: #555555;
+    border: none;
+    color: #ffffff;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.likes-delete:hover {
+    background-color: #e7e7e7;
+    color: black;
+}
