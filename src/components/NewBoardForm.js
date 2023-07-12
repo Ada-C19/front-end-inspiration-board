@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './NewBoardForm.css';
 
 const NewBoardForm = ({ addBoard }) => {
   const [newBoard, setNewBoards] = useState(
@@ -29,34 +30,42 @@ const NewBoardForm = ({ addBoard }) => {
   };
 
   const handleChange = event => {
+    console.log('event:', event)
+    console.log('value:', event.target.value)
     setNewBoards({
     ...newBoard, [event.target.name]: event.target.value
   })
-
+    console.log('value2:', event.target.value)
     console.log('newBoard:', newBoard)
   }
   
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Board Title:
-        <input 
-          value={newBoard.title}
-          name = 'title'
-          onChange={handleChange}
-          type='text' 
-        />
-      </label>
-      <label>Owner's Name:
-        <input
-          value={newBoard.owner}
-          type='text'
-          name = 'owner'
-          onChange={handleChange}
-        />
-      </label>
-      <input type='submit' value='Submit' />
-    </form>
+    <section>
+      <form className='new-board-form' onSubmit={handleSubmit}>
+        <label className='board-title'>Board Title:
+          <input
+            className='board-input' 
+            value={newBoard.title}
+            name = 'title'
+            onChange={handleChange}
+            type='text' 
+          />
+        </label>
+        <label className='owner-name'>Owner's Name:
+          <input
+            className='board-input'
+            value={newBoard.owner}
+            type='text'
+            name = 'owner'
+            onChange={handleChange}
+          />
+        </label>
+        <input className='board-submit' type='submit' value='Submit' />
+        <p>Preview:</p>
+        <p>{newBoard.title}-{newBoard.owner}</p>
+      </form>
+    </section>
   )
 }
 
