@@ -1,14 +1,9 @@
 .new-board-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.board-submit {
-    max-width: 60%;
+    border: solid saddlebrown;
+    height: 15rem;
+    max-width: 15rem;
 }
 
 .board-input {
-    display: block;
-    border-radius: 0.4em;
+    display: inline-block;
 }
