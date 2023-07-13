@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './BoardList.css';
 
 function BoardList({ boardData, boardSelect }) {
     const boardTitles = boardData.map(board => {
@@ -12,7 +13,9 @@ function BoardList({ boardData, boardSelect }) {
     })
     
     return (
-        <ol>{boardTitles}</ol>
+      <>
+        <ol className='list-boards'>{boardTitles}</ol>
+      </>
     )
 }
 
