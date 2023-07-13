@@ -1,5 +1,6 @@
-.cardListContainer {
+.card-list-container {
+    border: solid lime;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    border: solid black;
 }
