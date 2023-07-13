@@ -2,13 +2,18 @@ import React from 'react';
 import CardList from './CardList';
 
 
-function Board({ cardData, deleteCard }) {
+function Board({ cardData, increaseLikesCount, deleteCard }) {
+
     return (
         <div>
-            <CardList 
-            cardData={cardData} 
-            deleteCard={deleteCard}
-            />
+          <section>
+            <h3 className='sect-heading'>Selected Board</h3>
+          </section>
+          <CardList 
+          cardData={cardData} 
+          deleteCard={deleteCard}
+          increaseLikesCount={increaseLikesCount}
+          />
         </div>
     )
 }
