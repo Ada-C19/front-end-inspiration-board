@@ -41,7 +41,7 @@ const NewBoardForm = ({ addBoard }) => {
   
 
   return (
-    <section>
+    <section className='board-form-sect'>
       <form className='new-board-form' onSubmit={handleSubmit}>
         <label className='board-title'>Board Title:
           <input
