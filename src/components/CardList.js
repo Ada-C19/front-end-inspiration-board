@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import Card from './Card';
 
-const CardList = ({cardData, onUpdateCard}) => {
+const CardList = ({ onUpdateCard }) => {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -16,14 +16,24 @@ const CardList = ({cardData, onUpdateCard}) => {
       });
   }, []);
 
-  const cardComponents = cardData.map((card) => {
+  const handleDelete = (id) => {
+    setCards(cards.filter(card => card.id !== id));
+
+    axios.delete(`http://localhost:5000/cards/${id}`)
+      .catch(error => {
+        console.error('Error deleting card:', error);
+      });
+  };
+
+  const cardComponents = cards.map((card) => {
     return (
       <li key={card.id}>
         <Card
           id= {card.id}
           message= {card.message}
-          likes={card.likesCount}
+          likesCount={card.likesCount}
           onUpdateCard={onUpdateCard}
+          onDelete={handleDelete}
         />
       </li>
     )
@@ -37,12 +47,7 @@ const CardList = ({cardData, onUpdateCard}) => {
 };
 
 CardList.propTypes = {
-  cardData: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      message: PropTypes.string.isRequired,
-      likesCount: PropTypes.string.isRequired,
-  })
-  ).isRequired,
   onUpdateCard: PropTypes.func.isRequired,
 };
+
 export default CardList;

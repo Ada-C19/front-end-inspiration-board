@@ -1,55 +1,49 @@
-import React, { useState, useEffect } from 'react';
+// App.js
+import React, { useState } from 'react';
 import './App.css';
 import axios from 'axios';
-import Board from './components/Board';
-import Card from './components/Card';
-import CardList from './components/CardList';
-
+import BoardList from './components/BoardList';
 
 const App = () => {
+  const [title, setTitle] = useState('');
+  const [owner, setOwner] = useState('');
 
-  const [cardData, setCardData] = useState([]);
-
-  useEffect(() => {
-    axios.get('http://localhost:5000/cards')
-      .then(response => setCardData(response.data))
-      .catch(error => console.error('Error:', error));
-  }, []);
-
-  const updateCard = (cardToUpdate) => {
-    const cards = cardData.map((card) => {
-      if (card.id === cardToUpdate.id) {
-        return cardToUpdate;
-      }
-
-      return card;
-    });
-
-    setCardData(cards);
+  const handleTitleChange = (event) => {
+    setTitle(event.target.value);
   };
 
-//   const addCardData = newCard => {
+  const handleOwnerChange = (event) => {
+    setOwner(event.target.value);
+  };
 
-//     const newCardList = [...cardData];
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-//     newCardList.push({
-//         id:,
-//         message: newCard.message,
-//         likesCount: newCard.likesCount,
-//     });
-
-//     setCardData(newCardList);
-// };
-
+    axios.post('http://localhost:5000/boards', { title, owner })
+      .then(() => {
+        setTitle('');
+        setOwner('');
+      })
+      .catch(error => {
+        console.error('Error creating board:', error);
+      });
+  };
 
   return (
     <div className="App">
       <header className="App-header">
-        <Board title="My Board" owner="SaySay"/>
-        <CardList
-          cardData={cardData}
-          onUpdateCard={updateCard}
-        />
+        <form onSubmit={handleSubmit}>
+          <label>
+            Board Name:
+            <input type="text" value={title} onChange={handleTitleChange} />
+          </label>
+          <label>
+            Board Owner:
+            <input type="text" value={owner} onChange={handleOwnerChange} />
+          </label>
+          <button type="submit" disabled={!title || !owner}>Create New Board</button>
+        </form>
+        <BoardList />
       </header>
     </div>
   );
