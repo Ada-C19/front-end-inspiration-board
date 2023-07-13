@@ -8,13 +8,17 @@ const Board = ({ title, owner, cards }) => {
       <h2>{title}</h2>
       <p>{owner}</p>
       <div className="card-list">
-        {cards.map((card) => (
-          <Card
-            key={card.id}
-            message={card.message}
-            likesCount={card.likesCount}
-          />
-        ))}
+        {cards && cards.length > 0 ? (
+          cards.map((card) => (
+            <Card
+              key={card.id}
+              message={card.message}
+              likesCount={card.likesCount}
+            />
+          ))
+        ) : (
+          <p>No cards found.</p>
+        )}
       </div>
     </div>
   );
@@ -29,7 +33,7 @@ Board.propTypes = {
       message: PropTypes.string.isRequired,
       likesCount: PropTypes.number,
     })
-  ).isRequired,
+  ),
 };
 
 export default Board;

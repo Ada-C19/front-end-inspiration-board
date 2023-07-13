@@ -1,0 +1,48 @@
+.card {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: #ffc600;
+    border-radius: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .card::before,
+  .card::after {
+    content: '';
+    position: absolute;
+    top: 50px;
+    width: 50px;
+    height: 50px;
+    background: #000;
+    border-radius: 50%;
+  }
+  
+  .card::before {
+    left: 20px;
+  }
+  
+  .card::after {
+    right: 20px;
+  }
+  
+  .card .nose {
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    width: 40px;
+    height: 40px;
+    background: #000;
+    border-radius: 50%;
+  }
+  
+  .card .mouth {
+    position: absolute;
+    top: 130px;
+    width: 100%;
+    height: 20px;
+    background: #000;
+    border-radius: 20px;
+  }
+  

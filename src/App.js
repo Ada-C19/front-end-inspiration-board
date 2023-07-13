@@ -1,35 +1,55 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 import Board from './components/Board';
 import Card from './components/Card';
+import CardList from './components/CardList';
 
 
-window.axios = axios;
+const App = () => {
 
-const cardsData = [
-  { id: 1, message: 'Card 1', likesCount: 10 },
-  { id: 2, message: 'Card 2', likesCount: 5 },
-  { id: 3, message: 'Card 3', likesCount: 2 },
-];
+  const [cardData, setCardData] = useState([]);
 
-function App() {
+  useEffect(() => {
+    axios.get('http://localhost:5000/cards') // Replace with your server's URL and the correct endpoint.
+      .then(response => setCardData(response.data))
+      .catch(error => console.error('Error:', error));
+  }, []);
+
+  const updateCard = (cardToUpdate) => {
+    const cards = cardData.map((card) => {
+      if (card.id === cardToUpdate.id) {
+        return cardToUpdate;
+      }
+
+      return card;
+    });
+
+    setCardData(cards);
+  };
+
+//   const addCardData = newCard => {
+
+//     const newCardList = [...cardData];
+
+//     newCardList.push({
+//         id:,
+//         message: newCard.message,
+//         likesCount: newCard.likesCount,
+//     });
+
+//     setCardData(newCardList);
+// };
+
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Board title="My Board" owner="SaySay" cards={cardsData}/>
+        <Board title="My Board" owner="SaySay"/>
+        <CardList
+          cardData={cardData}
+          onUpdateCard={updateCard}
+        />
       </header>
     </div>
   );
