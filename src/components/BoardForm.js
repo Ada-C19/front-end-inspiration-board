@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const AddBoard = (props) => {
     const [hide, setHide] = useState(false)
-    const handleHideBoard = (event) =>{
+    const handleHideBoard = () =>{
         setHide(current => !current)
     }
 
