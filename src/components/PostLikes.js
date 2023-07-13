@@ -17,8 +17,8 @@ const PostLikes = () => {
 
     return (
         <section>
-            <p>You have {likeCount} likes</p>
-                <button className={hasLiked ? 'liked' : ''} onClick={updateLikes}></button>
+            <p>You have {likeCount} {likeCount === 1 ? 'like' : 'likes'}</p>
+            <button className={hasLiked ? 'liked' : ''} onClick={updateLikes}></button>
         </section>
     )
 };
