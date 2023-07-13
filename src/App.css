@@ -7,6 +7,7 @@
 .grid-container {
     display: grid;
     height: 100vh;
+    width: 100vw;
     grid-template-columns: repeat(3, 33.33%);
     grid-template-rows: 0.5fr 1fr 2fr;
 }
@@ -36,6 +37,10 @@
     background-color: lightcyan;
     grid-column: 3 / 4;
     grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .cards-list {
@@ -50,7 +55,7 @@
     grid-row: 3 / 4;
 }
 
-/************* Heading *************/
+/************* Page Heading *************/
 
 .heading {
     background-color: #ffff00;
@@ -60,3 +65,24 @@
     font-family: 'Permanent Marker', cursive;
     transform: rotate(-5deg) skew(-10deg, -5deg);
 }
+
+/************* Section Headings *************/
+
+.sect-heading {
+    border: solid black;
+    padding: 1rem 1rem;
+    margin: 1rem 3rem;
+    box-shadow: -0.5rem 0.5rem;
+    font-size: 1.2em;
+    font-family: 'Permanent Marker', cursive;
+}
+
+
+/************* Media Queries *************/
+
+/* @media only screen and (max-width: 300px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+} */
