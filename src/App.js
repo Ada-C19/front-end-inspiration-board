@@ -42,7 +42,7 @@ const App = () => {
     getAllBoards().then((boards) => setBoards(boards))
   }
 
-  // useEffect( () => {fetchBoardData()}, [])
+  useEffect( () => {fetchBoardData()}, [])
 
   const handleSelectBoard = (boardId) => {
     setTargetBoardId(boardId);
