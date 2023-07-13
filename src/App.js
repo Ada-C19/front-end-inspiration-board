@@ -11,7 +11,7 @@ const App = () => {
   const [cardData, setCardData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/cards') // Replace with your server's URL and the correct endpoint.
+    axios.get('http://localhost:5000/cards')
       .then(response => setCardData(response.data))
       .catch(error => console.error('Error:', error));
   }, []);

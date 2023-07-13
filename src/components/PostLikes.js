@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './PostLikes.css';
 
 const PostLikes = () => {
 
@@ -17,7 +18,7 @@ const PostLikes = () => {
     return (
         <section>
             <p>You have {likeCount} likes</p>
-                <button onClick={updateLikes}>Click</button>
+                <button className={hasLiked ? 'liked' : ''} onClick={updateLikes}></button>
         </section>
     )
 };
