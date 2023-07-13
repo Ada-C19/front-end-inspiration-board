@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card';
+import './CardList.css';
 
 const CardList = ({ cardData, increaseLikesCount, deleteCard }) => {
 
@@ -21,7 +22,7 @@ const CardList = ({ cardData, increaseLikesCount, deleteCard }) => {
   })
 
   return (
-    <ul>
+    <ul className='card-list-container'>
       {cardListComponents}
     </ul>
   )
