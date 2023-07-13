@@ -34,6 +34,7 @@ const NewBoardForm = ( {addBoard} ) => {
     return (
         <form className='new-board-form' onSubmit={onFormSubmit}>
             <div>
+                <h3>CREATE A NEW BOARD</h3>
                 <label htmlFor="title">Title:</label>
                 <input 
                     id="title" 

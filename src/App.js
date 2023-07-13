@@ -69,6 +69,10 @@ const App = () => {
     )
   };
 
+  // TO DO:
+  // change handleLike to toggle T/F for users
+  // instead of each click adding to Likes total 
+
   const handleLike = (cardId) => {
     let newBoards = [...boards];
 
@@ -121,16 +125,20 @@ const App = () => {
         <h1>MMNJ INSPO BOARD</h1>
       </header>
       <main>
-        <BoardSelectRadio boards={boards} onBoardSelect={handleSelectBoard} />
-        <Board 
-          board_id={currentBoard().id} 
-          title={currentBoard().title}
-          owner={currentBoard().owner}
-          deleteBoard={deleteBoardFromAPI}
-          />
-        {displayCards(targetBoardId)}
-        <NewBoardForm addBoard={handleSubmitBoard}/>
-        <NewCardForm addCard={handleSubmitCard} />
+        <div>
+          <NewBoardForm addBoard={handleSubmitBoard}/>
+          <BoardSelectRadio boards={boards} onBoardSelect={handleSelectBoard} />
+        </div>
+        <div>
+          <Board 
+            board_id={currentBoard().id} 
+            title={currentBoard().title}
+            owner={currentBoard().owner}
+            deleteBoard={deleteBoardFromAPI}
+            />
+          {displayCards(targetBoardId)}
+          <NewCardForm addCard={handleSubmitCard} />
+        </div>
       </main>
     </div>
   );
