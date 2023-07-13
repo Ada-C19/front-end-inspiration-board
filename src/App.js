@@ -68,6 +68,14 @@ function App() {
     )
   }
 
+  const handleSubmit = (data) =>{
+    axios.post(`${baseUrl}/board`, data)
+      .then((response)=>{
+        setBoardData((oldData)=>[...oldData, response.data]);
+      })
+      .catch((error)=> console.log(error));
+  };
+
   return (
     <section>
       <h1 id='heading' >🌟INSPIRATION BOARD🌟</h1>
@@ -77,7 +85,7 @@ function App() {
         <BoardList boardSelect = {selectBoard} data={boardData} fetchCards = {fetchCards} />
         </div>
         <div className="selectedBoard"> {selectedBoard}</div>
-        <div className="createBoard">< AddBoard/></div>
+        <div className="createBoard">< AddBoard handleSubmit= {handleSubmit}/></div>
       </div>
       <div className="cardscontainer"><CardList data = {cardData}/></div>
         </div>
