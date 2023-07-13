@@ -115,14 +115,14 @@ const App = () => {
 
   const deleteBoardFromAPI = (boardId) => {
     axios.delete(`${boardsURL}/boards/${boardId}`)
-    .then((response) => console.log('Board Delted!', response.data))
+    .then((response) => console.log('Board Deleted!', response.data))
     .catch((e) => console.log(e));
   }
 
   return (
     <div className="App">
       <header>
-        <h1>MMNJ INSPO BOARD</h1>
+        <h1>MNNJ INSPO BOARD</h1>
       </header>
       <main>
         <div>
