@@ -12,7 +12,7 @@
 }
 
 .each-card {
-    border: solid red;
+    /* border: solid red; */
     height: 100%;
     width: 100%;
     text-align: center;
@@ -25,10 +25,10 @@
 }
 
 .likes-delete {
-    background-color: #e7e7e7;
+    background-color:#EB418B;
     border: none;
     border-radius: 0.3rem;
-    color: black;
+    color: white;
     padding: 0.3rem 1rem;
     margin: 0rem 0.5rem;
     text-align: center;
@@ -38,9 +38,9 @@
     cursor: pointer;
 }
 
-/* .likes-delete:hover {
+.likes-delete:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-} */
+}
 
 .likes-delete:active {
     background-color: #e7e9eb;
