@@ -102,28 +102,41 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App grid-container">
       <header className="App-header">
-        <h1 className='heading'>Inspiration Board</h1>
+        <h3 className='heading'>Inspiration Board</h3>
       </header>
-      <main>
+      <section className='board-list'>
+        <h3 className='sect-heading'>Boards</h3>
         <BoardList 
         boardSelect={boardSelect} 
         boardData={boardsData}
         selectedBoard={selectedBoard}
         />
+      </section>
+      <section className='selected-board'>
+        <h3 className='sect-heading'>Selected Board</h3>
+      </section>
+      <section className='board-form'>
+        <h3 className='sect-heading'>Create a New Board</h3>
+        <NewBoardForm 
+          className='board-input'
+          addBoard={addBoard}
+        />
+      </section>
+      <section className='cards-list'>
         <Board 
         cardData={cards} 
         deleteCard={deleteCard}
         increaseLikesCount={increaseLikesCount}
         />
-        <NewBoardForm 
-        addBoard={addBoard}
-        />
+      </section>
+      <aside className='card-form'>
+        <h3 className='sect-heading'>Create a New Card</h3>
         <NewCardForm 
-        addCard={addCard}
+          addCard={addCard}
         />
-      </main>
+      </aside>
     </div>
   );
 };
