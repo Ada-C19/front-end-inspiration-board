@@ -6,55 +6,10 @@ import BoardForm from "./components/BoardForm";
 import CardForm from "./components/CardForm";
 import axios from "axios";
 
-const sample_board = [
-  {
-    board_id: 1,
-    title: "Board1",
-    owner: "Owner1",
-  },
-  {
-    board_id: 2,
-    title: "Board2",
-    owner: "Owner2",
-  },
-];
-const sample_card = [
-  {
-    card_id: 1,
-    board_id: 1,
-    message: "SampleCard-Board1",
-    likes_count: 3,
-  },
-  {
-    card_id: 4,
-    board_id: 1,
-    message: "SampleCard-Board1",
-    likes_count: 3,
-  },
-  {
-    card_id: 5,
-    board_id: 1,
-    message: "SampleCard-Board1",
-    likes_count: 3,
-  },
-  {
-    card_id: 2,
-    board_id: 1,
-    message: "SampleCard2-Board1",
-    likes_count: 1,
-  },
-  {
-    card_id: 3,
-    board_id: 2,
-    message: "SampleCard3-Board2",
-    likes_count: 3,
-  },
-];
-
 function App() {
-  const [boards, setBoards] = React.useState(sample_board);
+  const [boards, setBoards] = React.useState([]);
   const [selectedBoard, setSelectedBoard] = React.useState({});
-  const [cards, setCards] = React.useState(sample_card);
+  const [cards, setCards] = React.useState([]);
 
   React.useEffect(() => {
     axios
@@ -89,6 +44,18 @@ function App() {
       });
   };
 
+  const deleteBoard = (id) => { 
+    console.log("delete");
+    axios
+      .delete(`https://back-end-inspo-rkak.onrender.com/boards/${id}`)
+      .then(() => {
+        setBoards((prevBoards) => {
+          const updatedBoards = prevBoards.filter((board) => board.board_id !== id);
+          return updatedBoards;
+        });
+      });
+  };
+  
   const selectBoard = (id) => {
     const matchedBoard = boards.find((board) => board.board_id === id);
     axios
@@ -99,8 +66,33 @@ function App() {
     setSelectedBoard(matchedBoard);
   };
 
-  const boardList = <BoardList boards={boards} callBack={selectBoard} />;
+  const addBoard = (newBoardData) => {
+
+    if (newBoardData.title.length === 0) {
+      alert("Please enter a title!")
+      return 
+    }
+    if (newBoardData.owner.length === 0) {
+      alert("Please enter an owner!")
+      return 
+    }
   
+    axios
+    .post(`https://back-end-inspo-rkak.onrender.com/boards`, newBoardData)
+    .then((response) => {
+      const newBoard = response.data.Boards;
+      setBoards((prevBoards) => [...prevBoards, newBoard]);
+      console.log(response.data);
+      console.log("newBoards " + JSON.stringify(response.data))
+    })
+    .catch((error) => {
+      console.log(error);
+    });      
+  };
+  
+
+  const boardList = <BoardList boards={boards} callBack={selectBoard} addBoardCallback={addBoard} />;
+
   const addCard = (newCardData) => {
 
     if (selectedBoard.board_id === undefined) {
@@ -139,7 +131,7 @@ function App() {
         console.log(error);
       });
   };
-
+  
   return (
     <div className="App">
       <header className="App-header">Inspiration Board</header>
@@ -152,7 +144,7 @@ function App() {
         <section className="element">
           <h3>Create New Board:</h3>
           <div className="board-form-container">
-            <BoardForm />
+            <BoardForm addBoardCallback={addBoard}/>
           </div>
         </section>
 
@@ -169,6 +161,7 @@ function App() {
             cards={cards}
             boardsData={selectedBoard}
             increaseLikes={increaseLikes}
+            deleteBoard={deleteBoard}
             deleteCard={deleteCard}
           />
         </section>

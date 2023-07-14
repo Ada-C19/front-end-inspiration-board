@@ -1,3 +1,12 @@
+.board-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: auto;
+    word-wrap: break-word;
+    flex-wrap: wrap;
+  }
+
 .board-list-items {
     padding:.25rem;
 }
