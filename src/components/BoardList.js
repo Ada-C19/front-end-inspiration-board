@@ -3,37 +3,28 @@ import PropTypes from 'prop-types'
 import './BoardList.css'
 
 function BoardList({boards, callBack}) {
+    console.log(boards)
     const board = boards.map((board)=> {
         return (
-            <li className="board-list-items" onClick = {()=>{callBack(board.board_id)}} key={board.board_id}> {board.title}</li>
+            <li className="board-list-items" onClick = {()=>{callBack(board.board_id)}} key={board.board_id}> {board.title} <br/> by {board.owner}</li>
     )})
 
     return (
-    <div className="board_list">
+    <div className="board-list-container">
         {board}
     </div>
     )
 }
 
-// BoardList.propTypes = {
-//     //boards is a dictionary
-//     //cards is a dictionary
-// }
-
 BoardList.propTypes = {
-    boardData: PropTypes.arrayOf(
+    boards: PropTypes.arrayOf(
       PropTypes.shape({
-        boardId: PropTypes.number.isRequired,
-        boardTitle: PropTypes.string.isRequired,
-        boardOwner: PropTypes.string.isRequired,
-        cards: PropTypes.arrayOf(
-          PropTypes.shape({
-            message: PropTypes.string.isRequired,
-            likeCount: PropTypes.number.isRequired
-          })
-        )
+        board_id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        owner: PropTypes.string.isRequired
       })
-    )
+    ),
+    callBack: PropTypes.func.isRequired,
   };
 
 export default BoardList;
