@@ -44,13 +44,15 @@ function App() {
   const [likes, setLikes] = useState(0)
   const [selectedBoard, setSelectedBoard] = useState(null)
   const [isFormVisible, setIsFormVisible] = useState(true)
-
+  const [selectedBoardTitle, setSelectedBoardTitle] = useState(null);
+  
   // ######## Select Board######## 
   // Need to fix this.
 
   const boardSelect = (id, title, owner) => {
       setSelectedBoard({id, title, owner})
       // console.log("selected board owner", selectedBoard.owner)
+      setSelectedBoardTitle(title);
       cardSelect(id)
   }
 
@@ -120,6 +122,7 @@ function App() {
     });
     setCards(updatedCards);
   };
+
   // ######## Toggle Board Form Visibility ########
   const toggleFormVisibility = () => {
     setIsFormVisible(prevState => !prevState);
@@ -157,6 +160,9 @@ function App() {
         </button>
       </section>
       <section className='cards-list'>
+          <section>
+            <h3 className='sect-heading'> {selectedBoardTitle} Cards </h3>
+          </section>
         {selectedBoard && (
         <Board
           cardData={cards}
