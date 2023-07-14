@@ -23,50 +23,12 @@ header {
 .board {
     /* border: purple solid 2px; */
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-image: radial-gradient( rgb(195, 182, 255), #FFFFE0);
     opacity: 0.9;
     border-radius: 2vh;
     margin: 2vh;
     font: monospace;
-    height: auto;
+    height: 100vh;
     border: black 2px solid;
-}
-
-.board-title {
-    /* border: red solid 2px; */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 3vh;
-    font-weight: bolder;
-    font-stretch: ultra-expanded;
-    margin: 1vh;
-    padding: 1vh;
-    border-bottom: black 2px solid;
-}
-
-.board-owner {
-    border: red solid 2px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 3vh;
-    font-weight: bolder;
-    font-stretch: ultra-expanded;
-    margin: 1vh;
-    padding: 1vh;
-    border-bottom: black 2px solid;
-}
-
-.board-delete-button {
-        border: red solid 2px;
-    display: flex;
-    flex-direction: center;
-    justify-content: center;
-    align-items: center;
-    font-size: 3vh;
-    border-bottom: black 2px solid;
 }
