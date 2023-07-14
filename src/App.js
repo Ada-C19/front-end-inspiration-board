@@ -4,6 +4,7 @@ import Board from './components/Board';
 import BoardList from './components/BoardList';
 import NewBoardForm from './components/NewBoardForm';
 import NewCardForm from './components/NewCardForm';
+import CardList from './components/CardList';
 
 
 // ######## Dummy Data ######## 
@@ -12,12 +13,12 @@ const boardData = [
   {
   "id": 1,
   "title": "Title 1",
-  "owner": "Owner 1"
+  "owner": "Owner 1",
   },
   {
   "id": 2,
   "title": "Title 2",
-  "owner": "Owner 2"
+  "owner": "Owner 2",
   }
 ]
 
@@ -25,27 +26,45 @@ const cardData = [
   {
   "id": 1,
   "message": "This is a quote",
-  "likesCount": 0
+  "likesCount": 0,
+  "board_id": 1
   },
   {
   "id": 2,
   "message": "This is a cooler quote",
-  "likesCount": 0
+  "likesCount": 0,
+  "board_id": 2
   }
 ]
 
 function App() {
+  // console.log(boardData[0]["cards"])
   const [cards, setCards] = useState(cardData)
   const [boardsData, setBoardsData] = useState(boardData)
   const [likes, setLikes] = useState(0)
-  const [selectedBoard, setSelectedBoard] = useState([])
+  const [selectedBoard, setSelectedBoard] = useState(null)
 
   // ######## Select Board######## 
   // Need to fix this.
 
-  const boardSelect = (id, title) => {
-      setSelectedBoard({id, title})
+  const boardSelect = (id, title, owner) => {
+      setSelectedBoard({id, title, owner})
+      // console.log("selected board owner", selectedBoard.owner)
+      cardSelect(id)
   }
+
+
+  // ######## find cards with selected board id ######## 
+  const cardSelect = (id) => {
+    if (selectedBoard) {
+      const findCard = cardData.filter(card => card.board_id === id);
+      setCards(findCard);
+      console.log('Filtered cards:', findCard);
+    } else {
+      // Handle the case when no board is selected
+      setCards([]);
+    }
+  };
 
   // ######## Add new board ######## 
 
@@ -115,7 +134,10 @@ function App() {
         />
       </section>
       <section className='selected-board'>
-        <h3 className='sect-heading'>Selected Board</h3>
+        <h3 className='sect-heading'> Selected Board</h3>
+        <p>
+        {selectedBoard ? `${selectedBoard.title} - ${selectedBoard.owner}` : 'Select a Board from the Board List!'}
+      </p>
       </section>
       <section className='board-form'>
         <h3 className='sect-heading'>Create a New Board</h3>
@@ -125,11 +147,14 @@ function App() {
         />
       </section>
       <section className='cards-list'>
-        <Board 
-        cardData={cards} 
-        deleteCard={deleteCard}
-        increaseLikesCount={increaseLikesCount}
+        {selectedBoard && (
+        <Board
+          cardData={cards}
+          deleteCard={deleteCard}
+          increaseLikesCount={increaseLikesCount}
+          cardSelect={cardSelect}
         />
+        )}
       </section>
       <aside className='card-form'>
         <h3 className='sect-heading'>Create a New Card</h3>

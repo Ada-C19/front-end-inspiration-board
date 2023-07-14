@@ -8,9 +8,8 @@ const CardList = ({ cardData, increaseLikesCount, deleteCard }) => {
   const cardListComponents = cardData.map(card => {
     
     return (
-      <ul>
+      <ul key = {card.id}>
         <Card
-        key = {card.id}
         id = {card.id}
         message = {card.message}
         likesCount = {card.likesCount}

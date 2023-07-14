@@ -4,11 +4,11 @@ import './BoardList.css';
 function BoardList({ boardData, boardSelect }) {
     const boardTitles = boardData.map(board => {
         return (
-        <li 
-          onClick={() => boardSelect(board.id, board.title)}
+        <ul 
+          onClick={() => boardSelect(board.id, board.title, board.owner)}
         >
           {board.title}
-        </li>
+        </ul>
         )
     })
     
