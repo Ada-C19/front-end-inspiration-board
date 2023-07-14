@@ -43,6 +43,7 @@ function App() {
   const [boardsData, setBoardsData] = useState(boardData)
   const [likes, setLikes] = useState(0)
   const [selectedBoard, setSelectedBoard] = useState(null)
+  const [isFormVisible, setIsFormVisible] = useState(true)
 
   // ######## Select Board######## 
   // Need to fix this.
@@ -119,6 +120,10 @@ function App() {
     });
     setCards(updatedCards);
   };
+  // ######## Toggle Board Form Visibility ########
+  const toggleFormVisibility = () => {
+    setIsFormVisible(prevState => !prevState);
+  };
 
   return (
     <div className="App grid-container">
@@ -141,10 +146,15 @@ function App() {
       </section>
       <section className='board-form'>
         <h3 className='sect-heading'>Create a New Board</h3>
-        <NewBoardForm 
-          className='board-input'
-          addBoard={addBoard}
-        />
+        {isFormVisible && (
+        <NewBoardForm
+            className='board-input'
+            addBoard={addBoard}
+          />
+        )}
+        <button onClick={toggleFormVisibility}>
+          {isFormVisible ? 'Hide Form' : 'Show Form'}
+        </button>
       </section>
       <section className='cards-list'>
         {selectedBoard && (
