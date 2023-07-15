@@ -3,31 +3,29 @@ import axios from 'axios';
 import NewBoardPreview from './NewBoardPreview';
 
 const NewBoardForm = ({ onAddBoard }) => {
-  const [title, setTitle] = useState('');
-  const [owner, setOwner] = useState('');
+    const [formFields, setFormFields] = useState({
+        title: '',
+        owner: '',
+      });
 
-  const handleTitleChange = (event) => {
-    setTitle(event.target.value);
-  };
-
-  const handleOwnerChange = (event) => {
-    setOwner(event.target.value);
+  const onFieldChange = (event) => {
+    setFormFields({
+      ...formFields,
+      [event.target.name]: event.target.value
+    });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const newBoard = {
-      title: title,
-      owner: owner,
-    };
-
-    axios.post('http://localhost:5000/boards', newBoard)
+    axios.post('http://localhost:5000/boards', formFields)
       .then(response => {
         const createdBoard = response.data;
         onAddBoard(createdBoard);
-        setTitle('');
-        setOwner('');
+        setFormFields({
+          title: '',
+          owner: '',
+        });
       })
       .catch(error => {
         console.error('Error creating board:', error);
@@ -42,8 +40,9 @@ const NewBoardForm = ({ onAddBoard }) => {
           <input
             type="text"
             id="title"
-            value={title}
-            onChange={handleTitleChange}
+            name="title"
+            value={formFields.title}
+            onChange={onFieldChange}
             required
           />
         </div>
@@ -52,16 +51,17 @@ const NewBoardForm = ({ onAddBoard }) => {
           <input
             type="text"
             id="owner"
-            value={owner}
-            onChange={handleOwnerChange}
+            name="owner"
+            value={formFields.owner}
+            onChange={onFieldChange}
             required
           />
         </div>
-        <button type="submit" value="Add Board" disabled={!title || !owner}>
+        <button type="submit" value="Add Board" disabled={!formFields.title || !formFields.owner}>
           Create a New Board
         </button>
       </form>
-        <NewBoardPreview title={title} owner={owner} />
+        <NewBoardPreview title={formFields.title} owner={formFields.owner} />
     </div>
   );
 };
