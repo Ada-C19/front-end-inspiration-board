@@ -11,31 +11,33 @@ const AddBoard = (props) => {
     const hidden = hide? 'hide-form':""
     const hiddenText = hide? "Show New Board Form": "Hide New Board Form"
 
-
-    const[boardName, setBoardName] = useState('');
+    const boardDefault = {
+        title:'',
+        owner:''
+    }
+    const[boardEntry, setBoardEntry] = useState(boardDefault);
     const boardInput = (event) =>{
-        setBoardName(event.target.value);
+        const fieldName = event.target.name;
+        const fieldValue = event.target.value;
+    
+        const newFormData = {...boardEntry, [fieldName]: fieldValue};
+        setBoardEntry(newFormData);
     };
     const onSubmit = (event) =>{
         event.preventDefault();
-        const newBoard = {
-        title:boardName,
-        owner: '',
-       };
-    
-        props.handleSubmit(newBoard);
-        setBoardName('');}
+        props.handleSubmit(boardEntry);
+        setBoardEntry('');}
     return (
     <section>
     <h3 id='boardtitle'>Create New Board</h3>
     <form className={hidden} onSubmit={onSubmit}>
         <div className= 'input'>
-            <label htmlFor="name">Title</label>
-            <input type="text" id="name" name='name'  onChange={boardInput} value={boardName}></input>
+            <label htmlFor="title">Title</label>
+            <input type="text" id="title" name='title'  onChange={boardInput} value={boardEntry.title}></input>
             <label htmlFor="owner">Owner's Name</label>
-            <input type="text" id="owner" name='owner' ></input>
+            <input type="text" id="owner" name='owner' onChange={boardInput} value={boardEntry.owner}></input>
             <input type="submit" value="Submit"></input>
-        <p>Preview:{boardName} </p>
+        <p>Preview:{boardEntry.title} </p>
         </div>
     </form>
     <button className='button' onClick={handleHideBoard}>{hiddenText}</button>
