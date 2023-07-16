@@ -39,7 +39,7 @@ const AddBoard = (props) => {
             <input type="text" id="owner" name='owner' onChange={boardInput} value={boardEntry.owner} required></input>
             <span>You must enter owner name </span> <br />
             <input type="submit" value="Submit"></input>
-        <p>Preview:{boardEntry.title}{boardEntry.owner} </p>
+        <p>Preview:{boardEntry.title} - {boardEntry.owner} </p>
         </div>
     </form>
     <button className='button' onClick={handleHideBoard}>{hiddenText}</button>
