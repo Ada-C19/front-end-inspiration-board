@@ -34,10 +34,10 @@ const AddBoard = (props) => {
         <div className= 'input'>
             <label htmlFor="title">Title</label>
             <input type="text" id="title" name='title'  onChange={boardInput} value={boardEntry.title} required></input>
-            <span>You must enter board title</span> <br />
+            <span>Title field required!</span> <br />
             <label htmlFor="owner">Owner's Name</label>
             <input type="text" id="owner" name='owner' onChange={boardInput} value={boardEntry.owner} required></input>
-            <span>You must enter owner name </span> <br />
+            <span>Owner field required! </span> <br />
             <input type="submit" value="Submit"></input>
         <p>Preview:{boardEntry.title} - {boardEntry.owner} </p>
         </div>

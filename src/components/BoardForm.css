@@ -5,7 +5,7 @@
   margin-left: 50px;
   width: 150px;
   align-self: center;
-  background-color: rgb(5, 168, 168);
+  background-color: darkcyan;
   padding: 20px;
   border: solid 2px white;
 }
@@ -43,9 +43,11 @@ button:hover{
 }
 
 span{
-    font-size: 15px;
-    color: red;
+    font-size: 17px;
+    color: rgb(162, 56, 56);
     display: none;
+    font-weight: 580;
+    font-style: italic;
 
 }
 
