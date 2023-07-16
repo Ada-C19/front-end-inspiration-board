@@ -5,7 +5,7 @@
   margin-left: 50px;
   width: 150px;
   align-self: center;
-  background-color: darkcyan;
+  background-color: rgb(5, 168, 168);
   padding: 20px;
   border: solid 2px white;
 }
@@ -40,4 +40,15 @@ button:hover{
 
 .hide-form{
     display: none;
+}
+
+span{
+    font-size: 15px;
+    color: red;
+    display: none;
+
+}
+
+input:invalid ~ span{
+    display: block;
 }
