@@ -33,7 +33,7 @@ const App = () => {
   const updateBoard = (boardID) => {
     return axios
       .patch((`${URL}/${boardID}`))
-      .then(() => {
+      .then((response) => {
         const updatedBoardData = response.data
         setBoards((prevBoards) => {
           return prevBoards.map((board) => {

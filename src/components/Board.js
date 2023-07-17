@@ -31,6 +31,7 @@ Board.propTypes = {
   deleteBoard: PropTypes.func.isRequired,
 }
 
+export default Board;
 
 
 // const Board = ({ id, title, owner }) => {
@@ -103,4 +104,4 @@ Board.propTypes = {
 //   owner: PropTypes.string.isRequired,
 // };
 
-// export default Board;
+

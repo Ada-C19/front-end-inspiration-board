@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import NewBoardPreview from './NewBoardPreview';
-import './NewBoardForm.css';
+// import './NewBoardForm.css';
 
 const NewBoardForm = ( props ) => {
     const [formFields, setFormFields] = useState({
