@@ -2,13 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 
-const Card = ({id, message, likes, likeCard}) => {
+const Card = ({ cardId, message, likes, boardId, likeCard }) => {
   return (
     <div>
       <section>
         {likes}
-        <button onClick={() => likeCard(id)}><img src="plus_button.png" alt="Like button"/>
-          </button>
+        <button onClick={() => likeCard(cardId)}>
+          <img src="/assets/plus_button.png" alt="Like button"/>
+        </button>
       </section>
       <body>
         {message}
@@ -18,10 +19,9 @@ const Card = ({id, message, likes, likeCard}) => {
 }
 
 Card.propTypes = {
-  id: PropTypes.number.isRequired,
+  cardId: PropTypes.number.isRequired,
   message: PropTypes.string.isRequired,
   likes: PropTypes.number.isRequired,
-  board: PropTypes.object,
   boardId:PropTypes.number,
   likeCard: PropTypes.func.isRequired
 }

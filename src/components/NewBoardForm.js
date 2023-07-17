@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 
 const NewBoardForm = ({ addBoardCallback }) => {
     const [formFields, setFormFields] = useState({
-        name:'',
-        description:''
+        title:'',
+        owner:'',
+        cards:[]
     });
 
     const onNameChange = (event) => {
@@ -14,12 +15,22 @@ const NewBoardForm = ({ addBoardCallback }) => {
         })
     };
 
+
     const onDescChange = (event) => {
         setFormFields({
             ...formFields,
             description: event.target.value
         })
     };
+
+    // a way to handle both changes at once (refactored above 2 functions into one)
+    // const handleChange = (event) => {
+    //     const name = event.target.name;
+    //     setFormFields({
+    //         ...formFields,
+    //         [name]: event.target.value
+    //     });
+    // };
 
     const onFormSubmit = (event) => {
         event.preventDefault();
