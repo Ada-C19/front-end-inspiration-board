@@ -1,0 +1,18 @@
+[
+    {
+      "boardId": 1,
+      "title": "Movie Lovers",
+      "owner": "Amethyst",
+      "cards": [{
+            "cardId": 1,
+            "message": "Taylor Swift - Dear John!!! Stupid man!",
+            "likes": 0
+      }]
+    },
+    {
+      "boardId": 9,
+      "title": "Music Loaves",
+      "owner": "Sapphire",
+      "cards": []
+    }
+]
