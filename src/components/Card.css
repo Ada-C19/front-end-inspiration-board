@@ -1,6 +1,43 @@
-.card {
+/* .card {
     margin: 1rem;
     border: 2px;
     border-style: dashed;
     background-color: cadetblue;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+@keyframes flutter {
+    0% { box-shadow: 0px 10px 24px rgba(0, 0, 0, 0.15); }
+    50% { box-shadow: 0px 12px 26px rgba(0, 0, 0, 0.2); }
+    100% { box-shadow: 0px 10px 24px rgba(0, 0, 0, 0.15); }
 }
+
+.card-text {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.2rem;
+    padding: 1rem;
+}
+
+.card {
+    width: 200px;
+    height: 200px;
+    background: #fdfd96;
+    position: relative;
+    margin: 1rem;
+    box-shadow: 0px 10px 24px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    background: linear-gradient(120deg, #fdfd96, #f0e68c);
+    animation: flutter 6s infinite ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card:active {
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+

@@ -34,7 +34,7 @@ const NewCardForm = ( {addCard} ) => {
     return (
         <form className='new-card-form' onSubmit={onFormSubmit}>
             <div>
-                <h3>ADD A CARD TO CURRNET BOARD</h3>
+                <h3>ADD A CARD TO CURRENT BOARD</h3>
                 <label htmlFor="message">Message:</label>
                 <input 
                     id="message" 
@@ -62,5 +62,4 @@ NewCardForm.propTypes = {
     addCard: PropTypes.func.isRequired
 }
 
-export default NewCardForm
-
+export default NewCardForm;
