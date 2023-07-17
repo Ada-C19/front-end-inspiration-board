@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <p>hello world :)</p>
-      <Board />
+      <Board board_id={1} owner={"Abby"} title={"tamagotchis i have loved"}/>
     </div>
   );
 }

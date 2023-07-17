@@ -1,7 +1,4 @@
 const Board = props => {
-  // what is in a board?
-  // board id, owner, title
-  // as well as a container for all the cards
 
   return(
   <div>
@@ -10,7 +7,7 @@ const Board = props => {
     <p>owner: {props.owner}</p>
     <p>title: {props.title}</p>
 
-    <p><Card /></p>
+    {/* <p><Card /></p> */}
 
   </div>
   )
