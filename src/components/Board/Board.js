@@ -1,4 +1,5 @@
 import './Board.css';
+import Card from '../Card/Card';
 
 const Board = props => {
 
@@ -9,7 +10,7 @@ const Board = props => {
     <p>owner: {props.owner}</p>
     <p>title: {props.title}</p>
 
-    {/* <p><Card /></p> */}
+    <p><Card card_id={1} likesCount={3} message={"i love tamagotchi"} /></p>
 
   </div>
   )
