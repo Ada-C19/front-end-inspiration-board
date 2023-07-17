@@ -45,15 +45,12 @@ const addBoard = (board) => {
 
   return (
     <div>
-      <NewBoardForm onAddBoard={addBoard} />
-      {boards.map((board) => (
         <Board
           key={board.id}
           title={board.title}
           owner={board.owner}
           cards={board.cards}
         />
-      ))}
     </div>
   );
 };

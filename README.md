@@ -68,3 +68,16 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+
+### To-Do List
+- delete function in app.js
+- import BoardList, NewBoardForm, axious into app.js
+- all axious requests in app.js
+- delete DeleteCard component 
+- Board Component: handleUpdateBoard() update title and owner of board,  handleDeleteBoard() delete an entire board
+- Card Component: 
+- NewCardForm: import this form into App.js 
