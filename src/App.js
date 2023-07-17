@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import NewBoardForm from './components/NewBoardForm';
 import BoardList from './components/BoardList';
+import CardList from './components/CardList';
 import './App.css';
 import axios from 'axios';
 
@@ -13,6 +14,12 @@ const App = () => {
     title: '',
     owner: ''
   });
+  const [cards, setCards] = useState([]);
+  const [cardData, setCardData] = useState({
+    cardId: '',
+    message: '',
+    likesCount: 0,
+  })
 
   useEffect(() => {
     axios
@@ -80,6 +87,19 @@ const App = () => {
       });
   };
 
+  // Cards --------------------------------
+
+  const deleteCard = ( cardId ) => {
+    axios 
+      .delete(`${URL}/${cardId}`)
+      .then(() => {
+        const newCards = cards.filter((card) => card.id !== cardId);
+        setCards(newCards);
+      })
+  }
+
+
+
 
   return (
     <div className="App">
@@ -87,7 +107,9 @@ const App = () => {
         <h1>This is a test </h1>
       </header>
       <main>
-        <BoardList boards={boards} updateBoard={updateBoard} deleteBoard={deleteBoard} />
+        <BoardList boards={boards} updateBoard={updateBoard} deleteBoard={deleteBoard}>
+          {/* <CardList cards={cards} deleteCard={deleteCard} />  */}
+        </BoardList>
         <NewBoardForm addNewBoard={addNewBoard} />
       </main>
     </div>
