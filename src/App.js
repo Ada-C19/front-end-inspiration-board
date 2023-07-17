@@ -100,7 +100,7 @@ function App() {
       });
     });
   };
-  console.log(cardData)
+
   return (
     <section>
       <h1 id='heading' >🌟INSPIRATION BOARD🌟</h1>
