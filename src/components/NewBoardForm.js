@@ -27,6 +27,7 @@ const NewBoardForm = ( props ) => {
 
   return (
     <div>
+      <h1> Create new Board here </h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="title">Title:</label>

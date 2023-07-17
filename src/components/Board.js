@@ -11,6 +11,7 @@ const Board = ( props ) => {
   }
 
   const handleDeleteBoard = () => {
+    console.log(props)
     props.deleteBoard(props.boardId);
   }
 

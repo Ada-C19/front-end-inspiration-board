@@ -5,18 +5,19 @@ import Board from './Board.js';
 
 const BoardList = (props) => {
   return (
-    <ul>
-      {props.boards.map((board) => (
-        <Board
-        key={board.boardId}
-        title={board.title}
-        owner={board.owner}
-        updateBoard={props.updateBoard}
-        deleteBoard={props.deleteBoard}
-        // cards={board.cards}
-        />
-      ))}  
-    </ul>
+     <ul>
+        {props.boards.map((board) => (
+          <Board
+          key={board.boardId}
+          boardId={board.boardId}
+          title={board.title}
+          owner={board.owner}
+          updateBoard={props.updateBoard}
+          deleteBoard={props.deleteBoard}
+          // cards={board.cards}
+          />
+        ))}  
+      </ul>
   );
 };
 

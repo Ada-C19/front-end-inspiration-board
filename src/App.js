@@ -19,7 +19,7 @@ const App = () => {
       .get(URL)
       .then((response) => {
         const newBoards = response.data.map((board) => ({
-          boardId: board.boardId,
+          boardId: board.id,
           title: board.title,
           owner: board.owner,
         }));
@@ -50,15 +50,15 @@ const App = () => {
       .catch((error) => console.log("cant update board", error));
   }
 
-  const deleteBoard = (boardID) => {
-    return axios 
-      .delete(`${URL}/${boardID}`)
+  const deleteBoard = (boardId) => {
+    axios
+      .delete(`http://localhost:5000/boards/${boardId}`)
       .then(() => {
-        const newBoards = boards.filter((board) => board.boardId !== boardID);
+        console.log(boards);
+        const newBoards = boards.filter((board) => board.boardId !== boardId);
         setBoards(newBoards);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(error => {
       });
   };
 
@@ -84,6 +84,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
+        <h1>This is a test </h1>
       </header>
       <main>
         <BoardList boards={boards} updateBoard={updateBoard} deleteBoard={deleteBoard} />
