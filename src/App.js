@@ -7,8 +7,13 @@ import Board from './components/Board';
 
 const boardsURL = `${process.env.REACT_APP_BACKEND_URL}`
 
+//axios calls go up here 
 
 function App() {
+
+  //function to update board data goes here? whats the diff?
+
+  //function to add board data goes here
   return (
     <div className="App">
       <header> 
@@ -18,7 +23,7 @@ function App() {
       <h1>Boards</h1>
       <h1>Selected  board</h1>
       <h1>Create New board</h1>
-      <NewBoardForm/>
+      <NewBoardForm/>   {/* add board data  goes on this line */} 
       <button>Hide new board form</button>
       </body>
 
