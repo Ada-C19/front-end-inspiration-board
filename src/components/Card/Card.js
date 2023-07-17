@@ -8,7 +8,6 @@ const Card = props => {
       <p>Message: {props.message}</p>
       <p>Likes: {props.likesCount}</p>
       
-    
     </div>
   )
 };
