@@ -89,10 +89,11 @@ function App() {
 
   const onLikeCard = (id) => {
     likeCard(id).then((updatedCard) => {
-      console.log(updatedCard);
+
       setCardData((oldData) => {
+        console.log('this is oldData: ', oldData)
         return oldData.map((card) => {
-          if (card.id === id) {
+          if (card.card_id === id) {
             return updatedCard;
           }
           return card;
@@ -101,7 +102,7 @@ function App() {
       });
     });
   };
-
+  console.log(cardData)
   return (
     <section>
       <h1 id='heading' >🌟INSPIRATION BOARD🌟</h1>

@@ -36,6 +36,7 @@ button:hover{
     width: 8vw;
     font-weight: 800;
     color: white;
+    align-self: center;
 }
 
 .hide-form{
@@ -57,3 +58,4 @@ span{
 input:invalid {
    border-color: red;
    }
+
