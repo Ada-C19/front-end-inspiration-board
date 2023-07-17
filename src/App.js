@@ -20,11 +20,13 @@ function App() {
         <h1>Inspiration board </h1>
       </header>
       <body>
-      <h1>Boards</h1>
-      <h1>Selected  board</h1>
-      <h1>Create New board</h1>
-      <NewBoardForm/>   {/* add board data  goes on this line */} 
-      <button>Hide new board form</button>
+        <h1>Boards</h1>
+        <h1>Selected  board</h1>
+        <h1>Create New board</h1>
+        <NewBoardForm
+          //props
+        />   {/* add board data  goes on this line */} 
+        <button>Hide new board form</button>
       </body>
 
     </div>
@@ -35,7 +37,7 @@ export default App;
 
 
 //all headers wil live here 
-//inspiration board is always there 
+//inspiration board is a static header  
 //boards header
 //selected board
 //create new board
