@@ -44,7 +44,7 @@ const App = () => {
           test
         </h1>
       </header>
-      <section>
+      <section className="board-list">
         <BoardList
             boards={boardData}
             onUpdateBoard={updateBoardData}
