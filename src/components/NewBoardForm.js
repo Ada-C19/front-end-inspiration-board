@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 
 const NewBoardForm = ({ addBoardCallback }) => {
     const [formFields, setFormFields] = useState({
-        name:'',
-        description:''
+        title:'',
+        owner:'',
+        cards:[]
     });
 
     const onNameChange = (event) => {

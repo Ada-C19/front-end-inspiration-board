@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import Board from './Board';
+import "./styles/BoardList.css"
 
-const BoardList = ({boards}) => {
-    const boardComponents = boards.map(board => {
+const BoardList = ({ boards, createBoard, createCard, likeCard }) => {
+    const boardComponents = boards.map((board) => {
         return (
             <Board 
             boardId = {board.boardId}
@@ -17,17 +18,21 @@ const BoardList = ({boards}) => {
         )
     })
     return (
-        <div>{boardComponents}</div>
+        <div>
+            <section className="board-list">
+                {boardComponents}
+            </section>
+        </div>
     )
 }
 
-// BoardList.PropTypes = {
-//     boards: PropTypes.arrayOf(
-//         PropTypes.shape = ({
-//             id: PropTypes.number.isRequired,
-//             title: PropTypes.string.isRequired,
-//             owner: PropTypes.string.isRequired
-//         })
-//     )
-// }
+BoardList.propTypes = {
+    boards: PropTypes.arrayOf(
+        PropTypes.shape = ({
+            id: PropTypes.number.isRequired,
+            title: PropTypes.string.isRequired,
+            owner: PropTypes.string.isRequired
+        })
+    )
+}
 export default BoardList

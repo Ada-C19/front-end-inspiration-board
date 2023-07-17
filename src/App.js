@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import CardList from './components/CardList';
+// import CardList from './components/CardList';
 import NewBoardForm from './components/NewBoardForm';
 import BoardList from './components/BoardList';
+import boardInfo from "./util/mock_data.json"
 
-function App() {
-
-
+const App = () => {
   // boardData State
-  const [boardData, setBoardData] = useState({});
+  const [boardData, setBoardData] = useState(boardInfo);
   // updating board data
   const updateBoardData = updatedBoard => {
     const boards = boardData.map(board => {
@@ -38,38 +36,53 @@ function App() {
 
     setBoardData(newBoardList);
 };
-// BoardList & NewBoardForm Components
-return (
-<>
-<BoardList
-      boards={boardData}
-      onUpdateBoard={updateBoardData}
-  ></BoardList>
-  <NewBoardForm
-      addBoardCallback={addBoardData}
-  ></NewBoardForm>
-</>);
+  // BoardList & NewBoardForm Components
+  return (
+    <div id="App">
+      <header>
+        <h1>
+          test
+        </h1>
+      </header>
+      <section>
+        <BoardList
+            boards={boardData}
+            onUpdateBoard={updateBoardData}
+        />
+        <NewBoardForm
+            addBoardCallback={addBoardData}
+        />
+      </section>
+      {/* put the buttons [Create New Board] here; */}
+    </div>
+  );
 
-/*
-// const getCards =(boardId) => {
+/*  > so to use the likeCard function, you first need to GET the cards from the board.
+   >> the getCards helper function uses filter method to get the board 
+
+const getCards =(boardId) => {
   // access the board's cards through board id
-  // return <cards>
-  // boardData.filter(id => {
-    // if id == boardId, return that board;
-  // const cards = board.card
-  // return cards
-  // })
-// }
-// const likeCard = () => {
-//   const cards = getCards();
-//   let total = 0;
-//   for (let card of cards) {
-//     total += card.likes;
-//   }
+  const board = boardData.filter(id => 
+    id != boardId)
+    // but like filter removes the matching stuff so... idk if this will do
+  const cards = board.cards
+  return cards
+  })
+}
 
-//   return total;
-// };
 
+
+const likeCard = () => {
+  const cards = getCards();
+  let total = 0;
+  for (let card of cards) {
+    total += card.likes;
+  }
+
+  return total;
+};
+
+*/
 
 
 

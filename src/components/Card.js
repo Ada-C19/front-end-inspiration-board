@@ -2,13 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 
-const Card = ({cardId, message, likes, boardId, likeCard}) => {
+const Card = ({ cardId, message, likes, boardId, likeCard }) => {
   return (
     <div>
       <section>
         {likes}
-        <button onClick={() => likeCard(cardId)}><img src="/assets/plus_button.png" alt="Like button"/>
-          </button>
+        <button onClick={() => likeCard(cardId)}>
+          <img src="/assets/plus_button.png" alt="Like button"/>
+        </button>
       </section>
       <body>
         {message}

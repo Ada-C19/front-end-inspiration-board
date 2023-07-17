@@ -2,14 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CardList from './CardList';
 
-const Board = ({id , title, owner, cards, createBoard, createCard, likeCard}) => {
+const Board = ({ id, title, owner, cards, createBoard, createCard, likeCard }) => {
     
     return (
         <div>
             <h2>{title}</h2>
             <p>{owner}</p>
             <p className='title_underline'> --------------------------------- </p>
-            <p>{cards}</p>
 
             <button 
                 onClick = {() => createBoard()}
