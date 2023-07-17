@@ -32,10 +32,10 @@ const AddBoard = (props) => {
     <h3 id='boardtitle'>Create New Board</h3>
     <form className={hidden} onSubmit={onSubmit}>
         <div className= 'input'>
-            <label htmlFor="title">Title</label>
-            <input type="text" id="title" name='title'  onChange={boardInput} value={boardEntry.title} required></input>
-            <label htmlFor="owner">Owner's Name</label>
-            <input type="text" id="owner" name='owner' onChange={boardInput} value={boardEntry.owner} required></input>
+            <label htmlFor="title">Title</label> <br />
+            <input type="text" id="title" name='title'  onChange={boardInput} value={boardEntry.title} required></input> <br />
+            <label htmlFor="owner">Owner's Name</label> <br />
+            <input type="text" id="owner" name='owner' onChange={boardInput} value={boardEntry.owner} required></input> <br />
             <input type="submit" value="Submit"></input>
         <p>Preview:{boardEntry.title} - {boardEntry.owner} </p>
         </div>
