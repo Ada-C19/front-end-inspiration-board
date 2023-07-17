@@ -11,9 +11,34 @@ const boardsURL = `${process.env.REACT_APP_BACKEND_URL}`
 
 function App() {
 
+  // initiate state
+  const [ boardsData, setBoardsData ] = useState([]);
+
   //function to update board data goes here? whats the diff?
 
   //function to add board data goes here
+
+  //function that handles API POST new board call Crud-dy
+  // does this need to be accessed by other functions? do we need to use this in something else?
+  const createNewBoard = (newBoard) => {
+    console.log('on board submission');
+    axios
+      .post(`${boardsURL}/boards`, newBoard)
+      .then((response) => {
+        // we want the new board to be added 
+        // spread the big momma board
+        const boards = [...boardsData];
+        // push the response?
+        // .push() the board into it
+        boards.push(response.data.board);
+        // effect the use state
+        setBoardsData(boards);
+      }).catch((error) => {
+        console.log('Error:', error);
+        alert('Couldn\'t create a new board')
+      });
+  };
+
   return (
     <div className="App">
       <header> 
@@ -25,6 +50,8 @@ function App() {
         <h1>Create New board</h1>
         <NewBoardForm
           //props
+          // is board form visible? create conditional
+          createNewBoard={createNewBoard}
         />   {/* add board data  goes on this line */} 
         <button>Hide new board form</button>
       </body>

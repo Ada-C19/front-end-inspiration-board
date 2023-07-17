@@ -24,6 +24,11 @@ const NewBoardForm = () => {
         setOwner(changeEvent.target.value);
     };
 
+    const newBoardSubmit = (e) => {
+        e.preventDefault();
+        console.log('new board submit');
+    };
+
 
     return (
     <form>
