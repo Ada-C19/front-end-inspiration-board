@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 
 const NewCardForm = ({ addCard }) => {
-  const [newCard, setNewCards] = useState('');
+  const [newCard, setNewCards] = useState(
+    {
+      message: ''
+    }
+  );
 
   const handleSubmit = event => {
     event.preventDefault();
