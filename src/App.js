@@ -50,13 +50,14 @@ return (
   ></NewBoardForm>
 </>);
 
-
+/*
 // const getCards =(boardId) => {
   // access the board's cards through board id
   // return <cards>
   // boardData.filter(id => {
     // if id == boardId, return that board;
-
+  // const cards = board.card
+  // return cards
   // })
 // }
 // const likeCard = () => {

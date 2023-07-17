@@ -9,15 +9,15 @@ const BoardList = ({boards}) => {
             boardId = {board.boardId}
             title = {board.title} 
             owner = {board.owner}
-            cards = {b}
-            createBoard, 
-            createCard, 
-            likeCard}
+            cards = {board.cards}
+            createBoard = {createBoard}
+            createCard = {createCard}
+            likeCard = {likeCard}
             />
         )
     })
     return (
-        <div>BoardList</div>
+        <div>{boardComponents}</div>
     )
 }
 
