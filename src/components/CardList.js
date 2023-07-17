@@ -11,6 +11,7 @@ const CardList = (props) => {
             key = {card.card_id}
             message = {card.message}
             likes = {card.likes_count}
+            likeCard = {props.onLikeCard}
             />
         );
 });
@@ -26,7 +27,8 @@ Cards.propTypes = {
     data: PropTypes.shape({
         id: PropTypes.number.isRequired,
         message: PropTypes.string.isRequired,
-        likes_count: PropTypes.number.isRequired
+        likes_count: PropTypes.number.isRequired,
+        onLikeCard: PropTypes.func
     })
 };
 

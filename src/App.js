@@ -76,6 +76,32 @@ function App() {
       .catch((error)=> console.log(error));
   };
 
+  const likeCard = (id) => {
+    return axios
+      .patch(`${baseUrl}/cards/${id}`)
+      .then((response) => {
+        return (response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      }); 
+  };
+
+  const onLikeCard = (id) => {
+    likeCard(id).then((updatedCard) => {
+      console.log(updatedCard);
+      setCardData((oldData) => {
+        return oldData.map((card) => {
+          if (card.id === id) {
+            return updatedCard;
+          }
+          return card;
+          
+        });
+      });
+    });
+  };
+
   return (
     <section>
       <h1 id='heading' >🌟INSPIRATION BOARD🌟</h1>
@@ -87,7 +113,7 @@ function App() {
         <div className="selectedBoard"> {selectedBoard}</div>
         <div className="createBoard">< AddBoard handleSubmit= {handleSubmit}/></div>
       </div>
-      <div className="cardscontainer"><CardList data = {cardData}/></div>
+      <div className="cardscontainer"><CardList data = {cardData} onLikeCard = {onLikeCard}/></div>
         </div>
       
     <footer>This is the footer</footer>

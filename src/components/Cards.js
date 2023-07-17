@@ -7,7 +7,7 @@ const Cards = (props) => {
         <div className='card-frame'>
           <section>{props.message}</section>
 
-          <button className="card-like" >+1💕 {props.likes}</button>
+          <button className="card-like" onClick={()=> props.likeCard(props.id)} >+1💕 {props.likes} </button>
           <button className="delete" >delete</button>
         </div>
         );
@@ -17,7 +17,8 @@ const Cards = (props) => {
 Cards.propTypes = {
     id:PropTypes.number.isRequired,
     message:PropTypes.string.isRequired,
-    likes: PropTypes.number.isRequired
+    likes: PropTypes.number.isRequired,
+    likeCard: PropTypes.func
 }
 
 export default Cards;
