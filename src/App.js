@@ -16,8 +16,9 @@ const boardsURL = `${process.env.REACT_APP_BACKEND_URL}`
 const getAllBoards = () => {
   return axios.get(`${boardsURL}/boards`)
   .then((response) => {
-    return (response.data.map(convertBoardFromAPI))})
-  .catch((e) => console.log(e));
+    return (response.data.map(convertBoardFromAPI))
+  })
+  .catch((e) => console.log("error during getAllBoards!", e));
 }
 
 const convertBoardFromAPI = (data) => {
@@ -28,18 +29,21 @@ const convertBoardFromAPI = (data) => {
     };
 };
 
-// const getCardsForBoard = (boardId) => {
-//   return axios.get(`${boardsURL}/boards/${boardId}/cards`)
-//     .then((response) => console.log(response.data.cards))
-// }
+const getCardsForBoard = (boardId) => {
+  return axios.get(`${boardsURL}/boards/${boardId}/cards`)
+    .then((response) => console.log(response.data.cards))
+}
 
 const App = () => {
   const [boards, setBoards] = useState(boardData);
   const [targetBoardId, setTargetBoardId] = useState(1);
+  const [cards, setCards] = useState()
 
   // does not access CARDS data
   const fetchBoardData = () => {
-    getAllBoards().then((boards) => console.log("logging boards!"))
+    console.log("in Fetch Board Data")
+    getAllBoards()
+      .then((boards) => setBoards(boards))
   }
 
   useEffect( () => {fetchBoardData()}, [])
@@ -61,6 +65,8 @@ const App = () => {
     const boardIndex = findIndexOfTargetBoard();
     return (boards[boardIndex]);
   }
+
+  // const fetchCardData = () => 
 
   const displayCards = () => {
     const boardIndex = findIndexOfTargetBoard();
@@ -136,7 +142,7 @@ const App = () => {
             owner={currentBoard().owner}
             deleteBoard={deleteBoardFromAPI}
             />
-          {displayCards(targetBoardId)}
+          {/* {displayCards(targetBoardId)} */}
           <NewCardForm addCard={handleSubmitCard} />
         </div>
       </main>
