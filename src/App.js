@@ -89,9 +89,7 @@ function App() {
 
   const onLikeCard = (id) => {
     likeCard(id).then((updatedCard) => {
-
       setCardData((oldData) => {
-        console.log('this is oldData: ', oldData)
         return oldData.map((card) => {
           if (card.card_id === id) {
             return updatedCard;
