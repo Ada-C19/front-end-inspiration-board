@@ -36,7 +36,7 @@ const getCardsForBoard = (boardId) => {
 
 const App = () => {
   const [boards, setBoards] = useState(boardData);
-  const [targetBoardId, setTargetBoardId] = useState(1);
+  const [targetBoardId, setTargetBoardId] = useState(0);
   // const [cards, setCards] = useState()
 
   // does not access CARDS data
@@ -48,6 +48,7 @@ const App = () => {
   useEffect( () => {fetchBoardData()}, [])
 
   const handleSelectBoard = (boardId) => {
+    console.log("selecting board with ID:", boardId)
     setTargetBoardId(boardId);
     // getCardsForBoard(boardId);
   };
@@ -57,13 +58,20 @@ const App = () => {
       if (boards[i].id === targetBoardId) {
         return i;
       }
+    return 0
     }
   }
 
   const currentBoard = () => {
-    const boardIndex = findIndexOfTargetBoard();
-    return (boards[boardIndex]);
-  }
+    for (let board of boards) {
+      console.log("target board ID is:", targetBoardId)
+      console.log("board id is:", board.id)
+      if (board.id === targetBoardId) {
+        console.log("board found!", board)
+        return board;
+      }
+    return boards[1]
+  }}
 
   // const fetchCardData = () => 
 
@@ -140,7 +148,7 @@ const App = () => {
             title={currentBoard().title}
             owner={currentBoard().owner}
             deleteBoard={deleteBoardFromAPI}
-            />
+          />
           {/* {displayCards(targetBoardId)} */}
           <NewCardForm addCard={handleSubmitCard} />
         </div>
