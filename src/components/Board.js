@@ -5,13 +5,13 @@ import './Board.css';
 const Board = ( {board_id, title, owner, cards, deleteBoard} ) => {
 
     // delete board API call not working, throws error.
-    const handleDeleteBoard = (board_id) => {deleteBoard(board_id)}
+    const handleDeleteBoard = () => {deleteBoard(board_id)}
 
     return (
         <div className="board">
             <h1 className="h1-board">Board: {title}</h1>
             <p>Created By: {owner}</p>
-            {/* <button onClick={handleDeleteBoard}>Delete Board</button> */}
+            <button onClick={handleDeleteBoard}>Delete Board</button>
         </div>
     );
 };

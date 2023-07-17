@@ -37,11 +37,10 @@ const getCardsForBoard = (boardId) => {
 const App = () => {
   const [boards, setBoards] = useState(boardData);
   const [targetBoardId, setTargetBoardId] = useState(1);
-  const [cards, setCards] = useState()
+  // const [cards, setCards] = useState()
 
   // does not access CARDS data
   const fetchBoardData = () => {
-    console.log("in Fetch Board Data")
     getAllBoards()
       .then((boards) => setBoards(boards))
   }
@@ -122,7 +121,7 @@ const App = () => {
   const deleteBoardFromAPI = (boardId) => {
     axios.delete(`${boardsURL}/boards/${boardId}`)
     .then((response) => console.log('Board Deleted!', response.data))
-    .catch((e) => console.log(e));
+    .catch((e) => console.log(e.message));
   }
 
   return (
