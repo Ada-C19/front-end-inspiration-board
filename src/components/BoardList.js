@@ -1,58 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Board from './Board';
-import NewBoardForm from './NewBoardForm';
+import './BoardList.css';
 
-const BoardList = () => {
-  const [boards, setBoards] = useState([]);
-
-  useEffect(() => {
-    fetchBoards();
-  }, []);
-
-  const fetchBoards = () => { 
-    axios
-      .get('http://localhost:5000/boards')
-      .then(result => {
-        setBoards(result.data);
-      })
-      .catch(error => {
-        console.error("Error fetching boards", error);
-      });
-  };
-
-const addBoard = (board) => {
-    const newBoard = {
-      ...board,
-      cards: [],
-    };
-
-    axios
-      .post('http://localhost:5000/boards', newBoard)
-      .then(response => {
-        const createdBoard = response.data;
-        setBoards(prevBoards => [...prevBoards, createdBoard]);
-      })
-      .catch(error => {
-        handleError(error);
-      });
-    fetchBoards();
-  };
-
-  const handleError = (error) => {
-    console.error('Error:', error);
-  };
-
+const BoardList = (props) => {
   return (
-    <div>
+    <ul>
+      {props.boards.map((board) => (
         <Board
-          key={board.id}
-          title={board.title}
-          owner={board.owner}
-          cards={board.cards}
+        key={board.boardId}
+        title={board.title}
+        owner={board.owner}
+        updateBoard={props.updateBoard}
+        deleteBoard={props.deleteBoard}
+        // cards={board.cards}
         />
-    </div>
+      ))}  
+    </ul>
   );
 };
+
+BoardList.propTypes = {
+  boards: PropTypes.arrayOf(
+    PropTypes.shape({
+      boardId: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      owner: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  updateBoard: PropTypes.func.isRequired,
+  deleteBoard: PropTypes.func.isRequired,
+}
 
 export default BoardList;

@@ -1,36 +1,29 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import PropTypes from 'prop-types';
 import NewBoardPreview from './NewBoardPreview';
+import './NewBoardForm.css';
 
-const NewBoardForm = ({ onAddBoard }) => {
+const NewBoardForm = ( props ) => {
     const [formFields, setFormFields] = useState({
         title: '',
         owner: '',
-      });
-
-  const onFieldChange = (event) => {
-    setFormFields({
-      ...formFields,
-      [event.target.name]: event.target.value
     });
-  };
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios.post('http://localhost:5000/boards', formFields)
-      .then(response => {
-        const createdBoard = response.data;
-        onAddBoard(createdBoard);
-        setFormFields({
-          title: '',
-          owner: '',
-        });
-      })
-      .catch(error => {
-        console.error('Error creating board:', error);
+    props.addNewBoard(formFields);
+    setFormFields({ title: '', description: ''});
+    };
+
+    const onFieldChange = (event) => {
+      setFormFields({
+        ...formFields,
+        [event.target.name]: event.target.value
       });
-  };
+    };
+
 
   return (
     <div>
@@ -64,6 +57,10 @@ const NewBoardForm = ({ onAddBoard }) => {
         <NewBoardPreview title={formFields.title} owner={formFields.owner} />
     </div>
   );
+};
+
+NewBoardForm.propTypes = {
+  addNewBoard: PropTypes.func.isRequired,
 };
 
 export default NewBoardForm;
