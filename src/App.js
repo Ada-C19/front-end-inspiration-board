@@ -28,10 +28,10 @@ const convertBoardFromAPI = (data) => {
     };
 };
 
-const getCardsForBoard = (boardId) => {
-  return axios.get(`${boardsURL}/boards/${boardId}/cards`)
-    .then((response) => console.log(response.data.cards))
-}
+// const getCardsForBoard = (boardId) => {
+//   return axios.get(`${boardsURL}/boards/${boardId}/cards`)
+//     .then((response) => console.log(response.data.cards))
+// }
 
 const App = () => {
   const [boards, setBoards] = useState(boardData);
@@ -39,10 +39,10 @@ const App = () => {
 
   // does not access CARDS data
   const fetchBoardData = () => {
-    getAllBoards().then((boards) => setBoards(boards))
+    getAllBoards().then((boards) => console.log("logging boards!"))
   }
 
-  // useEffect( () => {fetchBoardData()}, [])
+  useEffect( () => {fetchBoardData()}, [])
 
   const handleSelectBoard = (boardId) => {
     setTargetBoardId(boardId);
