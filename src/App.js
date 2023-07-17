@@ -104,6 +104,8 @@ const App = () => {
     setBoards(newBoards);
   }
 
+  // should we include likesCount = 0 as part of the submission,
+  // or have the likesCount default to 0 on the back end?
   const handleSubmitCard = (newCard) => { }
   //   const nextId = Math.max(...cards.map(card => card.id)) + 1;
   //   const newCardObject = {
