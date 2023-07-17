@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import './NewBoardForm.css';
 
 const NewBoardForm = ({ addBoard }) => {
@@ -62,6 +63,10 @@ const NewBoardForm = ({ addBoard }) => {
       </form>
     </section>
   );
+};
+
+NewBoardForm.propTypes = {
+  addBoard: PropTypes.func.isRequired
 };
 
 export default NewBoardForm;
