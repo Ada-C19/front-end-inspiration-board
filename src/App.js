@@ -1,11 +1,11 @@
 import './App.css';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import CardList from './components/CardList';
 import NewBoardForm from './components/NewBoardForm';
 import Board from './components/Board';
 
-const boardsURL = `${process.env.REACT_APP_BACKEND_URL}`
+const boardsURL = `${ process.env.REACT_APP_BACKEND_URL }`
 
 //axios calls go up here 
 
@@ -25,13 +25,8 @@ function App() {
     axios
       .post(`${boardsURL}/boards`, newBoard)
       .then((response) => {
-        // we want the new board to be added 
-        // spread the big momma board
         const boards = [...boardsData];
-        // push the response?
-        // .push() the board into it
         boards.push(response.data.board);
-        // effect the use state
         setBoardsData(boards);
       }).catch((error) => {
         console.log('Error:', error);
@@ -49,10 +44,8 @@ function App() {
         <h1>Selected  board</h1>
         <h1>Create New board</h1>
         <NewBoardForm
-          //props
-          // is board form visible? create conditional
-          createNewBoard={createNewBoard}
-        />   {/* add board data  goes on this line */} 
+          createNewBoard={ createNewBoard }
+        />
         <button>Hide new board form</button>
       </body>
 
