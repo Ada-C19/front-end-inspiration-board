@@ -6,9 +6,10 @@ const CardList = ({cards, likeCard}) => {
     const cardComponents = cards.map(card => {
         return (
             <Card 
-            id= {card.id}
+            cardId= {card.id}
             message= {card.sender}
             likes= {card.likes}
+            boardId = {card.boardId}
             likeCard= {likeCard} 
             />
         )
