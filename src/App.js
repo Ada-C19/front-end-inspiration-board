@@ -5,7 +5,7 @@ import {useState, useEffect}  from 'react'
 import axios from 'axios';
 import CardList from './components/CardList';
 import AddBoard from './components/BoardForm';
-
+import AddCard from './components/CardForm'
 
 const baseUrl = 'https://inspiration-board-api-m6he.onrender.com';
 
@@ -112,10 +112,17 @@ function App() {
         <div className="selectedBoard"> {selectedBoard}</div>
         <div className="createBoard">< AddBoard handleSubmit= {handleSubmit}/></div>
       </div>
-      <div className="cardscontainer"><CardList data = {cardData} onLikeCard = {onLikeCard}/></div>
+      <div className="cardsContainer"> 
+        <div className="cardlist"> 
+          <CardList data = {cardData} onLikeCard = {onLikeCard}/>
         </div>
+        <div className="createCard">
+          <AddCard/>
+        </div>
+      </div>
+   </div>
       
-    <footer>This is the footer</footer>
+    <footer></footer>
     </section>
 
   );
