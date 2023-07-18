@@ -30,13 +30,15 @@ const Card = ({ id, message, likesCount, deleteCard, increaseLikesCount }) => {
         </span>
     </li>
     </section>
-  )
+  );
 };
 
 Card.propTypes = {
   id: PropTypes.number.isRequired,
   message: PropTypes.string.isRequired,
-  likesCount: PropTypes.number.isRequired
+  likesCount: PropTypes.number.isRequired,
+  deleteCard: PropTypes.func.isRequired,
+  increaseLikesCount: PropTypes.func.isRequired
 };
 
 export default Card;
