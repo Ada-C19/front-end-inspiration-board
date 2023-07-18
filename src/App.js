@@ -22,16 +22,10 @@ function App() {
     })
   }, []);
 
-  // ######## Select Board########
+  // ######## Select a Board ########
 
   const boardSelect = (id, title, owner) => {
-    // setSelectedBoard({id, title, owner})
-    // console.log("selected board owner", selectedBoard.owner)
-    // setSelectedBoardTitle(title);
-    // cardSelect(id)
-    console.log('boardSelect id:', id)
-    axios
-      .get(`https://maaps-inspiration-board.onrender.com/boards/${id}/cards`)
+    axios.get(`https://maaps-inspiration-board.onrender.com/boards/${id}/cards`)
       .then((response) => {
         setCards(response.data);
         setSelectedBoard({ id, title, owner});
@@ -44,8 +38,7 @@ function App() {
   // ######## Add new board ########
 
   const addBoard = (newBoard) => {
-    axios
-      .post('https://maaps-inspiration-board.onrender.com/boards', newBoard)
+    axios.post('https://maaps-inspiration-board.onrender.com/boards', newBoard)
       .then((response) => {
         setBoardsData((prevBoardList) => [response.data, ...prevBoardList])
       })
@@ -57,9 +50,7 @@ function App() {
   // ######## Add new card ########
 
   const addCard = (message) => {
-    console.log('message in addBoard:', message)
-    axios
-      .post(`https://maaps-inspiration-board.onrender.com/boards/${selectedBoard.id}/cards`, {
+    axios.post(`https://maaps-inspiration-board.onrender.com/boards/${selectedBoard.id}/cards`, {
         message,
       })
       .then((response) => {
@@ -76,9 +67,6 @@ function App() {
     axios.delete(`https://maaps-inspiration-board.onrender.com/cards/${id}`)
       .then(() => {
       console.log('click delete');
-      // setCards(prevCards => {
-      //   return prevCards.filter(card => card.card_id !== id)
-      // })
       setCards((currentCards) => {
         const updatedCards = currentCards.filter((card) => card.card_id !== id);
         return updatedCards;
@@ -109,24 +97,26 @@ function App() {
             ...card,
             likes_count: card.likes_count + 1,
           };
-        }
+        };
         return card;
       });
       setCards(updatedCards);
-    })
+    });
   };
 
   // ######## Toggle Board Form Visibility ########
+
   const toggleFormVisibility = () => {
     setIsFormVisible((prevState) => !prevState);
   };
 
-  // ####### Sort cards based on id, abc's, like count ########
+  // ####### Sort Cards by ID, alphabetically, likes count ########
+
   const sortCards = (option) => {
     let sortedCards = [...cards];
   
     if (option === 'id') {
-      sortedCards.sort((a, b) => a.id - b.id);
+      sortedCards.sort((a, b) => a.card_id - b.card_id);
     } else if (option === 'alphabetical') {
       sortedCards.sort((a, b) => a.message.localeCompare(b.message));
     } else if (option === 'likes') {
@@ -151,12 +141,13 @@ function App() {
       <section className="selected-board">
         <h3 className="sect-heading"> Selected Board</h3>
         <p>
-          {selectedBoard
-            ? `${selectedBoard.title} - ${selectedBoard.owner}`
-            : 'Select a Board from the Board List!'}
+          {selectedBoard ? `${selectedBoard.title} - ${selectedBoard.owner}` : 'Select a Board from the Board List!'}
         </p>
-        <button onClick={() => deleteBoard(selectedBoard.id)}>
-          Delete
+        <button 
+          className='btn' 
+          onClick={() => deleteBoard(selectedBoard.id)}
+        >
+          Delete Board
         </button>
       </section>
       <section className="board-form">
@@ -170,7 +161,7 @@ function App() {
       </section>
       <section className="cards-list">
         <section>
-          <h3 className="sect-heading"> {selectedBoardTitle} Cards </h3>
+          <h3 className="sect-heading"> {selectedBoardTitle} Cards</h3>
         </section>
         {selectedBoard && (
           <Board
@@ -178,16 +169,15 @@ function App() {
             deleteCard={deleteCard}
             increaseLikesCount={increaseLikesCount}
             sortCards={sortCards}
-            // cardSelect={cardSelect}
           />
         )}
       </section>
-      <aside className="card-form">
+      <section className="card-form">
         <h3 className="sect-heading">Create a New Card</h3>
-        <NewCardForm addCard={addCard} />
-      </aside>
+        <NewCardForm className='board-input'addCard={addCard} />
+      </section>
     </div>
   );
-}
+};
 
 export default App;
