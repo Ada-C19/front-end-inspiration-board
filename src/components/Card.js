@@ -6,31 +6,31 @@ import PropTypes from 'prop-types';
 
 const Card = ( props ) => {
     
-    const handleDeleteCard = () => {
-        props.deleteCard(props.id)
-    }
+    // const handleDeleteCard = () => {
+    //     props.deleteCard(props.id)
+    // }
 
-    const handleUpdateCard = () => {
-        props.updateCard(props.id)
-    }
+    // const handleUpdateCard = () => {
+    //     props.updateCard(props.id)
+    // }
 
-    const handleIncrementLikeCount = () => {
-        props.incrementLikeCount(props.id)
-    }
+    // const handleIncrementLikeCount = () => {
+    //     props.incrementLikeCount(props.id)
+    // }
 
-    const handleDecrementLikeCount = () => {
-        props.decrementLikeCount(props.id)
-    }
+    // const handleDecrementLikeCount = () => {
+    //     props.decrementLikeCount(props.id)
+    // }
 
 
     return (
         <div className="card">
             <p>{props.message}</p>
             <p>Likes: {props.likesCount}</p>
-            <button onClick={handleIncrementLikeCount}>Like</button>
+            {/* <button onClick={handleIncrementLikeCount}>Like</button>
             <button onClick={handleDecrementLikeCount}>Dislike</button>
             <button onClick={handleUpdateCard}>Update Card</button>
-            <button onClick={handleDeleteCard}>Delete Card</button>
+            <button onClick={handleDeleteCard}>Delete Card</button> */}
         </div>
     );
 };
