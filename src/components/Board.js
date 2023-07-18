@@ -2,14 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Board = (props) => {
-
-    // const toggleBoardSelection = (boardId) => {
-    //     props.setSelectedBoard(!props.selectedBoard);
-    //   };
     
     const handleBoardClick = () => {
         props.onSelectBoard(props.boardId);
-      };
+    };
 
     return (
         <li>
