@@ -99,6 +99,18 @@ function App() {
     setSelectedBoard(matchedBoard);
   };
 
+  const deleteBoard = (id) => {
+    axios
+      .delete(`https://back-end-inspo-rkak.onrender.com/boards/boards/${id}`)
+      .then(() => {
+        setBoards((prevBoards) => {
+          const updatedBoards = prevBoards.filter((board) => board.board_id !== id);
+          return updatedBoards;
+        });
+      });
+    setSelectedBoard({})
+  }
+
   const addBoard = (newBoardData) => {
 
     if (newBoardData.title.length === 0) {
@@ -156,8 +168,6 @@ function App() {
           likes_count: response.data.Cards.likes_count,
         });
 
-        // console.log("newCards " + JSON.stringify(response.data))
-
         setCards(newCards);
       })
       .catch((error) => {
@@ -165,14 +175,16 @@ function App() {
       });
   };
 
-  const boardList = <BoardList boards={boards} callBack={selectBoard}/>;
+  
   return (
     <div className="App">
       <header className="App-header">Inspiration Board</header>
       <div className="container">
         <section className="element">
           <h3>Select Your Board:</h3>
-          <ol className="board-list">{boardList} </ol>
+          <ol className="board-list">
+            <BoardList boards={boards} callBack={selectBoard}/>
+          </ol>
         </section>
 
         <section className="element">
@@ -196,6 +208,7 @@ function App() {
             boardsData={selectedBoard}
             increaseLikes={increaseLikes}
             deleteCard={deleteCard}
+            deleteBoard={deleteBoard}
           />
         </section>
 
