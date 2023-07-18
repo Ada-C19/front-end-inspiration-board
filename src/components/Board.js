@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import TrashIcon from "./TrashIcon";
 import './Board.css';
 
 const Board = ( {board_id, title, owner, cards, deleteBoard} ) => {
@@ -11,7 +12,7 @@ const Board = ( {board_id, title, owner, cards, deleteBoard} ) => {
         <div className="board">
             <h1 className="h1-board">Board: {title}</h1>
             <p>Created By: {owner}</p>
-            {/* <button onClick={handleDeleteBoard}>Delete Board</button> */}
+            <TrashIcon onClick={() => handleDeleteBoard(board_id)} />
         </div>
     );
 };
