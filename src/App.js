@@ -47,13 +47,14 @@ function App() {
 
 
   const [selectedBoard, setSelectedBoard]= useState("Select a Board")
+  const [boardId, setBoardId] = useState(0)
   const selectBoard = (id) =>{
   
   const selectedItem =  boardData.filter((ele) => ele.board_id === id)
-  console.log(selectedItem)
+
 
   setSelectedBoard(`${selectedItem[0].title} - ${selectedItem[0].owner}`)
- 
+  setBoardId(id)
 
   }
 
