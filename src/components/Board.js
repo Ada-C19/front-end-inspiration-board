@@ -27,7 +27,8 @@ function Board({ cardData, increaseLikesCount, deleteCard, sortCards }) {
 Board.propTypes = {
   cardData: PropTypes.array.isRequired,
   increaseLikesCount: PropTypes.func.isRequired,
-  deleteCard: PropTypes.func.isRequired
+  deleteCard: PropTypes.func.isRequired,
+  sortCards: PropTypes.func.isRequired
 };
 
 export default Board;
