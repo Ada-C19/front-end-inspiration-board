@@ -63,17 +63,12 @@ const App = () => {
   }
 
   const currentBoard = () => {
-    console.log("boards!", boards)
     for (let board of boards) {
-      console.log("target board ID is:", targetBoardId)
-      console.log("board id is:", board.id, board.title)
-      console.log(board)
       if (board.id === targetBoardId) {
-        console.log("board found!", board)
         return board;
-      }
-    return boards[1]
-  }}
+      }}
+    return boards[0]
+  }
 
   // useEffect( () => {currentBoard()}, [targetBoardId])
 
