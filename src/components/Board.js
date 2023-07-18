@@ -1,6 +1,7 @@
 import React from 'react';
 import CardList from './CardList';
 import PropTypes from 'prop-types';
+import './Board.css';
 
 
 function Board({ cardData, increaseLikesCount, deleteCard, sortCards }) {
@@ -9,16 +10,17 @@ function Board({ cardData, increaseLikesCount, deleteCard, sortCards }) {
   };
   return (
     <div>
-      <select onChange={handleSortChange}>
-        <option value="id">Sort by ID</option>
-        <option value="alphabetical">Sort alphabetically</option>
-        <option value="likes">Sort by number of likes</option>
+      <select className='sort-select' onChange={handleSortChange}>
+        <option value=''>Sort By:</option>
+        <option value="id">ID</option>
+        <option value="alphabetical">A-Z</option>
+        <option value="likes">Likes Count</option>
       </select>
       <CardList 
-      cardData={cardData} 
-      deleteCard={deleteCard}
-      increaseLikesCount={increaseLikesCount}
-      sortCards={sortCards}
+        cardData={cardData} 
+        deleteCard={deleteCard}
+        increaseLikesCount={increaseLikesCount}
+        sortCards={sortCards}
       />
     </div>
   );
