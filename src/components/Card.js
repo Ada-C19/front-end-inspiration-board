@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import './Card.css';
 
 const Card = ({ id, message, likesCount, deleteCard, increaseLikesCount }) => {
-  console.log('Card props:', message)
 
   return (
     <section className='card-container'>
@@ -28,7 +27,7 @@ const Card = ({ id, message, likesCount, deleteCard, increaseLikesCount }) => {
             Delete
           </button>
         </span>
-    </li>
+      </li>
     </section>
   );
 };
