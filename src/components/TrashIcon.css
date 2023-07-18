@@ -1,0 +1,16 @@
+.trash-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    /* background-color: pink; */
+    /* border-radius: 50%; */
+    /* padding: 5px; */
+    /* font-size: 18px; */
+    cursor: not-allowed;
+    /* transition: transform 0.3s ease-in-out; */
+}
+
+.trash-icon:hover {
+    transform: scale(1.2);
+}

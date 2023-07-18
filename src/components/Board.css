@@ -1,16 +1,23 @@
 .board {
     margin: 1rem;
-    border: 2px;
-    border-style: solid;
+    border: 10px solid pink; 
+    background-image: url('/Users/jessica/Ada/unit_3/front-end-inspiration-board/src/images/wp4465167.jpg'); 
     background-color: paleturquoise;
-    color: darkslateblue; 
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: darkslateblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-decoration: underline;
+    position: relative; 
+    overflow: hidden; 
+    border-radius: 15px; 
+    padding: 1rem; 
 }
 
-.board:hover {
+/* .board:hover {
     border-color: pink;
-}
+    transform: scale(1.05); 
+    z-index: 1; 
+    box-shadow: 0 0 10px pink; 
+} */
 
 .h1-board:hover {
     color: pink;

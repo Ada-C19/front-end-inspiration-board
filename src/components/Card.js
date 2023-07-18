@@ -1,29 +1,47 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 import './Card.css';
+import TrashIcon from "./TrashIcon";
+import LikesIcon from "./LikesIcon";
 
-
-const Cards = ({ id, message, likesCount, handleLike }) => {
-
-    const heartDisplay = likesCount > 0 ? '❤️' : '🤍';
-
-    const handleClick = () => handleLike(id);
-
-    return (
-        <div className="card">
-            <div>Card: {id}</div>
-            <div>{message}</div>
-            <button onClick={handleClick}>{heartDisplay} {likesCount}</button>
-            <br />
-        </div>
-    )
+const getRandomInt = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-Cards.propTypes = {
+const Card = ({ id, message, likesCount, handleLike }) => {
+    const [rotation, setRotation] = useState(0);
+
+    useEffect(() => {
+        setRotation(getRandomInt(-8, 8));
+    }, []);
+
+    const handleLikeClick = () => handleLike(id);
+
+    const handleDeleteCard = (cardId) => {
+        console.log("Delete card:", cardId);
+    };
+
+    return (
+        <div className="card" style={{ transform: `rotate(${rotation}deg)` }}>
+            <div className="likes-container">
+                <LikesIcon count={likesCount} handleLike={handleLikeClick} />
+            </div>
+            <TrashIcon onClick={() => handleDeleteCard(id)} />
+            <div className="card-text">
+                <p>Card: {id}</p>
+                <p>{message}</p>
+            </div>
+        </div>
+    );
+};
+
+Card.propTypes = {
     id: PropTypes.number.isRequired,
     message: PropTypes.string.isRequired,
     likesCount: PropTypes.number.isRequired,
-    // handleLike: PropTypes.func
-}
+    handleLike: PropTypes.func.isRequired
+};
 
-export default Cards
+export default Card;
