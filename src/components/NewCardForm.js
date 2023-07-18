@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import './NewCardForm.css';
 
 const NewCardForm = ({ addCard }) => {
   const [newCard, setNewCards] = useState(
@@ -12,6 +14,8 @@ const NewCardForm = ({ addCard }) => {
 
     if (newCard.message.length > 40) {
       alert('Max 40 characters. Try again.');
+    } else if (newCard.message === '') {
+      alert('Empty entries not accepted.');
     } else {
       addCard(newCard.message);
     };
@@ -33,22 +37,31 @@ const NewCardForm = ({ addCard }) => {
 
   return (
     <section>
-      <form onSubmit={handleSubmit}>
+      <form 
+        className='form'
+        onSubmit={handleSubmit}
+      >
         <label>Message:
           <input
+            className='board-input'
             value={newCard.message}
             onChange={handleChange}
             name='message'
             type='text'
           />
         </label>
-        <input 
+        <input
+          className='btn' 
           type='submit' 
           value='Submit'
         />
       </form>
     </section>
   );
+};
+
+NewCardForm.propTypes = {
+  addCard: PropTypes.func.isRequired
 };
 
 export default NewCardForm;
