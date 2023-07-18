@@ -14,11 +14,11 @@ import boardData from './data/boards.json';
 const boardsURL = `${process.env.REACT_APP_BACKEND_URL}`
 
 const getAllBoards = () => {
-  const convertBoardFromAPI = (data) => {
+  const convertBoardFromAPI = (boardData) => {
     return {
-      id: data.board_id,
-      title: data.title,
-      owner: data.owner
+      id: boardData.board_id,
+      title: boardData.title,
+      owner: boardData.owner
     };
   };
   return axios.get(`${boardsURL}/boards`)
@@ -29,30 +29,35 @@ const getAllBoards = () => {
 };
 
 const getCardsForBoard = (boardId) => {
-  const convertCardFromAPI = (card) => {
+  const convertCardFromAPI = (cardData) => {
     return {
-      id: card.card_id,
-      message: card.message,
-      likesCount: card.likes_count,
-      board: card.board_id
+      id: cardData.card_id,
+      message: cardData.message,
+      likesCount: cardData.likes_count,
+      board: cardData.board_id
     };
   };
 
   return axios.get(`${boardsURL}/boards/${boardId}/cards`)
     .then((response) => {
-      let cards = response.data.cards.map(convertCardFromAPI);
-      console.log(cards);
-      return cards})
+      return response.data.cards.map(convertCardFromAPI);})
     .catch((e) => console.log("error in Getting Cards for Board", e.message))
 };
 
 const App = () => {
-  const [boards, setBoards] = useState(boardData);
+  const defaultEmptyBoardList = [{
+    title: '',
+    owner:'',
+    id: 0
+    }];
+
+  const [boards, setBoards] = useState(defaultEmptyBoardList);
   const [targetBoardId, setTargetBoardId] = useState(18);
   const [cards, setCards] = useState([])
 
   // does not access CARDS data
   const fetchBoards = () => {
+    console.log("fetching boards!")
     getAllBoards()
       .then((boards) => setBoards(boards))
   }
@@ -97,6 +102,35 @@ const App = () => {
     // setBoards(newBoards);
   }
 
+  const handleSubmitBoard = (newBoard) => { 
+    const postBoardToAPI = (newBoard) => {
+      let params = {
+        title: newBoard.title,
+        owner: newBoard.owner
+      }
+      axios.post(`${boardsURL}/boards`, params)
+      .then((response) => {
+        console.log('Board Posted!', response.data);
+        fetchBoards()})
+      .catch((e) => console.log(e));
+    }
+    // need to add listener with use effect or something here
+    postBoardToAPI(newBoard)
+    // .then(() => fetchBoards());
+    // fetchBoards();
+  };
+
+  const handleDeleteBoard = (boardId) => {
+    const deleteBoardFromAPI = (boardId) => {
+      axios.delete(`${boardsURL}/boards/${boardId}`)
+      .then((response) => console.log('Board Deleted!', response.data))
+      .catch((e) => console.log(e.message));
+    }
+    
+    deleteBoardFromAPI(boardId).then(() => fetchBoards())
+    // fetchBoards();
+  };
+
   const handleSubmitCard = (newCard) => {
     const postCardToAPI = (newCard) => {
       let params = {
@@ -130,34 +164,6 @@ const App = () => {
     fetchCards();
   };
 
-  const handleSubmitBoard = (newBoard) => { 
-    const postBoardToAPI = (newBoard) => {
-      let params = {
-        title: newBoard.title,
-        owner: newBoard.owner
-      }
-      axios.post(`${boardsURL}/boards`, params)
-      .then((response) => console.log('Board Posted!', response.data))
-      .catch((e) => console.log(e));
-    }
-    // need to add listener with use effect or something here
-    postBoardToAPI(newBoard)
-    // .then(() => fetchBoards());
-    fetchBoards();
-  };
-
-  const handleDeleteBoard = (boardId) => {
-    const deleteBoardFromAPI = (boardId) => {
-      axios.delete(`${boardsURL}/boards/${boardId}`)
-      .then((response) => console.log('Board Deleted!', response.data))
-      .catch((e) => console.log(e.message));
-    }
-    
-    deleteBoardFromAPI(boardId);
-    fetchBoards();
-  };
-  
-
   return (
     <div className="App">
       <header>
@@ -166,16 +172,21 @@ const App = () => {
       <main>
         <div>
           <NewBoardForm addBoard={handleSubmitBoard}/>
-          <BoardSelectRadio boards={boards} onBoardSelect={handleSelectBoard} />
+          <BoardSelectRadio 
+            boards={boards} 
+            onBoardSelect={handleSelectBoard}
+            selectedBoardId={targetBoardId} />
         </div>
         <div>
           <Board 
             board_id={currentBoard().id} 
             title={currentBoard().title}
             owner={currentBoard().owner}
-            deleteBoard={handleDeleteBoard}
-          />
-          <CardList cards={cards} handleLike={handleLike} deleteCard={handleDeleteCard}/>
+            deleteBoard={handleDeleteBoard}/>
+          <CardList 
+            cards={cards} 
+            handleLike={handleLike} 
+            deleteCard={handleDeleteCard}/>
           <NewCardForm addCard={handleSubmitCard} />
         </div>
       </main>
