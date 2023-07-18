@@ -4,7 +4,7 @@ import Board from './Board';
 import "./BoardList.css";
 
 const BoardList = ({ boards, createBoard, createCard, likeCard }) => {
-    boards.map((board) => {
+    const boardComponents = boards.map((board) => {
         return (
             <Board 
             boardId = {board.boardId}

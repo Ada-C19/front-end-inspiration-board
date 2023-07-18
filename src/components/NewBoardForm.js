@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import './NewBoardForm.css';
 
 const NewBoardForm = ({ addBoardCallback }) => {
     const [formFields, setFormFields] = useState({
         title:'',
         owner:'',
-        cards:[]
+        cards:[],
     });
 
-    const onNameChange = (event) => {
+    const onTitleChange = (event) => {
         setFormFields({
             ...formFields,
-            name: event.target.value
+            title: event.target.value
         })
     };
 
 
-    const onDescChange = (event) => {
+    const onOwnerChange = (event) => {
         setFormFields({
             ...formFields,
-            description: event.target.value
+            owner: event.target.value
         })
     };
 
@@ -36,42 +37,40 @@ const NewBoardForm = ({ addBoardCallback }) => {
         event.preventDefault();
         
         addBoardCallback({
-            nameData: formFields.name,
-            descData: formFields.description
+            titleData: formFields.title,
+            ownerData: formFields.owner,
         });
 
         setFormFields({
-            name: '',
-            description: ''
+            title: '',
+            owner: '',
         });
     };
 
     return (
         <form onSubmit={onFormSubmit}>
 
-
         <div>
-            <label htmlFor="boardName">Board Name:</label>
+            <label htmlFor="boardTitle">Board Title:</label>
             <input 
-            name="boardName"
-            value={formFields.name}
-            onChange={onNameChange} />
+            title="boardTitle"
+            value={formFields.title}
+            onChange={onTitleChange} />
         </div>
 
         <div>
-            <label htmlFor="description">Description:</label>
+            <label htmlFor="owner">Owner:</label>
             <input 
-            name="description"
-            value={formFields.description}
-            onChange={onDescChange} />
+            owner="owner"
+            value={formFields.owner}
+            onChange={onOwnerChange} />
         </div>
 
         <input
             type="submit"
             value="Add Board" />
 
-
-    </form>
+        </form>
     )
 }
 
