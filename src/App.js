@@ -102,6 +102,14 @@ function App() {
     });
   };
 
+  const cardSubmit = (data) =>{
+    axios.post(`${baseUrl}/board/${boardId}/cards`, data)
+      .then((response)=>{
+        setCardData((oldData)=>[...oldData, response.data]);
+      })
+      .catch((error)=> console.log(error));
+  };
+
   return (
     <section>
       <h1 id='heading' >🌟INSPIRATION BOARD🌟</h1>
@@ -118,7 +126,7 @@ function App() {
           <CardList data = {cardData} onLikeCard = {onLikeCard}/>
         </div>
         <div className="createCard">
-          <AddCard/>
+          <AddCard cardSubmit={cardSubmit}/>
         </div>
       </div>
    </div>
