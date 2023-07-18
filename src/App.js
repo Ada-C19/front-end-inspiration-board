@@ -59,7 +59,6 @@ const App = () => {
     getAllBoards()
       .then((boards) => setBoards(boards))
   }
-
   useEffect( () => {fetchBoards()}, [])
 
   const handleSelectBoard = (boardId) => {
@@ -136,7 +135,7 @@ const App = () => {
       .then((response) => console.log('Card Posted!', response.data))
       .catch((e) => console.log("error posting card!", e.message));
     };
-    const nextId = Math.max(...cards.map(card => card.id)) + 1;
+    let nextId = Math.max(...cards.map(card => card.id)) + 1;
     const newCardObject = {
       id: nextId,
       message: newCard.message,
@@ -144,7 +143,7 @@ const App = () => {
       likesCount: 0,
     };
     postCardToAPI(newCardObject)
-    .then(() => setCards((prevData) => [newCardObject, ...prevData]))
+    .then(() => setCards((prevData) => [...prevData, newCardObject]))
   };
 
   const handleDeleteCard = (cardId) => {
