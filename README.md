@@ -74,10 +74,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 ### To-Do List
-- delete function in app.js
-- import BoardList, NewBoardForm, axious into app.js
-- all axious requests in app.js
-- delete DeleteCard component 
-- Board Component: handleUpdateBoard() update title and owner of board,  handleDeleteBoard() delete an entire board
-- Card Component: 
-- NewCardForm: import this form into App.js 
+- add like button 
+- add a delete button to cards
+- add a way to add a card 
+- display board title and owner
