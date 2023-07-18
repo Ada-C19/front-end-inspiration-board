@@ -111,18 +111,20 @@ function App() {
     }
   
     axios
-    .post(`https://back-end-inspo-rkak.onrender.com/boards`, newBoardData)
+    .post(`https://back-end-inspo-rkak.onrender.com/boards/boards`, newBoardData)
     .then((response) => {
-      const newBoard = response.data.Boards;
-      setBoards((prevBoards) => [...prevBoards, newBoard]);
-      console.log(response.data);
-      console.log("newBoards " + JSON.stringify(response.data))
+      const newBoard = [...boards];        
+      newBoard.push({
+        board_id: response.data.Boards.board_id,
+        title: response.data.Boards.title,
+        owner: response.data.Boards.owner,
+      });
+      setBoards(newBoard)
     })
     .catch((error) => {
       console.log(`Error: ${error}`);
     });      
   };
-  const boardList = <BoardList boards={boards} callBack={selectBoard} />;
   
   const addCard = (newCardData) => {
 
@@ -163,6 +165,7 @@ function App() {
       });
   };
 
+  const boardList = <BoardList boards={boards} callBack={selectBoard}/>;
   return (
     <div className="App">
       <header className="App-header">Inspiration Board</header>
@@ -175,7 +178,7 @@ function App() {
         <section className="element">
           <h3>Create New Board:</h3>
           <div className="board-form-container">
-            <BoardForm />
+            <BoardForm addBoardCallback={addBoard}/>
           </div>
         </section>
 
