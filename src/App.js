@@ -14,17 +14,9 @@ function App() {
   const [selectedBoardTitle, setSelectedBoardTitle] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/boards').then((response) => {
+    axios.get('http://localhost:5000/boards')
+      .then((response) => {
       console.log('response:', response);
-      // const newBoard = response.data.map(board => {
-      //   console.log('board appjs:', board)
-      //   return {
-      //     board_id: board.board_id,
-      //     title: board.title,
-      //     owner: board.owner
-      //   };
-      // });
-      // console.log('newBoard:', newBoard)
       setBoardsData(response.data);
     })
   }, []);
@@ -41,7 +33,7 @@ function App() {
       .get(`http://localhost:5000/boards/${id}/cards`)
       .then((response) => {
         setCards(response.data);
-        setSelectedBoard({ id});
+        setSelectedBoard({ id, title, owner});
         setSelectedBoardTitle(title);
       })
       .catch((error) => console.log('error:', error));
@@ -51,18 +43,9 @@ function App() {
   // ######## Add new board ########
 
   const addBoard = (newBoard) => {
-    console.log('newBoard in addBoard:', newBoard)
     axios
       .post('http://localhost:5000/boards', newBoard)
       .then((response) => {
-        console.log('response add board:', response)
-        // const newBoardList = [response.data, ...boardsData];
-
-        // newBoardList.push({
-        //   board_id: response.data.board_id,
-        //   title: response.data.title,
-        //   owner: response.data.owner
-        // })
         setBoardsData((prevBoardList) => [response.data, ...prevBoardList])
       })
       .catch((error) => {
@@ -79,14 +62,6 @@ function App() {
         message,
       })
       .then((response) => {
-        // const newCardList = [...cards];
-
-        //   newCardList.push({
-        //     message: response.data.message,
-        //     likesCount: 0,
-        //     card_id: response.data.card_id,
-        //     board_id: response.data.board_id
-        //   })
         setCards((prevCards) => [response.data, ...prevCards]);
       })
       .catch((error) => {
