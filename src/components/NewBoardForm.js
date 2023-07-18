@@ -12,7 +12,7 @@ const NewBoardForm = (props) => {
     const handleChange = (event) => {
         const value = event.target.value;
         const name = event.target.name;
-
+        
         setFormData((prev) => ({
             ...prev, [name]: value
         }));
@@ -43,6 +43,7 @@ const NewBoardForm = (props) => {
                     value={formData.owner}
                     onChange={handleChange}
                 />
+                <input type="submit" value="Submit New Board"/>
             </form>
         </section>
     );

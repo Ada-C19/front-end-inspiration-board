@@ -17,7 +17,7 @@ const test_board = {
   cards: test_cards,
 }
 
-const kBaseUrl = process.env.REACT_APP_BACKEND_URL;
+const kBaseUrl = 'http://127.0.0.1:5000';
 
 function App() {
   const [boardData, setBoardData] = useState([]);
@@ -35,9 +35,8 @@ function App() {
       .then((res) => {
         setBoardData((prev) => ({...prev}))
       })
+    };
 
-  };
-  
   return (
     <div className="App">
       <p>hello world :)</p>
@@ -45,7 +44,7 @@ function App() {
       owner={"Abby"} 
       title={"tamagotchis i have loved"} 
       cards={test_board.cards}/>
-      <Sidebar />
+      <Sidebar handleBoardSubmit={handleBoardSubmit}/>
     </div>
   );
 }
