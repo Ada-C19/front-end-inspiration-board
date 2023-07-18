@@ -86,14 +86,16 @@ like react chatlog but needs backend request; */
           test
         </h1>
       </header>
-      <section>
-        <BoardList
-            boards={boardData}
-            onUpdateBoard={updateBoardData}
-        />
-        <NewBoardForm
-            addBoardCallback={addBoardData}
-        />
+      <section className="board-container">
+        <section>
+          <BoardList
+              boards={boardData}
+              onUpdateBoard={updateBoardData}
+          />
+          <NewBoardForm
+              addBoardCallback={addBoardData}
+          />
+        </section>
       </section>
       {/* put the button [Create New Board] here in App.js, NOT in Board.js; because that makes it come up in EVERY board. we just want it once on the page */}
     </div>
