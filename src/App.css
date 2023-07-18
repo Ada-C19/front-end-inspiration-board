@@ -1,4 +1,4 @@
-.App {
+* {
     text-align: center;
 }
 
@@ -25,6 +25,9 @@
     background-color: aqua;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .selected-board {
@@ -59,7 +62,7 @@
 
 .heading {
     background-color: #ffff00;
-    height: 5vh;
+    height: 3rem;
     padding: 1rem;
     font-size: 2rem;
     font-family: 'Permanent Marker', cursive;
