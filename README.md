@@ -78,3 +78,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - add a delete button to cards
 - add a way to add a card 
 - display board title and owner
+- input tag for a card
