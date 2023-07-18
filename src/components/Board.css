@@ -1,7 +1,7 @@
 .board {
     margin: 1rem;
     border: 10px solid pink; 
-    background-image: url('/Users/jessica/Ada/unit_3/front-end-inspiration-board/src/images/wp4465167.jpg'); 
+    background-image: url('../images/wp4465167.jpg'); 
     background-color: paleturquoise;
     color: darkslateblue;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
