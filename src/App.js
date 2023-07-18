@@ -30,7 +30,6 @@ const convertBoardFromAPI = (data) => {
 };
 
 const getCardsForBoard = (boardId) => {
-  console.log(`calling ${boardsURL}/boards/${boardId}/cards`)
   return axios.get(`${boardsURL}/boards/${boardId}/cards`)
     .then((response) => {
       let cards = response.data.cards.map(convertCardFromAPI);
@@ -63,17 +62,7 @@ const App = () => {
 
   const handleSelectBoard = (boardId) => {
     setTargetBoardId(boardId);
-    // getCardsForBoard(boardId);
   };
-
-  const findIndexOfTargetBoard = () => {
-    for (let i = 0; i < boards.length; i++) {
-      if (boards[i].id === targetBoardId) {
-        return i;
-      }
-    return 0
-    }
-  }
 
   const currentBoard = () => {
     for (let board of boards) {
@@ -82,17 +71,6 @@ const App = () => {
       }}
     return boards[0]
   }
-
-  // useEffect( () => {currentBoard()}, [targetBoardId])
-
-  // const fetchCardData = () => 
-
-  // const displayCards = () => {
-  //   getCardsForBoard(targetBoardId).then((cards) =>{
-  //     return (
-  //       <CardList cards={cards} handleLike={handleLike} />
-  //     )})
-  //   };
 
     const fetchCards = () => {
       getCardsForBoard(targetBoardId).then((cards) => setCards(cards))
