@@ -29,6 +29,6 @@ header {
     border-radius: 2vh;
     margin: 2vh;
     font: monospace;
-    height: 100vh;
+    min-height: 100vh;
     border: black 2px solid;
 }

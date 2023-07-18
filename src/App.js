@@ -156,7 +156,7 @@ function App() {
           likes_count: response.data.Cards.likes_count,
         });
 
-        console.log("newCards " + JSON.stringify(response.data))
+        // console.log("newCards " + JSON.stringify(response.data))
 
         setCards(newCards);
       })
