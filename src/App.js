@@ -40,11 +40,11 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>
+        <h1 id="title">
           test
         </h1>
       </header>
-      <section className="board-list">
+      <section>
         <BoardList
             boards={boardData}
             onUpdateBoard={updateBoardData}

@@ -5,7 +5,7 @@ import CardList from './CardList';
 const Board = ({ id, title, owner, cards, createBoard, createCard, likeCard }) => {
     
     return (
-        <div>
+        <div className="board">
             <h2>{title}</h2>
             <p>{owner}</p>
             <p className='title_underline'> --------------------------------- </p>
