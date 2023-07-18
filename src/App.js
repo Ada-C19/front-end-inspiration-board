@@ -57,7 +57,6 @@ const App = () => {
 
   // does not access CARDS data
   const fetchBoards = () => {
-    console.log("fetching boards!")
     getAllBoards()
       .then((boards) => setBoards(boards))
   }
@@ -108,27 +107,23 @@ const App = () => {
         title: newBoard.title,
         owner: newBoard.owner
       }
-      axios.post(`${boardsURL}/boards`, params)
-      .then((response) => {
-        console.log('Board Posted!', response.data);
-        fetchBoards()})
+      return axios.post(`${boardsURL}/boards`, params)
+      .then((response) => console.log('Board Posted!', response.data))
       .catch((e) => console.log(e));
     }
-    // need to add listener with use effect or something here
     postBoardToAPI(newBoard)
-    // .then(() => fetchBoards());
-    // fetchBoards();
+    .then(() => fetchBoards());
   };
 
   const handleDeleteBoard = (boardId) => {
     const deleteBoardFromAPI = (boardId) => {
-      axios.delete(`${boardsURL}/boards/${boardId}`)
+      return axios.delete(`${boardsURL}/boards/${boardId}`)
       .then((response) => console.log('Board Deleted!', response.data))
       .catch((e) => console.log(e.message));
     }
     
-    deleteBoardFromAPI(boardId).then(() => fetchBoards())
-    // fetchBoards();
+    deleteBoardFromAPI(boardId)
+    .then(() => fetchBoards());
   };
 
   const handleSubmitCard = (newCard) => {
