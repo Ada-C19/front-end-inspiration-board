@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
 import Board from './components/Board/Board';
+import Sidebar from './components/Sidebar/Sidebar';
 import axios from 'axios';
 
 const test_cards = [
@@ -19,14 +20,23 @@ const test_board = {
 const kBaseUrl = process.env.REACT_APP_BACKEND_URL;
 
 function App() {
-  const [formData, setFormData] = useState([]);
+  const [boardData, setBoardData] = useState([]);
 
   useEffect(() => {
     axios
       .get(`${kBaseUrl}/boards`)
-      .then((res) => setFormData(res.data))
+      .then((res) => setBoardData(res.data))
       .catch((err) => console.log(err));
-  }, []);
+    }, []);
+    
+    const handleBoardSubmit = (newBoardData) => {
+      axios
+      .post(`${kBaseUrl}/boards`, newBoardData)
+      .then((res) => {
+        setBoardData((prev) => ({...prev}))
+      })
+
+  };
   
   return (
     <div className="App">
@@ -35,6 +45,7 @@ function App() {
       owner={"Abby"} 
       title={"tamagotchis i have loved"} 
       cards={test_board.cards}/>
+      <Sidebar />
     </div>
   );
 }

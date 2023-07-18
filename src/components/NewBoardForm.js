@@ -20,7 +20,7 @@ const NewBoardForm = (props) => {
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        handleSubmit({ ...formData });
+        props.handleBoardSubmit({ ...formData });
         setFormData(kInitialFormData);
       };
 
