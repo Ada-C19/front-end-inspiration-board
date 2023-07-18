@@ -8,13 +8,21 @@ import BoardList from './components/BoardList';
 
 const App = () => {
   const [boardData, setBoardData] = useState([]);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [cardData, setCardData] = useState([]);
   // using useEffect to retrieve data and set it to boardData;
   // ***** URL(more like backend) probably NEEDS to be checked -- boards don't have an empty cards array *****
   useEffect(() =>{
-    const response = axios('https://inspoboardteam404.onrender.com/boards',);
-    setBoardData(response.data);
+    const response = axios.get('https://inspoboardteam404.onrender.com/boards')
+    .then((response) => {
+      setBoardData(response.data);;
+    })
+    .catch((error) => {
+      setErrorMessage(<section>{error.response.data.message}</section>);
+    });
   },[boardData])
   // I must find out if [boardData] works both ways (like if we update our boards here, does it update the database? I feel like it might not... :<)
+
 
   // updating board data
   const updateBoardData = updatedBoard => {
