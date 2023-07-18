@@ -164,7 +164,7 @@ function App() {
         {isFormVisible && (
           <NewBoardForm className="board-input" addBoard={addBoard} />
         )}
-        <button onClick={toggleFormVisibility}>
+        <button className='btn' onClick={toggleFormVisibility}>
           {isFormVisible ? 'Hide Form' : 'Show Form'}
         </button>
       </section>
