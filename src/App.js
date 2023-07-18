@@ -115,7 +115,7 @@ const App = () => {
           boards={boardData}
           onUpdateBoard={updateBoardData}
         />
-        <div>
+        <div className="forms">
           <NewBoardForm addBoardCallback={addBoardData} />
           <NewCardForm addCardCallback={addCardData} />
         </div>
@@ -124,6 +124,14 @@ const App = () => {
         <header className="title">
           <h1>Select a Board</h1>
         </header>
+        <body className="content">
+          <p>Nothing to Display</p>
+          <div className="add">
+            <button>
+              +
+            </button>
+          </div>
+        </body>
       </div>
       {/* put the button [Create New Board] here in App.js, NOT in Board.js; because that makes it come up in EVERY board. we just want it once on the page */}
     </div>
