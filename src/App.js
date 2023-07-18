@@ -14,28 +14,28 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState('');
   // update with useEffect; IF necessary, else delete;
   const [cardData, setCardData] = useState([]);
-  
+
   // using useEffect to retrieve data and set it to boardData;
   // ***** URL(more like backend) probably NEEDS to be checked -- boards don't have an empty cards array *****
-  useEffect(() =>{
-  axios.get('https://inspoboardteam404.onrender.com/boards')
-    .then((response) => {
-      setBoardData(response.data);;
-    })
-    .catch((error) => {
-      setErrorMessage(<section>{error.response.data.message}</section>);
-    });
-  },[boardData])
+  useEffect(() => {
+    axios.get('https://inspoboardteam404.onrender.com/boards')
+      .then((response) => {
+        setBoardData(response.data);;
+      })
+      .catch((error) => {
+        setErrorMessage(<section>{error.response.data.message}</section>);
+      });
+  }, [boardData])
 
-  useEffect(() =>{
-  axios.get('https://inspoboardteam404.onrender.com/cards')
-  .then((response) => {
-    setCardData(response.data);;
-  })
-  .catch((error) => {
-    setErrorMessage(<section>{error.response.data.message}</section>);
-  });
-},[cardData])
+  useEffect(() => {
+    axios.get('https://inspoboardteam404.onrender.com/cards')
+      .then((response) => {
+        setCardData(response.data);;
+      })
+      .catch((error) => {
+        setErrorMessage(<section>{error.response.data.message}</section>);
+      });
+  }, [cardData])
 
   // updating board data
   // axios patch request; or perhaps this part now works automatically since I'm using useEffect to track [boardData]? idk;
@@ -55,11 +55,11 @@ const App = () => {
   // Add Board Data
   // make an axios post request;
   const addBoardData = newBoard => {
-    
+
     axios.post('https://inspoboardteam404.onrender.com/boards')
 
 
-  
+
     /* 
     // Duplicate the boards list
     const newBoardList = [...boardData];
@@ -75,62 +75,56 @@ const App = () => {
     setBoardData(newBoardList); 
     */
 
-};
+  };
 
   const addCardData = newCard => {
     axios.post('https://inspoboardteam404.onrender.com/cards')
 
-};
+  };
 
 
-/* get all the cards > from the back end : id of the board > get back the board 
-> list of cards; you want that in a state > make a function in App.js that
-takes in the id of the associated card > send it to the backend;
-patch request >> sending back the id
-loop through (map) cards >> id == the id of one that was passed in,
-increment like count by 1
+  /* get all the cards > from the back end : id of the board > get back the board 
+  > list of cards; you want that in a state > make a function in App.js that
+  takes in the id of the associated card > send it to the backend;
+  patch request >> sending back the id
+  loop through (map) cards >> id == the id of one that was passed in,
+  increment like count by 1
+  
+  
+  like react chatlog but needs backend request; */
+  // and then this wasn't sent to me but incase its helpful for us this is the use state line 
 
+  // const [cards, setCard] = React.useState(chatMessages)
 
-like react chatlog but needs backend request; */
-// and then this wasn't sent to me but incase its helpful for us this is the use state line 
-
-// const [cards, setCard] = React.useState(chatMessages)
-
-// rough draft
-// const handleLike = (id) => {
-//   setcard(prevcCard => {
-//     const updatedCard = prevCard.map(card => {
-//       return card.id === id ? {...card, liked: !card.liked} : card
-//     })
-//     return updatedCard
-//   })
-// }
-// 
+  // rough draft
+  // const handleLike = (id) => {
+  //   setcard(prevcCard => {
+  //     const updatedCard = prevCard.map(card => {
+  //       return card.id === id ? {...card, liked: !card.liked} : card
+  //     })
+  //     return updatedCard
+  //   })
+  // }
+  // 
   // BoardList & NewBoardForm Components
+
   return (
     <div id="App">
-      <header>
-        <h1 id="title">
-          test
-        </h1>
-      </header>
-      <section className="board-container">
-        <section>
-          <BoardList
-              boards={boardData}
-              onUpdateBoard={updateBoardData}
-          />
-          {/* <CardList
-            cards={cardData}
-            onUpdateCard={updateCardData}
-          /> */}
-          <NewBoardForm
-              addBoardCallback={addBoardData}
-          />
-          <NewCardForm 
-            addCardCallback={addCardData}/>
-        </section>
-      </section>
+      <div className="sidebar">
+        <BoardList
+          boards={boardData}
+          onUpdateBoard={updateBoardData}
+        />
+        <div>
+          <NewBoardForm addBoardCallback={addBoardData} />
+          <NewCardForm addCardCallback={addCardData} />
+        </div>
+      </div>
+      <div className="main-container">
+        <header className="title">
+          <h1>Select a Board</h1>
+        </header>
+      </div>
       {/* put the button [Create New Board] here in App.js, NOT in Board.js; because that makes it come up in EVERY board. we just want it once on the page */}
     </div>
   );

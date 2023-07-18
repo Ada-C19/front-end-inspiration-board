@@ -1,10 +1,29 @@
-.App {
+#App {
   text-align: center;
+  background-color: rgb(110, 110, 220);
+  height: 100vh;
+  display: flex;
 }
 
-#title {
-  float: right;
-  width: 50%;
+.title {
+  height: 25vh;
+  background-color: white;
+}
+
+.title h1 {
+  margin: 0;
+}
+
+.main-container {
+  background-color: #7EADFE;
+  height: 100%;
+  flex: 1;
+}
+
+.sidebar {
+  background-color: #FC5EAA;
+  width: 200px;
+  height: 100%;
 }
 
 .board-list {
@@ -17,17 +36,9 @@
 }
 
 .board {
-  /* background-color: white; */
   border-radius: 10px;
   padding: 10px;
   margin: 5px;
   height: 300px;
   max-height: 500px;
-}
-
-.board-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 500px;
-  background-color: pink;
 }
