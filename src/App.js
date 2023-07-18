@@ -99,6 +99,29 @@ function App() {
     setSelectedBoard(matchedBoard);
   };
 
+  const addBoard = (newBoardData) => {
+
+    if (newBoardData.title.length === 0) {
+      alert("Please enter a title!")
+      return 
+    }
+    if (newBoardData.owner.length === 0) {
+      alert("Please enter an owner!")
+      return 
+    }
+  
+    axios
+    .post(`https://back-end-inspo-rkak.onrender.com/boards`, newBoardData)
+    .then((response) => {
+      const newBoard = response.data.Boards;
+      setBoards((prevBoards) => [...prevBoards, newBoard]);
+      console.log(response.data);
+      console.log("newBoards " + JSON.stringify(response.data))
+    })
+    .catch((error) => {
+      console.log(`Error: ${error}`);
+    });      
+  };
   const boardList = <BoardList boards={boards} callBack={selectBoard} />;
   
   const addCard = (newCardData) => {
