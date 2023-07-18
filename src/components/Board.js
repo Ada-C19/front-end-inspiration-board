@@ -12,7 +12,7 @@ const Board = ( {board_id, title, owner, cards, deleteBoard} ) => {
         <div className="board">
             <h1 className="h1-board">Board: {title}</h1>
             <p>Created By: {owner}</p>
-            <TrashIcon onClick={() => handleDeleteBoard(board_id)} />
+            <TrashIcon onClick={() => handleDeleteBoard()} />
         </div>
     );
 };

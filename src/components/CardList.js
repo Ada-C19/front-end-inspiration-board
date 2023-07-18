@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import Card from './Card.js';
 
-const CardList = ({ cards, handleLike }) => {
+const CardList = ({ cards, handleLike, deleteCard }) => {
     const getCardListJSX = (cards) => {
         return cards.map((card) => {
             return (
@@ -13,6 +13,7 @@ const CardList = ({ cards, handleLike }) => {
                     board={card.board}
                     likesCount={card.likesCount}
                     handleLike={handleLike}
+                    deleteCard={deleteCard}
                 />
             )
         })

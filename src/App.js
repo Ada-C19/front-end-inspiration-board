@@ -49,7 +49,7 @@ const convertCardFromAPI = (card) => {
 
 const App = () => {
   const [boards, setBoards] = useState(boardData);
-  const [targetBoardId, setTargetBoardId] = useState(11);
+  const [targetBoardId, setTargetBoardId] = useState(18);
   const [cards, setCards] = useState([])
 
   // does not access CARDS data
@@ -73,7 +73,9 @@ const App = () => {
   }
 
     const fetchCards = () => {
-      getCardsForBoard(targetBoardId).then((cards) => setCards(cards))
+      getCardsForBoard(targetBoardId).then((cards) => {
+        setCards(cards);})
+
     };
     
     useEffect( () => {fetchCards()}, [targetBoardId]);
@@ -97,8 +99,6 @@ const App = () => {
     // setBoards(newBoards);
   }
 
-  // should we include likesCount = 0 as part of the submission,
-  // or have the likesCount default to 0 on the back end?
   const handleSubmitCard = (newCard) => {
     const nextId = Math.max(...cards.map(card => card.id)) + 1;
     const newCardObject = {
@@ -120,6 +120,16 @@ const App = () => {
     axios.post(`${boardsURL}/boards/${targetBoardId}/cards`, params)
     .then((response) => console.log('Card Posted!', response.data))
     .catch((e) => console.log("error posting card!", e.message));
+  }
+
+  const handleDeleteCard = (cardId) => {
+    deleteCardFromAPI(cardId);
+    fetchCards();
+  }
+  const deleteCardFromAPI = (cardId) => {
+    axios.delete(`${boardsURL}/boards/${targetBoardId}/cards/${cardId}`)
+    .then((response) => console.log('Card Deleted!', response.data))
+    .catch((e) => console.log(e.message));
   }
 
   const handleSubmitBoard = (newBoard) => { 
@@ -159,7 +169,7 @@ const App = () => {
             owner={currentBoard().owner}
             deleteBoard={deleteBoardFromAPI}
           />
-          <CardList cards={cards} handleLike={handleLike} />
+          <CardList cards={cards} handleLike={handleLike} deleteCard={handleDeleteCard}/>
           <NewCardForm addCard={handleSubmitCard} />
         </div>
       </main>

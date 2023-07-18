@@ -10,7 +10,7 @@ const getRandomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-const Card = ({ id, message, likesCount, handleLike }) => {
+const Card = ({ id, message, likesCount, handleLike, deleteCard }) => {
     const [rotation, setRotation] = useState(0);
 
     useEffect(() => {
@@ -19,8 +19,8 @@ const Card = ({ id, message, likesCount, handleLike }) => {
 
     const handleLikeClick = () => handleLike(id);
 
-    const handleDeleteCard = (cardId) => {
-        console.log("Delete card:", cardId);
+    const handleDeleteCard = () => {
+        deleteCard(id);
     };
 
     return (
@@ -28,7 +28,7 @@ const Card = ({ id, message, likesCount, handleLike }) => {
             <div className="likes-container">
                 <LikesIcon count={likesCount} handleLike={handleLikeClick} />
             </div>
-            <TrashIcon onClick={() => handleDeleteCard(id)} />
+            <TrashIcon onClick={() => handleDeleteCard()} />
             <div className="card-text">
                 <p>Card: {id}</p>
                 <p>{message}</p>
