@@ -2,24 +2,26 @@ import React, { useEffect, useState } from 'react';
 import NewBoardForm from './components/NewBoardForm';
 import BoardList from './components/BoardList';
 import CardList from './components/CardList';
+import NewCardForm from './components/NewCardForm';
 import './App.css';
 import axios from 'axios';
 
 export const URL = 'http://localhost:5000/boards'
 
 const App = () => {
+  const [cards, setCards] = useState([]);
   const [boards, setBoards] = useState([]);
   const [boardData, setBoardData] = useState({
     boardId: '',
     title: '',
     owner: ''
   });
-  const [cards, setCards] = useState([]);
-  const [cardData, setCardData] = useState({
-    cardId: '',
-    message: '',
-    likesCount: 0,
-  })
+  // const [cards, setCards] = useState([]);
+  // const [cardData, setCardData] = useState({
+  //   cardId: '',
+  //   message: '',
+  //   likesCount: 0,
+  // })
 
   useEffect(() => {
     axios
@@ -54,7 +56,7 @@ const App = () => {
           })
         })
       })
-      .catch((error) => console.log("cant update board", error));
+      .catch((error) => console.log("can't update board", error));
   }
 
   const deleteBoard = (boardId) => {
@@ -87,19 +89,22 @@ const App = () => {
       });
   };
 
-  // Cards --------------------------------
-
-  const deleteCard = ( cardId ) => {
-    axios 
-      .delete(`${URL}/${cardId}`)
-      .then(() => {
-        const newCards = cards.filter((card) => card.id !== cardId);
-        setCards(newCards);
+  const addCard = (formField) => {
+    axios.post(`http://localhost:5000/cards`)
+      .then(response => {
+        const createdCard = {
+          boardId: response.data.boardId,
+          id: response.data.id,
+          message: formField.message,
+        };
+        setCards(prevCards => [...prevCards, createdCard]);
       })
-  }
-
-
-
+      .catch(error => {
+        console.error("Error creating card", error);
+      });
+      // fetchCards();
+  };
+  // Cards --------------------------------
 
   return (
     <div className="App">
@@ -107,10 +112,9 @@ const App = () => {
         <h1>This is a test </h1>
       </header>
       <main>
-        <BoardList boards={boards} updateBoard={updateBoard} deleteBoard={deleteBoard}>
-          {/* <CardList cards={cards} deleteCard={deleteCard} />  */}
-        </BoardList>
+        <BoardList boards={boards} updateBoard={updateBoard} deleteBoard={deleteBoard} addCard={addCard}/>
         <NewBoardForm addNewBoard={addNewBoard} />
+        <NewCardForm addCard={addCard}/>
       </main>
     </div>
   );

@@ -26,8 +26,10 @@ const CardList = (props) => {
         id= {card.id}
         message= {card.message}
         likesCount={card.likesCount}
-        onUpdateCard={props.onUpdateCard}
-        onDelete={props.handleDelete}
+        // onUpdateCard={props.onUpdateCard}
+        onDelete={props.onDelete}
+        updateLikeCount={props.updateLikeCount}
+
         />
       ))}
     </ol>
@@ -44,10 +46,8 @@ CardList.propTypes = {
     })
   ).isRequired,
   showCards: PropTypes.bool.isRequired,
-  // updateCard: PropTypes.func.isRequired,
-  // deleteCard: PropTypes.func.isRequired,
-  // incrementLikeCount: PropTypes.func.isRequired,
-  // decrementLikeCount: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  updateLikeCount: PropTypes.func.isRequired,
 };
 
 export default CardList;
