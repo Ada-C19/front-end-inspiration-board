@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './BoardList.css';
 
 function BoardList({ boardData, boardSelect }) {
@@ -15,6 +16,11 @@ function BoardList({ boardData, boardSelect }) {
     return (
       <ol className='list-boards'>{boardTitles}</ol>
     );
+};
+
+BoardList.propTypes ={
+  boardData: PropTypes.array.isRequired,
+  boardSelect: PropTypes.func.isRequired
 };
 
 export default BoardList;
