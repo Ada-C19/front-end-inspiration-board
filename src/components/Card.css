@@ -1,28 +1,33 @@
+/************* Individual Card Container *************/
+
 .card-container {
-    /* border: solid black; */
     background-color: #fff8a5;
-    list-style-type: none;
     height: 15rem;
     width: 12rem;
-    margin: 1rem 0rem;
+    margin: 1rem 1rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 }
 
+/************* Container within the Card *************/
+
 .each-card {
-    /* border: solid red; */
     height: 100%;
     width: 100%;
     text-align: center;
 }
+
+/************* Card Message *************/
 
 .message-line {
     padding: 1rem 1.5rem;
     font-size: 1.2rem;
     font-family: 'Permanent Marker', cursive;
 }
+
+/************* Likes Count and Delete Buttons *************/
 
 .likes-delete {
     background-color:#EB418B;
