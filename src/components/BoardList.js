@@ -21,9 +21,7 @@ const BoardList = ({ boards, createBoard, createCard, likeCard }) => {
     return (
         <div>
             <section className="board-list">
-                <ul>
-                    {boards.map(({title}) => title)}
-                </ul>
+                {boardComponents}
             </section>
             
         </div>
