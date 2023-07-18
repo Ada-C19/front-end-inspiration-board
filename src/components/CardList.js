@@ -4,10 +4,10 @@ import Card from './Card';
 import './CardList.css';
 
 const CardList = ({ cardData, increaseLikesCount, deleteCard, sortCards }) => {
-
+  
   const cardListComponents = cardData.map(card => {
     return (
-      <ul key = {card.card_id}>
+      <li key = {card.card_id}>
         <Card
           id = {card.card_id}
           message = {card.message}
@@ -16,7 +16,7 @@ const CardList = ({ cardData, increaseLikesCount, deleteCard, sortCards }) => {
           deleteCard={deleteCard}
           sortCards={sortCards}
         />
-      </ul>
+      </li>
     );
   });
 
@@ -28,17 +28,15 @@ const CardList = ({ cardData, increaseLikesCount, deleteCard, sortCards }) => {
 };
 
 CardList.propTypes = {
-  card: PropTypes.arrayOf(
-    PropTypes.shape(
-      {
-        id: PropTypes.number.isRequired,
-        message: PropTypes.string.isRequired,
-        likesCount: PropTypes.number.isRequired,
-        deleteCard: PropTypes.func.isRequired,
-        increaseLikesCount: PropTypes.func.isRequired
-      }
-    )
+  cardData: PropTypes.arrayOf(
+    PropTypes.shape({
+      card_id: PropTypes.number.isRequired,
+      message: PropTypes.string.isRequired,
+      likes_count: PropTypes.number.isRequired,
+    })
   ).isRequired,
+  deleteCard: PropTypes.func.isRequired,
+  increaseLikesCount: PropTypes.func.isRequired,
   sortCards: PropTypes.func.isRequired
 };
 
