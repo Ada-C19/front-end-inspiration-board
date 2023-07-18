@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import './NewBoardForm.css';
 
 const NewBoardForm = ({ addBoard }) => {
@@ -16,8 +17,7 @@ const NewBoardForm = ({ addBoard }) => {
       alert('Must enter information into both fields.');
     } else {
       addBoard(newBoard);
-      console.log('newboard in handle submit:', newBoard)
-    }
+    };
 
     setNewBoards({
       title: '',
@@ -58,7 +58,11 @@ const NewBoardForm = ({ addBoard }) => {
         <span>{newBoard.title}-{newBoard.owner}</span>
       </form>
     </section>
-  )
-}
+  );
+};
+
+NewBoardForm.propTypes = {
+  addBoard: PropTypes.func.isRequired
+};
 
 export default NewBoardForm;
