@@ -14,7 +14,7 @@ function App() {
   const [selectedBoardTitle, setSelectedBoardTitle] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/boards')
+    axios.get('https://maaps-inspiration-board.onrender.com/boards')
       .then((response) => {
       console.log('response:', response);
       setBoardsData(response.data);
@@ -30,7 +30,7 @@ function App() {
     // cardSelect(id)
     console.log('boardSelect id:', id)
     axios
-      .get(`http://localhost:5000/boards/${id}/cards`)
+      .get(`https://maaps-inspiration-board.onrender.com/boards/${id}/cards`)
       .then((response) => {
         setCards(response.data);
         setSelectedBoard({ id, title, owner});
@@ -44,7 +44,7 @@ function App() {
 
   const addBoard = (newBoard) => {
     axios
-      .post('http://localhost:5000/boards', newBoard)
+      .post('https://maaps-inspiration-board.onrender.com/boards', newBoard)
       .then((response) => {
         setBoardsData((prevBoardList) => [response.data, ...prevBoardList])
       })
@@ -58,7 +58,7 @@ function App() {
   const addCard = (message) => {
     console.log('message in addBoard:', message)
     axios
-      .post(`http://localhost:5000/boards/${selectedBoard.id}/cards`, {
+      .post(`https://maaps-inspiration-board.onrender.com/boards/${selectedBoard.id}/cards`, {
         message,
       })
       .then((response) => {
@@ -72,7 +72,7 @@ function App() {
   // ######## Delete individual card ########
 
   const deleteCard = (id) => {
-    axios.delete(`http://localhost:5000/cards/${id}`)
+    axios.delete(`https://maaps-inspiration-board.onrender.com/cards/${id}`)
       .then(() => {
       console.log('click delete');
       // setCards(prevCards => {
@@ -88,7 +88,7 @@ function App() {
   // ######## Delete Individual Board ########
 
   const deleteBoard  = (id) => {
-    axios.delete(`http://localhost:5000/boards/${selectedBoard.id}`)
+    axios.delete(`https://maaps-inspiration-board.onrender.com/boards/${selectedBoard.id}`)
       .then(() => {
         setBoardsData((currentBoards) => {
           const updatedBoards = currentBoards.filter((board) => board.board_id !== id);
@@ -100,7 +100,7 @@ function App() {
   // ######## Increase Like Count ########
 
   const increaseLikesCount = (id) => {
-    axios.put(`http://localhost:5000/cards/${id}`)
+    axios.put(`https://maaps-inspiration-board.onrender.com/cards/${id}`)
     .then(() => {
       const updatedCards = cards.map(card => {
         if (card.card_id == id) {
