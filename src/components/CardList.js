@@ -17,8 +17,10 @@ import Card from './Card';
 //   }, []);
 
 const CardList = (props) => {
+
+  const cardClass = props.showCards ? '' : 'hidden';
   return (
-    <ol>
+    <ol className={cardClass}>
       {props.cards.map((card) => (
         <Card
         id= {card.id}
@@ -41,10 +43,11 @@ CardList.propTypes = {
       likesCount: PropTypes.number.isRequired,
     })
   ).isRequired,
-  updateCard: PropTypes.func.isRequired,
-  deleteCard: PropTypes.func.isRequired,
-  incrementLikeCount: PropTypes.func.isRequired,
-  decrementLikeCount: PropTypes.func.isRequired,
+  showCards: PropTypes.bool.isRequired,
+  // updateCard: PropTypes.func.isRequired,
+  // deleteCard: PropTypes.func.isRequired,
+  // incrementLikeCount: PropTypes.func.isRequired,
+  // decrementLikeCount: PropTypes.func.isRequired,
 };
 
 export default CardList;

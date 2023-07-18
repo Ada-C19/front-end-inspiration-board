@@ -2,9 +2,30 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import CardList from './CardList';
+import axios from 'axios';
 
 
 const Board = ( props ) => {
+
+  const [cards, setCards] = useState([]);
+  const [showCards, setShowCards] = useState(false);
+
+  useEffect(() => {
+    fetchCards();
+
+  }, []);
+
+  const fetchCards = () => {
+    axios
+      .get(`http://localhost:5000/boards/${props.boardId}/cards`)
+      .then(result => {
+        console.log(result.data)
+        setCards(result.data);
+      })
+      .catch(error => {
+        console.error("Error fetching cards", error);
+      });
+  };
 
   const handleUpdateBoard = () => {
     props.updateBoard(props.boardId);
@@ -16,10 +37,14 @@ const Board = ( props ) => {
   }
 
   return (
-    <li>
-      <button onClick={handleUpdateBoard}>EDIT</button>
-      <button onClick={handleDeleteBoard}>DELETE</button>
-    </li>
+    <>
+      <li>
+        <button onClick={() => setShowCards(!showCards)}>Show Cards</button>
+        <button onClick={handleUpdateBoard}>EDIT</button>
+        <button onClick={handleDeleteBoard}>DELETE</button>
+      </li>
+      <CardList cards={cards} showCards={showCards} />
+    </>
   )
 
 };
