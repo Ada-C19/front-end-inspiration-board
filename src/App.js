@@ -14,38 +14,37 @@ import boardData from './data/boards.json';
 const boardsURL = `${process.env.REACT_APP_BACKEND_URL}`
 
 const getAllBoards = () => {
-  return axios.get(`${boardsURL}/boards`)
-  .then((response) => {
-    return (response.data.map(convertBoardFromAPI))
-  })
-  .catch((e) => console.log("error during getAllBoards!", e));
-}
-
-const convertBoardFromAPI = (data) => {
+  const convertBoardFromAPI = (data) => {
     return {
       id: data.board_id,
       title: data.title,
       owner: data.owner
     };
+  };
+  return axios.get(`${boardsURL}/boards`)
+  .then((response) => {
+    return (response.data.map(convertBoardFromAPI))
+  })
+  .catch((e) => console.log("error during getAllBoards!", e));
 };
 
 const getCardsForBoard = (boardId) => {
+  const convertCardFromAPI = (card) => {
+    return {
+      id: card.card_id,
+      message: card.message,
+      likesCount: card.likes_count,
+      board: card.board_id
+    };
+  };
+
   return axios.get(`${boardsURL}/boards/${boardId}/cards`)
     .then((response) => {
       let cards = response.data.cards.map(convertCardFromAPI);
       console.log(cards);
       return cards})
     .catch((e) => console.log("error in Getting Cards for Board", e.message))
-}
-
-const convertCardFromAPI = (card) => {
-  return {
-    id: card.card_id,
-    message: card.message,
-    likesCount: card.likes_count,
-    board: card.board_id
-  }
-}
+};
 
 const App = () => {
   const [boards, setBoards] = useState(boardData);
@@ -53,12 +52,12 @@ const App = () => {
   const [cards, setCards] = useState([])
 
   // does not access CARDS data
-  const fetchBoardData = () => {
+  const fetchBoards = () => {
     getAllBoards()
       .then((boards) => setBoards(boards))
   }
 
-  useEffect( () => {fetchBoardData()}, [])
+  useEffect( () => {fetchBoards()}, [])
 
   const handleSelectBoard = (boardId) => {
     setTargetBoardId(boardId);
@@ -77,7 +76,6 @@ const App = () => {
         setCards(cards);})
 
     };
-    
     useEffect( () => {fetchCards()}, [targetBoardId]);
 
 
@@ -100,6 +98,16 @@ const App = () => {
   }
 
   const handleSubmitCard = (newCard) => {
+    const postCardToAPI = (newCard) => {
+      let params = {
+        message: newCard.message,
+        likes_count: 0,
+        board_id: targetBoardId,
+      }
+      axios.post(`${boardsURL}/boards/${targetBoardId}/cards`, params)
+      .then((response) => console.log('Card Posted!', response.data))
+      .catch((e) => console.log("error posting card!", e.message));
+    };
     const nextId = Math.max(...cards.map(card => card.id)) + 1;
     const newCardObject = {
       id: nextId,
@@ -109,48 +117,46 @@ const App = () => {
     };
     postCardToAPI(newCardObject)
     setCards((prevData) => [newCardObject, ...prevData])
-  }
-
-  const postCardToAPI = (newCard) => {
-    let params = {
-      message: newCard.message,
-      likes_count: 0,
-      board_id: targetBoardId,
-    }
-    axios.post(`${boardsURL}/boards/${targetBoardId}/cards`, params)
-    .then((response) => console.log('Card Posted!', response.data))
-    .catch((e) => console.log("error posting card!", e.message));
-  }
-
-  const handleDeleteCard = (cardId) => {
-    deleteCardFromAPI(cardId);
-    fetchCards();
-  }
-  const deleteCardFromAPI = (cardId) => {
-    axios.delete(`${boardsURL}/boards/${targetBoardId}/cards/${cardId}`)
-    .then((response) => console.log('Card Deleted!', response.data))
-    .catch((e) => console.log(e.message));
-  }
-
-  const handleSubmitBoard = (newBoard) => { 
-    postBoardToAPI(newBoard);
   };
 
-  const postBoardToAPI = (newBoard) => {
-    let params = {
-      title: newBoard.title,
-      owner: newBoard.owner
-    }
-    axios.post(`${boardsURL}/boards`, params)
-    .then((response) => console.log('Board Posted!', response.data))
-    .catch((e) => console.log(e));
-  }
+  const handleDeleteCard = (cardId) => {
+    const deleteCardFromAPI = (cardId) => {
+      axios.delete(`${boardsURL}/boards/${targetBoardId}/cards/${cardId}`)
+      .then((response) => console.log('Card Deleted!', response.data))
+      .catch((e) => console.log(e.message));
+    };
 
-  const deleteBoardFromAPI = (boardId) => {
-    axios.delete(`${boardsURL}/boards/${boardId}`)
-    .then((response) => console.log('Board Deleted!', response.data))
-    .catch((e) => console.log(e.message));
-  }
+    deleteCardFromAPI(cardId);
+    fetchCards();
+  };
+
+  const handleSubmitBoard = (newBoard) => { 
+    const postBoardToAPI = (newBoard) => {
+      let params = {
+        title: newBoard.title,
+        owner: newBoard.owner
+      }
+      axios.post(`${boardsURL}/boards`, params)
+      .then((response) => console.log('Board Posted!', response.data))
+      .catch((e) => console.log(e));
+    }
+    // need to add listener with use effect or something here
+    postBoardToAPI(newBoard)
+    // .then(() => fetchBoards());
+    fetchBoards();
+  };
+
+  const handleDeleteBoard = (boardId) => {
+    const deleteBoardFromAPI = (boardId) => {
+      axios.delete(`${boardsURL}/boards/${boardId}`)
+      .then((response) => console.log('Board Deleted!', response.data))
+      .catch((e) => console.log(e.message));
+    }
+    
+    deleteBoardFromAPI(boardId);
+    fetchBoards();
+  };
+  
 
   return (
     <div className="App">
@@ -167,7 +173,7 @@ const App = () => {
             board_id={currentBoard().id} 
             title={currentBoard().title}
             owner={currentBoard().owner}
-            deleteBoard={deleteBoardFromAPI}
+            deleteBoard={handleDeleteBoard}
           />
           <CardList cards={cards} handleLike={handleLike} deleteCard={handleDeleteCard}/>
           <NewCardForm addCard={handleSubmitCard} />
