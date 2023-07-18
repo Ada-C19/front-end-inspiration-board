@@ -4,25 +4,11 @@ import PropTypes from 'prop-types';
 import './NewCardForm.css';
 
 const NewCardForm = ( {addCard} ) => {
-    const defaultNewCard = {
-        message: '',
-        board:'',
-    }
-
+    const defaultNewCard = {message: ''}
     const [formFields, setFormFields] = useState(defaultNewCard);
 
     const onMessageChange = (event) => {
-        setFormFields({
-            ...formFields,
-            message: event.target.value
-        });
-    };
-
-    const onBoardChange = (event) => {
-        setFormFields({
-            ...formFields,
-            board: event.target.value
-        });
+        setFormFields({message: event.target.value});
     };
 
     const onFormSubmit = event => {
@@ -40,14 +26,6 @@ const NewCardForm = ( {addCard} ) => {
                     id="message" 
                     onChange={onMessageChange}
                     value={formFields.message}
-                />
-            </div>
-            <div>
-                <label htmlFor="board">Board:</label>
-                <input 
-                    id="board" 
-                    onChange={onBoardChange}
-                    value={formFields.board}
                 />
             </div>
             <input

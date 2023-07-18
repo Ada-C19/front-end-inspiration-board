@@ -99,19 +99,30 @@ const App = () => {
 
   // should we include likesCount = 0 as part of the submission,
   // or have the likesCount default to 0 on the back end?
-  const handleSubmitCard = (newCard) => { }
-  //   const nextId = Math.max(...cards.map(card => card.id)) + 1;
-  //   const newCardObject = {
-  //     id: nextId,
-  //     message: newCard.message,
-  //     board: newCard.board,
-  //     likesCount: 0,
-  //   };
-  //   setCards((prevData) => [newCardObject, ...prevData])
-  // }
+  const handleSubmitCard = (newCard) => {
+    const nextId = Math.max(...cards.map(card => card.id)) + 1;
+    const newCardObject = {
+      id: nextId,
+      message: newCard.message,
+      board: targetBoardId,
+      likesCount: 0,
+    };
+    postCardToAPI(newCardObject)
+    setCards((prevData) => [newCardObject, ...prevData])
+  }
+
+  const postCardToAPI = (newCard) => {
+    let params = {
+      message: newCard.message,
+      likes_count: 0,
+      board_id: targetBoardId,
+    }
+    axios.post(`${boardsURL}/boards/${targetBoardId}/cards`, params)
+    .then((response) => console.log('Card Posted!', response.data))
+    .catch((e) => console.log("error posting card!", e.message));
+  }
 
   const handleSubmitBoard = (newBoard) => { 
-    console.log('New Board Form Submitted!');
     postBoardToAPI(newBoard);
   };
 
