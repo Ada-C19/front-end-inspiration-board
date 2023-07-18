@@ -55,7 +55,6 @@ const App = () => {
   const [targetBoardId, setTargetBoardId] = useState(18);
   const [cards, setCards] = useState([])
 
-  // does not access CARDS data
   const fetchBoards = () => {
     getAllBoards()
       .then((boards) => setBoards(boards))
@@ -76,8 +75,8 @@ const App = () => {
   }
 
     const fetchCards = () => {
-      getCardsForBoard(targetBoardId).then((cards) => {
-        setCards(cards);})
+      getCardsForBoard(targetBoardId)
+      .then((cards) => {setCards(cards);})
 
     };
     useEffect( () => {fetchCards()}, [targetBoardId]);
@@ -133,7 +132,7 @@ const App = () => {
         likes_count: 0,
         board_id: targetBoardId,
       }
-      axios.post(`${boardsURL}/boards/${targetBoardId}/cards`, params)
+      return axios.post(`${boardsURL}/boards/${targetBoardId}/cards`, params)
       .then((response) => console.log('Card Posted!', response.data))
       .catch((e) => console.log("error posting card!", e.message));
     };
@@ -145,18 +144,18 @@ const App = () => {
       likesCount: 0,
     };
     postCardToAPI(newCardObject)
-    setCards((prevData) => [newCardObject, ...prevData])
+    .then(() => setCards((prevData) => [newCardObject, ...prevData]))
   };
 
   const handleDeleteCard = (cardId) => {
     const deleteCardFromAPI = (cardId) => {
-      axios.delete(`${boardsURL}/boards/${targetBoardId}/cards/${cardId}`)
+      return axios.delete(`${boardsURL}/boards/${targetBoardId}/cards/${cardId}`)
       .then((response) => console.log('Card Deleted!', response.data))
       .catch((e) => console.log(e.message));
     };
 
-    deleteCardFromAPI(cardId);
-    fetchCards();
+    deleteCardFromAPI(cardId)
+    .then(() => fetchCards());
   };
 
   return (
