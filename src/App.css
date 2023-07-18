@@ -7,15 +7,16 @@
 }
 
 .board-list {
-  background-color: red;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   width: 200px;
   max-width: 100%;
   color: white;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 
 .board {
-  background-color: white;
+  /* background-color: white; */
   border-radius: 10px;
   padding: 10px;
   margin: 5px;
@@ -24,6 +25,22 @@
 }
 
 .board-container {
-  width: 500px;
+  width: 25vh;
+  padding: 25px;
   background-color: pink;
+  height: 100vh;
+}
+
+.board-form-input {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 5px;
+  padding-top: 10px
+}
+
+.card-form-input {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 5px;
+  padding-top: 10px
 }

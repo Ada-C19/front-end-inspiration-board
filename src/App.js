@@ -3,17 +3,22 @@ import axios from 'axios';
 import './App.css';
 // import CardList from './components/CardList';
 import NewBoardForm from './components/NewBoardForm';
+import NewCardForm from './components/NewCardForm';
 import BoardList from './components/BoardList';
 // import boardInfo from "./util/mock_data.json"
 
 const App = () => {
   const [boardData, setBoardData] = useState([]);
+
+  // may or may not need this;
   const [errorMessage, setErrorMessage] = useState('');
+  // update with useEffect; IF necessary, else delete;
   const [cardData, setCardData] = useState([]);
+  
   // using useEffect to retrieve data and set it to boardData;
   // ***** URL(more like backend) probably NEEDS to be checked -- boards don't have an empty cards array *****
   useEffect(() =>{
-    const response = axios.get('https://inspoboardteam404.onrender.com/boards')
+  axios.get('https://inspoboardteam404.onrender.com/boards')
     .then((response) => {
       setBoardData(response.data);;
     })
@@ -21,10 +26,19 @@ const App = () => {
       setErrorMessage(<section>{error.response.data.message}</section>);
     });
   },[boardData])
-  // I must find out if [boardData] works both ways (like if we update our boards here, does it update the database? I feel like it might not... :<)
 
+  useEffect(() =>{
+  axios.get('https://inspoboardteam404.onrender.com/cards')
+  .then((response) => {
+    setCardData(response.data);;
+  })
+  .catch((error) => {
+    setErrorMessage(<section>{error.response.data.message}</section>);
+  });
+},[cardData])
 
   // updating board data
+  // axios patch request; or perhaps this part now works automatically since I'm using useEffect to track [boardData]? idk;
   const updateBoardData = updatedBoard => {
     const boards = boardData.map(board => {
       if (board.id === updatedBoard.id) {
@@ -39,7 +53,14 @@ const App = () => {
 
 
   // Add Board Data
+  // make an axios post request;
   const addBoardData = newBoard => {
+    
+    axios.post('https://inspoboardteam404.onrender.com/boards')
+
+
+  
+    /* 
     // Duplicate the boards list
     const newBoardList = [...boardData];
     // Logic to generate the next valid board ID
@@ -51,7 +72,14 @@ const App = () => {
         descData: newBoard.descData,
     });
 
-    setBoardData(newBoardList);
+    setBoardData(newBoardList); 
+    */
+
+};
+
+  const addCardData = newCard => {
+    axios.post('https://inspoboardteam404.onrender.com/cards')
+
 };
 
 
@@ -92,9 +120,15 @@ like react chatlog but needs backend request; */
               boards={boardData}
               onUpdateBoard={updateBoardData}
           />
+          {/* <CardList
+            cards={cardData}
+            onUpdateCard={updateCardData}
+          /> */}
           <NewBoardForm
               addBoardCallback={addBoardData}
           />
+          <NewCardForm 
+            addCardCallback={addCardData}/>
         </section>
       </section>
       {/* put the button [Create New Board] here in App.js, NOT in Board.js; because that makes it come up in EVERY board. we just want it once on the page */}
