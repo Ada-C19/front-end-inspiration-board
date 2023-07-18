@@ -10,7 +10,7 @@ const test_cards = [
   "likes_count": 6,},
   {"message": "hello computer",
   "id": 6,
-  "likes_count": 10000000}
+  "likes_count": "10000000"}
 ];
 
 const test_board = {

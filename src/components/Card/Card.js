@@ -6,7 +6,7 @@ const Card = props => {
     <div>
       <p>CARD {props.card_id}</p>
       <p>Message: {props.message}</p>
-      <p>Likes: {props.likesCount}</p>
+      <p>Likes: {props.likes_count}</p>
       
     </div>
   )
