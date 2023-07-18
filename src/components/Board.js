@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CardList from './CardList';
 
-const Board = ({ id, title, owner, cards, createBoard, createCard, likeCard }) => {
+const Board = ({ id, title, owner, cards, createCard, likeCard }) => {
     
     return (
         <div className="board">
@@ -10,14 +10,14 @@ const Board = ({ id, title, owner, cards, createBoard, createCard, likeCard }) =
             <p>{owner}</p>
             <p className='title_underline'> --------------------------------- </p>
 
-            <button 
+            {/* <button 
                 onClick = {() => createBoard()}
                 className='create_board'
-            >Create New Board</button>
+            >Create New Board</button> */}
             <section>
                 <CardList cards={cards} likeCard={likeCard} />
                 <button 
-                    className='creat_card'
+                    className='create_card'
                     onClick = {() => createCard()}
                 >Create New Card</button>
             </section>

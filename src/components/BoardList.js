@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Board from './Board';
 import "./BoardList.css";
 
-const BoardList = ({ boards, createBoard, createCard, likeCard }) => {
+const BoardList = ({ boards, createCard, likeCard }) => {
     const boardComponents = boards.map((board) => {
         return (
             <Board 
@@ -11,21 +11,20 @@ const BoardList = ({ boards, createBoard, createCard, likeCard }) => {
             title = {board.title} 
             owner = {board.owner}
             cards = {board.cards}
-            createBoard = {createBoard}
             createCard = {createCard}
             likeCard = {likeCard}
             />
-        )
-    })
+            )
+        })
+    
+    const boardTitles = (<h1>Boards</h1>)
 
+    
     return (
         <div>
-            <section className="board-list">
-                <ul>
-                    {boards.map(({title}) => title)}
-                </ul>
+            <section>
+                {boardTitles}
             </section>
-            
         </div>
     )
 }

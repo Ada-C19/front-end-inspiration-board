@@ -40,7 +40,6 @@ const NewBoardForm = ({ addBoardCallback }) => {
             titleData: formFields.title,
             ownerData: formFields.owner,
         });
-
         setFormFields({
             title: '',
             owner: '',
@@ -50,7 +49,7 @@ const NewBoardForm = ({ addBoardCallback }) => {
     return (
         <form onSubmit={onFormSubmit}>
 
-        <div>
+        <div className="board-form-input">
             <label htmlFor="boardTitle">Board Title:</label>
             <input 
             title="boardTitle"
@@ -58,7 +57,7 @@ const NewBoardForm = ({ addBoardCallback }) => {
             onChange={onTitleChange} />
         </div>
 
-        <div>
+        <div className="board-form-input">
             <label htmlFor="owner">Owner:</label>
             <input 
             owner="owner"
