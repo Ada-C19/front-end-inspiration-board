@@ -1,0 +1,35 @@
+.board-select-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.mini-board {
+    width: 250px;
+    height: 150px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.mini-board:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.mini-board .board {
+    margin: 10px;
+    padding: 5px;
+    background-color: #fff;
+}
+
+.mini-board .board h1 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.mini-board .board p {
+    font-size: 14px;
+    margin: 5px 0;
+}
