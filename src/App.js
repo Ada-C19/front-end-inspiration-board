@@ -86,7 +86,7 @@ function App() {
       console.log("newBoards " + JSON.stringify(response.data))
     })
     .catch((error) => {
-      console.log(error);
+      console.log(`Error: ${error}`);
     });      
   };
   
