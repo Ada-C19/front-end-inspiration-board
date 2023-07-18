@@ -30,14 +30,28 @@ const convertBoardFromAPI = (data) => {
 };
 
 const getCardsForBoard = (boardId) => {
+  console.log(`calling ${boardsURL}/boards/${boardId}/cards`)
   return axios.get(`${boardsURL}/boards/${boardId}/cards`)
-    .then((response) => console.log(response.data.cards))
+    .then((response) => {
+      let cards = response.data.cards.map(convertCardFromAPI);
+      console.log(cards);
+      return cards})
+    .catch((e) => console.log("error in Getting Cards for Board", e.message))
+}
+
+const convertCardFromAPI = (card) => {
+  return {
+    id: card.card_id,
+    message: card.message,
+    likesCount: card.likes_count,
+    board: card.board_id
+  }
 }
 
 const App = () => {
   const [boards, setBoards] = useState(boardData);
-  const [targetBoardId, setTargetBoardId] = useState(0);
-  // const [cards, setCards] = useState()
+  const [targetBoardId, setTargetBoardId] = useState(11);
+  const [cards, setCards] = useState([])
 
   // does not access CARDS data
   const fetchBoardData = () => {
@@ -73,29 +87,36 @@ const App = () => {
 
   // const fetchCardData = () => 
 
-  const displayCards = () => {
-    const boardIndex = findIndexOfTargetBoard();
-    return (
-      <CardList cards={boards[boardIndex].cards} handleLike={handleLike} />
-    )
-  };
+  // const displayCards = () => {
+  //   getCardsForBoard(targetBoardId).then((cards) =>{
+  //     return (
+  //       <CardList cards={cards} handleLike={handleLike} />
+  //     )})
+  //   };
+
+    const fetchCards = () => {
+      getCardsForBoard(targetBoardId).then((cards) => setCards(cards))
+    };
+    
+    useEffect( () => {fetchCards()}, [targetBoardId]);
+
 
   // TO DO:
   // change handleLike to toggle T/F for users
   // instead of each click adding to Likes total 
 
   const handleLike = (cardId) => {
-    let newBoards = [...boards];
+    // let newBoards = [...boards];
 
-    let targetIndex = findIndexOfTargetBoard()
+    // let targetIndex = findIndexOfTargetBoard()
 
-    newBoards[targetIndex].cards = newBoards[targetIndex].cards.map((card) => {
-      if (cardId === card.id) {
-        return { ...card, likesCount: card.likesCount + 1 };
-      } else { return card; };
-    });
+    // newBoards[targetIndex].cards = newBoards[targetIndex].cards.map((card) => {
+    //   if (cardId === card.id) {
+    //     return { ...card, likesCount: card.likesCount + 1 };
+    //   } else { return card; };
+    // });
 
-    setBoards(newBoards);
+    // setBoards(newBoards);
   }
 
   // should we include likesCount = 0 as part of the submission,
@@ -149,7 +170,7 @@ const App = () => {
             owner={currentBoard().owner}
             deleteBoard={deleteBoardFromAPI}
           />
-          {/* {displayCards(targetBoardId)} */}
+          <CardList cards={cards} handleLike={handleLike} />
           <NewCardForm addCard={handleSubmitCard} />
         </div>
       </main>
