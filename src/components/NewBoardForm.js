@@ -53,9 +53,9 @@ const NewBoardForm = ({ addBoard }) => {
             onChange={handleChange}
           />
         </label>
-        <input className='board-submit' type='submit' value='Submit' />
-        <p>Preview:</p>
-        <p>{newBoard.title}-{newBoard.owner}</p>
+        <input className='btn' type='submit' value='Submit' />
+        <span>Preview:</span>
+        <span>{newBoard.title}-{newBoard.owner}</span>
       </form>
     </section>
   )
