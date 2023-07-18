@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import './NewBoardForm.css';
 
 const NewBoardForm = ({ addBoard }) => {
@@ -17,21 +16,22 @@ const NewBoardForm = ({ addBoard }) => {
       alert('Must enter information into both fields.');
     } else {
       addBoard(newBoard);
-    };
-    setNewBoards(
-      {
-        title: '',
-        owner: ''
-      }
-    );
+      console.log('newboard in handle submit:', newBoard)
+    }
+
+    setNewBoards({
+      title: '',
+      owner: ''
+    });
   };
 
-  const handleChange = event => {
-    setNewBoards({
-    ...newBoard, [event.target.name]: event.target.value
-  });
-  };
+  const handleChange = event => setNewBoards(
+    {
+      ...newBoard, [event.target.name]: event.target.value
+    }
+  );
   
+
   return (
     <section className='board-form-sect'>
       <form className='new-board-form' onSubmit={handleSubmit}>
@@ -39,8 +39,8 @@ const NewBoardForm = ({ addBoard }) => {
           <input
             className='board-input' 
             value={newBoard.title}
-            onChange={handleChange}
             name = 'title'
+            onChange={handleChange}
             type='text' 
           />
         </label>
@@ -48,25 +48,17 @@ const NewBoardForm = ({ addBoard }) => {
           <input
             className='board-input'
             value={newBoard.owner}
-            onChange={handleChange}
             type='text'
             name = 'owner'
+            onChange={handleChange}
           />
         </label>
-        <input 
-          className='board-submit' 
-          type='submit' 
-          value='Submit' 
-        />
+        <input className='board-submit' type='submit' value='Submit' />
         <p>Preview:</p>
         <p>{newBoard.title}-{newBoard.owner}</p>
       </form>
     </section>
-  );
-};
-
-NewBoardForm.propTypes = {
-  addBoard: PropTypes.func.isRequired
-};
+  )
+}
 
 export default NewBoardForm;
