@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Card from './Card';
 import './CardList.css';
 
-const CardList = ({ cardData, increaseLikesCount, deleteCard }) => {
+const CardList = ({ cardData, increaseLikesCount, deleteCard, sortCards }) => {
 
   const cardListComponents = cardData.map(card => {
     return (
@@ -14,6 +14,7 @@ const CardList = ({ cardData, increaseLikesCount, deleteCard }) => {
           likesCount = {card.likes_count}
           increaseLikesCount={increaseLikesCount}
           deleteCard={deleteCard}
+          sortCards={sortCards}
         />
       </ul>
     );

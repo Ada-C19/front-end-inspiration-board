@@ -12,6 +12,7 @@ function App() {
   const [selectedBoard, setSelectedBoard] = useState(null);
   const [isFormVisible, setIsFormVisible] = useState(true);
   const [selectedBoardTitle, setSelectedBoardTitle] = useState(null);
+  
 
   useEffect(() => {
     axios.get('https://maaps-inspiration-board.onrender.com/boards')
@@ -120,6 +121,21 @@ function App() {
     setIsFormVisible((prevState) => !prevState);
   };
 
+  // ####### Sort cards based on id, abc's, like count ########
+  const sortCards = (option) => {
+    let sortedCards = [...cards];
+  
+    if (option === 'id') {
+      sortedCards.sort((a, b) => a.id - b.id);
+    } else if (option === 'alphabetical') {
+      sortedCards.sort((a, b) => a.message.localeCompare(b.message));
+    } else if (option === 'likes') {
+      sortedCards.sort((a, b) => b.likes_count - a.likes_count);
+    }
+  
+    setCards(sortedCards);
+  };
+
   return (
     <div className="App grid-container">
       <header className="App-header">
@@ -162,6 +178,7 @@ function App() {
             cardData={cards}
             deleteCard={deleteCard}
             increaseLikesCount={increaseLikesCount}
+            sortCards={sortCards}
             // cardSelect={cardSelect}
           />
         )}
