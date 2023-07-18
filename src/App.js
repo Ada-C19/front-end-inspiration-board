@@ -48,7 +48,6 @@ const App = () => {
   useEffect( () => {fetchBoardData()}, [])
 
   const handleSelectBoard = (boardId) => {
-    console.log("selecting board with ID:", boardId)
     setTargetBoardId(boardId);
     // getCardsForBoard(boardId);
   };
