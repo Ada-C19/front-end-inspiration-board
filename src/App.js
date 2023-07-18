@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './App.css';
 // import CardList from './components/CardList';
 import NewBoardForm from './components/NewBoardForm';
 import BoardList from './components/BoardList';
-import boardInfo from "./util/mock_data.json"
+// import boardInfo from "./util/mock_data.json"
 
 const App = () => {
-  // boardData State
-  const [boardData, setBoardData] = useState(boardInfo);
+  const [boardData, setBoardData] = useState([]);
+  // using useEffect to retrieve data and set it to boardData;
+  // ***** URL(more like backend) probably NEEDS to be checked -- boards don't have an empty cards array *****
+  useEffect(() =>{
+    const response = axios('https://inspoboardteam404.onrender.com/boards',);
+    setBoardData(response.data);
+  },[boardData])
+  // I must find out if [boardData] works both ways (like if we update our boards here, does it update the database? I feel like it might not... :<)
+
   // updating board data
   const updateBoardData = updatedBoard => {
     const boards = boardData.map(board => {
@@ -21,7 +29,8 @@ const App = () => {
     setBoardData(boards);
   };
 
-  // Add Board Data Function 
+
+  // Add Board Data
   const addBoardData = newBoard => {
     // Duplicate the boards list
     const newBoardList = [...boardData];
@@ -36,6 +45,31 @@ const App = () => {
 
     setBoardData(newBoardList);
 };
+
+
+/* get all the cards > from the back end : id of the board > get back the board 
+> list of cards; you want that in a state > make a function in App.js that
+takes in the id of the associated card > send it to the backend;
+patch request >> sending back the id
+loop through (map) cards >> id == the id of one that was passed in,
+increment like count by 1
+
+
+like react chatlog but needs backend request; */
+// and then this wasn't sent to me but incase its helpful for us this is the use state line 
+
+// const [cards, setCard] = React.useState(chatMessages)
+
+// rough draft
+// const handleLike = (id) => {
+//   setcard(prevcCard => {
+//     const updatedCard = prevCard.map(card => {
+//       return card.id === id ? {...card, liked: !card.liked} : card
+//     })
+//     return updatedCard
+//   })
+// }
+// 
   // BoardList & NewBoardForm Components
   return (
     <div id="App">
@@ -53,36 +87,23 @@ const App = () => {
             addBoardCallback={addBoardData}
         />
       </section>
-      {/* put the buttons [Create New Board] here; */}
+      {/* put the button [Create New Board] here in App.js, NOT in Board.js; because that makes it come up in EVERY board. we just want it once on the page */}
     </div>
   );
 
-/*  > so to use the likeCard function, you first need to GET the cards from the board.
-   >> the getCards helper function uses filter method to get the board 
-
-const getCards =(boardId) => {
-  // access the board's cards through board id
-  const board = boardData.filter(id => 
-    id != boardId)
-    // but like filter removes the matching stuff so... idk if this will do
-  const cards = board.cards
-  return cards
-  })
 }
 
 
-
-const likeCard = () => {
-  const cards = getCards();
-  let total = 0;
-  for (let card of cards) {
-    total += card.likes;
-  }
-
-  return total;
-};
-
-*/
+// rough draft
+// const handleLike = (id) => {
+//   setMessages(prevMessages => {
+//     const updatedMessages = prevMessages.map(message => {
+//       return message.id === id ? {...message, liked: !message.liked} : message
+//     })
+//     return updatedMessages
+//   })
+// }
+// 
 
 
 
@@ -94,13 +115,7 @@ const likeCard = () => {
 //   return total;
 // }
 
-  // return (
-  //   <div className="App">
-  //     <header className="App-header">
-  //     </header>
-  //   </div>
-  // );
-}
+
 
 export default App;
 

@@ -7,7 +7,7 @@ const Card = ({ cardId, message, likes, boardId, likeCard }) => {
     <div>
       <section>
         {likes}
-        <button onClick={() => likeCard(cardId)}>
+        <button onClick={() => likeCard(boardId)}>
           <img src="/assets/plus_button.png" alt="Like button"/>
         </button>
       </section>

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Board from './Board';
 import "./BoardList.css";
 
-const BoardList = ({ boards, createBoard, createCard, likeCard }) => {
-    const boardComponents = boards.map((board) => {
+const BoardList = ({ boardData, createBoard, createCard, likeCard }) => {
+    const boardComponents = boardData.map((board) => {
         return (
             <Board 
             boardId = {board.boardId}
