@@ -30,7 +30,7 @@ const convertFromApi = (apiBoard) => {
 const App = () => {
 
   const [boardState, setBoardState] = useState([]);
-  const [selectedBoard, setSelectedBoard] = useState([]);
+  const [selectedBoard, setSelectedBoard] = useState(false);
 
   const fetchBoards = () =>{
     getAllBoards().then((boards)=>{
@@ -42,6 +42,7 @@ const App = () => {
   useEffect(()=>{
     fetchBoards();
   },[]);
+
 
   return (
     <div className="App">

@@ -15,13 +15,14 @@ const BoardList = (props) => {
         });
     };
 
+   
+
     return (
         <section>
             <h1>Board List</h1>
             <ol>{getBoardListJSX(props.boardData)}</ol>
             <div>
                 <p>Selected Board</p>
-                {/* Use state to udpate what displays here */}
             </div>
         </section>
     );
