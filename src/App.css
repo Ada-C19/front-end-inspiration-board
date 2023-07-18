@@ -4,6 +4,7 @@
 
 #title {
   float: right;
+  width: 50%;
 }
 
 .board-list {
@@ -24,6 +25,9 @@
 }
 
 .board-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   width: 500px;
   background-color: pink;
+  height: 100vh
 }
