@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
+import './NewBoardForm.css';
 
-const NewBoardForm = (props) => {
+const NewBoardForm = ({createNewBoard}) => {
 
     const [title, setTitle] = useState('');
     const [owner, setOwner] = useState('');
@@ -26,15 +27,7 @@ const NewBoardForm = (props) => {
 
     const submitNewBoard = (e) => {
         e.preventDefault();
-        // console.log('new board submit');
-        console.log(props);
-        // props is an object, so what is that object?
-        // isn't props only 'createNewBoard'? how is it an object?
-        // this function is going to be behaving like submit new board
-        // after it is sent, reset the spaces so the text is clear
-        // how do we move that information into the list of boards?
-        // how did we even get 'props' in the first place
-        props.createNewBoard({ title, owner });
+        createNewBoard({ title, owner });
         setTitle('');
         setOwner('');
     };
@@ -42,11 +35,17 @@ const NewBoardForm = (props) => {
 
     return (
     <form onSubmit={submitNewBoard}>
-        <p> Title </p>
-        <input value={title} onChange={newTitle} />
-        <p> Owner's name </p>
-        <input value={owner} onChange={newOwner}/>
-        <input type="submit" ></input>
+          <div className="form-row">
+        <label htmlFor="title">Title:</label>
+        <input id="title" value={title} onChange={newTitle} />
+        </div>
+        <div className="form-row">
+        <label htmlFor="owner">Participant:</label>
+        <input id="owner" value={owner} onChange={newOwner} />
+        </div>
+        <div className="form-row">
+        <button type="submit">Submit</button>
+        </div>
     </form>
 )
 

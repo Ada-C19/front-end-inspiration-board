@@ -4,6 +4,8 @@ import axios from 'axios';
 import CardList from './components/CardList';
 import NewBoardForm from './components/NewBoardForm';
 import Board from './components/Board';
+import Popup from './components/Popup.js';
+
 
 const boardsURL = `${ process.env.REACT_APP_BACKEND_URL }`
 
@@ -35,21 +37,25 @@ function App() {
   };
 
   return (
+    <main className="background-image">
     <div className="App">
+      <Popup/>
       <header> 
-        <h1>Inspiration board </h1>
+        <h1 className="header__">Lantern Festival </h1>
       </header>
-      <body>
-        <h1>Boards</h1>
-        <h1>Selected  board</h1>
-        <h1>Create New board</h1>
+      <body className = "boards__container">
+        <h1>Participants</h1>
+        <h1>.</h1>
+        <section className="new-board-form__container">
+        <h1>Add new Participant</h1>
         <NewBoardForm
           createNewBoard={ createNewBoard }
         />
-        <button>Hide new board form</button>
+        <button className='new-board-form__toggle-btn'>Hide new board form</button>
+        </section>
       </body>
-
     </div>
+    </main>
   );
 }
 
