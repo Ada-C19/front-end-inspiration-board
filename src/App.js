@@ -132,7 +132,6 @@ function App() {
     } else if (option === 'likes') {
       sortedCards.sort((a, b) => b.likes_count - a.likes_count);
     }
-  
     setCards(sortedCards);
   };
 
