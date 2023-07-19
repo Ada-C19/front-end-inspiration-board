@@ -172,7 +172,6 @@ const App = () => {
 
   const handleSortCard = (sortDirection) => {
     setCardDisplaySortDirection(sortDirection);
-    console.log("sorting cards by", sortDirection)
   }
 
   return (
