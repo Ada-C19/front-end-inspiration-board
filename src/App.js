@@ -22,7 +22,7 @@ const getAllBoards = () => {
     .then((response) => {
       return (response.data.map(convertBoardFromAPI))
     })
-    .catch((e) => console.log("error during getAllBoards!", boardsURL));
+    .catch((e) => console.log("error during getAllBoards!", e.message));
 };
 
 const getCardsForBoard = (boardId) => {
@@ -118,7 +118,6 @@ const App = () => {
           return response.data.card.card_id})
         .catch((e) => console.log("error posting card!", e.message));
     };
-    // let nextId = Math.max(...cards.map(card => card.id)) + 1;
     const newCardObject = {
       id: null,
       message: newCard.message,
