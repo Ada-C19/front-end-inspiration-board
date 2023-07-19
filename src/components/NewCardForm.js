@@ -8,11 +8,18 @@ const NewCardForm = ( {addCard} ) => {
     const [formFields, setFormFields] = useState(defaultNewCard);
 
     const onMessageChange = (event) => {
+        if (event.target.value.length === 40) {
+            window.alert("Message should not exceed 40 characters.")
+        }
         setFormFields({message: event.target.value});
     };
 
     const onFormSubmit = event => {
         event.preventDefault();
+        if (formFields.message.length === 0) {
+            window.alert("Message should not be blank.");
+            return;
+        }
         addCard(formFields);
         setFormFields(defaultNewCard);
     }
@@ -26,6 +33,7 @@ const NewCardForm = ( {addCard} ) => {
                     id="message" 
                     onChange={onMessageChange}
                     value={formFields.message}
+                    maxLength={40}
                 />
             </div>
             <input
