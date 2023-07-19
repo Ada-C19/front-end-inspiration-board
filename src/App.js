@@ -2,7 +2,9 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import CardList from './components/CardList';
+import Card from './components/Card';
 import NewBoardForm from './components/NewBoardForm';
+import NewCardForm from './components/NewBoardForm';
 import Board from './components/Board';
 import Popup from './components/Popup.js';
 
@@ -52,6 +54,10 @@ function App() {
           createNewBoard={ createNewBoard }
         />
         <button className='new-board-form__toggle-btn'>Hide Submission form</button>
+        </section>
+        <section>
+          <NewCardForm/>
+          <Card/>
         </section>
       </body>
     </div>
