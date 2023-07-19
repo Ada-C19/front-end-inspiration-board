@@ -1,26 +1,29 @@
 .board {
     margin: 1rem;
-    border: 10px solid pink; 
-    background-image: url('../images/wp4465167.jpg'); 
-    background-color: paleturquoise;
     color: darkslateblue;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-decoration: underline;
-    position: relative; 
-    overflow: hidden; 
-    border-radius: 15px; 
-    padding: 1rem; 
+    position: relative;
+    overflow: hidden;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Depth shadow */
+    height: 750px;
+
+    /* Background */
+    background-image: url('../images/wp4465167.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    /* Border */
+    border: 10px solid transparent;
+    border-image-source: url('../images/gold-picture-frame-1.png');
+    border-image-slice: 250;
+    border-image-width: 50px;
+
+    /* Background within border */
+    background-size: calc(100% - 20px) calc(100% - 20px);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-/* .board:hover {
-    border-color: pink;
-    transform: scale(1.05); 
-    z-index: 1; 
-    box-shadow: 0 0 10px pink; 
-} */
 
-.h1-board:hover {
-    color: pink;
-    text-decoration: underline;
-    text-decoration-color: pink;
-}
