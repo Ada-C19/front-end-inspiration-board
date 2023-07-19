@@ -41,7 +41,7 @@ const getAllCardsOneBoard = (boardId) => {
 };
 
 const cardListFromApi = (apiCard) => {
-    const { card_id, message, likes_count } = apiCard;
+    const { card_id, message, likes_count} = apiCard;
     const newCard = {message, likesCount: likes_count, cardId: card_id};
     return newCard;
 };
@@ -70,17 +70,15 @@ const App = () => {
     })
   }
 
-  const fetchCards = () => {
-    getAllCardsOneBoard().then((cards)=>{
+  const fetchCards = (boardId) =>{
+    getAllCardsOneBoard(boardId).then((cards)=>{
       console.log(cards);
       setCardState(cards);
     })
   }
 
   // const cards = (selectedBoard) => {
-  //   console.log(selectedBoard);
   //   const boardCards = selectedBoard ? getAllCardsOneBoard(selectedBoard) : [];
-  //   setCardState(boardCards);
   //   return boardCards;
   // };
 

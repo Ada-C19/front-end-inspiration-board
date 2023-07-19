@@ -11,13 +11,12 @@ const BoardList = (props) => {
                     title = {board.title}
                     owner = {board.owner}
                     cards = {board.cards}
+                    key={board.boardId}
                     onSelectBoard={props.onSelectBoard}
                 />
             );
         });
-    };
-
-   
+    }; 
 
     return (
         <section>
