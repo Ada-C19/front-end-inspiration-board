@@ -8,7 +8,7 @@ const BoardSelectRadio = ({ boards, onBoardSelect, selectedBoardId }) => {
         onBoardSelect(boardId);
     };
 
-    const filteredBoards = boards.filter((board) => board.id !== selectedBoardId);
+    const filteredBoards = boards.filter((board) => board.id !== Number(selectedBoardId));
 
     return (
         <div className="board-select-container">
@@ -22,7 +22,6 @@ const BoardSelectRadio = ({ boards, onBoardSelect, selectedBoardId }) => {
                     board_id={board.id}
                     title={board.title}
                     owner={board.owner}
-                    deleteBoard={() => {}} // Placeholder function for deleteBoard, since it's not needed here
                 />
             </div>
         ))}

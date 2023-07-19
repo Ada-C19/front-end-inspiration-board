@@ -40,3 +40,10 @@
     top: 10px;
     left: 10px;
 }
+
+.card .trash-icon {
+    top: 7px;
+    right: 10px;
+    color: hwb(0 2% 98%);
+    cursor: not-allowed;
+}
