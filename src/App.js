@@ -66,7 +66,6 @@ const App = () => {
   };
 
   const currentBoard = () => {
-    console.log(boards)
     for (let board of boards) {
       if (board.id === targetBoardId) {
         return board;
