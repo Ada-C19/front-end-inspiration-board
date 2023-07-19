@@ -23,7 +23,7 @@ const test_board = {
   cards: test_cards,
 }
 
-const kBaseUrl = 'http://127.0.0.1:5000';
+const kBaseUrl = 'http://back-end-inspo-board.onrender.com';
 
 function App() {
   const [boardData, setBoardData] = useState([]);
@@ -43,6 +43,7 @@ function App() {
       })
     };
 
+  console.log(boardData)
 
   const handleCardSumbit = (newCardFormProps) => {
     // Handle UI after card has been created from the form
@@ -63,11 +64,11 @@ function App() {
   return (
     <div className="App">
       <p>hello world :)</p>
-      {/* <Board board_id={1} 
+      <Board board_id={1} 
       owner={"Abby"} 
       title={"tamagotchis i have loved"} 
       cards={test_board.cards}/>
-      <Sidebar handleBoardSubmit={handleBoardSubmit}/> */}
+      <Sidebar handleBoardSubmit={handleBoardSubmit}/>
       <NewCardForm boardId={DEFAULT_BOARD_ID} handleCardSumbit={handleCardSumbit}/>
     </div>
   );

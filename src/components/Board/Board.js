@@ -18,7 +18,7 @@ const Board = props => {
         <Card 
           message={card.message}
           likes_count={card.likes_count}
-          // etc
+          key={card.id}
           />
           ))
       } 
