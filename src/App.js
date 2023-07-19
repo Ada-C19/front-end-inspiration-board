@@ -8,9 +8,6 @@ import NewCardForm from './components/NewCardForm';
 import NewBoardForm from './components/NewBoardForm';
 import BoardSelectRadio from './components/BoardSelectRadio';
 
-import boardData from './data/boards.json';
-// use ${process.env.REACT_APP_BACKEND_URL} to make API calls
-
 const boardsURL = `${process.env.REACT_APP_BACKEND_URL}`
 
 const getAllBoards = () => {
