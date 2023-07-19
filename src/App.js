@@ -55,7 +55,7 @@ const App = () => {
   const [boards, setBoards] = useState(defaultEmptyBoardList);
   // how can we adjust the state of targetBoardId so it isn't
   // hardcoded to some arbitrary board?
-  const [targetBoardId, setTargetBoardId] = useState(1);
+  const [targetBoardId, setTargetBoardId] = useState(18);
   const [cards, setCards] = useState([])
 
   const fetchBoards = () => {
@@ -79,14 +79,8 @@ const App = () => {
   }
 
   const fetchCards = () => {
-    getCardsForBoard(targetBoardId).then((cards) => {
-      setCards(cards);
-    })
-    const fetchCards = () => {
-      getCardsForBoard(targetBoardId)
-        .then((cards) => { setCards(cards); })
-
-    };
+    getCardsForBoard(targetBoardId)
+    .then((cards) => {setCards(cards);})
   }
   useEffect(() => { fetchCards() }, [targetBoardId]);
 
