@@ -1,8 +1,9 @@
 #App {
   text-align: center;
-  height: 120vh;
+  height: 100%;
   display: flex;
   font-family: sans-serif;
+  /* border: 5px solid red; */
 }
 
 .title {
@@ -26,20 +27,40 @@
 }
 
 .sidebar {
-  background-color: #FC5EAA;
+  border: 10px solid plum;
   width: 200px;
-  height: 100%;
+  position: static;
+  height:110%;
+  /* border: 5px solid red; */
+}
+
+.sidebar div {
+  /* display:flexbox; */
+  margin:0;
+  /* border: 5px solid red; */
+}
+
+.board-list {
+  background-color: #FC5EAA;
+  height: 730px;
   color: white;
-  font-size: larger;
+  font-size: small;
   font-weight: 900;
-  padding: 20px;
+  padding: 3px;
+  overflow-y: scroll;
+  position:static;
+  
+  /* transition: all .1s ease-out; */
+
+  /* border: 5px solid red; */
 }
 
 .board-titles li {
   list-style: none;
   margin: 0;
-  display: flex;
-  margin-bottom: 30px;
+  /* display: flex; */
+  /* margin-bottom: 30px; */
+  
 }
 
 .board-titles li:hover {
@@ -51,11 +72,24 @@ input {
 }
 
 .board-titles {
-  position: fixed;
-  top: 30px;
-  /* border: 2px solid black; */
+  /* position: flex; */
+  top: 10px;
+  /* border: 2px solid red; */
   width: 150px;
   margin: 0;
+
+
+  /* border: 5px solid red; */
+}
+
+.board-forms {
+  position: fixed;
+  width: 150px;
+  /* height:0px; */
+  bottom: 5px;
+  /* border: 2px black solid; */
+  gap: 20px;
+  font-size: 1rem;
 }
 
 .content {
@@ -64,7 +98,7 @@ input {
   justify-content: center;
   color: white;
   font-size: xx-large;
-  height: 80vh
+  height: 80vh;
 }
 
 .add-card button {
@@ -88,9 +122,10 @@ input {
   color: #FC5EAA;
   border: 2px #FC5EAA solid;
   position: fixed;
-  bottom: 20px;
-  left: 180px;
+  bottom: 3px;
+  left: 165px;
   font-weight: 900;
+  
 }
 
 .add-board button:hover {
@@ -103,14 +138,7 @@ input {
   border: #4e81da 2px solid;
 }
 
-.board-forms {
-  position: fixed;
-  width: 150px;
-  bottom: 20px;
-  border: 2px black solid;
-  gap: 20px;
-  font-size: 1rem;
-}
+
 
 ::placeholder {
   text-align: center;
@@ -127,5 +155,5 @@ input {
 
 .input-form {
   border-radius: 100px;
-  border: 1px solid #FC5EAA;
+  border: 2px solid #FC5EAA;
 }

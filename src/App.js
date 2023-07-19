@@ -23,11 +23,17 @@ const App = () => {
       })
   }
 
-
+  const deleteBoard = (boardId) => {
+    console.log(boardId)
+    axios.delete(`https://inspoboardteam404.onrender.com/boards/${boardId}`)
+    .then(() => {
+      
+    })
+  }
   useEffect(() => {
     axios.get('https://inspoboardteam404.onrender.com/boards')
       .then((response) => {
-        console.log(response.data)
+        console.log(response.data.board)
         setBoardData(response.data);
       })
       .catch((error) => {
@@ -63,7 +69,8 @@ const App = () => {
     axios.post('https://inspoboardteam404.onrender.com/boards', formFields).then(response => {
         console.log(response.data)
         setBoardData(prevData => {
-          return [response.data.board, ...prevData]
+          // return [response.data.board, ...prevData]
+          return [...prevData, response.data.board]     // Add new Board to the end
         })
     })
 };
@@ -92,20 +99,25 @@ const likeHandler = (id) => {
     return updatedCard;})
     ;});
   };
- 
+
 return (
   <div id="App">
       <div className="sidebar">
-        <BoardList
+        <section className="board-list">
+          <BoardList
           boards={boardData}
           onUpdateBoard={updateBoardData}
           selectBoard={selectBoard}
-
+          deleteBoard={deleteBoard}
           />
-        <div className="board-forms">
+        </section>
+        <section className="board-forms">
           <NewBoardForm id="board-form" createBoard={createBoard}/>
-        </div>
+        </section>
       </div>
+      
+
+
       <div className="main-container">
         {/* <Board /> */}
         <header className="title">
@@ -119,7 +131,7 @@ return (
         </body>
       </div>
       {/* put the button [Create New Board] here in App.js, NOT in Board.js; because that makes it come up in EVERY board. we just want it once on the page */}
-    </div>
+  </div>
   );
   
 }
