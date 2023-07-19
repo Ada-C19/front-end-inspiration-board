@@ -28,6 +28,25 @@ const convertFromApi = (apiBoard) => {
   return newBoard;
 };
 
+// const getAllCardsOneBoard = (boardId) => {
+//   return axios
+//     .get(`${kBaseUrl}/boards/${boardId}/cards`)
+//     .then((response) => {
+//       console.log(response.data)
+//       return response.data.map(cardListFromApi);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// };
+
+// const cardListFromApi = (apiCard) => {
+//     const { card_id, message, likes_count} = apiCard;
+//     const newCard = {message, likesCount: likes_count, cardId: card_id};
+//     return newCard;
+// };
+
+
 const App = () => {
 
   const [boardState, setBoardState] = useState([]);
@@ -49,6 +68,11 @@ const App = () => {
     })
   }
 
+  const cards = (selectedBoard) => {
+    const boardCards = getAllCardsOneBoard(selectedBoard);
+    return boardCards;
+  };
+
   useEffect(()=>{
     fetchBoards();
   },[]);
@@ -66,9 +90,9 @@ const App = () => {
           <NewBoardForm></NewBoardForm>
         </section>
         <section>
-          <SelectedBoardCardList></SelectedBoardCardList>
+          <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cards(selectedBoard)}></SelectedBoardCardList>
           <NewCardForm></NewCardForm>
-          <CardEntry/>
+          {/* <CardEntry/> */}
         </section>
       </main>
     </div>

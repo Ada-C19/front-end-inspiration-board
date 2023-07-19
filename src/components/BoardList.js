@@ -10,6 +10,7 @@ const BoardList = (props) => {
                     boardId = {board.boardId}
                     title = {board.title}
                     owner = {board.owner}
+                    cards = {board.cards}
                     onSelectBoard={props.onSelectBoard}
                 />
             );
