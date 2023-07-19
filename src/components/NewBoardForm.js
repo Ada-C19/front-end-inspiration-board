@@ -27,6 +27,11 @@ const NewBoardForm = ( {addBoard} ) => {
 
     const onFormSubmit = event => {
         event.preventDefault();
+        let isEmptyFormField = (formFields.owner.length === 0 || formFields.title.length === 0);
+        if (isEmptyFormField) {
+            window.alert("New Boards must include a Title and Owner.");
+            return;
+        }
         addBoard(formFields);
         setFormFields(defaultNewBoard)
     }
