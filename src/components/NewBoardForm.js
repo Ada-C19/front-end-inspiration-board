@@ -47,12 +47,12 @@ const NewBoardForm = ({ addBoardCallback }) => {
     };
 
     return (
-        <form onSubmit={onFormSubmit}>
+        <form id="add-board" onSubmit={onFormSubmit}>
 
             <div className="board-form-input">
                 {/* <label htmlFor="boardTitle">Board Title:</label> */}
                 <input
-                    title="boardTitle"
+                    name="title"
                     value={formFields.title}
                     onChange={onTitleChange}
                     className="input-form"
@@ -63,7 +63,7 @@ const NewBoardForm = ({ addBoardCallback }) => {
             <div className="board-form-input">
                 {/* <label htmlFor="owner">Owner:</label> */}
                 <input
-                    owner="owner"
+                    name="owner"
                     value={formFields.owner}
                     onChange={onOwnerChange}
                     className="input-form"
@@ -72,7 +72,7 @@ const NewBoardForm = ({ addBoardCallback }) => {
             </div>
 
             <div className="add-board">
-                <button type="submit">
+                <button type="submit"  form="add-board">
                     +
                 </button>
             </div>

@@ -17,16 +17,12 @@ const BoardList = ({ boards, createCard, likeCard }) => {
             )
         })
     
-    const BoardTitle = ({ id, title }) => {
-        return (
-            <li key={id}>{title}</li>
-        )
-    }
-    
     return (
         <div>
             <section>
-                {boards.map(({ title }) => title)}
+                <ul className="board-titles">
+                    {boards.map(({ boardId, title }) => <li>{title}</li>)}
+                </ul>
             </section>
         </div>
     )

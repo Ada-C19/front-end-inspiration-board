@@ -10,15 +10,15 @@ const NewCardForm = ({ addCardCallback }) => {
     const onMessageChange = (event) => {
         setFormFields({
             ...formFields,
-            messages: event.target.value
+            message: event.target.value
         })
-    }
+    };
 
     const onFormSubmit = (event) => {
         event.preventDefault();
 
         addCardCallback({
-            messageData: formFields.message
+            messageData: formFields.message,
         })
 
         setFormFields({
@@ -27,21 +27,25 @@ const NewCardForm = ({ addCardCallback }) => {
     }
 
     return (
-        <form onSubmit={onFormSubmit}>
-            <div className="card-form-input"></div>
-            {/* <label htmlFor="cardMessage">Card Message:</label> */}
-            <input
-                name="cardMessage"
-                value={formFields.message}
-                onChange={onMessageChange}
-                className="input-form"
-                placeholder="Card Message"
-            />
+        <form id='add-card' onSubmit={onFormSubmit}>
+
+            <div className="card-form-input">
+                {/* <label htmlFor="cardMessage">Card Message:</label> */}
+                <input
+                    name="message"
+                    value={formFields.message}
+                    onChange={onMessageChange}
+                    className="input-form"
+                    placeholder='Card Message'
+                />
+            </div>
+
             <div className="add-card">
-                <button type="submit">
+                <button type="submit" form="add-card">
                     +
                 </button>
             </div>
+            
         </form>
     )
 }

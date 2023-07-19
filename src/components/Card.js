@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 
 const Card = ({ cardId, message, likes, boardId, likeCard }) => {
+  
   return (
     <div>
       <section>
