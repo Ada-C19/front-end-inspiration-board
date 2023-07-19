@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
 import Board from './components/Board/Board';
+import BoardList from './components/BoardList/BoardList';
 import NewCardForm from './components/NewCardForm';
 import Sidebar from './components/Sidebar/Sidebar';
 import axios from 'axios';
@@ -46,10 +47,7 @@ function App() {
       .catch((err) => console.log(`Failed to assign card to board. Error: ${err}`));
   };
 
-  const boardList = boardData.map((board) => {
-    return <li key={board.id}>{board.title}</li>;
-  });
-
+  console.log(boardData);
   
   const handleCardSumbit = (newCardFormProps) => {
     // Handle UI after card has been created from the form
@@ -70,7 +68,7 @@ function App() {
   return (
     <div className="App">
       <p>hello world :)</p>
-      <ol>{boardList}</ol>
+      <BoardList data={boardData}/>
       <Board board_id={1}
         owner={"Abby"}
         title={"tamagotchis i have loved"}
