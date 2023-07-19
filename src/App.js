@@ -22,10 +22,10 @@ const getAllBoards = () => {
     };
   };
   return axios.get(`${boardsURL}/boards`)
-  .then((response) => {
-    return (response.data.map(convertBoardFromAPI))
-  })
-  .catch((e) => console.log("error during getAllBoards!", e));
+    .then((response) => {
+      return (response.data.map(convertBoardFromAPI))
+    })
+    .catch((e) => console.log("error during getAllBoards!", boardsURL));
 };
 
 const getCardsForBoard = (boardId) => {
@@ -42,60 +42,65 @@ const getCardsForBoard = (boardId) => {
     .then((response) => {
       let cards = response.data.cards.map(convertCardFromAPI);
       console.log(cards);
-      return cards})
+      return cards
+    })
     .catch((e) => console.log("error in Getting Cards for Board", e.message))
 };
 
 const App = () => {
   const [boards, setBoards] = useState(boardData);
-  const [targetBoardId, setTargetBoardId] = useState(18);
+  const [targetBoardId, setTargetBoardId] = useState(1);
   const [cards, setCards] = useState([])
 
   // does not access CARDS data
   const fetchBoards = () => {
     getAllBoards()
+
       .then((boards) => setBoards(boards))
   }
 
-  useEffect( () => {fetchBoards()}, [])
+  useEffect(() => { fetchBoards() }, [])
 
   const handleSelectBoard = (boardId) => {
     setTargetBoardId(boardId);
   };
 
   const currentBoard = () => {
+    console.log(boards)
     for (let board of boards) {
       if (board.id === targetBoardId) {
         return board;
-      }}
+      }
+    }
     return boards[0]
   }
 
-    const fetchCards = () => {
-      getCardsForBoard(targetBoardId).then((cards) => {
-        setCards(cards);})
+  const fetchCards = () => {
+    getCardsForBoard(targetBoardId).then((cards) => {
+      setCards(cards);
+    })
 
-    };
-    useEffect( () => {fetchCards()}, [targetBoardId]);
+  };
+  useEffect(() => { fetchCards() }, [targetBoardId]);
 
-
-  // TO DO:
-  // change handleLike to toggle T/F for users
-  // instead of each click adding to Likes total 
 
   const handleLike = (cardId) => {
-    // let newBoards = [...boards];
 
-    // let targetIndex = findIndexOfTargetBoard()
+    setCards(() => cards.map((card) => {
+      if (card.id === cardId) {
+        // here it copy that cat that is an object in out object and we update the cat.petCount
+        return { ...card, likesCount: card.likesCount + 1 };
+      } else {
+        return card;
+      }
 
-    // newBoards[targetIndex].cards = newBoards[targetIndex].cards.map((card) => {
-    //   if (cardId === card.id) {
-    //     return { ...card, likesCount: card.likesCount + 1 };
-    //   } else { return card; };
-    // });
-
-    // setBoards(newBoards);
+    }));
+    axios
+      .patch(`${boardsURL}/boards/${targetBoardId}/cards/${cardId}/mark_like`)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err))
   }
+
 
   const handleSubmitCard = (newCard) => {
     const postCardToAPI = (newCard) => {
@@ -105,8 +110,8 @@ const App = () => {
         board_id: targetBoardId,
       }
       axios.post(`${boardsURL}/boards/${targetBoardId}/cards`, params)
-      .then((response) => console.log('Card Posted!', response.data))
-      .catch((e) => console.log("error posting card!", e.message));
+        .then((response) => console.log('Card Posted!', response.data))
+        .catch((e) => console.log("error posting card!", e.message));
     };
     const nextId = Math.max(...cards.map(card => card.id)) + 1;
     const newCardObject = {
@@ -122,23 +127,23 @@ const App = () => {
   const handleDeleteCard = (cardId) => {
     const deleteCardFromAPI = (cardId) => {
       axios.delete(`${boardsURL}/boards/${targetBoardId}/cards/${cardId}`)
-      .then((response) => console.log('Card Deleted!', response.data))
-      .catch((e) => console.log(e.message));
+        .then((response) => console.log('Card Deleted!', response.data))
+        .catch((e) => console.log(e.message));
     };
 
     deleteCardFromAPI(cardId);
     fetchCards();
   };
 
-  const handleSubmitBoard = (newBoard) => { 
+  const handleSubmitBoard = (newBoard) => {
     const postBoardToAPI = (newBoard) => {
       let params = {
         title: newBoard.title,
         owner: newBoard.owner
       }
       axios.post(`${boardsURL}/boards`, params)
-      .then((response) => console.log('Board Posted!', response.data))
-      .catch((e) => console.log(e));
+        .then((response) => console.log('Board Posted!', response.data))
+        .catch((e) => console.log(e));
     }
     // need to add listener with use effect or something here
     postBoardToAPI(newBoard)
@@ -149,14 +154,14 @@ const App = () => {
   const handleDeleteBoard = (boardId) => {
     const deleteBoardFromAPI = (boardId) => {
       axios.delete(`${boardsURL}/boards/${boardId}`)
-      .then((response) => console.log('Board Deleted!', response.data))
-      .catch((e) => console.log(e.message));
+        .then((response) => console.log('Board Deleted!', response.data))
+        .catch((e) => console.log(e.message));
     }
-    
+
     deleteBoardFromAPI(boardId);
     fetchBoards();
   };
-  
+
 
   return (
     <div className="App">
@@ -165,17 +170,17 @@ const App = () => {
       </header>
       <main>
         <div>
-          <NewBoardForm addBoard={handleSubmitBoard}/>
+          <NewBoardForm addBoard={handleSubmitBoard} />
           <BoardSelectRadio boards={boards} onBoardSelect={handleSelectBoard} />
         </div>
         <div>
-          <Board 
-            board_id={currentBoard().id} 
+          <Board
+            board_id={currentBoard().id}
             title={currentBoard().title}
             owner={currentBoard().owner}
             deleteBoard={handleDeleteBoard}
           />
-          <CardList cards={cards} handleLike={handleLike} deleteCard={handleDeleteCard}/>
+          <CardList cards={cards} handleLike={handleLike} deleteCard={handleDeleteCard} />
           <NewCardForm addCard={handleSubmitCard} />
         </div>
       </main>
