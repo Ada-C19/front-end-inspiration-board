@@ -59,6 +59,11 @@ const App = () => {
   }
   useEffect(() => { fetchBoards() }, [])
 
+  const fetchCards = (boardId) => {
+    getCardsForBoard(boardId)
+    .then((cards) => {setCards(cards);})
+  }
+
   const handleSelectBoard = (boardId) => {
     setTargetBoardId(boardId);
     fetchCards(boardId);
@@ -71,29 +76,6 @@ const App = () => {
       }
     }
     return defaultEmptyBoardList[0]
-  }
-
-  const fetchCards = (boardId) => {
-    getCardsForBoard(boardId)
-    .then((cards) => {setCards(cards);})
-  }
-
-
-  const handleLike = (cardId) => {
-
-    setCards(() => cards.map((card) => {
-      if (card.id === cardId) {
-        // here it copy that cat that is an object in out object and we update the cat.petCount
-        return { ...card, likesCount: card.likesCount + 1 };
-      } else {
-        return card;
-      }
-
-    }));
-    axios
-      .patch(`${boardsURL}/boards/${targetBoardId}/cards/${cardId}/mark_like`)
-      .then(res => console.log(res.data))
-      .catch(err => console.log(err))
   }
 
   const handleSubmitBoard = (newBoard) => {
@@ -156,6 +138,22 @@ const App = () => {
     .then(() => fetchCards(targetBoardId));
   };
 
+  const handleLike = (cardId) => {
+
+    setCards(() => cards.map((card) => {
+      if (card.id === cardId) {
+        // here it copy that cat that is an object in out object and we update the cat.petCount
+        return { ...card, likesCount: card.likesCount + 1 };
+      } else {
+        return card;
+      }
+
+    }));
+    axios
+      .patch(`${boardsURL}/boards/${targetBoardId}/cards/${cardId}/mark_like`)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err))
+  }
 
   return (
     <div className="App">
