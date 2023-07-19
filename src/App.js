@@ -52,6 +52,7 @@ const App = () => {
   const [boards, setBoards] = useState(defaultEmptyBoardList);
   const [targetBoardId, setTargetBoardId] = useState(null);
   const [cards, setCards] = useState([])
+  const [displayBoardForm, setDisplayBoardForm] = useState(true)
 
   const fetchBoards = () => {
     getAllBoards()
@@ -159,6 +160,14 @@ const App = () => {
       .catch(err => console.log(err))
   }
 
+  const toggleBoardDisplay = () => {
+    setDisplayBoardForm(!displayBoardForm);
+  }
+
+  const toggleBoardButtonText = () => {
+    return displayBoardForm ? "Hide" : "Show";
+  }
+
   return (
     <div className="App">
       <header>
@@ -166,7 +175,8 @@ const App = () => {
       </header>
       <main>
         <div>
-          <NewBoardForm addBoard={handleSubmitBoard} />
+          <button onClick={toggleBoardDisplay}>{toggleBoardButtonText()} New Board Form</button>
+          {displayBoardForm && <NewBoardForm addBoard={handleSubmitBoard} />}
           <BoardSelectRadio
             boards={boards}
             onBoardSelect={handleSelectBoard}
