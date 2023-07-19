@@ -26,7 +26,7 @@ justify-content: space-between;
   border-width: 5px;
   border-color: lightcyan;
   padding: 10px;
-  background-color: skyblue;
+  background-color:  rgb(89, 230, 237);
   border-radius: 20px;
   height: 30px;
   margin-top: 40px;
@@ -61,7 +61,7 @@ body{
 #heading{
   text-align: center;
   border-style: ridge;
-  background-color: skyblue;
+  background-color:  rgb(89, 230, 237);
   border-radius: 20px;
   width: 90vh;
   margin: auto;

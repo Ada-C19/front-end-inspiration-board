@@ -12,13 +12,13 @@ h2{
     border-width: 5px;
     border-color: lightcyan;
     padding: 10px;
-    background-color:skyblue;
+    background-color: rgb(89, 230, 237);
     border-radius: 20px;
   
 }
 
 ul{
-    background:skyblue;
+    background: rgb(89, 230, 237);
 }
 
 ul {

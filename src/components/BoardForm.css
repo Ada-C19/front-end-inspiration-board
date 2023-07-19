@@ -5,7 +5,7 @@
   margin: 50px;
   width: fit-content;
   align-self: center;
-  background-color: skyblue;
+  background-color: rgb(89, 230, 237);
   padding: 20px;
   border: solid 2px white;
 }
@@ -13,7 +13,7 @@
 
 #boardtitle {
     width: 250px;
-    background-color: skyblue;
+    background-color:  rgb(89, 230, 237);
     border: solid white;
     border-width: 5px;
     border-radius: 20px;
@@ -27,7 +27,7 @@ button:hover{
 }
 
 .button{
-    background-color:skyblue;
+    background-color: rgb(89, 230, 237);
     border: solid 2px white;
     border-radius: 10px;
     padding: 10px;
