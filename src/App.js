@@ -17,6 +17,7 @@ const boardsURL = `${ process.env.REACT_APP_BACKEND_URL }`
 // if we move state withing App(), and we have helper functions outside of App(), would these out of scope of each other?
 
 // helper function
+//get all cards and get all boards outside of app? why? because we arent updating state?
 
 function App() {
 

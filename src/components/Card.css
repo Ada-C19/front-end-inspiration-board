@@ -1,6 +1,7 @@
 .card-container {
     align-items: center;
     background-color: coral;
+    /* background-image: url('../lantern.png'); */
     box-shadow: -10px 7px 7px #d3d3d3;
     display: flex;
     flex-direction: column;
@@ -10,4 +11,4 @@
     padding: 1em;
     border-radius:20px;
     width: 10%;
-  }
+}
