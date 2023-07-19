@@ -109,7 +109,7 @@ const App = () => {
       }
       return axios.post(`${boardsURL}/boards`, params)
       .then((response) => console.log('Board Posted!', response.data))
-      .catch((e) => console.log(e));
+      .catch((e) => console.log("Error posting Board!", e.message));
     }
     postBoardToAPI(newBoard)
     .then(() => fetchBoards());
@@ -119,7 +119,7 @@ const App = () => {
     const deleteBoardFromAPI = (boardId) => {
       return axios.delete(`${boardsURL}/boards/${boardId}`)
       .then((response) => console.log('Board Deleted!', response.data))
-      .catch((e) => console.log(e.message));
+      .catch((e) => console.log("error deleting board!", e.message));
     }
     
     deleteBoardFromAPI(boardId)
@@ -152,7 +152,7 @@ const App = () => {
     const deleteCardFromAPI = (cardId) => {
       return axios.delete(`${boardsURL}/boards/${targetBoardId}/cards/${cardId}`)
       .then((response) => console.log('Card Deleted!', response.data))
-      .catch((e) => console.log(e.message));
+      .catch((e) => console.log("error deleting card!", e.message));
     };
 
     deleteCardFromAPI(cardId)
