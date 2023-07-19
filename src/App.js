@@ -5,7 +5,7 @@ import CardList from './components/CardList';
 import Card from './components/Card';
 import NewBoardForm from './components/NewBoardForm';
 import NewCardForm from './components/NewCardForm';
-import Board from './components/Board';
+import BoardList from './components/BoardList';
 import Popup from './components/Popup.js';
 
 
@@ -23,11 +23,21 @@ function App() {
 
   // initiate state
   const [ boardsData, setBoardsData ] = useState([]);
-  // example state
+  const [ selectedBoard, setSelectedBoard ] = useState({
+    title: '',
+    owner: '',
+    board_id: null
+  });
 
-  //function to update board data goes here? whats the diff?
 
-  //function to add board data goes here
+  const selectBoard = (board) => { setSelectedBoard(board) };
+  // function to display each board in Board Data Base
+  const boardElements = boardsData.map((board) => {
+    return (<li>
+      <BoardList board={board} onSelectBoard={selectBoard}/>
+    </li>)
+  });
+  // we need useEffect to show all current boards in the database on pageload
 
   //function that handles API POST new board call Crud-dy
   // does this need to be accessed by other functions? do we need to use this in something else?
@@ -53,14 +63,20 @@ function App() {
         <h1 className="header__">Lantern Festival </h1>
       </header>
       <body className = "boards__container">
-        <h1>Participants</h1>
-        <h1>.</h1>
+        <section>
+          <h1>Participants</h1>
+          <ol className='test'>{boardElements}</ol>
+        </section>
+        {/* Figure out how to delete the empty H1 w/o collapsing */}
+        <section>
+          <h1> </h1>
+        </section>
         <section className="new-board-form__container">
-        <h1>Add new Participant</h1>
-        <NewBoardForm
-          createNewBoard={ createNewBoard }
-        />
-        <button className='new-board-form__toggle-btn'>Hide Submission form</button>
+          <h1>Add new Participant</h1>
+          <NewBoardForm
+            createNewBoard={ createNewBoard }
+          />
+          <button className='new-board-form__toggle-btn'>Hide Submission form</button>
         </section>
         <section>
           <NewCardForm/>
