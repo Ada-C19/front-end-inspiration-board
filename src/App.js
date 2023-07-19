@@ -1,6 +1,7 @@
 import './App.css';
 import BoardList from './components/BoardList';
 import NewBoardForm from './components/NewBoardForm';
+import SelectedBoard from './components/SelectedBoard';
 import CardEntry from './components/CardEntry';
 import SelectedBoardCardList from './components/SelectedBoardCardList';
 import NewCardForm from './components/NewCardForm';
@@ -30,7 +31,16 @@ const convertFromApi = (apiBoard) => {
 const App = () => {
 
   const [boardState, setBoardState] = useState([]);
-  const [selectedBoard, setSelectedBoard] = useState(false);
+  const [selectedBoard, setSelectedBoard] = useState(null);
+
+  const findBoardById = (boardId) => {
+    return boardState.filter((board) => {return board.boardId === boardId})
+  };
+  
+  const handleBoardSelection = (boardId) => {
+    let board = findBoardById(boardId);
+    setSelectedBoard(board);
+  };
 
   const fetchBoards = () =>{
     getAllBoards().then((boards)=>{
@@ -51,7 +61,8 @@ const App = () => {
       </header>
       <main>
         <section>
-          <BoardList boardData={boardState}></BoardList>
+          <BoardList boardData={boardState} onSelectBoard={handleBoardSelection}></BoardList>
+          <SelectedBoard boardState={selectedBoard}></SelectedBoard>
           <NewBoardForm></NewBoardForm>
         </section>
         <section>

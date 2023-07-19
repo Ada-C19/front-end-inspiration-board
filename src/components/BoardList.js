@@ -10,6 +10,7 @@ const BoardList = (props) => {
                     boardId = {board.boardId}
                     title = {board.title}
                     owner = {board.owner}
+                    onSelectBoard={props.onSelectBoard}
                 />
             );
         });
@@ -21,9 +22,6 @@ const BoardList = (props) => {
         <section>
             <h1>Board List</h1>
             <ol>{getBoardListJSX(props.boardData)}</ol>
-            <div>
-                <p>Selected Board</p>
-            </div>
         </section>
     );
 };
