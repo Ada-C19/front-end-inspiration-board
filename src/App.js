@@ -90,12 +90,17 @@ const App = () => {
   };
 
   const addCard = (formField) => {
-    axios.post(`http://localhost:5000/cards`)
+    const newCard = {
+      message: formField.message,
+      boardId: boardData.boardId, 
+    };
+    axios.post(`http://localhost:5000/cards`, newCard)
       .then(response => {
         const createdCard = {
-          boardId: response.data.boardId,
-          id: response.data.id,
-          message: formField.message,
+          boardId: response.data.card.boardId,
+          id: response.data.card.id,
+          message: response.data.card.message,
+          likesCount: response.data.card.likesCount
         };
         setCards(prevCards => [...prevCards, createdCard]);
       })

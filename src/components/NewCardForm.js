@@ -33,7 +33,7 @@ const NewCardForm = ( props ) => {
             type="text"
             id="message"
             name="message"
-            value={formField}
+            value={formField.message}
             onChange={onFieldChange}
             required
           />
