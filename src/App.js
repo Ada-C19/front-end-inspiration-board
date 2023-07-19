@@ -52,6 +52,8 @@ const App = () => {
     }];
 
   const [boards, setBoards] = useState(defaultEmptyBoardList);
+  // how can we adjust the state of targetBoardId so it isn't
+  // hardcoded to some arbitrary board?
   const [targetBoardId, setTargetBoardId] = useState(18);
   const [cards, setCards] = useState([])
 
