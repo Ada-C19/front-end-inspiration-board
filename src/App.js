@@ -115,9 +115,8 @@ const App = () => {
           boards={boardData}
           onUpdateBoard={updateBoardData}
         />
-        <div className="forms">
+        <div className="board-forms">
           <NewBoardForm addBoardCallback={addBoardData} />
-          <NewCardForm addCardCallback={addCardData} />
         </div>
       </div>
       <div className="main-container">
@@ -126,10 +125,8 @@ const App = () => {
         </header>
         <body className="content">
           <p>Nothing to Display</p>
-          <div className="add">
-            <button>
-              +
-            </button>
+          <div className="card-forms">
+            <NewCardForm addCardCallback={addCardData} />
           </div>
         </body>
       </div>

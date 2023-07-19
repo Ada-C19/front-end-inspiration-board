@@ -4,9 +4,9 @@ import './NewBoardForm.css';
 
 const NewBoardForm = ({ addBoardCallback }) => {
     const [formFields, setFormFields] = useState({
-        title:'',
-        owner:'',
-        cards:[],
+        title: '',
+        owner: '',
+        cards: [],
     });
 
     const onTitleChange = (event) => {
@@ -35,7 +35,7 @@ const NewBoardForm = ({ addBoardCallback }) => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        
+
         addBoardCallback({
             titleData: formFields.title,
             ownerData: formFields.owner,
@@ -49,25 +49,33 @@ const NewBoardForm = ({ addBoardCallback }) => {
     return (
         <form onSubmit={onFormSubmit}>
 
-        <div className="board-form-input">
-            <label htmlFor="boardTitle">Board Title:</label>
-            <input 
-            title="boardTitle"
-            value={formFields.title}
-            onChange={onTitleChange} />
-        </div>
+            <div className="board-form-input">
+                {/* <label htmlFor="boardTitle">Board Title:</label> */}
+                <input
+                    title="boardTitle"
+                    value={formFields.title}
+                    onChange={onTitleChange}
+                    className="input-form"
+                    placeholder='Board Title'
+                />
+            </div>
 
-        <div className="board-form-input">
-            <label htmlFor="owner">Owner:</label>
-            <input 
-            owner="owner"
-            value={formFields.owner}
-            onChange={onOwnerChange} />
-        </div>
+            <div className="board-form-input">
+                {/* <label htmlFor="owner">Owner:</label> */}
+                <input
+                    owner="owner"
+                    value={formFields.owner}
+                    onChange={onOwnerChange}
+                    className="input-form"
+                    placeholder='Owner'
+                />
+            </div>
 
-        <input
-            type="submit"
-            value="Add Board" />
+            <div className="add-board">
+                <button type="submit">
+                    +
+                </button>
+            </div>
 
         </form>
     )

@@ -31,6 +31,7 @@
   height: 100%;
   color: white;
   font-size: larger;
+  font-weight: 900;
   padding: 20px;
 }
 
@@ -43,7 +44,7 @@
   height: 80vh
 }
 
-.add button {
+.add-card button {
   border-radius: 100px;
   font-size: xx-large;
   height: 50px;
@@ -56,10 +57,52 @@
   font-weight: 900;
 }
 
-.forms {
+.add-board button {
+  border-radius: 100px;
+  font-size: xx-large;
+  height: 50px;
+  width: 50px;
+  color: #FC5EAA;
+  border: 2px #FC5EAA solid;
   position: fixed;
-  width: 200px;
-  bottom: 10px;
+  bottom: 20px;
+  left: 180px;
+  font-weight: 900;
+}
+
+.add-board button:hover {
+  border-style: inset;
+  border: #d25793 2px solid;
+}
+
+.add-card button:hover {
+  border-style: inset;
+  border: #4e81da 2px solid;
+}
+
+.board-forms {
+  position: fixed;
+  width: 150px;
+  bottom: 20px;
   border: 2px black solid;
   gap: 20px;
+  font-size: 1rem;
+}
+
+::placeholder {
+  text-align: center;
+}
+
+.card-forms {
+  position: fixed;
+  width: 150px;
+  bottom: 20px;
+  border: 2px black solid;
+  gap: 20px;
+  font-size: 1rem;
+}
+
+.input-form {
+  border-radius: 100px;
+  border: 1px solid #FC5EAA;
 }
