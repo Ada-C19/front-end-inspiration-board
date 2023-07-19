@@ -77,18 +77,17 @@ const App = () => {
     })
   }
 
-  // const cards = (selectedBoard) => {
-  //   const boardCards = selectedBoard ? getAllCardsOneBoard(selectedBoard) : [];
-  //   return boardCards;
-  // };
-
   useEffect(()=>{
     fetchBoards();
   },[]);
 
-  // useEffect(()=>{
-  //   fetchCards();
-  // },[selectedBoard]);
+  const onHandleSubmit = (data) => {
+    axios.post(`${kBaseUrl}/boards/${selectedBoard.boardId}/cards`, data)
+      .then((response) => {
+        setCardState((prevCards) => [cardListFromApi(response.data), ...prevCards]);
+      })
+      .catch((e) => console.log(e));
+  };
 
 
   return (
@@ -100,7 +99,7 @@ const App = () => {
         <section>
           <BoardList boardData={boardState} onSelectBoard={handleBoardSelection}></BoardList>
           <SelectedBoard boardState={selectedBoard}></SelectedBoard>
-          <NewBoardForm></NewBoardForm>
+          <NewBoardForm onHandleSubmit={onHandleSubmit}></NewBoardForm>
         </section>
         <section>
           <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState}></SelectedBoardCardList>
