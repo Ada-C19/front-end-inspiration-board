@@ -57,6 +57,7 @@ const App = () => {
         <section>
           <SelectedBoardCardList></SelectedBoardCardList>
           <NewCardForm></NewCardForm>
+          <CardEntry/>
         </section>
       </main>
     </div>
