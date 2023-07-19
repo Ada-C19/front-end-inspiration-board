@@ -46,6 +46,13 @@ const cardListFromApi = (apiCard) => {
     return newCard;
 };
 
+const deleteCard = (cardId) => {
+  return axios 
+  .delete(`${kBaseUrl}/cards/${cardId}`)
+  .catch((error) => {
+    console.log(error)
+  });
+};
 
 const App = () => {
 
@@ -98,6 +105,14 @@ const App = () => {
       .catch((e) => console.log(e));
   };
  
+  const onUnregister = (cardId) => {
+    deleteCard(cardId).then(() => {
+      setCardState((oldData) => {
+        return oldData.filter((card) => card.cardId !== cardId);
+      });
+    });
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -110,7 +125,7 @@ const App = () => {
           <NewBoardForm onHandleBoardSubmit={onHandleBoardSubmit}></NewBoardForm>
         </section>
         <section>
-          <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState}></SelectedBoardCardList>
+          <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState} onUnregister={onUnregister}></SelectedBoardCardList>
           <NewCardForm selectedBoard={selectedBoard} onHandleSubmit={onHandleSubmit}></NewCardForm>
           {/* <CardEntry/> */}
         </section>

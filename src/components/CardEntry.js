@@ -11,7 +11,7 @@ const CardEntry = (props) => {
         <div className={props.cardId}>
             <h2>Card message: {props.message}</h2>
             <button onClick={(e) => increaseLikesCount()}>Likes💕 {likesCount}</button>
-            <button>Delete</button>
+            <button onClick={(e) => props.onUnregister(props.cardId)}>Delete</button>
         </div>
     );
 };
