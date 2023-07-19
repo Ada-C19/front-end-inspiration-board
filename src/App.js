@@ -118,7 +118,9 @@ const App = () => {
     }
 
     deleteBoardFromAPI(boardId)
-      .then(() => fetchBoards());
+      .then(() => {
+        setTargetBoardId(null);
+        fetchBoards()});
   };
 
   const handleSubmitCard = (newCard) => {
@@ -177,7 +179,7 @@ const App = () => {
             deleteBoard={handleDeleteBoard}
           />}
           <CardList cards={cards} handleLike={handleLike} deleteCard={handleDeleteCard} />
-          <NewCardForm addCard={handleSubmitCard} />
+          {targetBoardId !== null && <NewCardForm addCard={handleSubmitCard} />}
         </div>
       </main>
     </div>
