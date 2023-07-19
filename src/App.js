@@ -37,7 +37,17 @@ function App() {
       <BoardList board={board} onSelectBoard={selectBoard}/>
     </li>)
   });
-  // we need useEffect to show all current boards in the database on pageload
+  // we need useEffect to show all current boards in the database on pageload?
+  // using useEffect 
+  // when loading page, get all current boards in database and then load them
+  // args: callback function, array of dependencies (determines whether to rerun the effect)
+
+  useEffect(() => {
+    axios.get(`${boardsURL}/boards`)
+    .then((response) => {
+      setBoardsData(response.data);
+    })
+  }, []);
 
   //function that handles API POST new board call Crud-dy
   // does this need to be accessed by other functions? do we need to use this in something else?
@@ -65,7 +75,7 @@ function App() {
       <body className = "boards__container">
         <section>
           <h1>Participants</h1>
-          <ol className='test'>{boardElements}</ol>
+          <ol className='board-list-box'>{boardElements}</ol>
         </section>
         {/* Figure out how to delete the empty H1 w/o collapsing */}
         <section>
