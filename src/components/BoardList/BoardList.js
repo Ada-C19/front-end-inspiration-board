@@ -1,14 +1,25 @@
 import './BoardList.css';
 
 const BoardList = props => {
-  const boardItems = props.data.map((board) => {
+  
+    // const handleBoardSelect = () => {
+    //     console.log('it worked')
+    //   };
+    console.log(props.selectedBoard);
+    const boardItems = props.data.map((board, index) => {
     return (
-      <option key={board.id}>{board.title}</option>
+      <option 
+        key={board.id}
+        index={index}
+        id={board.id}>{board.title}
+      </option>
     );
   });
 
+  
+
   return (
-    <select>{boardItems}</select>
+    <select onChange={(event) => console.log(event.target[1].id)}>{boardItems}</select>
     );
 
 };

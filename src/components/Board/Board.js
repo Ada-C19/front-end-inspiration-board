@@ -20,7 +20,6 @@ const Board = props => {
           ))
       } 
 
-
     </div>
   )
 };

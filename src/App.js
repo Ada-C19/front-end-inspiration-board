@@ -29,7 +29,7 @@ const kBaseUrl = 'http://127.0.0.1:5000';
 
 function App() {
   const [boardData, setBoardData] = useState([]);
-  const [selectedBoard, setSelectedBoard] = ([]);
+  const [selectedBoard, setSelectedBoard] = useState([]);
 
   useEffect(() => {
     axios
@@ -67,7 +67,7 @@ const handleCardSumbit = (newCardFormProps) => {
 return (
   <div className="App">
     <p>hello world :)</p>
-    <BoardList data={boardData} />
+    <BoardList data={boardData} selectedBoard={selectedBoard}/>
     <Board board_id={1}
       owner={"Abby"}
       title={"tamagotchis i have loved"}
