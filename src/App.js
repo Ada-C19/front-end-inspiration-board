@@ -89,6 +89,14 @@ const App = () => {
     fetchBoards();
   },[]);
 
+  const onHandleSubmit = (data) => {
+    axios.post(`${kBaseUrl}/boards/${selectedBoard.boardId}/cards`, data)
+      .then((response) => {
+        setCardState((prevCards) => [cardListFromApi(response.data), ...prevCards]);
+      })
+      .catch((e) => console.log(e));
+  };
+
 
   return (
     <div className="App">
@@ -104,6 +112,7 @@ const App = () => {
         <section>
           <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState}></SelectedBoardCardList>
           <NewCardForm onHandleSubmit={onHandleSubmit}></NewCardForm>
+          {/* <CardEntry/> */}
         </section>
       </main>
     </div>
