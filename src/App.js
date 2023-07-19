@@ -63,14 +63,6 @@ const App = () => {
     fetchCards(boardId);
   };
 
-  const onHandleSubmit = (data) => {
-    axios.post(`${kBaseUrl}/boards/${selectedBoard.boardId}/cards`, data)
-      .then((response) => {
-        setCardState((prevCards) => [cardListFromApi(response.data), ...prevCards]);
-      })
-      .catch((e) => console.log(e));
-  };
-
   const fetchBoards = () =>{
     getAllBoards().then((boards)=>{
       console.log(boards);
@@ -89,8 +81,10 @@ const App = () => {
     fetchBoards();
   },[]);
 
-  const onHandleSubmit = (data) => {
-    axios.post(`${kBaseUrl}/boards/${selectedBoard.boardId}/cards`, data)
+  const onHandleSubmit = (data, boardID) => {
+    let boardId = selectedBoard.boardId
+    console.log(selectedBoard.boardId)
+    axios.post(`${kBaseUrl}/boards/${boardId}/cards`, data)
       .then((response) => {
         setCardState((prevCards) => [cardListFromApi(response.data), ...prevCards]);
       })
@@ -111,8 +105,7 @@ const App = () => {
         </section>
         <section>
           <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState}></SelectedBoardCardList>
-          <NewCardForm onHandleSubmit={onHandleSubmit}></NewCardForm>
-          {/* <CardEntry/> */}
+          <NewCardForm onHandleSubmit={onHandleSubmit} selectedBoard={selectedBoard}></NewCardForm>
         </section>
       </main>
     </div>

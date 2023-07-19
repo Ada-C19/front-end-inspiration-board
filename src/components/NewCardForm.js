@@ -23,7 +23,7 @@ const NewCardForm = (props) => {
           message: formData.message, 
           likes_count: 0,
         }
-        props.onHandleSubmit(newCard);
+        props.onHandleSubmit(newCard, props.selectedBoard[0].boardId);
         setFormData(cardDefaultState);
       };
 
