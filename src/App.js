@@ -4,7 +4,7 @@ import axios from 'axios';
 import CardList from './components/CardList';
 import Card from './components/Card';
 import NewBoardForm from './components/NewBoardForm';
-import NewCardForm from './components/NewBoardForm';
+import NewCardForm from './components/NewCardForm';
 import Board from './components/Board';
 import Popup from './components/Popup.js';
 
