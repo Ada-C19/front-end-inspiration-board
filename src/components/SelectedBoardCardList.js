@@ -17,10 +17,12 @@ const SelectedBoardCardList = (props) => {
         });
     };
 
+    const boardCards = props.cardList ? props.cardList : [];
+
     return (
         <section>
             <h1>Selected Board Card List</h1>
-            <ol>{getCardListJSX(props.cardList)}</ol>
+            <ol>{getCardListJSX(boardCards)}</ol>
         </section>
     );
 

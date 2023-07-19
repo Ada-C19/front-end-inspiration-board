@@ -28,29 +28,30 @@ const convertFromApi = (apiBoard) => {
   return newBoard;
 };
 
-// const getAllCardsOneBoard = (boardId) => {
-//   return axios
-//     .get(`${kBaseUrl}/boards/${boardId}/cards`)
-//     .then((response) => {
-//       console.log(response.data)
-//       return response.data.map(cardListFromApi);
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// };
+const getAllCardsOneBoard = (boardId) => {
+  return axios
+    .get(`${kBaseUrl}/boards/${boardId}/cards`)
+    .then((response) => {
+      console.log(response.data)
+      return response.data.map(cardListFromApi);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
-// const cardListFromApi = (apiCard) => {
-//     const { card_id, message, likes_count} = apiCard;
-//     const newCard = {message, likesCount: likes_count, cardId: card_id};
-//     return newCard;
-// };
+const cardListFromApi = (apiCard) => {
+    const { card_id, message, likes_count } = apiCard;
+    const newCard = {message, likesCount: likes_count, cardId: card_id};
+    return newCard;
+};
 
 
 const App = () => {
 
   const [boardState, setBoardState] = useState([]);
   const [selectedBoard, setSelectedBoard] = useState(null);
+  const [cardState, setCardState] = useState([]);
 
   const findBoardById = (boardId) => {
     return boardState.filter((board) => {return board.boardId === boardId})
@@ -59,6 +60,7 @@ const App = () => {
   const handleBoardSelection = (boardId) => {
     let board = findBoardById(boardId);
     setSelectedBoard(board);
+    fetchCards(boardId);
   };
 
   const fetchBoards = () =>{
@@ -68,14 +70,27 @@ const App = () => {
     })
   }
 
-  const cards = (selectedBoard) => {
-    const boardCards = getAllCardsOneBoard(selectedBoard);
-    return boardCards;
-  };
+  const fetchCards = () => {
+    getAllCardsOneBoard().then((cards)=>{
+      console.log(cards);
+      setCardState(cards);
+    })
+  }
+
+  // const cards = (selectedBoard) => {
+  //   console.log(selectedBoard);
+  //   const boardCards = selectedBoard ? getAllCardsOneBoard(selectedBoard) : [];
+  //   setCardState(boardCards);
+  //   return boardCards;
+  // };
 
   useEffect(()=>{
     fetchBoards();
   },[]);
+
+  // useEffect(()=>{
+  //   fetchCards();
+  // },[selectedBoard]);
 
 
   return (
@@ -90,7 +105,7 @@ const App = () => {
           <NewBoardForm></NewBoardForm>
         </section>
         <section>
-          <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cards(selectedBoard)}></SelectedBoardCardList>
+          <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState}></SelectedBoardCardList>
           <NewCardForm></NewCardForm>
           {/* <CardEntry/> */}
         </section>
