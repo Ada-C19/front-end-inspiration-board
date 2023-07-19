@@ -196,12 +196,13 @@ const App = () => {
             owner={currentBoard().owner}
             deleteBoard={handleDeleteBoard}
           />}
+          {targetBoardId !== null && 
           <CardList 
             cards={cards} 
               handleLike={handleLike} 
               deleteCard={handleDeleteCard}
-              sortDirection={cardDisplaySortDirection} />
-          <SortCardRadio onSortSelect={handleSortCard}/>
+              sortDirection={cardDisplaySortDirection} />}
+          {targetBoardId !== null && <SortCardRadio onSortSelect={handleSortCard}/>}
           {targetBoardId !== null && <NewCardForm addCard={handleSubmitCard} />}
         </div>
       </main>
