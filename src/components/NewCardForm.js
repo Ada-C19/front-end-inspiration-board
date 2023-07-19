@@ -41,7 +41,7 @@ const NewCardForm = ({ addCardCallback }) => {
             </div>
 
             <div className="add-card">
-                <button type="submit" form="add-card">
+                <button type="submit" form="add-card" onClick={onFormSubmit}>
                     +
                 </button>
             </div>

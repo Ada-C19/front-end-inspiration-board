@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import Board from './Board';
 import "./BoardList.css";
 
-const BoardList = ({ boards, createCard, likeCard }) => {
-    const boardComponents = boards.map((board) => {
+const BoardList = ({ boards, selectBoard, createCard, likeCard }) => {
+    const boardComponents = boards.map(board => {
         return (
             <Board 
-            boardId = {board.boardId}
+            boardId = {board.board_id}
             title = {board.title} 
             owner = {board.owner}
             cards = {board.cards}
+            selectBoard = {selectBoard}
             createCard = {createCard}
             likeCard = {likeCard}
             />
@@ -21,7 +22,7 @@ const BoardList = ({ boards, createCard, likeCard }) => {
         <div>
             <section>
                 <ul className="board-titles">
-                    {boards.map(({ boardId, title }) => <li>{title}</li>)}
+                    {boardComponents}
                 </ul>
             </section>
         </div>

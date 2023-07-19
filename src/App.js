@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
-// import CardList from './components/CardList';
+import CardList from './components/CardList';
 import NewBoardForm from './components/NewBoardForm';
 import NewCardForm from './components/NewCardForm';
 import BoardList from './components/BoardList';
@@ -10,26 +10,40 @@ const App = () => {
   const [boardData, setBoardData] = useState([]);  
   const [errorMessage, setErrorMessage] = useState('');
   const [cardData, setCardData] = useState([]); 
+  const [selectedBoard, setSelectedBoard] = useState([])
+
+  console.log(cardData,selectedBoard)
+  const selectBoard = (boardId) => {
+    console.log(boardId)
+    axios.get(`https://inspoboardteam404.onrender.com/boards/${boardId}/cards`)
+      .then((response) => {
+        setSelectedBoard({ board_id: response.data.board_id, title: response.data.title, owner: response.data.owner })
+        setCardData(response.data.cards)
+        console.log(response.data)
+      })
+  }
+
 
   useEffect(() => {
     axios.get('https://inspoboardteam404.onrender.com/boards')
       .then((response) => {
+        console.log(response.data)
         setBoardData(response.data);
       })
       .catch((error) => {
         setErrorMessage(<section>{error.response.data.message}</section>);
       });
-  }, [boardData])
+  }, [])
 
-  useEffect(() => {
-    axios.get('https://inspoboardteam404.onrender.com/cards')
-      .then((response) => {
-        setCardData(response.data);
-      })
-      .catch((error) => {
-        setErrorMessage(<section>{error.response.data.message}</section>);
-      });
-  }, [cardData])
+  // useEffect(() => {
+  //   axios.get('https://inspoboardteam404.onrender.com/cards')
+  //     .then((response) => {
+  //       setCardData(response.data);
+  //     })
+  //     .catch((error) => {
+  //       setErrorMessage(<section>{error.response.data.message}</section>);
+  //     });
+  // }, [])
 
   // axios patch request; or perhaps this part now works automatically since I'm using useEffect to track [boardData]? idk;
   const updateBoardData = updatedBoard => {
@@ -45,60 +59,62 @@ const App = () => {
   };
 
   // Add Board Data
-  const addBoardData = () => {
-    const form = document.getElementById("board-form");
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-    axios.post('https://inspoboardteam404.onrender.com/boards', formData, 
-    {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    }
-    )
-  })
+  const createBoard = (formFields) => {
+    axios.post('https://inspoboardteam404.onrender.com/boards', formFields).then(response => {
+        console.log(response.data)
+        setBoardData(prevData => {
+          return [response.data.board, ...prevData]
+        })
+    })
 };
 
-  const addCardData = () => {
-    const form = document.getElementById("card-form");
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-    axios.post('https://inspoboardteam404.onrender.com/cards', formData, 
-    {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    }
-    )
-  })
+  // const addCardData = () => {
+  //   // const form = document.getElementsByClassName("input-form");
+  //   // form.addEventListener("submit", (e) => {
+  //   //   e.preventDefault();
+  //   //   const formData = new FormData(form);
+  //   axios.post('https://inspoboardteam404.onrender.com/cards', formData, 
+  //   {
+  //     headers: {
+  //       "Content-Type": "multipart/form-data",
+  //     },
+  //   }
+  //   )
+  // // })
+  // };
+
+const likeHandler = (id) => {
+  axios.patch(`https://inspoboardteam404.onrender.com/cards/${id}`).then((resp) => {
+    setCardData((prevCard) => {
+      const updatedCard = prevCard.map((card) => {
+        return card.id === id ? resp.data : card;
+    });
+    return updatedCard;})
+    ;});
   };
-// 
-
-
+ 
 return (
   <div id="App">
       <div className="sidebar">
         <BoardList
           boards={boardData}
           onUpdateBoard={updateBoardData}
-          // onBoardclick={openBoardData}
+          selectBoard={selectBoard}
+
           />
         <div className="board-forms">
-          <NewBoardForm id="board-form" addBoardCallback={addBoardData} />
+          <NewBoardForm id="board-form" createBoard={createBoard}/>
         </div>
       </div>
       <div className="main-container">
+        {/* <Board /> */}
         <header className="title">
           <h1>Select a Board</h1>
         </header>
         <body className="content">
           <p>Nothing to Display</p>
           <div className="card-forms">
-            <NewCardForm 
-            addCardCallback={addCardData} 
-            />
+            {/* <NewCardForm id='card-form' addCardCallback={addCardData} /> */}
           </div>
         </body>
       </div>

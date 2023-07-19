@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './NewBoardForm.css';
+import axios from 'axios';
 
-const NewBoardForm = ({ addBoardCallback }) => {
+const NewBoardForm = ({ createBoard }) => {
     const [formFields, setFormFields] = useState({
         title: '',
         owner: '',
-        cards: [],
+        // cards: [],
     });
+
+    const onFormSubmit = (event) => {
+        event.preventDefault()
+        createBoard(formFields)
+        setFormFields({
+            'title': '',
+            'owner': ''
+        })
+    }
 
     const onTitleChange = (event) => {
         setFormFields({
@@ -33,18 +43,31 @@ const NewBoardForm = ({ addBoardCallback }) => {
     //     });
     // };
 
-    const onFormSubmit = (event) => {
-        event.preventDefault();
+    // const addBoardData = (formData) => {
+    //     // const form = document.getElementById("board-form");
+    //     // form.addEventListener("submit", (e) => {
+    //     //   e.preventDefault();
+    //     //   const formData = new FormData(form);
+    //     axios.post('https://inspoboardteam404.onrender.com/boards', formData, 
+    //     {
+    //       headers: {
+    //         "Content-Type": "multipart/form-data",
+    //       },
+    //     }
+    //     )
+    //   // })
+    // };
 
-        addBoardCallback({
-            titleData: formFields.title,
-            ownerData: formFields.owner,
-        });
-        setFormFields({
-            title: '',
-            owner: '',
-        });
-    };
+    // const onFormSubmit = (event) => {
+    //     event.preventDefault();
+    //     axios.post('https://inspoboardteam404.onrender.com/boards', formFields).then(response => {
+
+    //     })
+    //     setFormFields({
+    //         title: '',
+    //         owner: '',
+    //     });
+    // };
 
     return (
         <form id="add-board" onSubmit={onFormSubmit}>
@@ -72,7 +95,7 @@ const NewBoardForm = ({ addBoardCallback }) => {
             </div>
 
             <div className="add-board">
-                <button type="submit"  form="add-board">
+                <button type="submit"  form="add-board" onClick={onFormSubmit}>
                     +
                 </button>
             </div>
@@ -82,7 +105,7 @@ const NewBoardForm = ({ addBoardCallback }) => {
 }
 
 NewBoardForm.propTypes = {
-    addBoardCallback: PropTypes.func.isRequired
+    createBoard: PropTypes.func.isRequired
 };
 
 export default NewBoardForm;
