@@ -6,10 +6,12 @@ const BoardList = props => {
     //     console.log('it worked')
     //   };
     console.log(props.selectedBoard);
-    const boardItems = props.data.map((board) => {
+    const boardItems = props.data.map((board, index) => {
     return (
       <option 
-        key={board.id}>{board.title}
+        key={board.id}
+        index={index}
+        id={board.id}>{board.title}
       </option>
     );
   });
@@ -17,7 +19,7 @@ const BoardList = props => {
   
 
   return (
-    <select onChange={(event) => console.log(event.target.value)}>{boardItems}</select>
+    <select onChange={(event) => console.log(event.target[1].id)}>{boardItems}</select>
     );
 
 };
