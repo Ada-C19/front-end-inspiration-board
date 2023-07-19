@@ -50,9 +50,7 @@ const App = () => {
   }];
 
   const [boards, setBoards] = useState(defaultEmptyBoardList);
-  // how can we adjust the state of targetBoardId so it isn't
-  // hardcoded to some arbitrary board?
-  const [targetBoardId, setTargetBoardId] = useState(18);
+  const [targetBoardId, setTargetBoardId] = useState(null);
   const [cards, setCards] = useState([])
 
   const fetchBoards = () => {
@@ -63,6 +61,7 @@ const App = () => {
 
   const handleSelectBoard = (boardId) => {
     setTargetBoardId(boardId);
+    fetchCards(boardId);
   };
 
   const currentBoard = () => {
@@ -71,14 +70,13 @@ const App = () => {
         return board;
       }
     }
-    return boards[0]
+    return defaultEmptyBoardList[0]
   }
 
-  const fetchCards = () => {
-    getCardsForBoard(targetBoardId)
+  const fetchCards = (boardId) => {
+    getCardsForBoard(boardId)
     .then((cards) => {setCards(cards);})
   }
-  useEffect(() => { fetchCards() }, [targetBoardId]);
 
 
   const handleLike = (cardId) => {
@@ -153,7 +151,7 @@ const App = () => {
     };
 
     deleteCardFromAPI(cardId)
-    .then(() => fetchCards());
+    .then(() => fetchCards(targetBoardId));
   };
 
 
@@ -171,12 +169,13 @@ const App = () => {
             selectedBoardId={targetBoardId} />
         </div>
         <div>
+          {targetBoardId !== null &&
           <Board
             board_id={currentBoard().id}
             title={currentBoard().title}
             owner={currentBoard().owner}
             deleteBoard={handleDeleteBoard}
-          />
+          />}
           <CardList cards={cards} handleLike={handleLike} deleteCard={handleDeleteCard} />
           <NewCardForm addCard={handleSubmitCard} />
         </div>
