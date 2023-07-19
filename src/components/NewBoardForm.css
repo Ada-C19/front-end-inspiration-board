@@ -20,7 +20,7 @@
     border-radius: 5px;
     border: none;
     padding: 8px;
-    opacity: 0.8;
+    opacity: 1;
 }
 
 .form-row button {
@@ -31,4 +31,9 @@
 .invalid-form-input {
     border: 1px solid red;
     box-shadow: 0 0 7px red;
+}
+
+.submit-button {
+    background-color: rgb(253, 147, 109);
+    font-family:  'Bradley Hand', cursive;
 }

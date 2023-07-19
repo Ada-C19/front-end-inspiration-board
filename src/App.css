@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  background-image: url("https://wallpapers.com/images/hd/spirited-away-spirit-world-city-az9heqv2mmd89ho2.webp");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
 }
 
 
@@ -20,18 +25,15 @@
 
 
 .background-image {
-  background-image: url("https://i.ytimg.com/vi/2zeJSeQYJ5Y/maxresdefault.jpg");
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 100vh;
   font-family: fantasy;
+  color: rgb(250, 233, 165);
 }
 
 .boards__container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   font-family: fantasy;
+  font-weight: bold;
 }
 
 .header__ {
@@ -42,4 +44,10 @@
 align-items: flex-start;
 display: flex;
 flex-direction: column;
+}
+
+.new-board-form__toggle-btn {
+  margin-left: 95px;
+  background-color: rgb(253, 147, 109);
+  font-family:  'Bradley Hand', cursive;
 }

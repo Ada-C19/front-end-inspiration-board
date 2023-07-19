@@ -12,11 +12,12 @@
   }
   
   .modal-content {
-    background-color: rgba(249, 201, 106, 0.608);
-    padding: 20px;
+    background-color: rgba(254, 231, 185, 0.656);
+    padding: 80px;
     border-radius: 5px;
     position: relative; 
     font-family: fantasy, sans-serif; 
+    color: black;
   }
   
   

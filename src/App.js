@@ -51,7 +51,7 @@ function App() {
         <NewBoardForm
           createNewBoard={ createNewBoard }
         />
-        <button className='new-board-form__toggle-btn'>Hide new board form</button>
+        <button className='new-board-form__toggle-btn'>Hide Submission form</button>
         </section>
       </body>
     </div>
