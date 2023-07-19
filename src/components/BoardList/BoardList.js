@@ -10,16 +10,20 @@ const BoardList = props => {
     return (
       <option 
         key={board.id}
-        index={index}
-        id={board.id}>{board.title}
+        
+        id={board.id}>
+          {board.title}{index}
       </option>
     );
   });
 
-  
+  const handleBoardSelect = (event) => {
+    // console.log(event.target[1].id);
+    console.log('does this work??');
+  };
 
   return (
-    <select onChange={(event) => console.log(event.target[1].id)}>{boardItems}</select>
+    <select onChange={handleBoardSelect}>{boardItems}</select>
     );
 
 };
