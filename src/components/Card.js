@@ -9,10 +9,10 @@ const Card = (props) => {
     return (<div className="card-container">
             <p className='card-item__message'>Message goes here</p>
             <ul className='card-item__controls'>
-                <li><p>likes count number goes here</p></li>
-                <li><p>❤️</p></li>
-                <li><p>💔</p></li>
-                <li><p>🗑️</p></li>
+                <p>likes count number goes here</p>
+                <button>❤️</button>
+                <button>💔</button>
+                <button>🗑️</button>
             </ul>
             </div>);
 };
