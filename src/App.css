@@ -1,33 +1,108 @@
-.App {
+#App {
+  text-align: center;
+  height: 120vh;
+  display: flex;
+  font-family: sans-serif;
+}
+
+.title {
+  height: 20vh;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7EADFE;
+  font-size: x-large;
+}
+
+.title h1 {
+  margin: 0;
+}
+
+.main-container {
+  background-color: #7EADFE;
+  height: 100%;
+  flex: 1;
+}
+
+.sidebar {
+  background-color: #FC5EAA;
+  width: 200px;
+  height: 100%;
+  color: white;
+  font-size: larger;
+  font-weight: 900;
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: xx-large;
+  height: 80vh
+}
+
+.add-card button {
+  border-radius: 100px;
+  font-size: xx-large;
+  height: 50px;
+  width: 50px;
+  color: #7EADFE;
+  border: 2px #7EADFE solid;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-weight: 900;
+}
+
+.add-board button {
+  border-radius: 100px;
+  font-size: xx-large;
+  height: 50px;
+  width: 50px;
+  color: #FC5EAA;
+  border: 2px #FC5EAA solid;
+  position: fixed;
+  bottom: 20px;
+  left: 180px;
+  font-weight: 900;
+}
+
+.add-board button:hover {
+  border-style: inset;
+  border: #d25793 2px solid;
+}
+
+.add-card button:hover {
+  border-style: inset;
+  border: #4e81da 2px solid;
+}
+
+.board-forms {
+  position: fixed;
+  width: 150px;
+  bottom: 20px;
+  border: 2px black solid;
+  gap: 20px;
+  font-size: 1rem;
+}
+
+::placeholder {
   text-align: center;
 }
 
-#title {
-  float: right;
-  width: 50%;
-}
-
-.board-list {
-  width: 200px;
-  max-width: 100%;
-  color: white;
-  display: flex;
-  flex-direction: row;
+.card-forms {
+  position: fixed;
+  width: 150px;
+  bottom: 20px;
+  border: 2px black solid;
   gap: 20px;
+  font-size: 1rem;
 }
 
-.board {
-  /* background-color: white; */
-  border-radius: 10px;
-  padding: 10px;
-  margin: 5px;
-  height: 300px;
-  max-height: 500px;
-}
-
-.board-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 500px;
-  background-color: pink;
+.input-form {
+  border-radius: 100px;
+  border: 1px solid #FC5EAA;
 }

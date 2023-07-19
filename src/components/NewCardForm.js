@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import './NewCardForm.css';
 
 const NewCardForm = ({ addCardCallback }) => {
-    const [formFields, setFormFields] = useState ({
-        message:'',
+    const [formFields, setFormFields] = useState({
+        message: '',
     });
 
     const onMessageChange = (event) => {
@@ -22,21 +22,26 @@ const NewCardForm = ({ addCardCallback }) => {
         })
 
         setFormFields({
-            message:'',
+            message: '',
         })
     }
 
     return (
         <form onSubmit={onFormSubmit}>
             <div className="card-form-input"></div>
-                <label htmlFor="cardMessage">Card Message:</label>
-                <input
+            {/* <label htmlFor="cardMessage">Card Message:</label> */}
+            <input
                 name="cardMessage"
                 value={formFields.message}
-                onChange={onMessageChange} />
-            <input
-                type="submit"
-                value="Add Card" />
+                onChange={onMessageChange}
+                className="input-form"
+                placeholder="Card Message"
+            />
+            <div className="add-card">
+                <button type="submit">
+                    +
+                </button>
+            </div>
         </form>
     )
 }
