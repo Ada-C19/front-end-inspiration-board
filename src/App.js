@@ -7,6 +7,7 @@ import Board from './components/Board';
 import NewCardForm from './components/NewCardForm';
 import NewBoardForm from './components/NewBoardForm';
 import BoardSelectRadio from './components/BoardSelectRadio';
+import SortCardRadio from './components/SortCardRadio';
 
 const boardsURL = `${process.env.REACT_APP_BACKEND_URL}`
 
@@ -53,6 +54,7 @@ const App = () => {
   const [targetBoardId, setTargetBoardId] = useState(null);
   const [cards, setCards] = useState([])
   const [displayBoardForm, setDisplayBoardForm] = useState(true)
+  const [cardDisplaySortDirection, setCardDisplaySortDirection] = useState("ID")
 
   const fetchBoards = () => {
     getAllBoards()
@@ -168,6 +170,11 @@ const App = () => {
     return displayBoardForm ? "Hide" : "Show";
   }
 
+  const handleSortCard = (sortDirection) => {
+    setCardDisplaySortDirection(sortDirection);
+    console.log("sorting cards by", sortDirection)
+  }
+
   return (
     <div className="App">
       <header>
@@ -190,7 +197,12 @@ const App = () => {
             owner={currentBoard().owner}
             deleteBoard={handleDeleteBoard}
           />}
-          <CardList cards={cards} handleLike={handleLike} deleteCard={handleDeleteCard} />
+          <CardList 
+            cards={cards} 
+              handleLike={handleLike} 
+              deleteCard={handleDeleteCard}
+              sortDirection={cardDisplaySortDirection} />
+          <SortCardRadio onSortSelect={handleSortCard}/>
           {targetBoardId !== null && <NewCardForm addCard={handleSubmitCard} />}
         </div>
       </main>

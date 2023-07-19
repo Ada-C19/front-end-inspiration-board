@@ -2,13 +2,14 @@ import React from "react";
 import PropTypes from 'prop-types';
 import Card from './Card.js';
 
-const CardList = ({ cards, handleLike, deleteCard }) => {
+const CardList = ({ cards, handleLike, deleteCard, sortDirection }) => {
     const getCardListJSX = (cards) => {
-        // before we map it, sort it!
-        let cardsAlphabetical = cards.sort((a, b) => a.message > b.message);
-        let cardsByLikes = cards.sort((a, b) => a.likesCount > b.likesCount);
-        let cardsById = cards.sort((a, b) => a.id > b.id);
-        let sortedCards = cardsByLikes;
+        const sortCards = (sortDirection, cards) => {
+            if (sortDirection === "Alphabetical") return cards.sort((a, b) => a.message > b.message)
+            if (sortDirection === "Likes") return cards.sort((a, b) => a.likesCount < b.likesCount)
+            if (sortDirection === "ID") return cards.sort((a, b) => a.id > b.id)
+        }
+        let sortedCards = sortCards(sortDirection, cards)
         return sortedCards.map((card) => {
             return (
                 <Card
