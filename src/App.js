@@ -11,12 +11,18 @@ import Popup from './components/Popup.js';
 
 const boardsURL = `${ process.env.REACT_APP_BACKEND_URL }`
 
-//axios calls go up here 
+// Question: should our functions that represent card operations be contained in the App() function, or does it need to live outside of this within App.js?
+// how can we refactor to make App() single responsibility, but still initiate props in the same file?
+// we're adjusting to be in the same file for now, we will need to refactor
+// if we move state withing App(), and we have helper functions outside of App(), would these out of scope of each other?
+
+// helper function
 
 function App() {
 
   // initiate state
   const [ boardsData, setBoardsData ] = useState([]);
+  // example state
 
   //function to update board data goes here? whats the diff?
 
