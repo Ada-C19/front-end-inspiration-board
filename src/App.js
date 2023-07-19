@@ -156,8 +156,8 @@ const App = () => {
     }));
     axios
       .patch(`${boardsURL}/boards/${targetBoardId}/cards/${cardId}/mark_like`)
-      .then(res => console.log(res.data))
-      .catch(err => console.log(err))
+      .then(res => console.log("Card Liked!", res.data))
+      .catch(err => console.log("Error in liking card!", err.message))
   }
 
   const toggleBoardDisplay = () => {

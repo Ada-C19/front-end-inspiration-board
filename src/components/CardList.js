@@ -4,7 +4,12 @@ import Card from './Card.js';
 
 const CardList = ({ cards, handleLike, deleteCard }) => {
     const getCardListJSX = (cards) => {
-        return cards.map((card) => {
+        // before we map it, sort it!
+        let cardsAlphabetical = cards.sort((a, b) => a.message > b.message);
+        let cardsByLikes = cards.sort((a, b) => a.likesCount > b.likesCount);
+        let cardsById = cards.sort((a, b) => a.id > b.id);
+        let sortedCards = cardsByLikes;
+        return sortedCards.map((card) => {
             return (
                 <Card
                     id={card.id}
