@@ -1,1 +1,9 @@
 /* styles for Card component */
+#card {
+    display: inline-block;
+    background-color: palegoldenrod;
+    max-width: 20%;
+    justify-content: center;
+    box-shadow: 6px 5px  6px gray;
+    margin: 5px;
+}
