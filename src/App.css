@@ -15,6 +15,15 @@ justify-content: space-between;
  justify-content: space-between;
   display: flex;
 }
+.card-heading{
+  font-size: 22px;
+  border: solid 3px rgb(89, 230, 237);
+  background-color: lightcyan;
+  border-radius: 12px;
+  font-weight: 800;
+  padding: 9px;
+  max-width: 20vw;
+}
 
 .boardList {
   height: fit-content;
@@ -24,9 +33,9 @@ justify-content: space-between;
 .selectedBoard {
   border: solid;
   border-width: 5px;
-  border-color: lightcyan;
+  border-color: rgb(89, 230, 237);
   padding: 10px;
-  background-color:  rgb(89, 230, 237);
+  background-color: lightcyan;
   border-radius: 20px;
   height: 30px;
   margin-top: 40px;
@@ -61,7 +70,8 @@ body{
 #heading{
   text-align: center;
   border-style: ridge;
-  background-color:  rgb(89, 230, 237);
+  background-color: lightcyan;
+  border: solid 3px rgb(89, 230, 237);
   border-radius: 20px;
   width: 90vh;
   margin: auto;

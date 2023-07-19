@@ -123,6 +123,7 @@ function App() {
       </div>
       <div className="cardsContainer"> 
         <div className="cardlist"> 
+        <p className='card-heading'>Cards - {selectedBoard}</p>
           <CardList data = {cardData} onLikeCard = {onLikeCard}/>
         </div>
         <div className="createCard">

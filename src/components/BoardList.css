@@ -1,7 +1,7 @@
 .board {
     border: solid;
     border-width: 5px;
-    border-color: lightcyan;
+    border-color: rgb(89, 230, 237);
     padding-bottom: 10vh;
     padding-left: 5vh;
     border-radius: 20px;
@@ -10,15 +10,15 @@
 h2{
     border: solid;
     border-width: 5px;
-    border-color: lightcyan;
+    border-color: rgb(89, 230, 237);
     padding: 10px;
-    background-color: rgb(89, 230, 237);
+    background-color: lightcyan;
     border-radius: 20px;
   
 }
 
 ul{
-    background: rgb(89, 230, 237);
+    background: lightcyan;
 }
 
 ul {

@@ -17,7 +17,7 @@ const CardList = (props) => {
 });
         return (
             <section className='card-section'>
-                <h2>Cards</h2>
+              
                 <p className='card-layout'>{getCards}</p>
             </section>
         );
