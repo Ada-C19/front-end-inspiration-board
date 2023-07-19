@@ -99,11 +99,11 @@ const App = () => {
         <section>
           <BoardList boardData={boardState} onSelectBoard={handleBoardSelection}></BoardList>
           <SelectedBoard boardState={selectedBoard}></SelectedBoard>
-          <NewBoardForm onHandleSubmit={onHandleSubmit}></NewBoardForm>
+          <NewBoardForm></NewBoardForm>
         </section>
         <section>
           <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState}></SelectedBoardCardList>
-          <NewCardForm></NewCardForm>
+          <NewCardForm onHandleSubmit={onHandleSubmit}></NewCardForm>
           {/* <CardEntry/> */}
         </section>
       </main>
