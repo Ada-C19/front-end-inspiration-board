@@ -12,6 +12,7 @@ const SelectedBoardCardList = (props) => {
                     cardId = {card.cardId}
                     message = {card.message}
                     likesCount = {card.likesCount}
+                    key = {card.cardId}
                 />
             );
         });

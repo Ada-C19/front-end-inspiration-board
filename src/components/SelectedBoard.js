@@ -12,13 +12,13 @@ const SelectedBoard = (props) => {
 };
 
 SelectedBoard.propTypes = {
-    boardData: PropTypes.arrayOf(
+    boardState: PropTypes.arrayOf(
         PropTypes.shape({
             boardId: PropTypes.number.isRequired,
             title: PropTypes.string.isRequired,
             owner: PropTypes.string.isRequired,
         })
-    ).isRequired,
+    ),
 };
 
 export default SelectedBoard;
