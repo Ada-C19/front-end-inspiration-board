@@ -31,10 +31,9 @@ const getAllBoards = () => {
 const getCardsForBoard = (boardId) => {
   const convertCardFromAPI = (card) => {
     return {
-      id: card.card_id,
-      message: card.message,
-      likesCount: card.likes_count,
-      board: card.board_id
+      id: data.board_id,
+      title: data.title,
+      owner: data.owner
     };
   };
 
@@ -130,7 +129,6 @@ const App = () => {
     fetchCards();
   };
 
-  const handleSubmitBoard = (newBoard) => { 
     const postBoardToAPI = (newBoard) => {
       let params = {
         title: newBoard.title,
@@ -140,23 +138,12 @@ const App = () => {
       .then((response) => console.log('Board Posted!', response.data))
       .catch((e) => console.log(e));
     }
-    // need to add listener with use effect or something here
-    postBoardToAPI(newBoard)
-    // .then(() => fetchBoards());
-    fetchBoards();
-  };
 
-  const handleDeleteBoard = (boardId) => {
     const deleteBoardFromAPI = (boardId) => {
       axios.delete(`${boardsURL}/boards/${boardId}`)
       .then((response) => console.log('Board Deleted!', response.data))
       .catch((e) => console.log(e.message));
     }
-    
-    deleteBoardFromAPI(boardId);
-    fetchBoards();
-  };
-  
 
   return (
     <div className="App">
