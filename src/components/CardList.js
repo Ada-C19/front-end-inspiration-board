@@ -1,8 +1,13 @@
 import React from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import Card from './Card';
+import NewCardForm from './NewCardForm';
 
-const CardList = () => {
+const CardList = (props) => {
     return (
         <div>
+        <h2>{props.board.owner}'s Cards for {props.board.title}</h2>
         </div>
     );
 };
