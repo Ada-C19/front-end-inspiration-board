@@ -1,14 +1,15 @@
 import './BoardList.css';
 
-
 const BoardList = props => {
   const boardItems = props.data.map((board) => {
     return (
-      <li>{board.title}</li>
+      <option key={board.id}>{board.title}</option>
     );
   });
 
-  return (boardItems);
+  return (
+    <select>{boardItems}</select>
+    );
 
 };
 
