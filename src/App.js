@@ -35,7 +35,7 @@ function App() {
       .get(`${kBaseUrl}/boards`)
       .then((res) => setBoardData(res.data))
       .catch((err) => console.log(err));
-  }, [setBoardData]);
+  }, []);
 
   const handleBoardSubmit = (newBoardData) => {
     axios
@@ -47,10 +47,10 @@ function App() {
   };
 
   const boardList = boardData.map((board) => {
-    return (board.title);
+    return <li key={board.id}>{board.title}</li>;
   });
 
-  console.log(boardData);
+  
   const handleCardSumbit = (newCardFormProps) => {
     // Handle UI after card has been created from the form
     return axios
