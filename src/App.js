@@ -35,48 +35,47 @@ function App() {
     axios
       .get(`${kBaseUrl}/boards`)
       .then((res) => setBoardData(res.data))
-      .catch((err) => console.log(err));
-  }, []);
+    .catch((err) => console.log(err));
+}, []);
 
-  const handleBoardSubmit = (newBoardData) => {
-    axios
-      .post(`${kBaseUrl}/boards`, newBoardData)
-      .then((res) => {
-        setBoardData((prev) => [res.data]);
-      })
-      .catch((err) => console.log(`Failed to assign card to board. Error: ${err}`));
-  };
+const handleBoardSubmit = (newBoardData) => {
+  axios
+    .post(`${kBaseUrl}/boards`, newBoardData)
+    .then((res) => {
 
-  console.log(boardData);
-  
-  const handleCardSumbit = (newCardFormProps) => {
-    // Handle UI after card has been created from the form
-    return axios
-      .post(
-        `${kBaseUrl}/boards/${newCardFormProps.boardId}/cards`,
-        { message: newCardFormProps.message },
-      )
-      .then((response) => {
-        console.log(`Assigned card to a boardId=${newCardFormProps.boardId}. Response: ${response}`);
-        // UI change
-      })
-      .catch((error) => {
-        console.log(`Failed to assign card to board. Error: ${error}`);
-      });
-  };
+      setBoardData((prev) => [...prev, res.data.board]);
+    })
+    .catch((err) => console.log(`Failed to assign card to board. Error: ${err}`));
+};
 
-  return (
-    <div className="App">
-      <p>hello world :)</p>
-      <BoardList data={boardData}/>
-      <Board board_id={1}
-        owner={"Abby"}
-        title={"tamagotchis i have loved"}
-        cards={test_board.cards} />
-      <Sidebar handleBoardSubmit={handleBoardSubmit} />
-      <NewCardForm boardId={DEFAULT_BOARD_ID} handleCardSumbit={handleCardSumbit} />
-    </div>
-  );
+const handleCardSumbit = (newCardFormProps) => {
+  // Handle UI after card has been created from the form
+  return axios
+    .post(
+      `${kBaseUrl}/boards/${newCardFormProps.boardId}/cards`,
+      { message: newCardFormProps.message },
+    )
+    .then((response) => {
+      console.log(`Assigned card to a boardId=${newCardFormProps.boardId}. Response: ${response}`);
+      // UI change
+    })
+    .catch((error) => {
+      console.log(`Failed to assign card to board. Error: ${error}`);
+    });
+};
+
+return (
+  <div className="App">
+    <p>hello world :)</p>
+    <BoardList data={boardData} />
+    <Board board_id={1}
+      owner={"Abby"}
+      title={"tamagotchis i have loved"}
+      cards={test_board.cards} />
+    <Sidebar handleBoardSubmit={handleBoardSubmit} />
+    <NewCardForm boardId={DEFAULT_BOARD_ID} handleCardSumbit={handleCardSumbit} />
+  </div>
+);
 }
 
 export default App;
