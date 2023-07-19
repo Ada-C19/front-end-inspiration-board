@@ -90,7 +90,14 @@ const App = () => {
       .catch((e) => console.log(e));
   };
 
-
+  const onHandleBoardSubmit = (data) => {
+    axios.post(`${kBaseUrl}/boards`, data)
+      .then((response) => {
+        setBoardState((prevBoards) => [convertFromApi(response.data.board), ...prevBoards]);
+      })
+      .catch((e) => console.log(e));
+  };
+ 
   return (
     <div className="App">
       <header className="App-header">
@@ -100,7 +107,7 @@ const App = () => {
         <section>
           <BoardList boardData={boardState} onSelectBoard={handleBoardSelection}></BoardList>
           <SelectedBoard boardState={selectedBoard}></SelectedBoard>
-          <NewBoardForm></NewBoardForm>
+          <NewBoardForm onHandleBoardSubmit={onHandleBoardSubmit}></NewBoardForm>
         </section>
         <section>
           <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState}></SelectedBoardCardList>
