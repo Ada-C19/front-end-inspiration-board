@@ -113,18 +113,23 @@ const App = () => {
         board_id: targetBoardId,
       }
       return axios.post(`${boardsURL}/boards/${targetBoardId}/cards`, params)
-        .then((response) => console.log('Card Posted!', response.data))
+        .then((response) => {
+          console.log('Card Posted!', response.data)
+          return response.data.card.card_id})
         .catch((e) => console.log("error posting card!", e.message));
     };
-    let nextId = Math.max(...cards.map(card => card.id)) + 1;
+    // let nextId = Math.max(...cards.map(card => card.id)) + 1;
     const newCardObject = {
-      id: nextId,
+      id: null,
       message: newCard.message,
       board: targetBoardId,
       likesCount: 0,
     };
     postCardToAPI(newCardObject)
-      .then(() => setCards((prevData) => [...prevData, newCardObject]))
+      .then((nextId) => {
+        newCardObject.id = nextId;
+        setCards((prevData) => [...prevData, newCardObject]);
+      })
   };
 
   const handleDeleteCard = (cardId) => {

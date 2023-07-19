@@ -30,7 +30,7 @@ const Card = ({ id, message, likesCount, handleLike, deleteCard }) => {
             </div>
             <TrashIcon onClick={() => handleDeleteCard()} />
             <div className="card-text">
-                {/* <p>Card: {id}</p> */}
+                <p>Card: {id}</p>
                 <p>{message}</p>
             </div>
         </div>
