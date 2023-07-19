@@ -1,6 +1,6 @@
 import './BoardList.css';
 
-const BoardList = props => {
+const BoardList = (props) => {
   
     // const handleBoardSelect = () => {
     //     console.log('it worked')
@@ -17,10 +17,9 @@ const BoardList = props => {
   });
 
   const handleBoardSelect = (event) => {
-    // const index = ;
-
-    console.log(event.target.value);
-    // console.log('does this work??');
+    const boardId = event.target.value;
+    props.selectedBoard(boardId);
+    
   };
 
   return (
