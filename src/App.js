@@ -156,8 +156,8 @@ const App = () => {
         .catch((e) => console.log("error deleting card!", e.message));
     };
 
-    deleteCardFromAPI(cardId);
-    fetchCards();
+    deleteCardFromAPI(cardId)
+    .then(() => fetchCards());
   };
 
 
