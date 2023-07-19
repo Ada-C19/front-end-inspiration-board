@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import './App.css';
 import Board from './components/Board/Board';
 import NewCardForm from './components/NewCardForm';
+import Sidebar from './components/Sidebar/Sidebar';
 import axios from 'axios';
 
 const BASE_URL = 'http://127.0.0.1:5000';
 const DEFAULT_BOARD_ID = 2; // TODO: Remove 
-import Sidebar from './components/Sidebar/Sidebar';
-import axios from 'axios';
+
+
 
 const test_cards = [
   {"message": "hello world",
