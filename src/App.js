@@ -29,18 +29,13 @@ function App() {
     board_id: null
   });
 
-
   const selectBoard = (board) => { setSelectedBoard(board) };
-  // function to display each board in Board Data Base
+  
   const boardElements = boardsData.map((board) => {
     return (<li>
       <BoardList board={board} onSelectBoard={selectBoard}/>
     </li>)
   });
-  // we need useEffect to show all current boards in the database on pageload?
-  // using useEffect 
-  // when loading page, get all current boards in database and then load them
-  // args: callback function, array of dependencies (determines whether to rerun the effect)
 
   useEffect(() => {
     axios.get(`${boardsURL}/boards`)
@@ -48,6 +43,12 @@ function App() {
       setBoardsData(response.data);
     })
   }, []);
+
+  const [ boardFormDisplay, setBoardFormDisplay ] = useState(true);
+  const toggleBoardFormDisplay = () => {setBoardFormDisplay(!boardFormDisplay)};
+
+  // whenever we call setBoardFormDisplay, that function should do conditional rendering of BoardForm
+  // me thinks: connect to BoardForm within sBFD function
 
   //function that handles API POST new board call Crud-dy
   // does this need to be accessed by other functions? do we need to use this in something else?
@@ -83,10 +84,10 @@ function App() {
         </section>
         <section className="new-board-form__container">
           <h1>Add new Participant</h1>
-          <NewBoardForm
-            createNewBoard={ createNewBoard }
-          />
-          <button className='new-board-form__toggle-btn'>Hide Submission form</button>
+          {boardFormDisplay ? <NewBoardForm createNewBoard={ createNewBoard }/>: ''}
+          <button onClick={toggleBoardFormDisplay} className='new-board-form__toggle-btn'>
+            {boardFormDisplay ? 'Hide Submission Form': 'Show Sumbission Form'}
+          </button>
         </section>
         <section>
           <NewCardForm/>
@@ -117,5 +118,3 @@ export default App;
 //apps will pass these props to board, board and onBoardSelect
 
 //apps will pass these props to new board form: createNewBoard
-
-
