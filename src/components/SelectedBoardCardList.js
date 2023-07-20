@@ -31,7 +31,14 @@ const SelectedBoardCardList = (props) => {
 
 };
 
-// create propTypes
-
+SelectedBoardCardList.propTypes = {
+    selectedBoard: PropTypes.arrayOf(
+        PropTypes.shape({
+            boardId: PropTypes.number.isRequired,
+            title: PropTypes.string.isRequired,
+            owner: PropTypes.string.isRequired,
+        })
+    ),
+}
 
 export default SelectedBoardCardList;
