@@ -60,7 +60,7 @@ const handleLike = id => {
     setCardData((prev) => {
       return prev.map((card) =>{
         if (id === card.id) {
-          return {...card, likesCount: res.data.card.likes_count};
+          return {...card, likes_count: res.data.card.likes_count};
         } else {
           return card;
         }

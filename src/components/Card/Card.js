@@ -2,7 +2,7 @@ import './Card.css';
 
 const Card = props => {
   console.log(props.key)
-  const buttonContent = props.likesCount > 0 ? '💖' : '🩷';
+  const buttonContent = props.likesCount > 0 ? '💖' : '♡';
   return(
     <div className='card'>
       <p className='message'>{props.message}</p>
