@@ -56,7 +56,7 @@ const handleBoardSubmit = (newBoardData) => {
     .catch((err) => console.log(`Failed to assign card to board. Error: ${err}`));
 };
 
-const handleCardSumbit = (newCardFormProps) => {
+const handleCardSubmit = (newCardFormProps) => {
   // Handle UI after card has been created from the form
   return axios
     .post(
@@ -87,8 +87,11 @@ return (
       />
       </main>
       <div className="sidebar">
-        {isSidebarShown && <Sidebar handleBoardSubmit={handleBoardSubmit} />}
-        <NewCardForm boardId={DEFAULT_BOARD_ID} handleCardSumbit={handleCardSumbit} />
+        {isSidebarShown && <Sidebar 
+          handleBoardSubmit={handleBoardSubmit} 
+          boardId={DEFAULT_BOARD_ID} 
+          handleCardSubmit={handleCardSubmit}/>}
+        {/* <NewCardForm boardId={DEFAULT_BOARD_ID} handleCardSumbit={handleCardSumbit} /> */}
       </div>
       <button onClick={toggleSidebar}>Show Sidebar</button>
   </div>
