@@ -2,10 +2,6 @@ import NewBoardForm from '../NewBoardForm';
 import NewCardForm from '../NewCardForm';
 import './Menu.css';
 
-
-// Will hold forms for new board, new card
-
-
 const Menu = props => {
 
   return (

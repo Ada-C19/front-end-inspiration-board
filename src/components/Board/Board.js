@@ -4,7 +4,7 @@ import Card from '../Card/Card';
 
 const Board = props => {
   return(
-    <section>
+    <section className='Board'>
       { props.cardData.map((card) => (
         <Card 
           message={card.message}

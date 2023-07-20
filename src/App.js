@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import './App.css';
 import Board from './components/Board/Board';
 import BoardList from './components/BoardList/BoardList';
-import NewCardForm from './components/NewCardForm';
 import Sidebar from './components/Sidebar/Sidebar';
 import axios from 'axios';
 
@@ -60,6 +59,15 @@ const toggleSidebar = (prev) => {
 
 return (
   <div className="App">
+    <div className="sidebar__container">
+      <button onClick={toggleSidebar}>Show Sidebar</button>
+    <section className="sidebar">
+      {isSidebarShown && <Sidebar 
+        handleBoardSubmit={handleBoardSubmit} 
+        handleCardSubmit={handleCardSubmit}/>}
+    </section>
+    </div>
+    <div className='body__container'>
     <h1 className="App-header">✨Inspiration Board✨</h1>
     <main className="board-container">
       <BoardList data={boardData} setSelectedBoard={setSelectedBoard}/>
@@ -68,12 +76,8 @@ return (
         //onLike={handleLike}
       />
     </main>
-      <button onClick={toggleSidebar}>Show Sidebar</button>
-    <div className="sidebar">
-      {isSidebarShown && <Sidebar 
-        handleBoardSubmit={handleBoardSubmit} 
-        handleCardSubmit={handleCardSubmit}/>}
     </div>
+    
   </div>
 );
 }

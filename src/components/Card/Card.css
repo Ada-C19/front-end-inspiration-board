@@ -2,8 +2,13 @@
 #card {
     display: inline-block;
     background-color: palegoldenrod;
-    max-width: 20%;
+    max-width: 8em;
+    min-height: 5em;
     justify-content: center;
     box-shadow: 6px 5px  6px gray;
     margin: 5px;
+}
+
+p {
+  padding: 0.65rem;
 }

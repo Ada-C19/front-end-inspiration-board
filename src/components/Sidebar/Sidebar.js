@@ -5,7 +5,7 @@ import Menu from '../Menu/Menu'
 
 const Sidebar = props => {
 
-  return <div>
+  return <div className='Sidebar'>
     <Menu 
       handleBoardSubmit={props.handleBoardSubmit}
       boardId={props.boardId} 

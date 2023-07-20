@@ -1,5 +1,6 @@
 .Sidebar {
     height: 100%;
-    width: 200px;
-    background-color: plum;
+    width: 9.7rem;
+    background-color: rgb(242, 219, 247);
+    position: absolute;
 }
