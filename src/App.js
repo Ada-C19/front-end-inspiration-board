@@ -56,7 +56,7 @@ const deleteCard = (cardId) => {
 
 const updateLikesCount = (cardId) => {
   return axios
-    .patch(`${kBaseUrl}/cards/${cardId}`)
+    .patch(`${kBaseUrl}/cards/${cardId}/like`)
     .then((response) => {
       const updatedCard = cardListFromApi(response.data);
       console.log("Updated Card:", updatedCard); 
