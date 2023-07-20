@@ -53,6 +53,21 @@ const deleteCard = (cardId) => {
   });
 };
 
+const updateLikesCount = (cardId) => {
+  return axios
+    .patch(`${kBaseUrl}/cards/${cardId}/like`)
+    .then((response) => {
+      const updatedCard = cardListFromApi(response.data);
+      console.log("Updated Card:", updatedCard); 
+        return updatedCard
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+
+
 const App = () => {
 
   const [boardState, setBoardState] = useState([]);
@@ -112,12 +127,18 @@ const App = () => {
     });
   };
 
-  const onClickLike = (cardId) => {
-    axios.patch(`${kBaseUrl}/cards/${cardId}/like`)
-      .then((response) => {
-        fetchCards(response.data.board_id)
-      .catch((e) => console.log(e));
-  });
+  const onLikeCard = (cardId) => {
+    updateLikesCount(cardId).then((updatedCard) => {
+      setCardState((prevCard) => {
+        return prevCard.map((card) => {
+          if (card.cardId === cardId) {
+            return updatedCard;
+          }
+          return card;
+        });
+      });
+    });
+  };
 
 
   return (
@@ -132,7 +153,7 @@ const App = () => {
           <NewBoardForm onHandleBoardSubmit={onHandleBoardSubmit}></NewBoardForm>
         </section>
         <section>
-          <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState} onUnregister={onUnregister} onClickLike={onClickLike}></SelectedBoardCardList>
+          <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState} onUnregister={onUnregister} onLikeCard = {onLikeCard}></SelectedBoardCardList>
           <NewCardForm selectedBoard={selectedBoard} onHandleSubmit={onHandleSubmit}></NewCardForm>
         </section>
       </main>

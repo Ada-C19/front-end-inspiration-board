@@ -14,7 +14,7 @@ const SelectedBoardCardList = (props) => {
                     likesCount = {card.likesCount}
                     key = {card.cardId}
                     onUnregister = {props.onUnregister}
-                    onClickLike={props.onClickLike}
+                    onLikeCard = {props.onLikeCard}
                 />
             );
         });
@@ -31,7 +31,14 @@ const SelectedBoardCardList = (props) => {
 
 };
 
-// create propTypes
-
+SelectedBoardCardList.propTypes = {
+    selectedBoard: PropTypes.arrayOf(
+        PropTypes.shape({
+            boardId: PropTypes.number.isRequired,
+            title: PropTypes.string.isRequired,
+            owner: PropTypes.string.isRequired,
+        })
+    ),
+}
 
 export default SelectedBoardCardList;
