@@ -35,7 +35,7 @@ const NewCardForm = ({ handleCardSubmit }) => {
                     onChange={handleInputChange}
                 />
             </div>
-            <button className="submit-button" type="submit">Submit Card</button>
+            <button disabled={((formData.message.length === 0) || (formData.message.length > 40))}className="submit-button" type="submit">Submit Card</button>
         </form>
     );
 };

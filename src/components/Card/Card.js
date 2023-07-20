@@ -6,7 +6,7 @@ const Card = props => {
     <div className='card'>
       <p className='message'>{props.message}</p>
       <p>Likes: {props.likesCount}</p>
-      <p onClick={()=> props.onDelete(props.id)}>Delete</p>
+      <p className="delete" onClick={()=> props.onDelete(props.id)}>Delete</p>
     </div>
   )
 };

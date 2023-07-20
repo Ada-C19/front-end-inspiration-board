@@ -43,7 +43,7 @@ const NewBoardForm = (props) => {
                     value={formData.owner}
                     onChange={handleChange}
                 />
-                <input type="submit" value="Submit New Board"/>
+                <input disabled={((formData.title.length === 0) || (formData.owner.length === 0))} type="submit" value="Submit New Board"/>
             </form>
         </section>
     );
