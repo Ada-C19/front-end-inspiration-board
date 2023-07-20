@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card';
 import './CardList.css';
 import NewCardForm from './NewCardForm';
 
 const CardList = ({ cards, boardId, likeCard, createCard, deleteCard, increaseLikes }) => {
+  const [hideForm, setHideForm] = useState(true);
+  // console.log(boardId)
+  // console.log(cards)
   const cardComponents = cards.map(card => {
     return (
       <Card
@@ -23,15 +26,17 @@ const CardList = ({ cards, boardId, likeCard, createCard, deleteCard, increaseLi
       <section className="card-list">
         {cardComponents}
       </section>
-      <section className="card-forms">
+      <section className="card-forms" style={{ display: hideForm ? 'block' : 'none' }}>
         <NewCardForm
           id='card-form'
           boardId={boardId}
           createCard={createCard}
 
-
         />
       </section>
+      <button onClick={() => setHideForm(!hideForm)}>
+        {hideForm ? 'Hide' : 'Show'} Card Form
+      </button>
     </div>
 
   )

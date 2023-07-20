@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types';
 import Board from './Board';
 import NewBoardForm from './NewBoardForm';
 import "./BoardList.css";
 
 const BoardList = ({ boards, selectBoard, createBoard, deleteBoard }) => {
+    const [hideForm, setHideForm] = useState(true);
     const boardComponents = boards.map(board => {
         return (
             <Board
@@ -22,9 +23,10 @@ const BoardList = ({ boards, selectBoard, createBoard, deleteBoard }) => {
             <section className='board-titles'>
                 {boardComponents}
             </section>
-            <section className="board-forms">
+            <section className="board-forms" style={{display: hideForm ? 'block' :'none'}}>
                 <NewBoardForm id="board-form" createBoard={createBoard} />
             </section>
+            <button onClick={() => setHideForm(!hideForm)}>{ hideForm ? 'Hide': 'Show'} Board Form</button>
         </div>
     )
 }
