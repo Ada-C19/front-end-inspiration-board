@@ -138,10 +138,10 @@ function App() {
   };
 
   // axios creates a new card to post to a boardID
-  const postNewCard = (cardObject) => {
+  const postNewCard = (card) => {
     axios.post(
         `${boardsURL}/cards`,
-        cardObject
+        card
     ).then((response) => {
       const cards = [...cardsData];
       cards.push(response.data.card);
@@ -191,7 +191,6 @@ function App() {
             removeOneLikeToCard={removeOneLikeToCard}
             deleteCard={deleteCard}
             selectedBoard={selectedBoard}
-            cardObject={cardObject}
           /> : ''}
         </section>
         <section>
