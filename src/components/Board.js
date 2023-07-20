@@ -6,8 +6,8 @@ const Board = ({ boardId, title, owner, cards, createCard, likeCard, selectBoard
     
     return (
         <div className="board">
-            <h2 onClick = {() => selectBoard(boardId)}>{title}</h2>
-            <p>by: {owner}</p>
+            <h1 onClick = {() => selectBoard(boardId)}>{title}</h1>
+            <a>by: {owner}</a>
             <section>
                 {/* <CardList cards={cards} likeCard={likeCard} /> */}
                 <button 
