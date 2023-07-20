@@ -7,6 +7,7 @@ import NewCardForm from './components/NewCardForm';
 import NewBoardForm from './components/NewBoardForm';
 import BoardSelectRadio from './components/BoardSelectRadio';
 import SortCardRadio from './components/SortCardRadio';
+// import { send } from 'process';
 
 const boardsURL = `${process.env.REACT_APP_BACKEND_URL}`
 
@@ -22,7 +23,7 @@ const getAllBoards = () => {
     .then((response) => {
       return (response.data.map(convertBoardFromAPI))
     })
-    .catch((e) => console.log("error during getAllBoards!", e.message));
+    .catch((e) => console.log("error during getAllBoards!", e.message, boardsURL));
 };
 
 const getCardsForBoard = (boardId) => {
@@ -146,19 +147,14 @@ const App = () => {
 
   const handleLike = (cardId) => {
 
-    setCards(() => cards.map((card) => {
-      if (card.id === cardId) {
-        // here it copy that cat that is an object in out object and we update the cat.petCount
-        return { ...card, likesCount: card.likesCount + 1 };
-      } else {
-        return card;
-      }
-
-    }));
-    axios
+    const cardLike = (cardId) => {
+    return axios
       .patch(`${boardsURL}/boards/${targetBoardId}/cards/${cardId}/mark_like`)
       .then(res => console.log("Card Liked!", res.data))
       .catch(err => console.log("Error in liking card!", err.message))
+    }
+
+    cardLike(cardId).then(() => fetchCards())
   }
 
   const toggleBoardDisplay = () => {
@@ -210,4 +206,3 @@ const App = () => {
 };
   
   export default App;
-  
