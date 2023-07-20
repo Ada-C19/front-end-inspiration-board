@@ -91,7 +91,9 @@ return (
       </>
     )}
     <li>
-      <button onClick={() => setShowCards(!showCards)} >Show Cards</button>
+      <button onClick={() => setShowCards(!showCards)} >
+      {showCards ? 'Hide Card' : 'Show Cards'}
+      </button>
       <button onClick={handleAddCard}>Add Card</button>
       <button onClick={handleEditClick}>EDIT</button>
       <button onClick={handleDeleteBoard}>DELETE</button>
