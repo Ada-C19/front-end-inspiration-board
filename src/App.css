@@ -21,13 +21,6 @@ body {
   justify-content: space-between;
 }
 
-
-
-
 .body__container {
   flex:1;
-  background-color: rgb(252, 241, 228);
-}
-.sidebar__container{
-  background-color: plum;
 }
