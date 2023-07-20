@@ -13,7 +13,7 @@ const NewBoardForm = ({ createBoard }) => {
         createBoard(formFields)
         setFormFields({
             'title': '',
-            'owner': ''
+            'ower': ''
         })
     }
 
