@@ -24,3 +24,19 @@ body {
 .body__container {
   flex:1;
 }
+.sidebar__container{
+  background-color: rgb(14, 18, 230);
+  border-style: dotted;
+  color: white;
+}
+
+.submit-button{
+  border-radius: 8px;
+  color: black;
+  background-color: rgb(252, 42, 42);
+}
+
+.submit-button:hover {
+  /* Your CSS styles for the submit button on hover */
+  background-color: pink;
+}

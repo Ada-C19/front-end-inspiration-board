@@ -86,11 +86,9 @@ return (
   <div className="App">
     <div className="sidebar__container">
       <button onClick={toggleSidebar}>Show Sidebar</button>
-    <section className="sidebar">
       {isSidebarShown && <Sidebar 
         handleBoardSubmit={handleBoardSubmit} 
         handleCardSubmit={handleCardSubmit}/>}
-    </section>
     </div>
     <div className='body__container'>
     <h1 className="App-header">✨Inspiration Board✨</h1>

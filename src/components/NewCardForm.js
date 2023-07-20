@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import PropTypes from "prop-types";
-import './NewCardForm.css';
+// import './NewCardForm.css';
+import '../App.css';
 
 
 const NewCardForm = ({ handleCardSubmit }) => {

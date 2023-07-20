@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './NewBoardForm.css'
 
 const kInitialFormData = {
     title: '',
@@ -25,23 +26,26 @@ const NewBoardForm = (props) => {
       };
 
     return (
-        <section>
+        <section className="board__form">
+            <h2>New board</h2>
             <form onSubmit={handleFormSubmit}>
-                <label htmlFor="title">Title</label>
+                <label htmlFor="title"/>
                 <input
                     type="text"
                     id="title"
                     name="title"
                     value={formData.title}
                     onChange={handleChange}
+                    placeholder="Enter a Title"
                 />
-                <label htmlFor="owner">Board Owner</label>
+                <label htmlFor="owner" />
                 <input 
                     type="text"
                     id="owner"
                     name="owner"
                     value={formData.owner}
                     onChange={handleChange}
+                    placeholder="Board Owner"
                 />
                 <input disabled={((formData.title.length === 0) || (formData.owner.length === 0))} type="submit" value="Submit New Board"/>
             </form>
