@@ -35,30 +35,19 @@ const NewBoardForm = ( {addBoard} ) => {
         addBoard(formFields);
         setFormFields(defaultNewBoard)
     }
-
+    
     return (
-        <form className='new-board-form' onSubmit={onFormSubmit}>
-            <div>
-                <h3>CREATE A NEW BOARD</h3>
-                <label htmlFor="title">Title:</label>
-                <input 
-                    id="title" 
-                    onChange={onTitleChange}
-                    value={formFields.title}
-                />
-            </div>
-            <div>
-                <label htmlFor="owner">Owner:</label>
-                <input 
-                    id="owner" 
-                    onChange={onOwnerChange}
-                    value={formFields.owner}
-                />
-            </div>
-            <input 
-                type='submit'
-                value='Add Board'
-            />
+        <form className="new-board-form" onSubmit={onFormSubmit}>
+        <div>
+            <h3>CREATE A NEW BOARD</h3>
+            <label htmlFor="title">Title:</label>
+            <input id="title" onChange={onTitleChange} value={formFields.title} />
+        </div>
+        <div>
+            <label htmlFor="owner">Owner:</label>
+            <input id="owner" onChange={onOwnerChange} value={formFields.owner} />
+        </div>
+        <input type="submit" value="Add Board" />
         </form>
     );
 };

@@ -10,7 +10,7 @@
 
     /* Background */
     background-image: url('../images/wp4465167.jpg');
-    background-size: cover;
+    background-size: calc(100% - 20px) calc(100% - 20px);
     background-repeat: no-repeat;
     background-position: center;
 
@@ -19,11 +19,6 @@
     border-image-source: url('../images/gold-picture-frame-1.png');
     border-image-slice: 250;
     border-image-width: 50px;
-
-    /* Background within border */
-    background-size: calc(100% - 20px) calc(100% - 20px);
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 
