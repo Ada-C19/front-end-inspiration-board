@@ -13,7 +13,7 @@ const NewBoardForm = ({ createBoard }) => {
         createBoard(formFields)
         setFormFields({
             'title': '',
-            'ower': ''
+            'owner': ''
         })
     }
 
@@ -37,6 +37,7 @@ const NewBoardForm = ({ createBoard }) => {
             <form id="add-board" onSubmit={onFormSubmit}>
 
                 <div className="board-form-input">
+                    {/*  <label htmlFor="boardTitle" data-error="Title is invalid">Type your email</label> */}
                     {/* <label htmlFor="boardTitle">Board Title:</label> */}
                     <input
                         name="title"
@@ -44,6 +45,7 @@ const NewBoardForm = ({ createBoard }) => {
                         onChange={onTitleChange}
                         className="input-form"
                         placeholder='Board Title'
+                        // required name ='title'
                     />
                 </div>
 
@@ -55,6 +57,7 @@ const NewBoardForm = ({ createBoard }) => {
                         onChange={onOwnerChange}
                         className="input-form"
                         placeholder='Owner'
+                        required
                     />
                 </div>
 
