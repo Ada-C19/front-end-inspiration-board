@@ -68,12 +68,12 @@ return (
         //onLike={handleLike}
       />
     </main>
+      <button onClick={toggleSidebar}>Show Sidebar</button>
     <div className="sidebar">
       {isSidebarShown && <Sidebar 
         handleBoardSubmit={handleBoardSubmit} 
         handleCardSubmit={handleCardSubmit}/>}
     </div>
-    <button onClick={toggleSidebar}>Show Sidebar</button>
   </div>
 );
 }
