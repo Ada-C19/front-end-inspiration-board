@@ -40,7 +40,5 @@
   cursor: pointer;
   grid-area: 2 / 1 / span 1 / span 1;
   margin:0;
-}
-.like__button:hover {
-  content: '💖';
+  font-size: larger;
 }

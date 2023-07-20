@@ -49,7 +49,7 @@ const handleCardSubmit = (newCardFormProps) => {
       setCardData((prev) => [...prev, res.data.card]);
     })
     .catch((error) => {
-      console.log(`Failed to assign card to board. Error: ${error}`);
+      console.error(`Failed to assign card to board. Error: ${error}`);
     });
 };
 
@@ -60,7 +60,7 @@ const handleLike = id => {
     setCardData((prev) => {
       return prev.map((card) =>{
         if (id === card.id) {
-          return {...card, likesCount: res.data.likes_count};
+          return {...card, likesCount: res.data.card.likes_count};
         } else {
           return card;
         }
