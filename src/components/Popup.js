@@ -28,6 +28,7 @@ const Popup = () => {
             </span>
             <h3>Welcome to our Lantern Festival!</h3>
             <p>Add your name to the participant list,</p>
+            <p>Pick a theme for your wish! school, work, romance?</p>
             <p>Write your wishes on lanterns,</p>
             <p>and they will come true!</p>
           </div>

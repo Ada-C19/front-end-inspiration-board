@@ -141,6 +141,11 @@ function App() {
     });
   };
 
+  // form functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  const isSubmitDisabled = (value) => {
+    return value.length === 0 || value.length > 40;
+  };
+
   // returns ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   return (
     <main className="background-image">
@@ -160,7 +165,7 @@ function App() {
         </section>
         <section className="new-board-form__container">
           <h1>Add new Participant</h1>
-          {boardFormDisplay ? <NewBoardForm createNewBoard={ createNewBoard }/>: ''}
+          {boardFormDisplay ? <NewBoardForm createNewBoard={ createNewBoard } isSubmitDisabled={isSubmitDisabled}/>: ''}
           <button onClick={toggleBoardFormDisplay} className='new-board-form__toggle-btn'>
             {boardFormDisplay ? 'Hide Submission Form': 'Show Sumbission Form'}
           </button>
@@ -178,7 +183,7 @@ function App() {
         </section>
         <section>
           {/* Board Title: */}
-          <NewCardForm />
+          <NewCardForm isSubmitDisabled={isSubmitDisabled} postNewCard={postNewCard}/>
           {/* Add conditional rendering to both NewCardForm and Card so they appear when a Board
           is selected. */}
           {/* We need to be able to click on individual boards and toggle highlights on or off. */}
