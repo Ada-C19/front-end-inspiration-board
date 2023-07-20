@@ -5,14 +5,15 @@ import './NewForm.css';
 const NewCardForm = ({selectedBoard, postNewCard, isSubmitDisabled}) => {
     const [cardObject, setCardObject] = useState({
         message: '',
-        board_id: selectedBoard.board_id
+        board_id: null
     });
-    //board id should always be selected board so adrian and i set it to the default card object value
-
+    
     const updatedCardObject = (changeEvent) => {
+        console.log(cardObject)
         setCardObject({
         ...cardObject,
         message: changeEvent.target.value,
+        board_id: selectedBoard.board_id
         });
     };
     // in this function we want to setCardObject
