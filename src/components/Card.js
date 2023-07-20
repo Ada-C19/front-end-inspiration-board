@@ -9,10 +9,12 @@ const Card = ({ cardId, message, likes, boardId, increaseLikes, deleteCard }) =>
     <div>
       <section className="card">
         {/* {likes}👍 */}
-        <p> {likes}👍 </p>
-        <button onClick={() => increaseLikes(cardId)}>
-          +1
-        </button>
+        <div className="likes">
+          <p> {likes}👍 </p>
+          <button className="add-like" onClick={() => increaseLikes(cardId)}>
+            +1
+          </button>
+        </div>
         <div>
           {message}
         </div>

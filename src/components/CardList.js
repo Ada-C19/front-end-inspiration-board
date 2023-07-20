@@ -4,8 +4,8 @@ import Card from './Card';
 import './CardList.css';
 import NewCardForm from './NewCardForm';
 
-const CardList = ({ cards, boardId, likeCard, createCard, deleteCard, increaseLikes}) => {
-    const [hideForm, setHideForm] = useState(true);
+const CardList = ({ cards, boardId, likeCard, createCard, deleteCard, increaseLikes }) => {
+  const [hideForm, setHideForm] = useState(true);
   // console.log(boardId)
   // console.log(cards)
   const cardComponents = cards.map(card => {
@@ -31,11 +31,12 @@ const CardList = ({ cards, boardId, likeCard, createCard, deleteCard, increaseLi
           id='card-form'
           boardId={boardId}
           createCard={createCard}
+
         />
       </section>
-        <button onClick={() => setHideForm(!hideForm)}>
-          {hideForm ? 'Hide': 'Show'} Card Form
-          </button>
+      <button onClick={() => setHideForm(!hideForm)}>
+        {hideForm ? 'Hide' : 'Show'} Card Form
+      </button>
     </div>
 
   )
