@@ -7,7 +7,7 @@ import NewCardForm from './NewCardForm';
 const CardList = ({ cards, boardId, likeCard, createCard, deleteCard, increaseLikes}) => {
 
   // console.log(boardId)
-  console.log(cards)
+  // console.log(cards)
   const cardComponents = cards.map(card => {
     return (
       <Card

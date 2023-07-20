@@ -22,7 +22,7 @@ const NewCardForm = ({ createCard, boardId }) => {
         })
     }
 
-    console.log(boardId)
+    // console.log(boardId)
 
     return (
         <form id='add-card' onSubmit={onFormSubmit}>
