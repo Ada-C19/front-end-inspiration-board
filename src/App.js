@@ -22,7 +22,7 @@ const App = () => {
         setCardData(response.data.cards)
         setBoardTitle(response.data.title)
         setBoardOwner(response.data.owner)
-        console.log(response.data)
+        // console.log(response.data)
       })
   }
 
@@ -101,12 +101,13 @@ const App = () => {
 const createCard = (formFields, id) => {
   axios.post(`https://inspoboardteam404.onrender.com/boards/${id}/cards`, formFields)
     .then (response => {
-      console.log(response.data.cards)
+      // console.log("This is our data", response.data)
       setCardData (prevData => {
-        return [...prevData, response.data.cards]
+        return [...prevData, response.data.card]
       })
     })
 }
+
   const likeCard = () => {
   
   }
