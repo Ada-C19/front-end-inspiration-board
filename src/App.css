@@ -72,11 +72,12 @@ input {
 }
 
 .board-titles {
-  /* position: flex; */
+  position: relative;
   top: 10px;
   /* border: 2px solid red; */
   width: 150px;
   margin: 0;
+  text-align: left;
 
 
   /* border: 5px solid red; */
