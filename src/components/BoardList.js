@@ -14,7 +14,7 @@ const BoardList = (props) => {
           owner={board.owner}
           updateBoard={props.updateBoard}
           deleteBoard={props.deleteBoard}
-          addCard={props.addCard}
+          selectBoard={props.selectBoard}
           // cards={board.cards}
           />
         ))}  
@@ -32,7 +32,7 @@ BoardList.propTypes = {
   ).isRequired,
   updateBoard: PropTypes.func.isRequired,
   deleteBoard: PropTypes.func.isRequired,
-  addCard: PropTypes.func.isRequired,
+  selectBoard: PropTypes.func.isRequired,
 }
 
 export default BoardList;

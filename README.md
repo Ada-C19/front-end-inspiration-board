@@ -74,7 +74,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 ### To-Do List
-- add like button 
-- add a delete button to cards
-- add a way to add a card 
-- input tag for a card
+
+- sorting cards:
+- piece of state to keep track of what im sorting by by id like count
+- create a way to 
+- everytime the page renders
+- passing from top all the way down to board
+- s

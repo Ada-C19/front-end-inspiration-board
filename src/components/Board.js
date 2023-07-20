@@ -9,7 +9,7 @@ const Board = ( props ) => {
 
   const [cards, setCards] = useState([]);
   const [showCards, setShowCards] = useState(false);
-  const [likeCount, setLikeCount] = useState(props.likesCount);
+  // const [likeCount, setLikeCount] = useState(props.likesCount);
 
   useEffect(() => {
     fetchCards();
@@ -30,10 +30,17 @@ const Board = ( props ) => {
 
   const updateLikeCount = (cardId) => {
     axios
-        .patch(`${URL}cards/${cardId}`)
-        .then((result) => {
-          const newLikeCount = likeCount + 1;
-          setLikeCount(newLikeCount);
+        .put(`${URL}cards/${cardId}/like`)
+        .then((response) => {
+          setCards((prevCards) => {
+            return prevCards.map((card) => {
+              if (card.id === cardId) {
+                return response.data.card
+              } else {
+                return card
+              }
+            })
+          })
         })
         .catch((error) => {
           console.error('Error updating like count:', error);
@@ -58,7 +65,8 @@ const Board = ( props ) => {
   }
 
   const handleAddCard = () => {
-    props.addCard(props.id)
+    props.selectBoard(props.boardId, setCards);
+    
 }
 
   return (
@@ -90,7 +98,7 @@ Board.propTypes = {
   updateBoard: PropTypes.func.isRequired,
   deleteBoard: PropTypes.func.isRequired,
   // onUpdateCard: PropTypes.func.isRequired,
-  addCard: PropTypes.func.isRequired,
+  selectBoard: PropTypes.func.isRequired,
 }
 
 export default Board;

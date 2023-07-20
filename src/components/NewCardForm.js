@@ -22,12 +22,18 @@ const NewCardForm = ( props ) => {
       });
     };
 
+    if (props.selectedBoard.boardId === 0) {
+      return null;
+    }
+
 
   return (
     <div>
       <h1> Create New Card Here </h1>
       <form onSubmit={handleSubmit}>
         <div>
+          <label htmlFor='board'>Board:</label>
+          <p>{props.selectedBoard.title}</p>
           <label htmlFor="message">Message:</label>
           <input
             type="text"
@@ -47,6 +53,7 @@ const NewCardForm = ( props ) => {
 };
 
 NewCardForm.propTypes = {
+  // shape of keys and prop values
   addCard: PropTypes.func.isRequired,
 };
 

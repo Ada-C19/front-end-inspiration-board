@@ -23,9 +23,10 @@ const CardList = (props) => {
     <ol className={cardClass}>
       {props.cards.map((card) => (
         <Card
+        key={card.id}
         id= {card.id}
         message= {card.message}
-        likesCount={card.likesCount}
+        likesCount={card.likes_count}
         // onUpdateCard={props.onUpdateCard}
         onDelete={props.onDelete}
         updateLikeCount={props.updateLikeCount}
@@ -42,7 +43,7 @@ CardList.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       message: PropTypes.string.isRequired,
-      likesCount: PropTypes.number.isRequired,
+      likes_count: PropTypes.number.isRequired,
     })
   ).isRequired,
   showCards: PropTypes.bool.isRequired,

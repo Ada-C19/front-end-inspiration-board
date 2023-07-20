@@ -9,19 +9,12 @@ import axios from 'axios';
 export const URL = 'http://localhost:5000/boards'
 
 const App = () => {
-  const [cards, setCards] = useState([]);
   const [boards, setBoards] = useState([]);
   const [boardData, setBoardData] = useState({
-    boardId: '',
+    boardId: 0,
     title: '',
     owner: ''
   });
-  // const [cards, setCards] = useState([]);
-  // const [cardData, setCardData] = useState({
-  //   cardId: '',
-  //   message: '',
-  //   likesCount: 0,
-  // })
 
   useEffect(() => {
     axios
@@ -90,22 +83,34 @@ const App = () => {
       });
   };
 
+  const selectBoard = (boardId, setCards) => {
+    for (const board of boards) {
+      if (board.boardId === boardId) {
+        setBoardData({...board, setCards});
+        break;
+      }
+    }
+  }
+
   const addCard = (formField) => {
-    const newCard = {
-      boardId: boardData.boardId, 
-      message: formField.message,
-    };
-    // {...newCard, boardId: boardID}
-    console.log(`${boardData.boardId} boardId`, newCard)
-    axios.post(`http://localhost:5000/cards`)
+    // const newCard = {
+    //   boardId: boardData.boardId, 
+    //   message: formField.message,
+    // };
+
+    console.log(`${boardData.boardId}`)
+    axios.post(`http://localhost:5000/boards/${boardData.boardId}/card`, formField)
       .then(response => {
+        console.log(response.data);
+    
         const createdCard = {
-          boardId: response.data.card.boardId,
+          boardId: response.data.card.board_id,
           id: response.data.card.id,
           message: response.data.card.message,
-          likesCount: response.data.card.likesCount
+          likes_count: response.data.card.likes_count
         };
-        setCards(prevCards => [...prevCards, createdCard]);
+        console.log(`${boardData.boardId}`)
+        boardData.setCards(prevCards => [...prevCards, createdCard]);
       })
       .catch(error => {
         console.error("Error creating card", error);
@@ -120,9 +125,9 @@ const App = () => {
         <h1>This is a test </h1>
       </header>
       <main>
-        <BoardList boards={boards} updateBoard={updateBoard} deleteBoard={deleteBoard} addCard={addCard}/>
+        <BoardList boards={boards} updateBoard={updateBoard} deleteBoard={deleteBoard} selectBoard={selectBoard}/>
         <NewBoardForm addNewBoard={addNewBoard} />
-        <NewCardForm addCard={addCard}/>
+        <NewCardForm selectedBoard={boardData} addCard={addCard}/>
       </main>
     </div>
   );
