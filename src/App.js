@@ -110,6 +110,25 @@ function App() {
       .catch((error)=> console.log(error));
   };
 
+  const toDelete = (id) =>{
+    return axios
+      .delete(`${baseUrl}/cards/${id}`)
+      .then(response=>{
+        console.log(response.data);
+      })
+      .catch((error)=>{
+        console.log(error);
+      });
+    };
+  
+    const deleteCard = (id) =>{
+    toDelete(id)
+    .then(res =>{
+    const newCardList = cardData.filter((ele) => ele.card_id !== id);
+    setCardData(newCardList);
+    });
+  };
+
   return (
     <section>
       <h1 id='heading' >🌟INSPIRATION BOARD🌟</h1>
@@ -124,7 +143,7 @@ function App() {
       <div className="cardsContainer"> 
         <div className="cardlist"> 
         <p className='card-heading'>Cards - {selectedBoard}</p>
-          <CardList data = {cardData} onLikeCard = {onLikeCard}/>
+          <CardList data = {cardData} onLikeCard = {onLikeCard} deleteCard = {deleteCard}/>
         </div>
         <div className="createCard">
           <AddCard cardSubmit={cardSubmit}/>
