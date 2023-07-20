@@ -14,7 +14,7 @@ const NewBoardForm = ( props ) => {
     event.preventDefault();
 
     props.addNewBoard(formFields);
-    setFormFields({ title: '', description: ''});
+    setFormFields({ title: '', owner: ''});
     };
 
     const onFieldChange = (event) => {

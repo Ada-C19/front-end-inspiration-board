@@ -77,7 +77,8 @@ const App = () => {
       .then((response) => {
 
         const newBoard = {
-          boardId: response.data.boardId,
+          // changed boardId: to match a backend key
+          boardId: response.data.board.id,
           title: formFields.title,
           owner: formFields.owner,
         };
@@ -91,10 +92,12 @@ const App = () => {
 
   const addCard = (formField) => {
     const newCard = {
-      message: formField.message,
       boardId: boardData.boardId, 
+      message: formField.message,
     };
-    axios.post(`http://localhost:5000/cards`, newCard)
+    // {...newCard, boardId: boardID}
+    console.log(`${boardData.boardId} boardId`, newCard)
+    axios.post(`http://localhost:5000/cards`)
       .then(response => {
         const createdCard = {
           boardId: response.data.card.boardId,

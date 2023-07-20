@@ -66,7 +66,7 @@ const Board = ( props ) => {
       <h2>{props.title}</h2>
       <p>{props.owner}</p>
       <li>
-        <button onClick={() => setShowCards(!showCards)}>Show Cards</button>
+        <button onClick={() => setShowCards(!showCards)} >Show Cards</button>
         <button onClick={handleAddCard}>Add Card</button>
         <button onClick={handleUpdateBoard}>EDIT</button>
         <button onClick={handleDeleteBoard}>DELETE</button>
