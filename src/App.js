@@ -129,7 +129,7 @@ function App() {
   // axios creates a new card to post to a boardID
   const postNewCard = (message) => {
     axios.post(
-        `${boardsURL}/boards/${selectedBoard.board_id}/cards`,
+        `${boardsURL}/cards`,
         {message}
     ).then((response) => {
       const cards = [...cardsData];
@@ -184,7 +184,7 @@ function App() {
         </section>
         <section>
           {/* Board Title: */}
-          {selectedBoard.board_id ? <NewCardForm isSubmitDisabled={isSubmitDisabled} postNewCard={postNewCard}/> : '' }
+          {selectedBoard.board_id ? <NewCardForm isSubmitDisabled={isSubmitDisabled} postNewCard={postNewCard} selectedBoard={selectedBoard}/> : '' }
           {/* Add conditional rendering to both NewCardForm and Card so they appear when a Board
           is selected. */}
           {/* We need to be able to click on individual boards and toggle highlights on or off. */}
