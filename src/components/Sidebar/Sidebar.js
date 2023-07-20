@@ -4,9 +4,12 @@ import Menu from '../Menu/Menu'
 
 
 const Sidebar = props => {
+
   return <div>
     <Menu 
       handleBoardSubmit={props.handleBoardSubmit}
+      boardId={props.boardId} 
+      handleCardSubmit={props.handleCardSubmit}
     />
   </div>
 }

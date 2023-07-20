@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import './NewCardForm.css';
 
 
-const NewCardForm = ({ boardId, handleCardSumbit}) => {
+const NewCardForm = ({ boardId, handleCardSubmit}) => {
+
     const [formData, setFormData] = useState({
         boardId: boardId, 
         message: "", 
@@ -20,7 +21,7 @@ const NewCardForm = ({ boardId, handleCardSumbit}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        handleCardSumbit(formData); 
+        handleCardSubmit(formData);
     };
 
     return (
