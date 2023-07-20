@@ -7,8 +7,8 @@ const LikesIcon = ({ count, handleLike }) => {
     
     if (count >= 100) {
         likesDisplay = <div className="ellipsis">...</div>;
-    } else if (count >= 10) {
-        likesDisplay = <div className="ellipsis">..</div>;
+    // } else if (count >= 10) {
+    //     likesDisplay = <div className="ellipsis">..</div>;
     } else {
         likesDisplay = count;
     }

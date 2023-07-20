@@ -1,17 +1,20 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card.js';
+import './CardList.css'; // Import the CSS file for styling
 
 const CardList = ({ cards, handleLike, deleteCard, sortDirection }) => {
 	const getCardListJSX = (cards) => {
-        if (!cards || cards.length === 0) {
-            return null;
-        }
+		if (!cards || cards.length === 0) {
+			return null;
+		}
 
 		const sortCards = (sortDirection, cards) => {
-			if (sortDirection === "Alphabetical") return cards.sort((a, b) => a.message > b.message);
-			if (sortDirection === "Likes") return cards.sort((a, b) => a.likesCount < b.likesCount);
-			if (sortDirection === "ID") return cards.sort((a, b) => a.id > b.id);
+			if (sortDirection === 'Alphabetical')
+				return cards.sort((a, b) => a.message > b.message);
+			if (sortDirection === 'Likes')
+				return cards.sort((a, b) => a.likesCount < b.likesCount);
+			if (sortDirection === 'ID') return cards.sort((a, b) => a.id > b.id);
 		};
 
 		let sortedCards = sortCards(sortDirection, cards);
