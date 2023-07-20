@@ -170,22 +170,29 @@ const App = () => {
           <BoardSelectRadio
             boards={boards}
             onBoardSelect={handleSelectBoard}
-            selectedBoardId={targetBoardId} />
+            selectedBoardId={targetBoardId}
+          />
         </div>
-        <div>
-          {targetBoardId !== null &&
-          <Board
-            board_id={currentBoard().id}
-            title={currentBoard().title}
-            owner={currentBoard().owner}
-            deleteBoard={handleDeleteBoard}
-          />}
-          <CardList cards={cards} handleLike={handleLike} deleteCard={handleDeleteCard} />
-          {targetBoardId !== null && <NewCardForm addCard={handleSubmitCard} />}
-        </div>
+        {targetBoardId !== null && (
+          <div>
+            <Board
+              board_id={currentBoard().id}
+              title={currentBoard().title}
+              owner={currentBoard().owner}
+              cards={cards}
+              deleteBoard={handleDeleteBoard}
+            />
+            <CardList
+              cards={cards}
+              handleLike={handleLike}
+              deleteCard={handleDeleteCard}
+            />
+            <NewCardForm addCard={handleSubmitCard} />
+          </div>
+        )}
       </main>
     </div>
   );
-}
+};
 
 export default App;

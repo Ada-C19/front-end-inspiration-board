@@ -4,6 +4,10 @@ import Card from './Card.js';
 
 const CardList = ({ cards, handleLike, deleteCard }) => {
     const getCardListJSX = (cards) => {
+        if (!cards) {
+            return null;
+        }
+
         return cards.map((card) => {
             return (
                 <Card
@@ -16,15 +20,15 @@ const CardList = ({ cards, handleLike, deleteCard }) => {
                     deleteCard={deleteCard}
                 />
             )
-        })
-    }
+        });
+    };
 
     return (
         <div>
             <ul className='card-list'>{getCardListJSX(cards)}</ul>
         </div>
     )
-}
+};
 
 CardList.propTypes = {
     cards: PropTypes.arrayOf(
