@@ -13,9 +13,9 @@ const Card = ({card, deleteCard, addOneLikeToCard, removeOneLikeToCard, cardObje
             <ul className='card-item__controls'>
                 <p>{card.likes_count}  likes</p>
                 {/* put these elements in a grid */}
-                <span>  ❤️  </span>
-                <span>💔  </span>
-                <span>🗑️  </span>
+                <span onClick={addOneLikeToCard}>  ❤️  </span>
+                <span onClick={removeOneLikeToCard}>💔  </span>
+                <span onClick={deleteCard}>🗑️  </span>
             </ul>
             </div>);
 };

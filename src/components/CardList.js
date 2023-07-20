@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
 import Card from './Card';
 import NewCardForm from './NewCardForm';
 // import './CardList.css';

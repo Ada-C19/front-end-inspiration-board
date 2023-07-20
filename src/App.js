@@ -104,7 +104,7 @@ function App() {
 
   // axios call adds like to a card (we deleted like endpoint)
   const addOneLikeToCard = (card) => {
-    axios.put(`${boardsURL}/cards/${card.card_id}`).then((response) => {
+    axios.put(`${boardsURL}/cards/${card.card_id}/add`).then((response) => {
     const newCardsData = cardsData.map((existingCard) => {
       // this is the same conditional
         return existingCard.card_id !== card.card_id ? existingCard : {...card, likes_count: card.likes_count + 1}
@@ -118,7 +118,7 @@ function App() {
 
   // axios call removes like to a card (we deleted like endpoint)
   const removeOneLikeToCard = (card) => {
-    axios.put(`${boardsURL}/cards/${card.card_id}`).then((response) => {
+    axios.put(`${boardsURL}/cards/${card.card_id}/remove`).then((response) => {
     const newCardsData = cardsData.map((existingCard) => {
       // this is the same conditional
         return existingCard.card_id !== card.card_id ? existingCard : {...card, likes_count: card.likes_count - 1}
