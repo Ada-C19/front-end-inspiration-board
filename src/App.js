@@ -1,4 +1,5 @@
 import './App.css';
+import './components/CardList.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import CardList from './components/CardList';
@@ -71,12 +72,15 @@ function App() {
   // card list functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   // gets cards for a specific board, keeps eye on selected board
+  // ruh-roh, add conditionals to run alert on render?
   useEffect(() => {
-    axios.get(`${boardsURL}/boards/${selectedBoard.board_id}/cards`).then((response)=> {
-    setCardsData(response.data);
+    axios.get(`${boardsURL}/boards/${selectedBoard.board_id}`).then((response)=> {
+    setCardsData(response.data.cards);
     }).catch((error) => {
-    console.log('Error:', error);
-    alert('Couldn\'t get cards for this board.');
+      if (selectedBoard.board_id) {
+        console.log('Error:', error);
+        alert('Couldn\'t get cards for this board.'); 
+      }
     });
 }, [selectedBoard]);
 
@@ -161,7 +165,7 @@ function App() {
             {boardFormDisplay ? 'Hide Submission Form': 'Show Sumbission Form'}
           </button>
         </section>
-        <section>
+        <section className='cardslist-container'>
           {/* <h1>Board for Billy my Brother</h1> */}
           {/* <Card/> */}
           <CardList

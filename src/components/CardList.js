@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Card from './Card';
 import NewCardForm from './NewCardForm';
+// import './CardList.css';
 
 const CardList = ( { cardsData, addOneLikeToCard, removeOneLikeToCard, deleteCard, selectedBoard }) => {
 
@@ -17,9 +18,13 @@ const CardList = ( { cardsData, addOneLikeToCard, removeOneLikeToCard, deleteCar
   });
 
     return (
-        <div className='cardslist-container'>
+        // <div className='cardslist-container'>
+        <>
+          {/* Add conditional rendering */}
           <h1>{selectedBoard.owner}'s Board for {selectedBoard.title}</h1>
-        </div>
+          {/* Card Components */}
+          {cardElements}
+        </>
     );
 };
 

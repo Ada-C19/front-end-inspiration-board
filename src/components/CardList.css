@@ -1,9 +1,11 @@
 .cardslist-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr 1fr; */
     /* grid-template-columns: 1fr track-size 1fr; */
     /* grid-template-rows: 1fr 1fr; */
     font-family: fantasy;
     font-weight: bold;
     margin: 3%;
+    grid-column: span 2;
+    background-color: blue;
   }
