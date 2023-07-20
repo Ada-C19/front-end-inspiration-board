@@ -6,12 +6,12 @@ import './Card.css';
 //garbage deletes card 
 //we need the card object state to populate the message, and likes?!
 
-const Card = ({card, deleteCard, addOneLikeToCard, removeOneLikeToCard, }) => {
+const Card = ({card, deleteCard, addOneLikeToCard, removeOneLikeToCard, cardObject }) => {
     
     return (<div className="card-container">
-            <p className='card-item__message'>message goes here</p>
+            <p className='card-item__message'>{card.message}</p>
             <ul className='card-item__controls'>
-                <p>likes count number goes here</p>
+                <p>{card.likes_count}  likes</p>
                 {/* put these elements in a grid */}
                 <span>  ❤️  </span>
                 <span>💔  </span>

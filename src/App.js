@@ -3,7 +3,6 @@ import './components/CardList.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import CardList from './components/CardList';
-import Card from './components/Card';
 import NewBoardForm from './components/NewBoardForm';
 import NewCardForm from './components/NewCardForm';
 import BoardList from './components/BoardList';
@@ -31,6 +30,11 @@ function App() {
     board_id: null
   });
   const [cardsData, setCardsData] = useState([]);
+  // cards data a list of card objects
+  const [cardObject, setCardObject] = useState({
+    message: '',
+    board_id: null
+});
 
   // board functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   const selectBoard = (board) => { setSelectedBoard(board) };
@@ -180,11 +184,16 @@ function App() {
             removeOneLikeToCard={removeOneLikeToCard}
             deleteCard={deleteCard}
             selectedBoard={selectedBoard}
+            cardObject={cardObject}
           /> : ''}
         </section>
         <section>
           {/* Board Title: */}
-          {selectedBoard.board_id ? <NewCardForm isSubmitDisabled={isSubmitDisabled} postNewCard={postNewCard} selectedBoard={selectedBoard}/> : '' }
+          {selectedBoard.board_id ? <NewCardForm  isSubmitDisabled={isSubmitDisabled} 
+                                                  postNewCard={postNewCard} 
+                                                  selectedBoard={selectedBoard}
+                                                  cardObject={cardObject}
+                                                  setCardObject={setCardObject}/> : '' }
           {/* Add conditional rendering to both NewCardForm and Card so they appear when a Board
           is selected. */}
           {/* We need to be able to click on individual boards and toggle highlights on or off. */}

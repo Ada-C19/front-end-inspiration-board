@@ -1,12 +1,7 @@
 import React from 'react';
-import { useState } from 'react';
 import './NewForm.css';
 
-const NewCardForm = ({selectedBoard, postNewCard, isSubmitDisabled}) => {
-    const [cardObject, setCardObject] = useState({
-        message: '',
-        board_id: null
-    });
+const NewCardForm = ({selectedBoard, postNewCard, isSubmitDisabled, cardObject, setCardObject}) => {
     
     const updatedCardObject = (changeEvent) => {
         console.log(cardObject)

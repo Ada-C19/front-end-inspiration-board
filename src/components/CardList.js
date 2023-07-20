@@ -5,7 +5,7 @@ import Card from './Card';
 import NewCardForm from './NewCardForm';
 // import './CardList.css';
 
-const CardList = ( { cardsData, addOneLikeToCard, removeOneLikeToCard, deleteCard, selectedBoard }) => {
+const CardList = ( { cardsData, addOneLikeToCard, removeOneLikeToCard, deleteCard, selectedBoard, cardObject }) => {
 
   const cardElements = cardsData.map((card) => {
     return (<Card
@@ -13,7 +13,7 @@ const CardList = ( { cardsData, addOneLikeToCard, removeOneLikeToCard, deleteCar
         addOneLikeToCard={addOneLikeToCard}
         removeOneLikeToCard={removeOneLikeToCard}
         deleteCard={deleteCard}
-        // cardObject={cardObject}
+        cardObject={cardObject}
         />)
         
   });
