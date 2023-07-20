@@ -12,6 +12,7 @@ const CardList = (props) => {
             message = {card.message}
             likes = {card.likes_count}
             likeCard = {props.onLikeCard}
+            deleteCard = {props.deleteCard}
             />
         );
 });
@@ -28,7 +29,8 @@ Cards.propTypes = {
         id: PropTypes.number.isRequired,
         message: PropTypes.string.isRequired,
         likes_count: PropTypes.number.isRequired,
-        onLikeCard: PropTypes.func
+        onLikeCard: PropTypes.func,
+        deleteCard: PropTypes.func
     })
 };
 
