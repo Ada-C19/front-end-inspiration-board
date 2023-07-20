@@ -111,7 +111,6 @@ const App = () => {
         <section>
           <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState} onClickLike={onClickLike}></SelectedBoardCardList>
           <NewCardForm selectedBoard={selectedBoard} onHandleSubmit={onHandleSubmit}></NewCardForm>
-          {/* <CardEntry/> */}
         </section>
       </main>
     </div>
