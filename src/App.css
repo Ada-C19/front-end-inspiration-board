@@ -1,6 +1,7 @@
 .App {
   width: 100vw;
   height: 100vh;
+  display: flex;
 }
 
 body {
@@ -20,12 +21,13 @@ body {
   justify-content: space-between;
 }
 
-button {
-  text-align: left;
-}
 
-.sidebar {
- height: 100%;
- overflow: hidden;
- max-width: 10%;
+
+
+.body__container {
+  flex:1;
+  background-color: rgb(252, 241, 228);
+}
+.sidebar__container{
+  background-color: plum;
 }
