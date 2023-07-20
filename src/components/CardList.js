@@ -34,7 +34,7 @@ const CardList = ({ cards, boardId, likeCard, createCard, deleteCard, increaseLi
 
         />
       </section>
-      <button onClick={() => setHideForm(!hideForm)}>
+      <button className='hide-forms-card' onClick={() => setHideForm(!hideForm)}>
         {hideForm ? 'Hide' : 'Show'} Card Form
       </button>
     </div>

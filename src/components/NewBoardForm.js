@@ -59,7 +59,7 @@ const NewBoardForm = ({ createBoard }) => {
                 </div>
 
                 <div className="add-board">
-                    <button type="submit" form="add-board" onClick={onFormSubmit}>
+                    <button className='pink-plus' type="submit" form="add-board" onClick={onFormSubmit}>
                         +
                     </button>
                 </div>
