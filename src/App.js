@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import CardList from './components/CardList';
-import NewCardForm from './components/NewCardForm';
+// import NewCardForm from './components/NewCardForm';
 import BoardList from './components/BoardList';
 
 const App = () => {
@@ -13,9 +13,9 @@ const App = () => {
   const [boardTitle, setBoardTitle] = useState("Select a Board")
   const [boardOwner, setBoardOwner] = useState("")
 
-  console.log(cardData,selectedBoard)
+  console.log(cardData,selectedBoard.board_id)
   const selectBoard = (boardId) => {
-    console.log(boardId)
+    // console.log(boardId)
     axios.get(`https://inspoboardteam404.onrender.com/boards/${boardId}/cards`)
       .then((response) => {
         setSelectedBoard({ board_id: response.data.board_id, title: response.data.title, owner: response.data.owner })
@@ -27,7 +27,7 @@ const App = () => {
   }
 
   const deleteBoard = (boardId) => {
-    console.log(boardId)
+    // console.log(boardId)
     axios.delete(`https://inspoboardteam404.onrender.com/boards/${boardId}`)
     .then(() => {
       setBoardData((prevBoards) => {
@@ -38,25 +38,11 @@ const App = () => {
 			})
     })
   }
-
-  // To be used later
-  // const deleteCard = (cardId) => {
-  //   console.log(cardId)
-  //   axios.delete(`https://inspoboardteam404.onrender.com/cards/${cardId}`)
-  //   .then(() => {
-  //     setBoardData((prevCards) => {
-	// 			const updatedCards = prevCards.filter(
-	// 				(card) => card.card_id !== cardId
-	// 			);
-	// 			return updatedCards;
-	// 		})
-  //   })
-  // }
   
   useEffect(() => {
     axios.get('https://inspoboardteam404.onrender.com/boards')
       .then((response) => {
-        console.log(response.data.board)
+        // console.log(response.data.board)
         setBoardData(response.data);
       })
       .catch((error) => {
@@ -89,8 +75,9 @@ const App = () => {
 
   // Add Board Data
   const createBoard = (formFields) => {
-    axios.post('https://inspoboardteam404.onrender.com/boards', formFields).then(response => {
-        console.log(response.data)
+    axios.post('https://inspoboardteam404.onrender.com/boards', formFields)
+      .then(response => {
+        // console.log(response.data)
         setBoardData(prevData => {
           // return [response.data.board, ...prevData]     // Add new Board to the top
           return [...prevData, response.data.board]     // Add new Board to the end
@@ -98,34 +85,30 @@ const App = () => {
     })
 };
   
+const createCard = (formFields, id) => {
+  axios.post(`https://inspoboardteam404.onrender.com/boards/${id}/cards`, formFields)
+    .then (response => {
+      console.log(response.data.cards)
+      setCardData (prevData => {
+        return [...prevData, response.data.cards]
+      })
+    })
+}
   const likeCard = () => {
-
+  
   }
 
-  // const addCardData = () => {
-  //   // const form = document.getElementsByClassName("input-form");
-  //   // form.addEventListener("submit", (e) => {
-  //   //   e.preventDefault();
-  //   //   const formData = new FormData(form);
-  //   axios.post('https://inspoboardteam404.onrender.com/cards', formData, 
-  //   {
-  //     headers: {
-  //       "Content-Type": "multipart/form-data",
-  //     },
-  //   }
-  //   )
-  // // })
-  // };
 
-const likeHandler = (id) => {
-  axios.patch(`https://inspoboardteam404.onrender.com/cards/${id}`).then((resp) => {
-    setCardData((prevCard) => {
-      const updatedCard = prevCard.map((card) => {
-        return card.id === id ? resp.data : card;
-    });
-    return updatedCard;})
-    ;});
-  };
+
+// const likeHandler = (id) => {
+//   axios.patch(`https://inspoboardteam404.onrender.com/cards/${id}`).then((resp) => {
+//     setCardData((prevCard) => {
+//       const updatedCard = prevCard.map((card) => {
+//         return card.id === id ? resp.data : card;
+//     });
+//     return updatedCard;})
+//     ;});
+//   };
 
 return (
   <div id="App">
@@ -137,26 +120,25 @@ return (
           selectBoard={selectBoard}
           deleteBoard={deleteBoard}
           createBoard={createBoard}
+          
           />
         </section>
-        {/* <section className="board-forms">
-          <NewBoardForm id="board-form" createBoard={createBoard}/>
-        </section> */}
       </div>
-      
-
 
       <div className="main-container">
         <header className="header">
           <h1>{boardTitle}</h1>
           <p>{boardOwner}</p>
         </header>
-        <body className="content">
-          <CardList selectBoard={selectBoard} cards={cardData} likeCard={likeCard} />
-          <section className="card-forms">
-            <NewCardForm id='card-form' />
-          </section>
-        </body>
+        <div className="content">
+          <CardList 
+          selectBoard={selectBoard} 
+          cards={cardData} 
+          likeCard={likeCard} 
+          createCard={createCard}
+          boardId={selectedBoard.board_id} 
+          />
+        </div>
       </div>
       {/* put the button [Create New Board] here in App.js, NOT in Board.js; because that makes it come up in EVERY board. we just want it once on the page */}
   </div>

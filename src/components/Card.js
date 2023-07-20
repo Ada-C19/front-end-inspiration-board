@@ -12,9 +12,9 @@ const Card = ({ cardId, message, likes, boardId, likeCard }) => {
         <button onClick={() => likeCard(cardId)}>
           +1
         </button>
-        <body>
+        <div>
           {message}
-        </body>
+        </div>
       </section>
     </div>
   )

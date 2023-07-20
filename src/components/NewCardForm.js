@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './NewCardForm.css';
 
-const NewCardForm = ({ addCardCallback }) => {
+const NewCardForm = ({ createCard, boardId }) => {
     const [formFields, setFormFields] = useState({
         message: '',
     });
@@ -16,15 +16,13 @@ const NewCardForm = ({ addCardCallback }) => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-
-        addCardCallback({
-            messageData: formFields.message,
-        })
-
+        createCard(formFields, boardId);
         setFormFields({
             message: '',
         })
     }
+
+    console.log(boardId)
 
     return (
         <form id='add-card' onSubmit={onFormSubmit}>
@@ -41,7 +39,11 @@ const NewCardForm = ({ addCardCallback }) => {
             </div>
 
             <div className="add-card">
-                <button type="submit" form="add-card" onClick={onFormSubmit}>
+                <button 
+                type="submit" 
+                form="add-card" 
+                onClick={onFormSubmit}
+                >
                     +
                 </button>
             </div>
@@ -51,7 +53,7 @@ const NewCardForm = ({ addCardCallback }) => {
 }
 
 NewCardForm.propTypes = {
-    addCardCallback: PropTypes.func.isRequired
+    createCard: PropTypes.func.isRequired
 };
 
 export default NewCardForm
