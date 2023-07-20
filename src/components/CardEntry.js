@@ -10,8 +10,9 @@ const CardEntry = (props) => {
     return (
         <div className={props.cardId}>
             <h2>Card message: {props.message}</h2>
+            {/* <button onClick={(e) => increaseLikesCount()}>Likes💕 {likesCount}</button> */}
             <button onClick={(e) => props.onClickLike(props.cardId)}>Likes💕 {props.likesCount}</button>
-            <button>Delete</button>
+            <button onClick={(e) => props.onUnregister(props.cardId)}>Delete</button>
         </div>
     );
 };
