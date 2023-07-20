@@ -79,7 +79,7 @@ function App() {
         </section>
         {/* Figure out how to delete the empty H1 w/o collapsing */}
         <section>
-          <h1> </h1>
+          {/* this needs to be empty */}
         </section>
         <section className="new-board-form__container">
           <h1>Add new Participant</h1>

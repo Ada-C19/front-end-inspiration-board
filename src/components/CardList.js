@@ -75,8 +75,8 @@ const CardList = (props) => {
   };
 
     return (
-        <div>
-        <h2>{props.board.owner}'s Cards for {props.board.title}</h2>
+        <div className='cardslist-container'>
+          <h2>{props.board.owner}'s Cards for {props.board.title}</h2>
         </div>
     );
 };
