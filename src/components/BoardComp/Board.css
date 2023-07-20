@@ -1,0 +1,52 @@
+.board-text-title {
+  margin-left: 40vh;
+  font-size: 50px;
+  color: var(--dark-teal);
+}
+
+.board-text-owner {
+  margin-left: 150vh;
+  font-size: x-large;
+  display: relative;
+}
+
+.board-container {
+  margin-left: 40vh;
+  min-height: 550px;
+}
+
+.ul-cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.delete-board {
+  position: absolute;
+  top: 18%;
+  right: 3.1%;
+  margin: 10px;
+  border-style: none;
+  background-color: var(--pink);
+  font-size: 25px;
+  box-shadow: -2.5px 2.5px 2.5px #d3d3d3;
+  cursor: pointer;
+}
+.sort-cards {
+  position: absolute;
+  top: 23%;
+  left: 21%;
+  margin: 10px;
+  color: var(--dark-teal);
+}
+
+.select-sort-cards {
+  position: absolute;
+  top: 27%;
+  left: 21%;
+  margin: 10px;
+  border-style: none;
+  background-color: white;
+  font-size: 18px;
+  font-family: "Varela Round";
+  box-shadow: -2.5px 2.5px 2.5px #d3d3d3;
+}

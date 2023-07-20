@@ -1,0 +1,41 @@
+.new-card-form {
+    border-style: solid;
+    border-width: thin;
+    border-color: black;
+    width: 22%;
+    height: 250px;
+    background-color: var(--white);
+    color: var(--dark-teal);
+    font-size: 14px;
+    margin: 1%;
+    box-shadow: -2.5px 2.5px 2.5px #d3d3d3;
+}
+
+.new-card-form-input {
+    padding: 10px;
+    margin: 10px;
+    width: 70%;
+    font-family: 'Varela Round';
+    /* color: red; */
+}
+
+.new-card-form-btn {
+    padding: 10px;
+    margin: 30px;
+    cursor: pointer;
+    font-family: 'Varela Round';
+    border: none;
+    background-color: var(--teal);
+    color: white;
+    width: 50%;
+    font-size: 14px;
+}
+
+.warning {
+    color: rgb(227, 54, 54);
+    font-family: 'Varela Round';
+}
+
+*:disabled {
+    background-color: rgb(166, 166, 166);
+}

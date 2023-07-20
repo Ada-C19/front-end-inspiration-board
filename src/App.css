@@ -1,0 +1,44 @@
+.App {
+  text-align: center;
+  background-color: white;
+  /* min-height: 100vh; */
+}
+
+.App__header {
+  background-color: var(--pink);
+  min-height: 15vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  /* color: white; */
+  position: relative;
+}
+
+.Inspo__board__text {
+  color: white;
+  position: absolute;
+  left: 45vh;
+  display: flex;
+  /* justify-content: flex-start;  */
+  /* Fix later so that Inspiration Board doesn't disappear behind the BoardList */
+}
+
+.App__footer {
+  color: black;
+  font-family: "Varela Round";
+  position: relative;
+  /* left: 20rem; */
+  /* bottom: 1rem; */
+  display: flex;
+  /* justify-content: flex-start; */
+  /* width: 100%; */
+  /* background: white; */
+  left: 45vh;
+  width: 50%;
+}
+
+body {
+  margin: 0;
+}

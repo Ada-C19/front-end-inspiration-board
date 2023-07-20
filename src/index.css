@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Varela+Round&display=swap");
+
+:root {
+  /* Colors */
+  --dark-teal: #0097a7;
+  --gray: #eeeeeeff;
+  --dark-gray: #b7b7b7;
+  --pink: #ebafadff;
+  --teal: #80d3c8ff;
+  --white: #ffffffff;
+}
+
+body {
+  font-family: "Lobster";
+  font-size: 16px;
+  /* line-height: 1.5; */
+  /* color: red; */
+  background-color: var(--white);
+  margin: 0;
+}
