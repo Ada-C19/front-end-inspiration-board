@@ -13,6 +13,7 @@ const SelectedBoardCardList = (props) => {
                     message = {card.message}
                     likesCount = {card.likesCount}
                     key = {card.cardId}
+                    onClickLike={props.onClickLike}
                 />
             );
         });

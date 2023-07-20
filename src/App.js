@@ -2,7 +2,6 @@ import './App.css';
 import BoardList from './components/BoardList';
 import NewBoardForm from './components/NewBoardForm';
 import SelectedBoard from './components/SelectedBoard';
-import CardEntry from './components/CardEntry';
 import SelectedBoardCardList from './components/SelectedBoardCardList';
 import NewCardForm from './components/NewCardForm';
 import axios from 'axios';
@@ -54,7 +53,7 @@ const App = () => {
   const [cardState, setCardState] = useState([]);
 
   const findBoardById = (boardId) => {
-    return boardState.filter((board) => {return board.boardId === boardId})
+    return boardState.find((board) => {return board.boardId === boardId})
   };
   
   const handleBoardSelection = (boardId) => {
@@ -82,13 +81,20 @@ const App = () => {
     fetchBoards();
   },[]);
 
-  const onHandleSubmit = (data, boardId) => {
-    axios.post(`${kBaseUrl}/boards/${boardId}/cards`, data)
+  const onHandleSubmit = (data) => {
+    axios.post(`${kBaseUrl}/boards/${selectedBoard.boardId}/cards`, data)
       .then((response) => {
         setCardState((prevCards) => [cardListFromApi(response.data), ...prevCards]);
       })
       .catch((e) => console.log(e));
   };
+
+  const onClickLike = (cardId) => {
+    axios.patch(`${kBaseUrl}/cards/${cardId}/like`)
+      .then((response) => {
+        fetchCards(response.data.board_id)
+      .catch((e) => console.log(e));
+  });
 
 
   return (
@@ -103,13 +109,13 @@ const App = () => {
           <NewBoardForm></NewBoardForm>
         </section>
         <section>
-          <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState}></SelectedBoardCardList>
+          <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState} onClickLike={onClickLike}></SelectedBoardCardList>
           <NewCardForm selectedBoard={selectedBoard} onHandleSubmit={onHandleSubmit}></NewCardForm>
           {/* <CardEntry/> */}
         </section>
       </main>
     </div>
   );
-}
+}}
 
 export default App;
