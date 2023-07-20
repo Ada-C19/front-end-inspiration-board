@@ -7,7 +7,6 @@ import NewCardForm from './components/NewCardForm';
 import NewBoardForm from './components/NewBoardForm';
 import BoardSelectRadio from './components/BoardSelectRadio';
 import SortCardRadio from './components/SortCardRadio';
-// import { send } from 'process';
 
 const boardsURL = `${process.env.REACT_APP_BACKEND_URL}`
 
@@ -55,12 +54,13 @@ const App = () => {
   const [cards, setCards] = useState([])
   const [displayBoardForm, setDisplayBoardForm] = useState(true)
   const [cardDisplaySortDirection, setCardDisplaySortDirection] = useState("ID")
-
+  
+  useEffect(() => { fetchBoards() }, [])
+  
   const fetchBoards = () => {
     getAllBoards()
       .then((boards) => setBoards(boards))
   }
-  useEffect(() => { fetchBoards() }, [])
 
   const fetchCards = (boardId) => {
     getCardsForBoard(boardId)
