@@ -29,8 +29,7 @@ const kBaseUrl = 'http://127.0.0.1:5000';
 
 function App() {
   const [boardData, setBoardData] = useState([]);
-  const [selectedBoard, setSelectedBoard] = useState([]);
-  console.log(selectedBoard)
+  const [selectedBoard, setSelectedBoard] = useState(1);
   useEffect(() => {
     axios
       .get(`${kBaseUrl}/boards`)
@@ -67,11 +66,13 @@ const handleCardSumbit = (newCardFormProps) => {
 return (
   <div className="App">
     <p>hello world :)</p>
-    <BoardList data={boardData} selectedBoard={setSelectedBoard}/>
-    <Board board_id={1}
+    <BoardList data={boardData} setSelectedBoard={setSelectedBoard}/>
+    <Board /*board_id={1}
       owner={"Abby"}
       title={"tamagotchis i have loved"}
-      cards={test_board.cards} />
+      cards={test_board.cards}*/
+      selectedBoard={selectedBoard}
+      baseUrl={kBaseUrl} />
     <Sidebar handleBoardSubmit={handleBoardSubmit} />
     <NewCardForm boardId={DEFAULT_BOARD_ID} handleCardSumbit={handleCardSumbit} />
   </div>
