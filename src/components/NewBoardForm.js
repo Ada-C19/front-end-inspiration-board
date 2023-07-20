@@ -34,6 +34,7 @@ const NewBoardForm = (props) => {
     };
 
     const hiddenClass = isHidden ? 'hidden-component' : null;
+    const hiddenFormText = isHidden ? 'Show Board Form' : 'Hide Board Form';
 
     return (
     <section>
@@ -50,7 +51,7 @@ const NewBoardForm = (props) => {
             <input type="submit" value="Add a Board"></input>
             </div>
         </form>
-        <button onClick={toggleHiddenForm}>Hide Board Form</button>
+        <button onClick={toggleHiddenForm}>{hiddenFormText}</button>
     </section>
     );
 };
