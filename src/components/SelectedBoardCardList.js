@@ -13,6 +13,7 @@ const SelectedBoardCardList = (props) => {
                     message = {card.message}
                     likesCount = {card.likesCount}
                     key = {card.cardId}
+                    onUnregister = {props.onUnregister}
                 />
             );
         });
@@ -28,5 +29,8 @@ const SelectedBoardCardList = (props) => {
     );
 
 };
+
+// create propTypes
+
 
 export default SelectedBoardCardList;

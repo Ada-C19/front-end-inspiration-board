@@ -46,6 +46,13 @@ const cardListFromApi = (apiCard) => {
     return newCard;
 };
 
+const deleteCard = (cardId) => {
+  return axios 
+  .delete(`${kBaseUrl}/cards/${cardId}`)
+  .catch((error) => {
+    console.log(error)
+  });
+};
 
 const App = () => {
 
@@ -90,6 +97,21 @@ const App = () => {
       .catch((e) => console.log(e));
   };
 
+  const onHandleBoardSubmit = (data) => {
+    axios.post(`${kBaseUrl}/boards`, data)
+      .then((response) => {
+        setBoardState((prevBoards) => [convertFromApi(response.data.board), ...prevBoards]);
+      })
+      .catch((e) => console.log(e));
+  };
+ 
+  const onUnregister = (cardId) => {
+    deleteCard(cardId).then(() => {
+      setCardState((oldData) => {
+        return oldData.filter((card) => card.cardId !== cardId);
+      });
+    });
+  };
 
   return (
     <div className="App">
@@ -100,10 +122,10 @@ const App = () => {
         <section>
           <BoardList boardData={boardState} onSelectBoard={handleBoardSelection}></BoardList>
           <SelectedBoard boardState={selectedBoard}></SelectedBoard>
-          <NewBoardForm></NewBoardForm>
+          <NewBoardForm onHandleBoardSubmit={onHandleBoardSubmit}></NewBoardForm>
         </section>
         <section>
-          <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState}></SelectedBoardCardList>
+          <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState} onUnregister={onUnregister}></SelectedBoardCardList>
           <NewCardForm selectedBoard={selectedBoard} onHandleSubmit={onHandleSubmit}></NewCardForm>
           {/* <CardEntry/> */}
         </section>
