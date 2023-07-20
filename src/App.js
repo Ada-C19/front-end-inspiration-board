@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import NewBoardForm from './components/NewBoardForm';
 import BoardList from './components/BoardList';
-import CardList from './components/CardList';
 import NewCardForm from './components/NewCardForm';
 import './App.css';
 import axios from 'axios';
@@ -95,11 +94,6 @@ const App = () => {
   }
 
   const addCard = (formField) => {
-    // const newCard = {
-    //   boardId: boardData.boardId, 
-    //   message: formField.message,
-    // };
-
     console.log(`${boardData.boardId}`)
     axios.post(`http://localhost:5000/boards/${boardData.boardId}/card`, formField)
       .then(response => {
@@ -117,9 +111,7 @@ const App = () => {
       .catch(error => {
         console.error("Error creating card", error);
       });
-      // fetchCards();
   };
-  // Cards --------------------------------
 
   return (
     <div className="App">

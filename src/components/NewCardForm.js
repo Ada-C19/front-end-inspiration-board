@@ -53,7 +53,6 @@ const NewCardForm = ( props ) => {
 };
 
 NewCardForm.propTypes = {
-  // shape of keys and prop values
   addCard: PropTypes.func.isRequired,
 };
 
