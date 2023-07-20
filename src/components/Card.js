@@ -10,9 +10,10 @@ const Card = (props) => {
             <p className='card-item__message'>Message goes here</p>
             <ul className='card-item__controls'>
                 <p>likes count number goes here</p>
-                <button>❤️</button>
-                <button>💔</button>
-                <button>🗑️</button>
+                {/* put these elements in a grid */}
+                <span>  ❤️  </span>
+                <span>💔  </span>
+                <span>🗑️  </span>
             </ul>
             </div>);
 };

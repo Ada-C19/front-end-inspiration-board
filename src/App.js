@@ -21,14 +21,16 @@ const boardsURL = `${ process.env.REACT_APP_BACKEND_URL }`
 
 function App() {
 
-  // initiate state
+  // initiating states ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   const [ boardsData, setBoardsData ] = useState([]);
   const [ selectedBoard, setSelectedBoard ] = useState({
     title: '',
     owner: '',
     board_id: null
   });
+  const [cardsData, setCardsData] = useState([]);
 
+  // board functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   const selectBoard = (board) => { setSelectedBoard(board) };
   
   const boardElements = boardsData.map((board) => {
@@ -66,12 +68,82 @@ function App() {
       });
   };
 
+  // card list functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  // gets cards for a specific board, keeps eye on selected board
+  useEffect(() => {
+    axios.get(`${boardsURL}/boards/${selectedBoard.board_id}/cards`).then((response)=> {
+    setCardsData(response.data);
+    }).catch((error) => {
+    console.log('Error:', error);
+    alert('Couldn\'t get cards for this board.');
+    });
+}, [selectedBoard]);
+
+  // axios call delete one card
+  const deleteCard = (card) => {
+    axios.delete(`${boardsURL}/cards/${card.card_id}`).then((response) => {
+    const newCardsData = cardsData.filter((existingCard) => {
+      // mess with conditional later
+        return existingCard.card_id !== card.card_id;
+    });
+    setCardsData(newCardsData);
+    }).catch((error) => {
+    console.log('Error:', error);
+    alert('Couldn\'t delete the card.');
+    });
+};
+
+  // adds like to a card (we deleted like endpoint)
+  const addOneLikeToCard = (card) => {
+    axios.put(`${boardsURL}/cards/${card.card_id}`).then((response) => {
+    const newCardsData = cardsData.map((existingCard) => {
+      // this is the same conditional
+        return existingCard.card_id !== card.card_id ? existingCard : {...card, likes_count: card.likes_count + 1}
+      });
+      setCardsData(newCardsData);
+    }).catch((error) => {
+      console.log('Error:', error);
+      alert('Couldn\'t +1 the card.');
+    });
+  };
+
+  // removes like to a card (we deleted like endpoint)
+  const removeOneLikeToCard = (card) => {
+    axios.put(`${boardsURL}/cards/${card.card_id}`).then((response) => {
+    const newCardsData = cardsData.map((existingCard) => {
+      // this is the same conditional
+        return existingCard.card_id !== card.card_id ? existingCard : {...card, likes_count: card.likes_count - 1}
+      });
+      setCardsData(newCardsData);
+    }).catch((error) => {
+      console.log('Error:', error);
+      alert('Couldn\'t -1 the card.');
+    });
+  };
+
+  // creates a new card to post to a boardID
+  const postNewCard = (message) => {
+    axios.post(
+        `${boardsURL}/boards/${selectedBoard.board_id}/cards`,
+        {message}
+    ).then((response) => {
+      const cards = [...cardsData];
+      cards.push(response.data.card);
+      setCardsData(cards);
+    }).catch((error) => {
+      console.log('Error:', error);
+      alert('Couldn\'t create a new card.');
+    });
+  };
+
+  // returns ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   return (
     <main className="background-image">
     <div className="App">
       <Popup/>
       <header> 
-        <h1 className="header__">Lantern Festival </h1>
+        <h1 className="header__">🏮 Lantern Festival </h1>
       </header>
       <body className = "boards__container">
         <section>
@@ -90,8 +162,15 @@ function App() {
           </button>
         </section>
         <section>
-          <NewCardForm/>
+          <h1>Board for Billy my Brother</h1>
           <Card/>
+        </section>
+        <section>
+          {/* Board Title: */}
+          <NewCardForm />
+          {/* Add conditional rendering to both NewCardForm and Card so they appear when a Board
+          is selected. */}
+          {/* We need to be able to click on individual boards and toggle highlights on or off. */}
         </section>
       </body>
     </div>
