@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import TrashIcon from "./TrashIcon";
 import CardList from "./CardList";
+import NewCardForm from "./NewCardForm";
 import './Board.css';
 
 const Board = ({
@@ -13,9 +14,11 @@ const Board = ({
     handleLike,
     deleteCard,
     cardDisplaySortDirection,
-    selectedBoardId,
+    handleSubmitCard,
+    addCard,
 }) => {
-
+        
+    // delete board API call not working, throws error.
     const handleDeleteBoard = () => {
         deleteBoard(board_id);
     };
@@ -31,6 +34,7 @@ const Board = ({
                         deleteCard={deleteCard}
                         sortDirection={cardDisplaySortDirection}
                     />
+                    <NewCardForm addCard={handleSubmitCard} />
         </div>
     );
 };
@@ -45,6 +49,8 @@ Board.propTypes = {
     deleteCard: PropTypes.func.isRequired,
     cardDisplaySortDirection: PropTypes.string.isRequired,
     selectedBoardId: PropTypes.number,
+    handleSubmitCard: PropTypes.func.isRequired,
+    addCard: PropTypes.func.isRequired,
 };
 
 export default Board;

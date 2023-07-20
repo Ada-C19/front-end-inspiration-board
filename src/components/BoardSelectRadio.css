@@ -46,36 +46,12 @@
     display: none;
 }
 
+.mini-board .plus-icon {
+    display: none;
+}
+
 .h1-board:hover {
     color: pink;
     text-decoration: underline;
     text-decoration-color: pink;
 }
-
-/* .board::before,
-.board::after {
-    content: '';
-    position: absolute;
-    background-color: #9c806e;
-}
-
-.board::before {
-    top: 0;
-    left: 0;
-    height: 10px;
-    width: 100%;
-}
-
-.board::after {
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 10px;
-} */
-
-/* .board:hover {
-    border-color: pink;
-    transform: scale(1.05); 
-    z-index: 1; 
-    box-shadow: 0 0 10px pink; 
-} */

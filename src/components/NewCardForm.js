@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import PlusIcon from './PlusIcon';
+import TrashIcon from './TrashIcon';
 import './NewCardForm.css';
 
 const NewCardForm = ({ addCard }) => {
@@ -40,13 +42,10 @@ const NewCardForm = ({ addCard }) => {
 			{showModal ? (
 				<div className="modal">
 					<div className="modal-content">
-						<span className="close" onClick={closeModal}>
-							&times;
-						</span>
 						<form className="new-card-form" onSubmit={onFormSubmit}>
+							<TrashIcon onClick={closeModal} />
 							<div>
-								<h3>ADD A CARD TO CURRENT BOARD</h3>
-								<label htmlFor="message">Message:</label>
+								<div className="input-container"> Message:</div>
 								<input
 									id="message"
 									onChange={onMessageChange}
@@ -59,9 +58,9 @@ const NewCardForm = ({ addCard }) => {
 					</div>
 				</div>
 			) : (
-				<button className="plus-button" onClick={openModal}>
-					+
-				</button>
+				<div className="plus-button" onClick={openModal}>
+					<PlusIcon onClick={openModal} />
+				</div>
 			)}
 		</div>
 	);

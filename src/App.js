@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 
+import CardList from './components/CardList';
 import Board from './components/Board';
 import NewCardForm from './components/NewCardForm';
 import NewBoardForm from './components/NewBoardForm';
@@ -22,7 +23,7 @@ const getAllBoards = () => {
     .then((response) => {
       return (response.data.map(convertBoardFromAPI))
     })
-    .catch((e) => console.log("error during getAllBoards!", e.message, boardsURL));
+    .catch((e) => console.log("error during getAllBoards!", e.message));
 };
 
 const getCardsForBoard = (boardId) => {
@@ -54,13 +55,12 @@ const App = () => {
   const [cards, setCards] = useState([])
   const [displayBoardForm, setDisplayBoardForm] = useState(true)
   const [cardDisplaySortDirection, setCardDisplaySortDirection] = useState("ID")
-  
-  useEffect(() => { fetchBoards() }, [])
-  
+
   const fetchBoards = () => {
     getAllBoards()
       .then((boards) => setBoards(boards))
   }
+  useEffect(() => { fetchBoards() }, [])
 
   const fetchCards = (boardId) => {
     getCardsForBoard(boardId)
@@ -147,14 +147,19 @@ const App = () => {
 
   const handleLike = (cardId) => {
 
-    const cardLike = (cardId) => {
-    return axios
+    setCards(() => cards.map((card) => {
+      if (card.id === cardId) {
+        // here it copy that cat that is an object in out object and we update the cat.petCount
+        return { ...card, likesCount: card.likesCount + 1 };
+      } else {
+        return card;
+      }
+
+    }));
+    axios
       .patch(`${boardsURL}/boards/${targetBoardId}/cards/${cardId}/mark_like`)
       .then(res => console.log("Card Liked!", res.data))
       .catch(err => console.log("Error in liking card!", err.message))
-    }
-
-    cardLike(cardId).then(() => fetchCards())
   }
 
   const toggleBoardDisplay = () => {
@@ -195,6 +200,7 @@ const App = () => {
               handleLike={handleLike}
               deleteCard={handleDeleteCard}
               cardDisplaySortDirection={cardDisplaySortDirection}
+              handleSubmitCard={handleSubmitCard}
               />
             <SortCardRadio onSortSelect={handleSortCard} />
             <NewCardForm addCard={handleSubmitCard} />
@@ -206,3 +212,4 @@ const App = () => {
 };
   
   export default App;
+  

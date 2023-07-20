@@ -2,8 +2,6 @@
     position: absolute;
     top: 30px;
     right: 40px;
-    color: #fff;
-    cursor: not-allowed;
 }
 
 .trash-icon:hover {

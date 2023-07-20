@@ -1,6 +1,7 @@
 .new-board-form {
-    margin: 1rem;
-    border: 2px;
-    border-style: solid;
-    background-color: grey;
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #fff;
+    cursor: not-allowed;
 }
