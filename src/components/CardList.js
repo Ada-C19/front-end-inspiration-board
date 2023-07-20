@@ -30,9 +30,9 @@ const CardList = ({ cards, handleLike, deleteCard, sortDirection }) => {
 	}
 
 	return (
-		<div>
-			<ul className="card-list">{getCardListJSX(cards)}</ul>
-		</div>
+        <div>
+            <ul className="card-list">{getCardListJSX(cards)}</ul>
+        </div>
 	);
 };
 

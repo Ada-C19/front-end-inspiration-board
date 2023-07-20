@@ -195,7 +195,11 @@ const App = () => {
               board_id={currentBoard().id}
               title={currentBoard().title}
               owner={currentBoard().owner}
+              cards={cards} 
               deleteBoard={handleDeleteBoard}
+              handleLike={handleLike}
+              deleteCard={handleDeleteCard}
+              cardDisplaySortDirection={cardDisplaySortDirection}
             />
             <CardList
               cards={cards}
