@@ -127,10 +127,10 @@ function App() {
   };
 
   // axios creates a new card to post to a boardID
-  const postNewCard = (message) => {
+  const postNewCard = (cardObject) => {
     axios.post(
         `${boardsURL}/cards`,
-        {message}
+        cardObject
     ).then((response) => {
       const cards = [...cardsData];
       cards.push(response.data.card);

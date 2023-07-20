@@ -13,6 +13,7 @@ const CardList = ( { cardsData, addOneLikeToCard, removeOneLikeToCard, deleteCar
         addOneLikeToCard={addOneLikeToCard}
         removeOneLikeToCard={removeOneLikeToCard}
         deleteCard={deleteCard}
+        // cardObject={cardObject}
         />)
         
   });

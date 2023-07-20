@@ -5,36 +5,25 @@ import './NewForm.css';
 const NewCardForm = ({selectedBoard, postNewCard, isSubmitDisabled}) => {
     const [cardObject, setCardObject] = useState({
         message: '',
-        board_id: ''
+        board_id: selectedBoard.board_id
     });
+    //board id should always be selected board so adrian and i set it to the default card object value
 
     const updatedCardObject = (changeEvent) => {
         setCardObject({
         ...cardObject,
         message: changeEvent.target.value,
-        board_id: selectedBoard.board_id
         });
     };
     // in this function we want to setCardObject
 
-    //NEW FUNCTION
-    //have a variable named newMessage and set it to the string user submitted
-    //spread our cardobject (copy) and assign it to updatedCardObject
-    //set our updated card object with new message as the value for message key
-    //set our updated card object with selected_board id as the value for board_id
-    //use our updated card object as our post new card argument
-    //refresh state , set card object to blank again?
-    //maybe use newMessage variable in our disable submit?
-
 
     const submitNewCard = (e) => {
         e.preventDefault();
-        postNewCard(updatedCardObject);
+        postNewCard(cardObject);
         setCardObject({ message: '', board_id: '' });
     };
-    //submit new card should take custom message and board_id from selected board
-
-    // we need to make sure the value of message is a string! what is it right now????
+    //updating on change in the JSX 
 
 
     return (
