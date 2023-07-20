@@ -5,9 +5,9 @@ import './CardList.css';
 
 const CardList = ({ cards, selectBoard, likeCard }) => {
   for (cards in selectBoard) {
-    
+
   }
-  
+
   const cardComponents = cards.map(card => {
     return (
       <Card
@@ -21,7 +21,9 @@ const CardList = ({ cards, selectBoard, likeCard }) => {
   })
   return (
     <div>
-      <section>{cardComponents}</section>
+      <section className="card-list">
+        {cardComponents}
+      </section>
     </div>
 
   )
