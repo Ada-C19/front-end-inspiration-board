@@ -5,7 +5,7 @@ const Card = props => {
   return(
     <div className='card'>
       <p className='message'>{props.message}</p>
-      <p className='like__button'>🩷</p>
+      <p onClick={()=> props.onLike(props.id)}className='like__button'>🩷</p>
       <p className='likes__count'>Likes: {props.likesCount}</p>
       <p className="delete" onClick={()=> props.onDelete(props.id)}>Delete</p>
     </div>

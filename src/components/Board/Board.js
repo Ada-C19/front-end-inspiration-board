@@ -12,6 +12,7 @@ const Board = props => {
           likesCount={card.likes_count}
           key={card.id}
           id={card.id}
+          onLike={props.onLike}
           onDelete={props.onDelete}
           />
           ))
