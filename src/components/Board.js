@@ -5,9 +5,9 @@ import "./Board.css"
 const Board = ({ boardId, title, owner, selectBoard, deleteBoard }) => {
 
     return (
-        <div className="board">
-            <section onClick={() => selectBoard(boardId)}>
-                <h1 onClick={() => selectBoard(boardId)}>{title}</h1>
+        <div className="board" onClick={() => selectBoard(boardId)}>
+            <section>
+                <h1>{title}</h1>
                 <p>by: {owner}</p>
             </section>
             <section>

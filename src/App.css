@@ -64,6 +64,10 @@ input {
   width: 80vw;
 }
 
+.card-list{
+  flex-wrap:wrap;
+} 
+
 .add-card button {
   border-radius: 100px;
   font-size: xx-large;
@@ -90,6 +94,7 @@ input {
 .card-forms {
   position: fixed;
   width: 150px;
+  /* left:10px; */
   bottom: 20px;
   border: 2px black solid;
   gap: 20px;

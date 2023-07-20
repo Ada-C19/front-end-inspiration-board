@@ -108,21 +108,34 @@ const createCard = (formFields, id) => {
     })
 }
 
-  const likeCard = () => {
-  
-  }
-
-
-
 // const likeHandler = (id) => {
 //   axios.patch(`https://inspoboardteam404.onrender.com/cards/${id}`).then((resp) => {
 //     setCardData((prevCard) => {
 //       const updatedCard = prevCard.map((card) => {
-//         return card.id === id ? resp.data : card;
+//         return card.likes++
 //     });
+//     console.log(resp.data.card.likes)
 //     return updatedCard;})
 //     ;});
 //   };
+const increaseLikes = (id) => {
+  axios.patch(`https://inspoboardteam404.onrender.com/cards/${id}/likes`).then(() => {
+    setCardData(prevCards => {
+      const updatedCards = prevCards.map(card => {
+        return card.card_id === id ? {...card, likes_count: card.likes_count++} : card
+      })
+      return updatedCards
+    })
+  })
+};
+
+  // const totalLikes = (id) => {
+  //         let total = 0;
+  //         for (let card of cardData) {
+  //             if (card.liked) {total += 1}
+  //           }
+  //           return total;
+  //         }
 
 return (
   <div id="App">
@@ -134,6 +147,7 @@ return (
           selectBoard={selectBoard}
           deleteBoard={deleteBoard}
           createBoard={createBoard}
+    
           />
         </section>
       </div>
@@ -147,10 +161,11 @@ return (
           <CardList 
           selectBoard={selectBoard} 
           cards={cardData} 
-          likeCard={likeCard} 
+          likeCard={increaseLikes} 
           createCard={createCard}
           boardId={selectedBoard.board_id} 
           deleteCard={deleteCard}
+          increaseLikes={increaseLikes}
           />
         </div>
       </div>

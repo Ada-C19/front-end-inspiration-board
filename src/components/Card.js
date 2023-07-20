@@ -3,13 +3,14 @@ import PropTypes from 'prop-types'
 import './Card.css';
 
 
-const Card = ({ cardId, message, likes, boardId, likeCard, deleteCard }) => {
+const Card = ({ cardId, message, likes, boardId, increaseLikes, deleteCard }) => {
 
   return (
     <div>
       <section className="card">
-        {likes}
-        <button onClick={() => likeCard(cardId)}>
+        {/* {likes}👍 */}
+        <p> {likes}👍 </p>
+        <button onClick={() => increaseLikes(cardId)}>
           +1
         </button>
         <div>
@@ -38,5 +39,5 @@ Card.propTypes = {
 }
 
 export default Card
-
+// 
 

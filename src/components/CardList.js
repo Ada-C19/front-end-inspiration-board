@@ -4,7 +4,7 @@ import Card from './Card';
 import './CardList.css';
 import NewCardForm from './NewCardForm';
 
-const CardList = ({ cards, boardId, likeCard, createCard, deleteCard }) => {
+const CardList = ({ cards, boardId, likeCard, createCard, deleteCard, increaseLikes}) => {
 
   // console.log(boardId)
   console.log(cards)
@@ -13,10 +13,11 @@ const CardList = ({ cards, boardId, likeCard, createCard, deleteCard }) => {
       <Card
         cardId={card.card_id}
         message={card.message}
-        likes={card.likes}
+        likes={card.likes_count}
         boardId={card.boardId}
         likeCard={likeCard}
         deleteCard={deleteCard}
+        increaseLikes={increaseLikes}
       />
     )
   })
@@ -30,6 +31,8 @@ const CardList = ({ cards, boardId, likeCard, createCard, deleteCard }) => {
           id='card-form'
           boardId={boardId}
           createCard={createCard}
+        
+
         />
       </section>
     </div>
