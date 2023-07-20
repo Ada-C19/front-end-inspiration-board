@@ -1,4 +1,3 @@
-// Board.js
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import CardList from './CardList';
@@ -9,7 +8,9 @@ const Board = ( props ) => {
 
   const [cards, setCards] = useState([]);
   const [showCards, setShowCards] = useState(false);
-  // const [likeCount, setLikeCount] = useState(props.likesCount);
+  const [newTitle, setNewTitle] = useState(props.title);
+  const [newOwner, setNewOwner] = useState(props.owner);
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     fetchCards();
@@ -56,7 +57,12 @@ const Board = ( props ) => {
       })
   }
   const handleUpdateBoard = () => {
-    props.updateBoard(props.boardId);
+    const updatedData = {
+      title: newTitle,
+      owner: newOwner,
+    };
+    props.updateBoard(props.boardId, updatedData);
+    setIsEditing(false);
   }
 
   const handleDeleteBoard = () => {
@@ -69,26 +75,35 @@ const Board = ( props ) => {
     
 }
 
-  return (
-    <>
-      <h2>{props.title}</h2>
-      <p>{props.owner}</p>
-      <li>
-        <button onClick={() => setShowCards(!showCards)} >Show Cards</button>
-        <button onClick={handleAddCard}>Add Card</button>
-        <button onClick={handleUpdateBoard}>EDIT</button>
-        <button onClick={handleDeleteBoard}>DELETE</button>
-      </li>
-      <CardList
-      cards={cards}
-      showCards={showCards}
-      onDelete={deleteCard}
-      updateLikeCount={updateLikeCount}
-      // onUpdateCard={updateCard}
-      />
-    </>
-  )
+const handleEditClick = () => {
+  setIsEditing(true); 
+}
 
+return (
+  <>
+    <h2>{props.title}</h2>
+    <p>{props.owner}</p>
+    {isEditing && (
+      <>
+        <input type="text" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} />
+        <input type="text" value={newOwner} onChange={(e) => setNewOwner(e.target.value)} />
+        <button onClick={handleUpdateBoard}>Submit</button>
+      </>
+    )}
+    <li>
+      <button onClick={() => setShowCards(!showCards)} >Show Cards</button>
+      <button onClick={handleAddCard}>Add Card</button>
+      <button onClick={handleEditClick}>EDIT</button>
+      <button onClick={handleDeleteBoard}>DELETE</button>
+    </li>
+    <CardList
+    cards={cards}
+    showCards={showCards}
+    onDelete={deleteCard}
+    updateLikeCount={updateLikeCount}
+    />
+  </>
+)
 };
 
 Board.propTypes = {
@@ -97,7 +112,6 @@ Board.propTypes = {
   owner: PropTypes.string.isRequired,
   updateBoard: PropTypes.func.isRequired,
   deleteBoard: PropTypes.func.isRequired,
-  // onUpdateCard: PropTypes.func.isRequired,
   selectBoard: PropTypes.func.isRequired,
 }
 

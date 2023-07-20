@@ -32,25 +32,27 @@ const App = () => {
       });
   }, []);
 
-  const updateBoard = (boardID) => {
-    return axios
-      .patch((`${URL}/${boardID}`))
-      .then((response) => {
-        const updatedBoardData = response.data
-        setBoards((prevBoards) => {
-          return prevBoards.map((board) => {
-            if (board.boardId === boardID) {
-              return {
-                ...board, 
-                title: updatedBoardData.title, owner: updatedBoardData.owner,
-              };
-            }
-            return board;
-          })
+  const updateBoard = (boardID, updatedData) => {
+  console.log("Updated data: ", updatedData);
+  return axios
+    .patch(`${URL}/${boardID}`, updatedData)
+    .then((response) => {
+      const updatedBoardData = response.data
+      setBoards((prevBoards) => {
+        return prevBoards.map((board) => {
+          if (board.boardId === boardID) {
+            return {
+              ...board, 
+              title: updatedBoardData.title, owner: updatedBoardData.owner,
+            };
+          }
+          return board;
         })
       })
-      .catch((error) => console.log("can't update board", error));
-  }
+    })
+    .catch((error) => console.log("can't update board", error));
+}
+
 
   const deleteBoard = (boardId) => {
     axios

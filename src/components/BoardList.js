@@ -4,6 +4,7 @@ import Board from './Board.js';
 // import './BoardList.css';
 
 const BoardList = (props) => {
+  console.log(props.boards);
   return (
     <ul>
         {props.boards.map((board) => (
