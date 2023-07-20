@@ -4,6 +4,7 @@ import Board from './components/Board/Board';
 import BoardList from './components/BoardList/BoardList';
 import Sidebar from './components/Sidebar/Sidebar';
 import axios from 'axios';
+import SortOrder from "./components/SortOrder/SortOrder";
 
 const kBaseUrl = 'http://127.0.0.1:5000';
 
@@ -12,6 +13,7 @@ function App() {
   const [cardData, setCardData] = useState([])
   const [selectedBoard, setSelectedBoard] = useState(undefined);
   const [isSidebarShown, setIsSidebarShown] = useState(true)
+  const [selectedSort, setSelectedSort] = useState(undefined); 
   
   useEffect(() => {
     axios
@@ -20,12 +22,20 @@ function App() {
     .catch((err) => console.log(err));
 }, []);
 
+
   useEffect(() => {
+    if (selectedBoard) {
+      let url = `${kBaseUrl}/boards/${selectedBoard}/cards`; 
+
+      if (selectedSort) {
+        url += `?sort=${selectedSort}`;
+      }
     axios
-      .get(`${kBaseUrl}/boards/${selectedBoard}/cards`)
+      .get(url)
       .then((res) => setCardData(res.data))
-      .catch((err) => console.log(err))
-  }, [selectedBoard]);
+      .catch((err) => console.log(err));
+  }
+}, [selectedBoard, selectedSort]);
 
 const handleBoardSubmit = (newBoardData) => {
   axios
@@ -60,7 +70,7 @@ const handleLike = id => {
     setCardData((prev) => {
       return prev.map((card) =>{
         if (id === card.id) {
-          return {...card, likesCount: res.data.card.likes_count};
+          return {...card, likes_count: res.data.card.likes_count};
         } else {
           return card;
         }
@@ -82,6 +92,11 @@ const toggleSidebar = (prev) => {
   setIsSidebarShown((prev) => !prev);
 }
 
+const handleSortChange = (event) => {
+  const selectedSortvalue = event.target.value;
+  setSelectedSort(selectedSortvalue);
+};
+
 return (
   <div className="App">
     <div className="sidebar__container">
@@ -93,6 +108,7 @@ return (
     <div className='body__container'>
     <h1 className="App-header">✨Inspiration Board✨</h1>
     <main className="board-container">
+      <SortOrder handleSortChange={handleSortChange}/>
       <BoardList data={boardData} setSelectedBoard={setSelectedBoard}/>
       <Board
         cardData={cardData}
