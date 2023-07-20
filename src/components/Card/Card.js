@@ -1,12 +1,13 @@
 import './Card.css';
 
 const Card = props => {
-
+  console.log(props.key)
   return(
     <div className='card'>
       <p className='message'>{props.message}</p>
-      <p>Likes: {props.likes_count}</p>
-      <p>Delete</p>
+      <p>Likes: {props.likesCount}</p>
+      <p>ID: {props.key}</p>
+      <p onClick={()=> props.onDelete(props.id)}>Delete</p>
     </div>
   )
 };
