@@ -15,8 +15,7 @@ const Board = ({
     cardDisplaySortDirection,
     selectedBoardId,
 }) => {
-        
-    // delete board API call not working, throws error.
+
     const handleDeleteBoard = () => {
         deleteBoard(board_id);
     };

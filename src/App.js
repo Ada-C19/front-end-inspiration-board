@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 
-import CardList from './components/CardList';
 import Board from './components/Board';
 import NewCardForm from './components/NewCardForm';
 import NewBoardForm from './components/NewBoardForm';
