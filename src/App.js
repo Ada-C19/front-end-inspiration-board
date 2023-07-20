@@ -56,8 +56,11 @@ const handleCardSubmit = (newCardFormProps) => {
 const deleteCard = id => {
   return axios
   .delete(`${kBaseUrl}/cards/${id}`)
-  .then((res)=>console.log(`${id} deleted`))
-}
+  .then((res) => {
+    setCardData((prev) => prev.filter((card) => card.id !== id))
+  })
+  .catch((err) => console.log(err))
+};
 
 const toggleSidebar = (prev) => {
   setIsSidebarShown((prev) => !prev);
