@@ -1,29 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import Board from './Board';
+import NewBoardForm from './NewBoardForm';
 import "./BoardList.css";
 
-const BoardList = ({ boards, selectBoard, createCard, likeCard }) => {
+const BoardList = ({ boards, selectBoard, createBoard, deleteBoard }) => {
     const boardComponents = boards.map(board => {
         return (
-            <Board 
-            boardId = {board.board_id}
-            title = {board.title} 
-            owner = {board.owner}
-            cards = {board.cards}
-            selectBoard = {selectBoard}
-            createCard = {createCard}
-            likeCard = {likeCard}
+            <Board
+                boardId={board.board_id}
+                title={board.title}
+                owner={board.owner}
+                selectBoard={selectBoard}
+                deleteBoard={deleteBoard}
             />
-            )
-        })
-    
+        )
+    })
+
     return (
         <div>
-            <section>
-                <ul className="board-titles">
-                    {boardComponents}
-                </ul>
+            <section className='board-titles'>
+                {boardComponents}
+            </section>
+            <section className="board-forms">
+                <NewBoardForm id="board-form" createBoard={createBoard} />
             </section>
         </div>
     )

@@ -1,23 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CardList from './CardList';
+import "./Board.css"
 
-const Board = ({ boardId, title, owner, cards, createCard, likeCard, selectBoard }) => {
-    
+const Board = ({ boardId, title, owner, selectBoard, deleteBoard }) => {
+
     return (
         <div className="board">
-            <h1 onClick = {() => selectBoard(boardId)}>{title}</h1>
-            <a>by: {owner}</a>
             <section>
-                {/* <CardList cards={cards} likeCard={likeCard} /> */}
-                <button 
-                    className='create_card'
-                    onClick = {() => selectBoard(boardId)}
-                >Create New Card</button>
-                <button 
-                    className='deleteBoard'
-                    onClick={() => (boardId)}
-                > Delete Board </button>
+                <h1 onClick={() => selectBoard(boardId)}>{title}</h1>
+                <p>by: {owner}</p>
+            </section>
+            <section>
+                <button
+                    type="delete"
+                    className="deleteBoard"
+                    onClick={() => deleteBoard(boardId)}
+                >
+                    X
+                </button>
             </section>
         </div>
     )

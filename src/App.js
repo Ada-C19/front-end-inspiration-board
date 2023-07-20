@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import CardList from './components/CardList';
-import NewBoardForm from './components/NewBoardForm';
 import NewCardForm from './components/NewCardForm';
 import BoardList from './components/BoardList';
 
@@ -27,9 +26,15 @@ const App = () => {
     console.log(boardId)
     axios.delete(`https://inspoboardteam404.onrender.com/boards/${boardId}`)
     .then(() => {
-      
+      setBoardData((prevBoards) => {
+				const updatedBoards = prevBoards.filter(
+					(board) => board.board_id !== boardId
+				);
+				return updatedBoards;
+			})
     })
   }
+  
   useEffect(() => {
     axios.get('https://inspoboardteam404.onrender.com/boards')
       .then((response) => {
@@ -74,6 +79,7 @@ const App = () => {
         })
     })
 };
+  
 
   // const addCardData = () => {
   //   // const form = document.getElementsByClassName("input-form");
@@ -109,24 +115,24 @@ return (
           onUpdateBoard={updateBoardData}
           selectBoard={selectBoard}
           deleteBoard={deleteBoard}
+          createBoard={createBoard}
           />
         </section>
-        <section className="board-forms">
+        {/* <section className="board-forms">
           <NewBoardForm id="board-form" createBoard={createBoard}/>
-        </section>
+        </section> */}
       </div>
       
 
 
       <div className="main-container">
-        {/* <Board /> */}
         <header className="title">
           <h1>Select a Board</h1>
         </header>
         <body className="content">
           <p>Nothing to Display</p>
           <div className="card-forms">
-            {/* <NewCardForm id='card-form' addCardCallback={addCardData} /> */}
+            <NewCardForm id='card-form' />
           </div>
         </body>
       </div>

@@ -3,7 +3,7 @@
   height: 100%;
   display: flex;
   font-family: sans-serif;
-  /* border: 5px solid red; */
+  background-color: #FC5EAA;
 }
 
 .title {
@@ -27,63 +27,19 @@
 }
 
 .sidebar {
-  border: 10px solid plum;
+  border: 10px solid #FC5EAA;
   width: 200px;
   position: static;
-  height:110%;
-  /* border: 5px solid red; */
+  height: 110%;
+  overflow: hidden;
 }
 
 .sidebar div {
-  /* display:flexbox; */
-  margin:0;
-  /* border: 5px solid red; */
-}
-
-.board-list {
-  background-color: #FC5EAA;
-  height: 730px;
-  color: white;
-  font-size: small;
-  font-weight: 900;
-  /* padding: 0px; */
-  overflow-y: scroll;
-  position:static;
-  
-  /* transition: all .1s ease-out; */
-
-  /* border: 5px solid red; */
-}
-.board-titles h1 {
-  margin-bottom:0px;
-}
-
-.board-titles li {
-  list-style: none;
   margin: 0;
-  /* display: flex; */
-  /* margin-bottom: 30px; */
-  
-}
-
-.board-titles li:hover {
-  font-size: larger;
 }
 
 input {
   text-align: center
-}
-
-.board-titles {
-  position: relative;
-  top: 10px;
-  /* border: 2px solid red; */
-  width: 150px;
-  margin: 0;
-  text-align: left;
-
-
-  /* border: 5px solid red; */
 }
 
 .board-forms {
@@ -91,9 +47,9 @@ input {
   width: 150px;
   /* height:0px; */
   bottom: 5px;
-  /* border: 2px black solid; */
   gap: 20px;
   font-size: 1rem;
+  background-color: #FC5EAA;
 }
 
 .content {
@@ -118,30 +74,10 @@ input {
   font-weight: 900;
 }
 
-.add-board button {
-  border-radius: 100px;
-  font-size: xx-large;
-  height: 50px;
-  width: 50px;
-  color: #FC5EAA;
-  border: 2px #FC5EAA solid;
-  position: fixed;
-  bottom: 3px;
-  left: 165px;
-  font-weight: 900;
-  
-}
-
-.add-board button:hover {
-  border-style: inset;
-  border: #d25793 2px solid;
-}
-
 .add-card button:hover {
   border-style: inset;
   border: #4e81da 2px solid;
 }
-
 
 
 ::placeholder {
