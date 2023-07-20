@@ -14,7 +14,6 @@ const Menu = props => {
         handleBoardSubmit={props.handleBoardSubmit}
       />
       <NewCardForm
-        boardId={props.boardId} 
         handleCardSubmit={props.handleCardSubmit}
       />
   </div>

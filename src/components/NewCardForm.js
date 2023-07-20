@@ -3,10 +3,9 @@ import PropTypes from "prop-types";
 import './NewCardForm.css';
 
 
-const NewCardForm = ({ boardId, handleCardSubmit}) => {
+const NewCardForm = ({ handleCardSubmit }) => {
 
     const [formData, setFormData] = useState({
-        boardId: boardId, 
         message: "", 
         likesCount: 0
     });
@@ -42,7 +41,6 @@ const NewCardForm = ({ boardId, handleCardSubmit}) => {
 };
 
 NewCardForm.propTypes = {
-    boardId: PropTypes.number.isRequired, 
     handleCardSumbit: PropTypes.func.isRequired
 };
 

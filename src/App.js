@@ -6,14 +6,12 @@ import NewCardForm from './components/NewCardForm';
 import Sidebar from './components/Sidebar/Sidebar';
 import axios from 'axios';
 
-const DEFAULT_BOARD_ID = 2; // TODO: Remove 
-
 const kBaseUrl = 'http://127.0.0.1:5000';
 
 function App() {
   const [boardData, setBoardData] = useState([]);
   const [cardData, setCardData] = useState([])
-  const [selectedBoard, setSelectedBoard] = useState(2);
+  const [selectedBoard, setSelectedBoard] = useState(undefined);
   const [isSidebarShown, setIsSidebarShown] = useState(true)
   
   useEffect(() => {
@@ -43,12 +41,13 @@ const handleCardSubmit = (newCardFormProps) => {
   // Handle UI after card has been created from the form
   return axios
     .post(
-      `${kBaseUrl}/boards/${newCardFormProps.boardId}/cards`,
+      `${kBaseUrl}/boards/${selectedBoard}/cards`,
       { message: newCardFormProps.message },
     )
-    .then((response) => {
-      console.log(`Assigned card to a boardId=${newCardFormProps.boardId}. Response: ${response}`);
+    .then((res) => {
+      console.log(`Assigned card to a boardId=${selectedBoard}. Response: ${res}`);
       // UI change
+      setCardData((prev) => [...prev, res.data.card]);
     })
     .catch((error) => {
       console.log(`Failed to assign card to board. Error: ${error}`);
@@ -66,17 +65,15 @@ return (
       <BoardList data={boardData} setSelectedBoard={setSelectedBoard}/>
       <Board
         cardData={cardData}
-        // onLike={handleLike}
+        //onLike={handleLike}
       />
-      </main>
-      <div className="sidebar">
-        {isSidebarShown && <Sidebar 
-          handleBoardSubmit={handleBoardSubmit} 
-          boardId={DEFAULT_BOARD_ID} 
-          handleCardSubmit={handleCardSubmit}/>}
-        {/* <NewCardForm boardId={DEFAULT_BOARD_ID} handleCardSumbit={handleCardSumbit} /> */}
-      </div>
-      <button onClick={toggleSidebar}>Show Sidebar</button>
+    </main>
+    <div className="sidebar">
+      {isSidebarShown && <Sidebar 
+        handleBoardSubmit={handleBoardSubmit} 
+        handleCardSubmit={handleCardSubmit}/>}
+    </div>
+    <button onClick={toggleSidebar}>Show Sidebar</button>
   </div>
 );
 }
