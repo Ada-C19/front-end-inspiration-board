@@ -1,7 +1,8 @@
 .Sidebar {
-    height: 100%;
-    width: 15rem;
+    height: 100vh;
+    width: 17rem;
     /* background-color: rgb(106, 221, 48); */
     position: sticky;
+    
 }
 

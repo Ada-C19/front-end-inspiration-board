@@ -5,6 +5,7 @@ import BoardList from './components/BoardList/BoardList';
 import Sidebar from './components/Sidebar/Sidebar';
 import axios from 'axios';
 import SortOrder from "./components/SortOrder/SortOrder";
+// import {TocRounded} from 'material-ui/core'
 
 const kBaseUrl = 'http://127.0.0.1:5000';
 
@@ -100,7 +101,7 @@ const handleSortChange = (event) => {
 return (
   <div className="App">
     <div className="sidebar__container">
-      <button onClick={toggleSidebar}>Show Sidebar</button>
+      <button onClick={toggleSidebar}>≣</button>
       {isSidebarShown && <Sidebar 
         handleBoardSubmit={handleBoardSubmit} 
         handleCardSubmit={handleCardSubmit}/>}
@@ -108,8 +109,8 @@ return (
     <div className='body__container'>
     <h1 className="App-header">✨Inspiration Board✨</h1>
     <main className="board-container">
-      <SortOrder handleSortChange={handleSortChange}/>
       <BoardList data={boardData} setSelectedBoard={setSelectedBoard}/>
+      <SortOrder handleSortChange={handleSortChange}/>
       <Board
         cardData={cardData}
         onDelete={deleteCard}
@@ -117,7 +118,6 @@ return (
       />
     </main>
     </div>
-    
   </div>
 );
 }

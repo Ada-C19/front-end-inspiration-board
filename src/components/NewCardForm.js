@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import PropTypes from "prop-types";
-// import './NewCardForm.css';
+import './NewCardForm.css';
+import './NewBoardForm.css'
 import '../App.css';
 
 
@@ -25,19 +26,23 @@ const NewCardForm = ({ handleCardSubmit }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="message"> Card Message: </label>
+        <div className="board__form">
+            <form onSubmit={handleSubmit}>
+                <h2>New Card</h2>
+                {/* <label htmlFor="message"> Card Message: </label> */}
                 <input
                     type="text"
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
+                    placeholder="Enter a message"
                 />
-            </div>
-            <button disabled={((formData.message.length === 0) || (formData.message.length > 40))}className="submit-button" type="submit">Submit Card</button>
-        </form>
+                <button disabled={((formData.message.length === 0) || (formData.message.length > 40))}className="submit-button" type="submit">Submit Card</button>
+            </form>
+        </div>
+            
+        
     );
 };
 

@@ -1,13 +1,17 @@
 /* styles for Card component */
 .card {
   display: grid;
-    background-color: palegoldenrod;
+    background-color: rgb(255, 225, 90);
     height: 9rem;
     width: 9rem;
-    box-shadow: 6px 5px 6px gray;
+    box-shadow: 6px 5px 6px rgb(109, 111, 226);
     margin: 5px;
     grid-template-columns: 2fr 1fr 2fr;
     grid-template-rows: 2fr 1fr 1fr;
+}
+.card:hover{
+  /* box-shadow: none; */
+  box-shadow: 6px 5px 20px rgb(0, 0, 0);
 }
 .delete:hover {
   text-decoration: underline;

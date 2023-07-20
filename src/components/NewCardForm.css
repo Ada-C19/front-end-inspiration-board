@@ -14,14 +14,14 @@ input {
     margin-bottom: 10px;
 }
 
-.submit-button {
+/* .submit-button {
     /* Your CSS styles for the submit button */
-    border-radius: 8px;
-    color: black;
-    background-color: rgb(147, 121, 121);
-}
+    /* border-radius: 8px; */
+    /* color: black; */
+    /* background-color: rgb(147, 121, 121); */
+/* } */
 
-.submit-button:hover {
+/* .submit-button:hover { */
     /* Your CSS styles for the submit button on hover */
-    background-color: pink;
-}
+    /* background-color: pink; */
+/* } */
