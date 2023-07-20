@@ -8,23 +8,6 @@ import axios from 'axios';
 
 const DEFAULT_BOARD_ID = 2; // TODO: Remove 
 
-const test_cards = [
-  {
-    "message": "hello world",
-    "id": 5,
-    "likes_count": 6,
-  },
-  {
-    "message": "hello computer",
-    "id": 6,
-    "likes_count": "10000000"
-  }
-];
-
-const test_board = {
-  cards: test_cards,
-};
-
 const kBaseUrl = 'http://127.0.0.1:5000';
 
 function App() {
