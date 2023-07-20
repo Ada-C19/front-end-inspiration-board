@@ -23,6 +23,7 @@ const boardsURL = `${ process.env.REACT_APP_BACKEND_URL }`
 function App() {
 
   // initiating states ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  //use selectedBoard state to show cardlist
   const [ boardsData, setBoardsData ] = useState([]);
   const [ selectedBoard, setSelectedBoard ] = useState({
     title: '',
@@ -72,7 +73,6 @@ function App() {
   // card list functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   // gets cards for a specific board, keeps eye on selected board
-  // ruh-roh, add conditionals to run alert on render?
   useEffect(() => {
     axios.get(`${boardsURL}/boards/${selectedBoard.board_id}`).then((response)=> {
     setCardsData(response.data.cards);
@@ -98,7 +98,7 @@ function App() {
     });
 };
 
-  // adds like to a card (we deleted like endpoint)
+  // axios call adds like to a card (we deleted like endpoint)
   const addOneLikeToCard = (card) => {
     axios.put(`${boardsURL}/cards/${card.card_id}`).then((response) => {
     const newCardsData = cardsData.map((existingCard) => {
@@ -112,7 +112,7 @@ function App() {
     });
   };
 
-  // removes like to a card (we deleted like endpoint)
+  // axios call removes like to a card (we deleted like endpoint)
   const removeOneLikeToCard = (card) => {
     axios.put(`${boardsURL}/cards/${card.card_id}`).then((response) => {
     const newCardsData = cardsData.map((existingCard) => {
@@ -126,7 +126,7 @@ function App() {
     });
   };
 
-  // creates a new card to post to a boardID
+  // axios creates a new card to post to a boardID
   const postNewCard = (message) => {
     axios.post(
         `${boardsURL}/boards/${selectedBoard.board_id}/cards`,
@@ -140,6 +140,7 @@ function App() {
       alert('Couldn\'t create a new card.');
     });
   };
+
 
   // form functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   const isSubmitDisabled = (value) => {
@@ -173,17 +174,17 @@ function App() {
         <section className='cardslist-container'>
           {/* <h1>Board for Billy my Brother</h1> */}
           {/* <Card/> */}
-          <CardList
+          {selectedBoard.board_id ? <CardList
             cardsData={cardsData}
             addOneLikeToCard={addOneLikeToCard}
             removeOneLikeToCard={removeOneLikeToCard}
             deleteCard={deleteCard}
             selectedBoard={selectedBoard}
-          />
+          /> : ''}
         </section>
         <section>
           {/* Board Title: */}
-          <NewCardForm isSubmitDisabled={isSubmitDisabled} postNewCard={postNewCard}/>
+          {selectedBoard.board_id ? <NewCardForm isSubmitDisabled={isSubmitDisabled} postNewCard={postNewCard}/> : '' }
           {/* Add conditional rendering to both NewCardForm and Card so they appear when a Board
           is selected. */}
           {/* We need to be able to click on individual boards and toggle highlights on or off. */}
