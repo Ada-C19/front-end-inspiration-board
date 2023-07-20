@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import './NewBoardForm.css'
+// import './NewBoardForm.css'
+// import './NewCardForm.css';
+import '../App.css';
 
 const kInitialFormData = {
     title: '',
@@ -47,7 +49,7 @@ const NewBoardForm = (props) => {
                     onChange={handleChange}
                     placeholder="Board Owner"
                 />
-                <input disabled={((formData.title.length === 0) || (formData.owner.length === 0))} type="submit" value="Submit New Board"/>
+                <input disabled={((formData.title.length === 0) || (formData.owner.length === 0))} type="submit" value="Submit New Board" className="submit-button"/>
             </form>
         </section>
     );

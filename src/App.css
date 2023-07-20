@@ -25,7 +25,7 @@ body {
   flex:1;
 }
 .sidebar__container{
-  background-color: rgb(14, 18, 230);
+  background-color: rgb(89, 91, 215);
   border-style: dotted;
   color: white;
 }
@@ -33,7 +33,7 @@ body {
 .submit-button{
   border-radius: 8px;
   color: black;
-  background-color: rgb(252, 42, 42);
+  background-color: rgb(110, 230, 89);
 }
 
 .submit-button:hover {
