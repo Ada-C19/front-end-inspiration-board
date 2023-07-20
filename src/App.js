@@ -162,8 +162,15 @@ function App() {
           </button>
         </section>
         <section>
-          <h1>Board for Billy my Brother</h1>
-          <Card/>
+          {/* <h1>Board for Billy my Brother</h1> */}
+          {/* <Card/> */}
+          <CardList
+            cardsData={cardsData}
+            addOneLikeToCard={addOneLikeToCard}
+            removeOneLikeToCard={removeOneLikeToCard}
+            deleteCard={deleteCard}
+            selectedBoard={selectedBoard}
+          />
         </section>
         <section>
           {/* Board Title: */}
