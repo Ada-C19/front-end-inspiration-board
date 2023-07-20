@@ -9,6 +9,7 @@ import AddCard from './components/CardForm'
 
 const baseUrl = 'https://inspiration-board-api-m6he.onrender.com';
 
+// gets all boards from backend
 const getAllBoards = () =>{
   return axios.get(`${baseUrl}/board`)
   .then((response)=>{
@@ -19,7 +20,7 @@ const getAllBoards = () =>{
 });
 
 }
-
+// gets all cards from backend
 const getCards = (id) => {
   return axios.get(`${baseUrl}/board/${id}/cards`)
   .then((response)=>{
@@ -31,6 +32,7 @@ const getCards = (id) => {
 }
 function App() {
 
+  // board state
   const [boardData, setBoardData] = useState([])
   const fetchBoards = () =>{
     getAllBoards()
@@ -45,8 +47,9 @@ function App() {
     fetchBoards();
   },[] );
 
-
+// board preview state
   const [selectedBoard, setSelectedBoard]= useState("Select a Board")
+// gets board id for post card
   const [boardId, setBoardId] = useState(0)
   const selectBoard = (id) =>{
   
@@ -57,7 +60,7 @@ function App() {
   setBoardId(id)
 
   }
-
+//  card state
   const [cardData, setCardData] = useState([]);
   const fetchCards = (id) =>{
     getCards(id)
@@ -68,7 +71,7 @@ function App() {
 
     )
   }
-
+// submit board form
   const handleSubmit = (data) =>{
     axios.post(`${baseUrl}/board`, data)
       .then((response)=>{
@@ -101,7 +104,7 @@ function App() {
       });
     });
   };
-
+// submit card form --use state id here
   const cardSubmit = (data) =>{
     axios.post(`${baseUrl}/board/${boardId}/cards`, data)
       .then((response)=>{
@@ -110,7 +113,7 @@ function App() {
       .catch((error)=> console.log(error));
   };
   
-
+// delete card
   const toDelete = (id) =>{
     return axios
       .delete(`${baseUrl}/cards/${id}`)
