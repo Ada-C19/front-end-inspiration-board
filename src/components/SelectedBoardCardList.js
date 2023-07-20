@@ -14,6 +14,7 @@ const SelectedBoardCardList = (props) => {
                     likesCount = {card.likesCount}
                     key = {card.cardId}
                     onUnregister = {props.onUnregister}
+                    onLikeCard = {props.onLikeCard}
                 />
             );
         });
