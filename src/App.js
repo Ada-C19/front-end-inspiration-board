@@ -8,12 +8,14 @@ import axios from 'axios';
 export const URL = 'http://localhost:5000/boards'
 
 const App = () => {
+  const [showNewBoardForm, setShowNewBoardForm] = useState(false);
   const [boards, setBoards] = useState([]);
   const [boardData, setBoardData] = useState({
     boardId: 0,
     title: '',
     owner: ''
   });
+
 
   useEffect(() => {
     axios
@@ -32,7 +34,6 @@ const App = () => {
   }, []);
 
   const updateBoard = (boardID, updatedData) => {
-  console.log("Updated data: ", updatedData);
   return axios
     .patch(`${URL}/${boardID}`, updatedData)
     .then((response) => {
@@ -94,23 +95,23 @@ const App = () => {
   }
 
   const addCard = (formField) => {
-    console.log(`${boardData.boardId}`)
     axios.post(`http://localhost:5000/boards/${boardData.boardId}/card`, formField)
       .then(response => {
-        console.log(response.data);
-    
         const createdCard = {
           boardId: response.data.card.board_id,
           id: response.data.card.id,
           message: response.data.card.message,
           likes_count: response.data.card.likes_count
         };
-        console.log(`${boardData.boardId}`)
         boardData.setCards(prevCards => [...prevCards, createdCard]);
       })
       .catch(error => {
         console.error("Error creating card", error);
       });
+  };
+
+  const toggleNewBoardForm = () => {
+    setShowNewBoardForm((prevValue) => !prevValue);
   };
 
   return (
@@ -120,7 +121,10 @@ const App = () => {
       </header>
       <main>
         <BoardList boards={boards} updateBoard={updateBoard} deleteBoard={deleteBoard} selectBoard={selectBoard}/>
-        <NewBoardForm addNewBoard={addNewBoard} />
+        {showNewBoardForm && <NewBoardForm addNewBoard={addNewBoard} />}
+        <button onClick={toggleNewBoardForm}>
+          {showNewBoardForm ? 'Hide New Board Form' : 'Show New Board Form'}
+        </button>
         <NewCardForm selectedBoard={boardData} addCard={addCard}/>
       </main>
     </div>
