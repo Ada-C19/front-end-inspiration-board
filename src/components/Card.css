@@ -4,7 +4,41 @@
     height: 100px;
     width: 100px;
     padding: 10px;
-    color: black;
+    color: blue;
     font-size: x-small;
     margin: 20px;
+    border: 2px transparent solid;
+}
+
+.card:hover {
+    border: 2px #4e81da solid
+}
+
+.add-like {
+    border-radius: 100px;
+    height: 30px;
+    width: 30px;
+    color: #FC5EAA;
+    border: 1px #FC5EAA solid;
+    font-weight: 900;
+}
+
+.deleteCard {
+    border-radius: 100px;
+    font-size: small;
+    height: 30px;
+    width: 30px;
+    color: #FC5EAA;
+    border: 2px #FC5EAA solid;
+    font-weight: 900;
+}
+
+.likes {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    font-size: small;
+    align-items: center;
+    gap: 5px;
+    margin: 0
 }

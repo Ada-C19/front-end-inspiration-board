@@ -64,9 +64,9 @@ input {
   width: 80vw;
 }
 
-.card-list{
-  flex-wrap:wrap;
-} 
+.card-list {
+  flex-wrap: wrap;
+}
 
 .add-card button {
   border-radius: 100px;

@@ -4,10 +4,7 @@ import Card from './Card';
 import './CardList.css';
 import NewCardForm from './NewCardForm';
 
-const CardList = ({ cards, boardId, likeCard, createCard, deleteCard, increaseLikes}) => {
-
-  // console.log(boardId)
-  // console.log(cards)
+const CardList = ({ cards, boardId, likeCard, createCard, deleteCard, increaseLikes }) => {
   const cardComponents = cards.map(card => {
     return (
       <Card
@@ -31,7 +28,7 @@ const CardList = ({ cards, boardId, likeCard, createCard, deleteCard, increaseLi
           id='card-form'
           boardId={boardId}
           createCard={createCard}
-        
+
 
         />
       </section>
