@@ -53,6 +53,22 @@ const handleCardSubmit = (newCardFormProps) => {
     });
 };
 
+const handleLike = id => {
+  return axios
+  .patch(`${kBaseUrl}/cards/${id}`)
+  .then((res) => {
+    setCardData((prev) => {
+      return prev.map((card) =>{
+        if (id === card.id) {
+          return res.data;
+        } else {
+          return card;
+        }
+      })
+    })
+  })
+}
+
 const deleteCard = id => {
   return axios
   .delete(`${kBaseUrl}/cards/${id}`)
@@ -83,7 +99,7 @@ return (
       <Board
         cardData={cardData}
         onDelete={deleteCard}
-        //onLike={handleLike}
+        onLike={handleLike}
       />
     </main>
     </div>

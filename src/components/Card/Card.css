@@ -1,18 +1,46 @@
 /* styles for Card component */
 .card {
+  display: grid;
     background-color: palegoldenrod;
     height: 9rem;
     width: 9rem;
     box-shadow: 6px 5px 6px gray;
     margin: 5px;
+    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-rows: 2fr 1fr 1fr;
 }
 .delete:hover {
   text-decoration: underline;
   cursor: pointer;
 }
 
-p.message {
+.delete{
+  grid-area: 3 /  2 / span 1 / span 1;
+  margin: 0;
+}
+.message {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  grid-area: 1 / 1 / span 1 / span 3;
+}
+.message:hover{
+  cursor:default;
 }
 
+.likes__count:hover {
+  cursor: default;
+}
+
+.likes__count {
+  grid-area: 2 / 2/ span 1 / span 2;
+  margin: 0;
+}
+
+.like__button{
+  cursor: pointer;
+  grid-area: 2 / 1 / span 1 / span 1;
+  margin:0;
+}
+.like__button:hover {
+  content: '💖';
+}
