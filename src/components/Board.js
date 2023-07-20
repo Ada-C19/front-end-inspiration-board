@@ -4,24 +4,34 @@ import TrashIcon from "./TrashIcon";
 import CardList from "./CardList";
 import './Board.css';
 
-const Board = ({ board_id, title, owner, cards, deleteBoard, handleLike, deleteCard, cardDisplaySortDirection }) => {
-
+const Board = ({
+    board_id,
+    title,
+    owner,
+    cards,
+    deleteBoard,
+    handleLike,
+    deleteCard,
+    cardDisplaySortDirection,
+    selectedBoardId,
+}) => {
+        
     // delete board API call not working, throws error.
     const handleDeleteBoard = () => {
         deleteBoard(board_id);
     };
-    
+
     return (
         <div className="board">
-            <h1 className="h1-board">{title}</h1>
-            <p>Created By: {owner}</p>
-            <TrashIcon onClick={() => handleDeleteBoard()} />
-            <CardList
-            cards={cards}
-            handleLike={handleLike}
-            deleteCard={deleteCard}
-            sortDirection={cardDisplaySortDirection}
-            />
+                    <h1 className="h1-board">{title}</h1>
+                    <p>Created By: {owner}</p>
+                    <TrashIcon onClick={() => handleDeleteBoard()} />
+                    <CardList
+                        cards={cards}
+                        handleLike={handleLike}
+                        deleteCard={deleteCard}
+                        sortDirection={cardDisplaySortDirection}
+                    />
         </div>
     );
 };
@@ -34,7 +44,8 @@ Board.propTypes = {
     deleteBoard: PropTypes.func.isRequired,
     handleLike: PropTypes.func.isRequired,
     deleteCard: PropTypes.func.isRequired,
-    cardDisplaySortDirection: PropTypes.string.isRequired
-}
+    cardDisplaySortDirection: PropTypes.string.isRequired,
+    selectedBoardId: PropTypes.number,
+};
 
 export default Board;

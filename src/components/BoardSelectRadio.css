@@ -17,7 +17,11 @@
 .mini-board .board {
     margin: 10px;
     padding: 5px;
-    height: 50%; /* Adjust the height to fill the mini-board */
+    height: 50%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     /* Border */
     border-image-slice: 250;

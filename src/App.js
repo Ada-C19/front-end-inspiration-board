@@ -78,8 +78,8 @@ const App = () => {
         return board;
       }
     }
-    return defaultEmptyBoardList[0]
-  }
+    return defaultEmptyBoardList[0];
+  };
 
   const handleSubmitBoard = (newBoard) => {
     const postBoardToAPI = (newBoard) => {
@@ -200,13 +200,7 @@ const App = () => {
               handleLike={handleLike}
               deleteCard={handleDeleteCard}
               cardDisplaySortDirection={cardDisplaySortDirection}
-            />
-            <CardList
-              cards={cards}
-              handleLike={handleLike}
-              deleteCard={handleDeleteCard}
-              sortDirection={cardDisplaySortDirection}
-            />
+              />
             <SortCardRadio onSortSelect={handleSortCard} />
             <NewCardForm addCard={handleSubmitCard} />
           </div>
