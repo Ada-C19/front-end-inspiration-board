@@ -7,15 +7,15 @@ const Card = ({ cardId, message, likes, boardId, likeCard }) => {
 
   return (
     <div>
-      <section>
+      <section className="card">
         {likes}
         <button onClick={() => likeCard(cardId)}>
-          <img src="../assets/plus_button.jpeg" alt="Like button" />
+          +1
         </button>
+        <body>
+          {message}
+        </body>
       </section>
-      <body>
-        {message}
-      </body>
     </div>
   )
 }

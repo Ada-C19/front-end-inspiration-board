@@ -10,6 +10,8 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [cardData, setCardData] = useState([]); 
   const [selectedBoard, setSelectedBoard] = useState([])
+  const [boardTitle, setBoardTitle] = useState("Select a Board")
+  const [boardOwner, setBoardOwner] = useState("")
 
   console.log(cardData,selectedBoard)
   const selectBoard = (boardId) => {
@@ -18,6 +20,8 @@ const App = () => {
       .then((response) => {
         setSelectedBoard({ board_id: response.data.board_id, title: response.data.title, owner: response.data.owner })
         setCardData(response.data.cards)
+        setBoardTitle(response.data.title)
+        setBoardOwner(response.data.owner)
         console.log(response.data)
       })
   }
@@ -34,6 +38,20 @@ const App = () => {
 			})
     })
   }
+
+  // To be used later
+  // const deleteCard = (cardId) => {
+  //   console.log(cardId)
+  //   axios.delete(`https://inspoboardteam404.onrender.com/cards/${cardId}`)
+  //   .then(() => {
+  //     setBoardData((prevCards) => {
+	// 			const updatedCards = prevCards.filter(
+	// 				(card) => card.card_id !== cardId
+	// 			);
+	// 			return updatedCards;
+	// 		})
+  //   })
+  // }
   
   useEffect(() => {
     axios.get('https://inspoboardteam404.onrender.com/boards')
@@ -74,12 +92,15 @@ const App = () => {
     axios.post('https://inspoboardteam404.onrender.com/boards', formFields).then(response => {
         console.log(response.data)
         setBoardData(prevData => {
-          // return [response.data.board, ...prevData]
+          // return [response.data.board, ...prevData]     // Add new Board to the top
           return [...prevData, response.data.board]     // Add new Board to the end
         })
     })
 };
   
+  const likeCard = () => {
+
+  }
 
   // const addCardData = () => {
   //   // const form = document.getElementsByClassName("input-form");
@@ -126,14 +147,15 @@ return (
 
 
       <div className="main-container">
-        <header className="title">
-          <h1>Select a Board</h1>
+        <header className="header">
+          <h1>{boardTitle}</h1>
+          <p>{boardOwner}</p>
         </header>
         <body className="content">
-          <p>Nothing to Display</p>
-          <div className="card-forms">
+          <CardList selectBoard={selectBoard} cards={cardData} likeCard={likeCard} />
+          <section className="card-forms">
             <NewCardForm id='card-form' />
-          </div>
+          </section>
         </body>
       </div>
       {/* put the button [Create New Board] here in App.js, NOT in Board.js; because that makes it come up in EVERY board. we just want it once on the page */}

@@ -6,7 +6,7 @@ const Board = ({ boardId, title, owner, selectBoard, deleteBoard }) => {
 
     return (
         <div className="board">
-            <section>
+            <section onClick={() => selectBoard(boardId)}>
                 <h1 onClick={() => selectBoard(boardId)}>{title}</h1>
                 <p>by: {owner}</p>
             </section>
