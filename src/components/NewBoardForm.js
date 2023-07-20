@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import './NewBoardForm.css'
+import './NewBoardForm.css';
+
 
 const NewBoardForm = (props) => {
     const boardDefaultState = {
@@ -36,7 +37,7 @@ const NewBoardForm = (props) => {
     const hiddenClass = isHidden ? 'hidden-component' : null;
 
     return (
-    <section>
+    <section className="newBoardForm">
         <form onSubmit={handleSubmit} className={hiddenClass}>
             <div>
             <label htmlFor="title">Title: </label>
