@@ -18,7 +18,7 @@ const BoardList = (props) => {
   };
 
   return (
-    <select onChange={handleBoardSelect}>{boardItems}</select>
+    <select onChange={handleBoardSelect}><option>Select a board</option>{boardItems}</select>
     );
 
 };
