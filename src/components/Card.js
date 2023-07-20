@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import './Card.css';
 
 
-const Card = ({ cardId, message, likes, boardId, likeCard }) => {
+const Card = ({ cardId, message, likes, boardId, likeCard, deleteCard }) => {
 
   return (
     <div>
@@ -15,6 +15,15 @@ const Card = ({ cardId, message, likes, boardId, likeCard }) => {
         <div>
           {message}
         </div>
+        <section>
+          <button
+            type="delete"
+            className="deleteCard"
+            onClick={() => deleteCard(cardId)}
+          >
+            X
+          </button>
+        </section>
       </section>
     </div>
   )

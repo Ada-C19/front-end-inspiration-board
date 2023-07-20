@@ -4,8 +4,8 @@ import Card from './Card';
 import './CardList.css';
 import NewCardForm from './NewCardForm';
 
-const CardList = ({ cards, boardId, selectBoard, likeCard, createCard}) => {
-  
+const CardList = ({ cards, boardId, likeCard, createCard, deleteCard }) => {
+
   // console.log(boardId)
 
   const cardComponents = cards.map(card => {
@@ -16,18 +16,21 @@ const CardList = ({ cards, boardId, selectBoard, likeCard, createCard}) => {
         likes={card.likes}
         boardId={card.boardId}
         likeCard={likeCard}
+        deleteCard={deleteCard}
       />
     )
   })
   return (
     <div>
-      <section>{cardComponents}</section>
+      <section className="card-list">
+        {cardComponents}
+      </section>
       <section className="card-forms">
-            <NewCardForm 
-            id='card-form'
-            boardId={boardId} 
-            createCard={createCard}
-            />
+        <NewCardForm
+          id='card-form'
+          boardId={boardId}
+          createCard={createCard}
+        />
       </section>
     </div>
 

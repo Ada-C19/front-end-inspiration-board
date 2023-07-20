@@ -38,6 +38,19 @@ const App = () => {
 			})
     })
   }
+
+  const deleteCard = (cardId) => {
+    // console.log(boardId)
+    axios.delete(`https://inspoboardteam404.onrender.com/cards/${cardId}`)
+    .then(() => {
+      setCardData((prevCards) => {
+				const updatedCards = prevCards.filter(
+					(card) => card.card_id !== cardId
+				);
+				return updatedCards;
+			})
+    })
+  }
   
   useEffect(() => {
     axios.get('https://inspoboardteam404.onrender.com/boards')
@@ -120,7 +133,6 @@ return (
           selectBoard={selectBoard}
           deleteBoard={deleteBoard}
           createBoard={createBoard}
-          
           />
         </section>
       </div>
@@ -137,6 +149,7 @@ return (
           likeCard={likeCard} 
           createCard={createCard}
           boardId={selectedBoard.board_id} 
+          deleteCard={deleteCard}
           />
         </div>
       </div>
