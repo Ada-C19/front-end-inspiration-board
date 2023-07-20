@@ -103,22 +103,29 @@ function App() {
 };
 
   // axios call adds like to a card (we deleted like endpoint)
+  //create a helper function fetch cards that 1.calls for the cards and 2.sets state
+  //create get all cards function outside of app function?
   const addOneLikeToCard = (card) => {
-    axios.put(`${boardsURL}/cards/${card.card_id}/add`).then((response) => {
+    console.log(`"HERE IS THE CARD:" ${card}`)
+    console.log(`"HERE IS THE CARD ID!!!:" ${card.card_id}`)
+    console.log(`${boardsURL}/cards/${card.card_id}/add`)
+
+    
+    axios.patch(`${boardsURL}/cards/${card.card_id}/add`).then((response) => {
     const newCardsData = cardsData.map((existingCard) => {
       // this is the same conditional
         return existingCard.card_id !== card.card_id ? existingCard : {...card, likes_count: card.likes_count + 1}
       });
       setCardsData(newCardsData);
     }).catch((error) => {
-      console.log('Error:', error);
+      console.log('Error:', error.message);
       alert('Couldn\'t +1 the card.');
     });
   };
 
   // axios call removes like to a card (we deleted like endpoint)
   const removeOneLikeToCard = (card) => {
-    axios.put(`${boardsURL}/cards/${card.card_id}/remove`).then((response) => {
+    axios.patch(`${boardsURL}/cards/${card.card_id}/remove`).then((response) => {
     const newCardsData = cardsData.map((existingCard) => {
       // this is the same conditional
         return existingCard.card_id !== card.card_id ? existingCard : {...card, likes_count: card.likes_count - 1}
