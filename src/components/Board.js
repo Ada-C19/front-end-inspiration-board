@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import TrashIcon from "./TrashIcon";
+import CardList from "./CardList";
 import './Board.css';
 
 const Board = ( {board_id, title, owner, cards, deleteBoard} ) => {
@@ -13,6 +14,7 @@ const Board = ( {board_id, title, owner, cards, deleteBoard} ) => {
             <h1 className="h1-board">{title}</h1>
             <p>Created By: {owner}</p>
             <TrashIcon onClick={() => handleDeleteBoard()} />
+            <CardList cards={cards} />
         </div>
     );
 };
@@ -21,6 +23,8 @@ Board.propTypes = {
     board_id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     owner: PropTypes.string.isRequired,
+    cards: PropTypes.array.isRequired,
+    deleteBoard: PropTypes.func.isRequired,
 }
 
 export default Board;
