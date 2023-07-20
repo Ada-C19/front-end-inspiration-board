@@ -3,10 +3,10 @@ import './Card.css';
 const Card = props => {
 
   return(
-    <div id='card'>
-      <p>{props.message}</p>
+    <div className='card'>
+      <p className='message'>{props.message}</p>
       <p>Likes: {props.likes_count}</p>
-      
+      <p>Delete</p>
     </div>
   )
 };
