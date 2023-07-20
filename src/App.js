@@ -29,7 +29,8 @@ const kBaseUrl = 'http://127.0.0.1:5000';
 
 function App() {
   const [boardData, setBoardData] = useState([]);
-  const [selectedBoard, setSelectedBoard] = useState(2);
+  const [selectedBoard, setSelectedBoard] = useState({title: '', owner: '',
+boardId: null});
   useEffect(() => {
     axios
       .get(`${kBaseUrl}/boards`)

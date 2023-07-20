@@ -6,7 +6,7 @@ import axios from 'axios';
 const Board = props => {
   console.log(props.selectedBoard);
   const getAllCards = () => {
-    if (props.selectedBoard > 0) {
+    if (props.selectedBoard.boardId !== null) {
     axios
       .get(`${props.baseUrl}/boards/${props.selectedBoard}/cards`)
       .then((res) => console.log(res.data))
