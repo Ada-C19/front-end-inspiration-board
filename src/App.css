@@ -1,5 +1,3 @@
-
-
 .App {
   text-align: center;
   background-image: url("https://wallpapers.com/images/hd/spirited-away-spirit-world-city-az9heqv2mmd89ho2.webp");
@@ -35,11 +33,8 @@
 .boards__container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  /* grid-template-columns: 1fr track-size 1fr; */
-  /* grid-template-rows: 1fr 1fr; */
   font-family: fantasy;
   font-weight: bold;
-  /* margin: 3%; */
   padding-left: 3%;
 }
 
