@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CardEntry from './CardEntry';
-
+import './SelectedBoardCardList.css';
 
 const SelectedBoardCardList = (props) => {
 
@@ -23,7 +23,7 @@ const SelectedBoardCardList = (props) => {
     const boardCards = props.cardList ? props.cardList : [];
 
     return (
-        <section>
+        <section className="cards">
             <h1>Selected Board Card List</h1>
             <ol>{getCardListJSX(boardCards)}</ol>
         </section>

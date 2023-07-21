@@ -147,13 +147,13 @@ const App = () => {
       <header className="App-header">
         Inspiration Board
       </header>
-      <main>
-        <section>
+      <main className="Main">
+        <section className="Right">
           <BoardList boardData={boardState} onSelectBoard={handleBoardSelection}></BoardList>
           <SelectedBoard boardState={selectedBoard}></SelectedBoard>
           <NewBoardForm onHandleBoardSubmit={onHandleBoardSubmit}></NewBoardForm>
         </section>
-        <section>
+        <section className="Left">
           <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState} onUnregister={onUnregister} onLikeCard = {onLikeCard}></SelectedBoardCardList>
           <NewCardForm selectedBoard={selectedBoard} onHandleSubmit={onHandleSubmit}></NewCardForm>
         </section>
