@@ -69,3 +69,8 @@ flex-direction: column;
   text-align: left;
   border-radius: 2%;
 }
+
+li:focus {
+  background-color: coral;
+  outline: none;
+}

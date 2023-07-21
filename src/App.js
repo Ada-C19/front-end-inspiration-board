@@ -40,7 +40,7 @@ function App() {
   const selectBoard = (board) => { setSelectedBoard(board) };
   
   const boardElements = boardsData.map((board) => {
-    return (<li>
+    return (<li tabindex='1'>
       <BoardList board={board} onSelectBoard={selectBoard}/>
     </li>)
   });
