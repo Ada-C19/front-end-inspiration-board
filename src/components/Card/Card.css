@@ -2,8 +2,8 @@
 .card {
   display: grid;
     background-color: rgb(255, 225, 90);
-    height: 9rem;
-    width: 9rem;
+    height: 10rem;
+    width: 12rem;
     box-shadow: 6px 5px 6px rgb(109, 111, 226);
     margin: 5px;
     grid-template-columns: 2fr 1fr 2fr;
@@ -19,7 +19,9 @@
 }
 
 .delete{
-  grid-area: 3 /  2 / span 1 / span 1;
+  /* grid-area: 3 /  2 / span 1 / span 1; */
+  padding-top: 1rem;
+  font-size: 0.7rem;
   margin: 0;
 }
 .message {
