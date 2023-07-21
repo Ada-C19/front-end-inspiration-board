@@ -32,7 +32,7 @@ const NewCardForm = ({selectedBoard, postNewCard, isSubmitDisabled, cardObject, 
                     className={isSubmitDisabled(cardObject.message) ? 'invalid-form-input' : ''}
                     />
             <div>
-                <p>Preview: "{cardObject.message}"</p>
+                <p className='preview-message'>Preview: "{cardObject.message}"</p>
             </div>
             <div>
             <input  className='submit-button' 

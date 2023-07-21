@@ -37,3 +37,17 @@
     background-color: rgb(253, 147, 109);
     font-family:  'Bradley Hand', cursive;
 }
+
+#message {
+    border: none;
+    padding: 8px;
+    opacity: 1;
+    border-radius: 5px;
+    margin-left: 5%;
+    padding-left: 5%;
+}
+
+.preview-message {
+    text-shadow: 6px 6px 3px  black;
+    font-weight: bolder;
+}
