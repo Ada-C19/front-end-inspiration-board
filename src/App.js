@@ -192,7 +192,7 @@ const App = () => {
               board_id={currentBoard().id}
               title={currentBoard().title}
               owner={currentBoard().owner}
-              cards={cards} 
+              cards={cards} x 
               deleteBoard={handleDeleteBoard}
               handleLike={handleLike}
               deleteCard={handleDeleteCard}
