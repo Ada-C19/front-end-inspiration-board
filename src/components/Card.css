@@ -16,13 +16,15 @@
 }
 
 .card .message {
+    padding: -1em;
+    margin: 0 -1em;
     display: flex;
     flex-wrap: row wrap;
     align-items: center;
     justify-content: space-evenly;
-    border: 2px solid blue;
-    height: 50px;
-    width: 50px;
+    border: 2px dotted rgb(148, 196, 255);
+    /* height: 50px;
+    width: 50px; */
 }
 
 .card:hover {
