@@ -4,7 +4,7 @@ import Card from './Card';
 import NewCardForm from './NewCardForm';
 // import './CardList.css';
 
-const CardList = ( { cardsData, addOneLikeToCard, removeOneLikeToCard, deleteCard, selectedBoard}) => {
+const CardList = ( { cardsData, addOneLikeToCard, removeOneLikeToCard, deleteCard, selectedBoard, deleteBoard}) => {
 
   const cardElements = cardsData.map((card) => {
     return (<Card
@@ -25,6 +25,7 @@ const CardList = ( { cardsData, addOneLikeToCard, removeOneLikeToCard, deleteCar
           <div className='board-of-cards'>
             {cardElements}
           </div>
+          <button className='delete-button' onClick={() => deleteBoard(selectedBoard)}>delete board</button>
         </>
     );
 };

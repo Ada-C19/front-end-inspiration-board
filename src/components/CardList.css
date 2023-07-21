@@ -11,3 +11,9 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.delete-button {
+  margin-top: 10%;
+  background-color: rgb(253, 147, 109);
+  font-family:  'Bradley Hand', cursive;
+}

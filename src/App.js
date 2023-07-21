@@ -68,11 +68,31 @@ function App() {
         const boards = [...boardsData];
         boards.push(response.data.board);
         setBoardsData(boards);
+        setSelectedBoard(response.data.board);
       }).catch((error) => {
         console.log('Error:', error);
         alert('Couldn\'t create a new board')
       });
   };
+
+  const deleteBoard = (selectedBoard) => {
+    if (window.confirm('Are you really sure you want to delete this board?')) {
+      axios.delete(`${boardsURL}/boards/${selectedBoard.board_id}`).then((response) => {
+      const newBoardsData = boardsData.filter((existingBoard) => {
+          return existingBoard.board_id !== selectedBoard.board_id;
+      });
+      setBoardsData(newBoardsData);
+      setSelectedBoard({
+        title: '',
+        owner: '',
+        board_id: null
+      });
+      }).catch((error) => {
+      console.log('Error:', error);
+      alert('Couldn\'t delete the board.');
+      });
+    } 
+};
 
   // card list functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -192,6 +212,7 @@ function App() {
             removeOneLikeToCard={removeOneLikeToCard}
             deleteCard={deleteCard}
             selectedBoard={selectedBoard}
+            deleteBoard={deleteBoard}
           /> : ''}
         </section>
         <section>
