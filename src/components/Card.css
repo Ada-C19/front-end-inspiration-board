@@ -38,8 +38,8 @@
     height: 10%;
   }
   
-
-  /* .card-buttons {
+/* 
+  .card-buttons {
     list-style-type: none;
     display: grid;
     grid-template-columns: repeat(3, 1fr);

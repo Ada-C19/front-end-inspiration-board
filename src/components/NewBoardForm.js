@@ -40,7 +40,7 @@ const NewBoardForm = ({createNewBoard, isSubmitDisabled}) => {
                     className={isSubmitDisabled(owner) ? 'invalid-form-input' : ''} />
         </div>
         <div>
-            <p className="preview-format">Preview: "Sweet wishes for {title} ~ {owner}"</p>
+            <p className="preview-format">Preview: "Sweet wishes for {title} - {owner}"</p>
         </div>
         <div className="form-row">
             <button type="submit" 
