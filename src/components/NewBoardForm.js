@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import '../App.css';
-import './NewCardForm.css';
 import './NewBoardForm.css'
 
 const kInitialFormData = {
@@ -28,7 +27,7 @@ const NewBoardForm = (props) => {
       };
 
     return (
-        <section className="board__form">
+        <section className="form">
             <h2>New Board</h2>
             <form onSubmit={handleFormSubmit}>
                 <label htmlFor="title"/>

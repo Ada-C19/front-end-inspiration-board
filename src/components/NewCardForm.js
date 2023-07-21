@@ -26,7 +26,7 @@ const NewCardForm = ({ handleCardSubmit }) => {
     };
 
     return (
-        <div className="board__form">
+        <div className="form">
             <form onSubmit={handleSubmit}>
                 <h2>New Card</h2>
                 {/* <label htmlFor="message"> Card Message: </label> */}
