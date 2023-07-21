@@ -11,6 +11,7 @@ const Board = ( props ) => {
   const [newTitle, setNewTitle] = useState(props.title);
   const [newOwner, setNewOwner] = useState(props.owner);
   const [isEditing, setIsEditing] = useState(false);
+  // const [sort, setSort] = useState(cards.id)
 
   useEffect(() => {
     fetchCards();
@@ -79,6 +80,26 @@ const handleEditClick = () => {
   setIsEditing(true); 
 }
 
+const sortCards = (sortType) => {
+  
+  const sorting = (cardA, cardB) => {
+    switch (sortType) {
+      case 'message':
+        return cardA.message.localeCompare(cardB.message);
+      case 'id':
+        return cardA.id - cardB.id;
+      case 'likes_count':
+        return cardA.likes_count - cardB.likes_count;
+      default:
+        return cardA.message.localeCompare(cardB.message);
+    }
+  }
+  let copiedCards = [...cards]
+  const sortedCards = copiedCards.sort(sorting)
+  console.log(sortedCards);
+  setCards(sortedCards);
+}
+
 return (
   <>
     <h2>{props.title}</h2>
@@ -103,6 +124,7 @@ return (
     showCards={showCards}
     onDelete={deleteCard}
     updateLikeCount={updateLikeCount}
+    sortCards={sortCards}
     />
   </>
 )

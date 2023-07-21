@@ -80,4 +80,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - create a way to 
 - everytime the page renders
 - passing from top all the way down to board
-- s
+- need a select control html tag to give us the "options"
+

@@ -34,6 +34,7 @@ BoardList.propTypes = {
   updateBoard: PropTypes.func.isRequired,
   deleteBoard: PropTypes.func.isRequired,
   selectBoard: PropTypes.func.isRequired,
+  // sortCards: PropTypes.func.isRequired,
 }
 
 export default BoardList;

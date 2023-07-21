@@ -18,6 +18,13 @@ const CardList = (props) => {
 
         />
       ))}
+      <label htmlFor="cards">Sort Your Cards!</label>
+        <select name='cards' id='cards' onChange={(e) => props.sortCards(e.target.value)}>
+          <option value={'message'}>Alphabetically</option>
+          <option value={'id'}>By Id</option>
+          <option value={'likes_count'}>By Likes, descending</option>
+        </select>
+      
     </ol>
   );
 };
@@ -34,6 +41,7 @@ CardList.propTypes = {
   showCards: PropTypes.bool.isRequired,
   onDelete: PropTypes.func.isRequired,
   updateLikeCount: PropTypes.func.isRequired,
+  sortCards: PropTypes.func.isRequired,
 };
 
 export default CardList;
