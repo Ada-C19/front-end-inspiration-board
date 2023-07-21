@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import TrashIcon from "./TrashIcon";
 import CardList from "./CardList";
 import NewCardForm from "./NewCardForm";
-import SortCardRadio from "./SortCardSelector";
+import SortCardSelector from "./SortCardSelector";
 import './Board.css';
 
 const Board = ({
@@ -16,7 +16,8 @@ const Board = ({
     deleteCard,
     cardDisplaySortDirection,
     handleSubmitCard,
-    onSortSelect
+    onSortSelect,
+    targetBoardId,
 }) => {
         
     const handleDeleteBoard = () => {
@@ -25,9 +26,12 @@ const Board = ({
 
     return (
         <div className="board">
-                    <h1 className="h1-board">{title}</h1>
-                    <p>Created By: {owner}</p>
-                    <SortCardRadio onSortSelect={onSortSelect}/>
+                    <div>
+                        <h1 className="h1-board">{title}</h1>
+                        <p>Created By: {owner}</p>
+                        {targetBoardId === board_id && <SortCardSelector onSortSelect={onSortSelect}/>}
+                        {/* <SortCardSelector onSortSelect={onSortSelect}/> */}
+                    </div>
                     <TrashIcon onClick={() => handleDeleteBoard()} />
                     <CardList
                         cards={cards}

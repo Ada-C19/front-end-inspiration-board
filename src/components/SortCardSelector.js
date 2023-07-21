@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SortCardRadio = ( { onSortSelect }) => {
+const SortCardSelector = ( { onSortSelect }) => {
     
     const handleSortSelect = (event) => {
         onSortSelect(event.target.value)
@@ -9,11 +9,6 @@ const SortCardRadio = ( { onSortSelect }) => {
     return (
     <div>
         <h3>Choose Sort Direction</h3>
-        {/* <div>
-            <input type="radio" value="Alphabetical" name="cardSortDirection" onClick={handleSortSelect}/> Alphabetical
-            <input type="radio" value="Likes" name="cardSortDirection" onClick={handleSortSelect}/> Likes
-            <input type="radio" value="ID" name="cardSortDirection" onClick={handleSortSelect}/> ID
-        </div> */}
         <div>
             <select onChange={handleSortSelect}>
                 <option value="Alphabetical">Alphabetical</option>
@@ -25,4 +20,4 @@ const SortCardRadio = ( { onSortSelect }) => {
     )
 }
 
-export default SortCardRadio
+export default SortCardSelector
