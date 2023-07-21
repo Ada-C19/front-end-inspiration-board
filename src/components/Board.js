@@ -15,10 +15,8 @@ const Board = ({
     deleteCard,
     cardDisplaySortDirection,
     handleSubmitCard,
-    addCard,
 }) => {
         
-    // delete board API call not working, throws error.
     const handleDeleteBoard = () => {
         deleteBoard(board_id);
     };
@@ -50,7 +48,6 @@ Board.propTypes = {
     cardDisplaySortDirection: PropTypes.string.isRequired,
     selectedBoardId: PropTypes.number,
     handleSubmitCard: PropTypes.func.isRequired,
-    addCard: PropTypes.func.isRequired,
 };
 
 export default Board;
