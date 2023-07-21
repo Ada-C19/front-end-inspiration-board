@@ -3,7 +3,7 @@
     font-weight: bold;
     margin: 3%;
     grid-column: span 2;
-    text-shadow: 3px 3px 8px  black;
+    /* text-shadow: 3px 3px 8px  black; */
   }
 
 .board-of-cards {
