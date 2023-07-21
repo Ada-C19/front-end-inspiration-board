@@ -1,17 +1,16 @@
 import React from 'react';
 import './NewForm.css';
 
-const NewCardForm = ({selectedBoard, postNewCard, isSubmitDisabled, cardObject, setCardObject}) => {
-    
+const NewCardForm = ({selectedBoard, postNewCard, isSubmitDisabled, cardObject, setCardObject, cardsData, setCardsData}) => {
+
     const updatedCardObject = (changeEvent) => {
-        console.log(cardObject)
         setCardObject({
         ...cardObject,
         message: changeEvent.target.value,
         board_id: selectedBoard.board_id
         });
     };
-    // in this function we want to setCardObject
+
 
 
     const submitNewCard = (e) => {
@@ -19,7 +18,7 @@ const NewCardForm = ({selectedBoard, postNewCard, isSubmitDisabled, cardObject, 
         postNewCard(cardObject);
         setCardObject({ message: '', board_id: '' });
     };
-    //updating on change in the JSX 
+
 
 
     return (

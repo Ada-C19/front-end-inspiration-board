@@ -160,8 +160,8 @@ function App() {
 
   // returns ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   return (
-    <main className="background-image">
-    <div className="App">
+    <main className="App">
+    <div>
       <Popup/>
       <header> 
         <h1 className="header__">🏮 Lantern Festival </h1>
@@ -199,7 +199,9 @@ function App() {
                                                   postNewCard={postNewCard} 
                                                   selectedBoard={selectedBoard}
                                                   cardObject={cardObject}
-                                                  setCardObject={setCardObject}/> : '' }
+                                                  setCardObject={setCardObject}
+                                                  cardsData={cardsData} 
+                                                  setCardsData={setCardsData}/> : '' }
           {/* Add conditional rendering to both NewCardForm and Card so they appear when a Board
           is selected. */}
           {/* We need to be able to click on individual boards and toggle highlights on or off. */}
