@@ -26,7 +26,9 @@ const BoardList = ({ boards, selectBoard, createBoard, deleteBoard }) => {
             <section className="board-forms" style={{display: hideForm ? 'block' :'none'}}>
                 <NewBoardForm id="board-form" createBoard={createBoard} />
             </section>
-            <button onClick={() => setHideForm(!hideForm)}>{ hideForm ? 'Hide': 'Show'} Board Form</button>
+            <div className='hide-board-div'>
+            <button className='hide-forms-board' onClick={() => setHideForm(!hideForm)}>{ hideForm ? 'Hide': 'Show'} Board Form</button>
+            </div>
         </div>
     )
 }

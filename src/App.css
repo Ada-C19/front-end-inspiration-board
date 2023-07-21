@@ -1,9 +1,12 @@
+
 #App {
   text-align: center;
   height: 100%;
   display: flex;
-  font-family: sans-serif;
+  font-family: 'Kanit', sans-serif;
+  letter-spacing: 1px;
   background-color: #FC5EAA;
+  margin: auto;
 }
 
 .header {
@@ -22,6 +25,9 @@
 .header h1 {
   margin: 0;
 }
+.board h1 {
+  font-size: large;
+}
 
 .main-container {
   background-color: #7EADFE;
@@ -39,19 +45,53 @@
 .sidebar div {
   margin: 0;
 }
+.hide-board-div{
+  background-color: #FC5EAA;
+  position: sticky;
+  bottom: 0;
+}
+
+.hide-forms-board{
+  margin: auto;
+  padding: 15px;
+  border: 1px solid white;
+  border-radius: 10px;
+  color: #FC5EAA;
+  background-color: white;
+  font-size: medium;
+  font-weight: bold;
+}
+.hide-forms-card{
+  margin: auto;
+  padding: 15px;
+  border-radius: 10px;
+  color: #7EADFE;
+  border: 1px solid white;
+  background-color: white;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.card-form-input {
+  font-size: medium;
+}
 
 input {
   text-align: center
 }
 
 .board-forms {
-  position: fixed;
+  position: sticky;
   width: 150px;
   /* height:0px; */
-  bottom: 5px;
+  bottom: 0;
   gap: 20px;
   font-size: 1rem;
   background-color: #FC5EAA;
+  margin-bottom: 20px;
+}
+.pink-plus{
+  margin-bottom: 20px;
 }
 
 .content {
@@ -95,10 +135,10 @@ input {
   position: fixed;
   width: 150px;
   /* left:10px; */
-  bottom: 20px;
-  border: 2px black solid;
+  bottom: 30px;
+  /* border: 2px black solid; */
   gap: 20px;
-  font-size: 1rem;
+  font-size: medium;
 }
 
 .input-form {
