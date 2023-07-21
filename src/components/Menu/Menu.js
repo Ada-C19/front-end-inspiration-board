@@ -1,6 +1,5 @@
 import NewBoardForm from '../NewBoardForm';
 import NewCardForm from '../NewCardForm';
-import './Menu.css';
 
 const Menu = props => {
 

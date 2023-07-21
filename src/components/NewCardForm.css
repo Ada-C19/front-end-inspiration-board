@@ -2,3 +2,6 @@ input {
     margin-bottom: 10px;
 }
 
+.form {
+    border: none;
+}

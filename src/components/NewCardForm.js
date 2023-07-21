@@ -4,7 +4,6 @@ import './NewCardForm.css';
 import './NewBoardForm.css'
 import '../App.css';
 
-
 const NewCardForm = ({ handleCardSubmit }) => {
 
     const [formData, setFormData] = useState({
@@ -26,10 +25,9 @@ const NewCardForm = ({ handleCardSubmit }) => {
     };
 
     return (
-        <div className="board__form">
+        <div className="form">
             <form onSubmit={handleSubmit}>
                 <h2>New Card</h2>
-                {/* <label htmlFor="message"> Card Message: </label> */}
                 <input
                     type="text"
                     id="message"

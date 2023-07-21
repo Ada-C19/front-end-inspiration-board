@@ -3,13 +3,10 @@
   display: flex;
 }
 
-
-
 body {
   margin: 0;
   padding: 0;
   background-color: hsla(233, 93%, 27%, 0.2);
-  /* EFD093 */
 }
 
 .App-header {
@@ -64,15 +61,6 @@ body {
   color: rgb(142, 150, 0);
 }
 
-/* .sidebar__container>button:focus {
-  font-size: 1rem;
-} */
-/* 
-.sidebar__container>button {
-  font-size: 2rem;
-  background-color: pink;
-} */
-
 .board__container{
   justify-content: flex-start;
 }
@@ -82,7 +70,6 @@ body {
   justify-content: flex-start;
   margin-left: 11px;
 }
-
 
 #toggleButtonToOpen {
   width: 100%;

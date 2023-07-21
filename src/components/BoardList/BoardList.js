@@ -1,5 +1,3 @@
-import './BoardList.css';
-
 const BoardList = (props) => {
   
     const boardItems = props.data.map((board, index) => {

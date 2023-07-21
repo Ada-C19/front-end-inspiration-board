@@ -5,9 +5,8 @@ import BoardList from './components/BoardList/BoardList';
 import Sidebar from './components/Sidebar/Sidebar';
 import axios from 'axios';
 import SortOrder from "./components/SortOrder/SortOrder";
-// import {TocRounded} from 'material-ui/core'
 
-const kBaseUrl = 'http://127.0.0.1:5000';
+const kBaseUrl = process.env.REACT_APP_BACKEND_URL_DEPLOYED;
 
 function App() {
   const [boardData, setBoardData] = useState([]);
@@ -56,7 +55,6 @@ const chooseToggleButtonSize =
   } else {
     buttonStyle = 'toggleButtonToClose';
   }
-
   return buttonStyle;
 }
 
