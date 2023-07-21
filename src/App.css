@@ -37,13 +37,18 @@
 
 .sidebar {
   border: 10px solid #FC5EAA;
-  width: 20vw;
+  width: 30vw;
   position: static;
   height: 110%;
 }
 
 .sidebar div {
   margin: 0;
+}
+
+.add-board .pink-plus{
+  bottom:7px;
+  left: 140px;
 }
 .hide-board-div{
   background-color: #FC5EAA;
@@ -60,10 +65,11 @@
   background-color: white;
   font-size: small;
   font-weight: bold;
-  bottom:40px;
+  bottom:15px;
   left: 10px;
   position:fixed;
 }
+
 .hide-forms-card{
   margin: auto;
   padding: 10px;
@@ -73,7 +79,7 @@
   background-color: white;
   font-size: small;
   font-weight: bold;
-  bottom:40px;
+  bottom:15px;
   right: 10px;
   position: fixed;
 }
@@ -83,8 +89,9 @@
   /* position: static; */
   
   /* width: 150px; */
-  /* height:0px; */
-  /* bottom: 0; */
+  height:70px;
+  right: 50px;
+  /* bottom: 100px; */
   /* gap: 20px; */
   background-color: #7EADFE
   /* margin-bottom: 20px; */
@@ -95,18 +102,19 @@ input {
 }
 
 .board-forms {
-  position: sticky;
+  position: fixed;
   width: 150px;
-  bottom: 0;
+  bottom: 40px;
   gap: 20px;
   font-size: 1rem;
   background-color: #FC5EAA;
   margin-bottom: 20px;
+  
 }
 
 
 .pink-plus{
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .content {
@@ -121,7 +129,9 @@ input {
 
 .card-list {
   flex-wrap: wrap;
+  
 }
+
 
 .add-card button {
   border-radius: 100px;
@@ -131,7 +141,7 @@ input {
   color: #FC5EAA;
   border: 2px #FC5EAA solid;
   position: fixed;
-  bottom: 20px;
+  bottom: 60px;
   right: 11px;
   font-weight: 900;
 }
@@ -149,11 +159,12 @@ input {
 .card-forms {
   position: fixed;
   /* width: 150px;  */
-  right: 19px;
-  bottom: 30px;
+  
+  right: 90px;
+  /* bottom: 300px; */
   width: 150px;
   /* left:10px; */
-  bottom: 40px;
+  bottom: 15px;
   /* border: 2px black solid; */
   /* gap: 20px; */
   
@@ -163,5 +174,7 @@ input {
 .input-form {
   border-radius: 100px;
   border: 2px solid #FC5EAA;
+  font-size:medium;
+  left: 0px;
 
 }

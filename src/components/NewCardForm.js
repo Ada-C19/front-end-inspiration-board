@@ -35,6 +35,7 @@ const NewCardForm = ({ createCard, boardId }) => {
                     value={formFields.message}
                     onChange={onMessageChange}
                     className="input-form"
+                    id='card-message'
                     placeholder='Card Message'
                     required                 
                 />
