@@ -36,8 +36,7 @@ const NewCardForm = ({ createCard, boardId }) => {
                     onChange={onMessageChange}
                     className="input-form"
                     placeholder='Card Message'
-                    required ={true }
-                    // max-length={40}
+                    required                 
                 />
             </div>
 

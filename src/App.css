@@ -53,23 +53,29 @@
 
 .hide-forms-board{
   margin: auto;
-  padding: 15px;
+  padding: 10px;
   border: 1px solid white;
   border-radius: 10px;
   color: #FC5EAA;
   background-color: white;
-  font-size: medium;
+  font-size: small;
   font-weight: bold;
+  bottom:40px;
+  left: 10px;
+  position:fixed;
 }
 .hide-forms-card{
   margin: auto;
-  padding: 15px;
+  padding: 10px;
   border-radius: 10px;
   color: #7EADFE;
   border: 1px solid white;
   background-color: white;
-  font-size: medium;
+  font-size: small;
   font-weight: bold;
+  bottom:40px;
+  right: 10px;
+  position: fixed;
 }
 
 .card-form-input {
@@ -83,13 +89,14 @@ input {
 .board-forms {
   position: sticky;
   width: 150px;
-  /* height:0px; */
   bottom: 0;
   gap: 20px;
   font-size: 1rem;
   background-color: #FC5EAA;
   margin-bottom: 20px;
 }
+
+
 .pink-plus{
   margin-bottom: 20px;
 }
@@ -100,7 +107,7 @@ input {
   justify-content: center;
   color: white;
   font-size: xx-large;
-  height: 80vh;
+  height: 85vh;
   width: 80vw;
 }
 
@@ -135,11 +142,12 @@ input {
   position: fixed;
   width: 150px;
   /* left:10px; */
-  bottom: 30px;
+  bottom: 40px;
   /* border: 2px black solid; */
   gap: 20px;
   font-size: medium;
 }
+
 
 .input-form {
   border-radius: 100px;
