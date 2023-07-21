@@ -76,7 +76,7 @@ function App() {
   };
 
   const deleteBoard = (selectedBoard) => {
-    if (window.confirm('Are you really sure you want to delete this board?')) {
+    if (window.confirm('Your wishes will come true! Are you really sure you want to leave the festival, darling sugar plum baby booger?')) {
       axios.delete(`${boardsURL}/boards/${selectedBoard.board_id}`).then((response) => {
       const newBoardsData = boardsData.filter((existingBoard) => {
           return existingBoard.board_id !== selectedBoard.board_id;
@@ -110,17 +110,19 @@ function App() {
 
   // axios call delete one card
   const deleteCard = (card) => {
-    axios.delete(`${boardsURL}/cards/${card.card_id}`).then((response) => {
-    const newCardsData = cardsData.filter((existingCard) => {
-      // mess with conditional later
-        return existingCard.card_id !== card.card_id;
-    });
-    setCardsData(newCardsData);
-    }).catch((error) => {
-    console.log('Error:', error);
-    alert('Couldn\'t delete the card.');
-    });
-};
+    if (window.confirm('Don\'t give up on your wishes! Are you really sure you want to delete this card, sweetie?')) {
+      axios.delete(`${boardsURL}/cards/${card.card_id}`).then((response) => {
+      const newCardsData = cardsData.filter((existingCard) => {
+        // mess with conditional later
+          return existingCard.card_id !== card.card_id;
+      });
+      setCardsData(newCardsData);
+      }).catch((error) => {
+      console.log('Error:', error);
+      alert('Couldn\'t delete the card.');
+      });
+    }
+  };
 
   // axios call adds like to a card (we deleted like endpoint)
   //create a helper function fetch cards that 1.calls for the cards and 2.sets state

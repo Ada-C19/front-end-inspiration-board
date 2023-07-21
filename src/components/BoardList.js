@@ -3,7 +3,7 @@ import React from 'react';
 const BoardList = (props) => {
     return (
         <div onClick={() => props.onSelectBoard(props.board)}>
-            {props.board.owner}
+            {props.board.title} by {props.board.owner}
         </div>
     );
 };
