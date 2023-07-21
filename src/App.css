@@ -64,14 +64,15 @@
 }
 
 .board-list-box {
-  background-color: rgba(248, 231, 136, 0.844);
-  color: black;
+  color: white;
   overflow: scroll;
   max-height: 13rem;
   min-height: 9rem;
   text-align: left;
   border-radius: 2%;
   grid-column: span 2;
+  background-image: url('https://media.giphy.com/media/26FeX39iH5e5MR29i/giphy.gif');
+  filter: sepia(50%);
 }
 
 li:focus {
