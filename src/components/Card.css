@@ -1,15 +1,41 @@
 .card-container {
     align-items: center;
-    background-color: coral;
-    /* background-image: url('../lantern.png'); */
-    box-shadow: -10px 7px 7px #800000;
+    /* background-color: coral; */
+    background-image: url('./lantern.png');
+    /* box-shadow: -10px 7px 7px #800000; */
     display: flex;
     flex-direction: column;
     font-family: Concert One,cursive;
     justify-content: center;
-    min-height: 200px;
+    min-height: 220px;
     padding: 1em;
     margin: 1em;
     border-radius:20px;
     width: 200px;
+    background-repeat: no-repeat;
+    color: black;
+  
 }
+
+
+#swaying-image {
+    animation: sway 4s infinite ease-in-out alternate;
+  }
+  
+  @keyframes sway {
+    0% {
+      transform: rotateZ(0deg);
+    }
+    50% {
+      transform: rotateZ(10deg);
+    }
+    100% {
+      transform: rotateZ(0deg);
+    }
+  }
+  
+  .lantern_img {
+    width: 10%;
+    height: 10%;
+  }
+  

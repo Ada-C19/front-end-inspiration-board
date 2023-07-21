@@ -1,5 +1,4 @@
 import './App.css';
-import lantern from './lantern.png';
 import './components/CardList.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -168,6 +167,7 @@ function App() {
         <h1 className="header__">🏮 Lantern Festival </h1>
       </header>
       <body className = "boards__container">
+
         <section>
           <h1>Participants</h1>
           <ol className='board-list-box'>{boardElements}</ol>
