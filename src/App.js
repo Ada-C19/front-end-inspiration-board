@@ -7,7 +7,7 @@ import NewCardForm from './components/NewCardForm';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-const kBaseUrl = "https://inspo-board-api-019p.onrender.com";
+const kBaseUrl = "http://127.0.0.1:5000";
 
 const getAllBoards = () => {
   return axios
