@@ -1,3 +1,5 @@
+  @import url('https://fonts.googleapis.com/css2?family=Lumanosimo&family=Rubik:wght@400;600;900&display=swap');
+
 .App {
   width: 100vw;
   display: flex;
@@ -11,8 +13,10 @@ body {
 
 .App-header {
   font-size: 40px;
+  font-family: 'Lumanosimo', cursive;
   text-align: center;
   vertical-align: middle;
+  color:rgb(89, 91, 215)
 }
 
 .board-container {
