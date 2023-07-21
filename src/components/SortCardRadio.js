@@ -8,7 +8,7 @@ const SortCardRadio = ( { onSortSelect }) => {
 
     return (
     <div>
-        <h5>Choose Sort Direction for Cards</h5>
+        <h3>Choose Sort Direction</h3>
         <div>
             <input type="radio" value="Alphabetical" name="cardSortDirection" onClick={handleSortSelect}/> Alphabetical
             <input type="radio" value="Likes" name="cardSortDirection" onClick={handleSortSelect}/> Likes

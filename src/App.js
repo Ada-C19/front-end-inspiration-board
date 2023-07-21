@@ -197,6 +197,7 @@ const App = () => {
               deleteCard={handleDeleteCard}
               cardDisplaySortDirection={cardDisplaySortDirection}
               handleSubmitCard={handleSubmitCard}
+              onSortSelect={handleSortCard}
               />
             <SortCardRadio onSortSelect={handleSortCard} />
             <NewCardForm addCard={handleSubmitCard} />
