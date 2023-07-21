@@ -10,9 +10,9 @@ const Board = (props) => {
         props.selectCard(props.id)
     }
     return (
-        <li onClick={()=>helper()}>{props.title}</li>
+        <li onClick={()=>helper()}>{props.title} <button className='del' onClick={()=>props.deleteBoard(props.id)}>DEL</button> </li>
+    
     )
-
 };
 
 
@@ -20,7 +20,8 @@ Board.propTypes = {
         id: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
         clickBoard: PropTypes.func,
-        selectCard: PropTypes.func
+        selectCard: PropTypes.func,
+        deleteBoard:PropTypes.func
     };
 
 export default Board;

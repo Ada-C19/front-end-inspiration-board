@@ -132,6 +132,24 @@ function App() {
     setCardData(newCardList);
     });
   };
+  const deleteBoard = (id) =>{
+    return axios
+      .delete(`${baseUrl}/board/${id}`)
+      .then(response=>{
+        console.log(response.data);
+      })
+      .catch((error)=>{
+        console.log(error);
+      });
+    };
+  
+    const onDeleteBoard = (id) =>{
+    deleteBoard(id)
+    .then(res =>{
+    const newBoardList = boardData.filter((ele) => ele.board_id !== id);
+    setBoardData(newBoardList);
+    });
+  };
 
   return (
     <section>
@@ -139,7 +157,7 @@ function App() {
     <div className="root">
       <div className="boardsContainer">
         <div className="boardList">
-        <BoardList boardSelect = {selectBoard} data={boardData} fetchCards = {fetchCards} />
+        <BoardList boardSelect = {selectBoard} data={boardData} fetchCards = {fetchCards} deleteBoard={onDeleteBoard}/>
         </div>
         <div className="selectedBoard"> {selectedBoard}</div>
         <div className="createBoard">< AddBoard handleSubmit= {handleSubmit}/></div>

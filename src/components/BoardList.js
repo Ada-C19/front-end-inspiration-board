@@ -13,6 +13,7 @@ const BoardList = (props) => {
             owner = {board.owner}
             clickBoard = {props.boardSelect}
             selectCard = {props.fetchCards}
+            deleteBoard = {props.deleteBoard}
             />
         )
     });
@@ -33,7 +34,8 @@ BoardList.propTypes = {
         owner: PropTypes.string.isRequired
     }),
     boardSelect: PropTypes.func,
-    fetchCards: PropTypes.func
+    fetchCards: PropTypes.func,
+    deleteBoard:PropTypes.func
 };
 
 export default BoardList;
