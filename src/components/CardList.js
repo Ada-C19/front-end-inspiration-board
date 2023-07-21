@@ -22,7 +22,9 @@ const CardList = ( { cardsData, addOneLikeToCard, removeOneLikeToCard, deleteCar
           {/* Add conditional rendering */}
           <h1>{selectedBoard.owner}'s Board for {selectedBoard.title}</h1>
           {/* Card Components */}
-          {cardElements}
+          <div className='board-of-cards'>
+            {cardElements}
+          </div>
         </>
     );
 };
