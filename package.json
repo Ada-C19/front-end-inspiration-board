@@ -1,6 +1,7 @@
 {
   "name": "front-end-inspiration-board",
   "version": "0.1.0",
+  "homepage": "https://Kguarnizo.github.io/front-end-inspiration-board",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
@@ -11,12 +12,6 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -35,5 +30,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0",
+    "parcel-bundler": "1.12.5"
+  },
+
+  "scripts": {
+    "predeploy": "rm -rf build && yarn run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject" 
+}
 }
