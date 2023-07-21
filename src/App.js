@@ -173,9 +173,9 @@ function App() {
           <ol className='board-list-box'>{boardElements}</ol>
         </section>
         {/* Figure out how to delete the empty H1 w/o collapsing */}
-        <section>
+        {/* <section> */}
           {/* this needs to be empty */}
-        </section>
+        {/* </section> */}
         <section className="new-board-form__container">
           <h1>Add new Participant</h1>
           {boardFormDisplay ? <NewBoardForm createNewBoard={ createNewBoard } isSubmitDisabled={isSubmitDisabled}/>: ''}

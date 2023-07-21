@@ -50,9 +50,11 @@
 }
 
 .new-board-form__container{
-align-items: flex-start;
-display: flex;
-flex-direction: column;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  grid-column: 3;
+  align-items: center;
 }
 
 .new-board-form__toggle-btn {
@@ -69,6 +71,7 @@ flex-direction: column;
   min-height: 9rem;
   text-align: left;
   border-radius: 2%;
+  grid-column: span 2;
 }
 
 li:focus {
