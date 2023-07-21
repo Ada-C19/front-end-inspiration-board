@@ -11,15 +11,11 @@ const NewCardForm = ({selectedBoard, postNewCard, isSubmitDisabled, cardObject, 
         });
     };
 
-
-
     const submitNewCard = (e) => {
         e.preventDefault();
         postNewCard(cardObject);
         setCardObject({ message: '', board_id: '' });
     };
-
-
 
     return (
         <div className="new-card-form">
@@ -45,8 +41,4 @@ const NewCardForm = ({selectedBoard, postNewCard, isSubmitDisabled, cardObject, 
     );
 };
 
-
-
-
 export default NewCardForm;
-

@@ -1,11 +1,5 @@
 import React from 'react';
 import './Card.css';
-import lantern from './lantern.png';
-
-//on click heart adds to likes
-//on click broken heart deletes likes
-//garbage deletes card 
-//we need the card object state to populate the message, and likes?!
 
 const Card = ({card, deleteCard, addOneLikeToCard, removeOneLikeToCard}) => {
     
@@ -20,7 +14,4 @@ const Card = ({card, deleteCard, addOneLikeToCard, removeOneLikeToCard}) => {
             </div>);
 };
 
-
 export default Card;
-
-

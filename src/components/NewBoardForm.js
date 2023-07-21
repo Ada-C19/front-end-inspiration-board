@@ -22,7 +22,6 @@ const NewBoardForm = ({createNewBoard, isSubmitDisabled}) => {
         setOwner('');
     };
 
-
     return (
     <form onSubmit={submitNewBoard}>
         <div className="form-row">
@@ -53,6 +52,3 @@ const NewBoardForm = ({createNewBoard, isSubmitDisabled}) => {
 };
 
 export default NewBoardForm;
-
-//submit button if valid entry becomes usable, 
-//entry must be between 0 - 40 characters

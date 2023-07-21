@@ -15,7 +15,6 @@
     color: black;
 }
 
-
 #swaying-image {
     animation: sway 4s infinite ease-in-out alternate;
   }
@@ -37,7 +36,6 @@
     height: 10%;
   }
   
-
   .card-buttons {
     grid-row: 3;
     display: grid;
