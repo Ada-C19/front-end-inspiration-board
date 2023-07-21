@@ -47,7 +47,7 @@ const NewBoardForm = (props) => {
                     onChange={handleChange}
                     placeholder="Board Owner"
                 />
-                <input disabled={((formData.title.length === 0) || (formData.owner.length === 0))} type="submit" value="Submit New Board" className="submit-button"/>
+                <input disabled={((formData.title.length === 0) || (formData.owner.length === 0))} type="submit" value={((formData.title.length === 0) || (formData.owner.length === 0))? "Enter Title & Owner" : "Submit New Board"} className="submit-button"/>
             </form>
         </section>
     );

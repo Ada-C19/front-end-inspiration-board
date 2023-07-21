@@ -5,11 +5,12 @@ import '../NewBoardForm/NewBoardForm.css'
 import '../../App.css';
 
 const NewCardForm = ({ handleCardSubmit }) => {
-
     const [formData, setFormData] = useState({
         message: "", 
         likesCount: 0
     });
+
+    const buttonText = ((formData.message.length === 0) || (formData.message.length > 40))? "Message too short or too long :(" : "Submit Card"  
     
     const handleInputChange = (event) => {
         const message = event.target.value; 
@@ -18,12 +19,12 @@ const NewCardForm = ({ handleCardSubmit }) => {
             message: message
         }));
     };
-
+    
     const handleSubmit = (event) => {
         event.preventDefault();
         handleCardSubmit(formData);
     };
-
+    
     return (
         <div className="form">
             <form onSubmit={handleSubmit}>
@@ -36,7 +37,7 @@ const NewCardForm = ({ handleCardSubmit }) => {
                     onChange={handleInputChange}
                     placeholder="Enter a message"
                 />
-                <button disabled={((formData.message.length === 0) || (formData.message.length > 40))}className="submit-button" type="submit">Submit Card</button>
+                <button disabled={((formData.message.length === 0) || (formData.message.length > 40))}className="submit-button" type="submit">{buttonText}</button>
             </form>
         </div>
             
