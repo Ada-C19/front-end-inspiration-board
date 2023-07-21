@@ -6,3 +6,9 @@
 .form input {
     font-size: 1.2rem;
 }
+.form .submit-button {
+    font-size: 17px;
+}
+.form.board__form {
+    border-bottom: 5px solid white;
+}

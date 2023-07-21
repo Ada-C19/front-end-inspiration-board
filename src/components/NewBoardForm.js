@@ -26,7 +26,7 @@ const NewBoardForm = (props) => {
       };
 
     return (
-        <section className="form">
+        <section className="form board__form">
             <h2>New Board</h2>
             <form onSubmit={handleFormSubmit}>
                 <label htmlFor="title"/>
