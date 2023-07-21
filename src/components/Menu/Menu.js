@@ -1,5 +1,5 @@
-import NewBoardForm from '../NewBoardForm';
-import NewCardForm from '../NewCardForm';
+import NewBoardForm from '../NewBoardForm/NewBoardForm';
+import NewCardForm from '../NewCardForm/NewCardForm';
 
 const Menu = props => {
 
