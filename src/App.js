@@ -55,12 +55,13 @@ const App = () => {
   const [cards, setCards] = useState([])
   const [displayBoardForm, setDisplayBoardForm] = useState(true)
   const [cardDisplaySortDirection, setCardDisplaySortDirection] = useState("ID")
-
+  
+  useEffect(() => { fetchBoards() }, [])
+  
   const fetchBoards = () => {
     getAllBoards()
       .then((boards) => setBoards(boards))
   }
-  useEffect(() => { fetchBoards() }, [])
 
   const fetchCards = (boardId) => {
     getCardsForBoard(boardId)
@@ -153,8 +154,9 @@ const App = () => {
       .then(res => console.log("Card Liked!", res.data))
       .catch(err => console.log("Error in liking card!", err.message))
     }
-    // likeCard(cardId);
-    likeCard(cardId).then( () => fetchCards(targetBoardId));
+
+    likeCard(cardId)
+    .then( () => fetchCards(targetBoardId));
   }
 
   const toggleBoardDisplay = () => {
