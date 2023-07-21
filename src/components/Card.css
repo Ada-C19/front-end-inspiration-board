@@ -1,7 +1,7 @@
 .card {
   width: 200px;
   height: 300px;
-  background-color: #fffc99; 
+  background-color: #ff99d1; 
   border-radius: 15px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -17,7 +17,7 @@
   left: 0;
   width: 100%;
   height: 50px;
-  background-color: #fffc99;
+  background-color: #dd99ff;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   box-shadow: inset 0px 10px 10px -10px rgba(0, 0, 0, 0.2);

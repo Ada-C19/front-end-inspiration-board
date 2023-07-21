@@ -116,8 +116,8 @@ return (
       {showCards ? 'Hide Card' : 'Show Cards'}
       </button>
       <button onClick={handleAddCard}>Add Card</button>
-      <button onClick={handleEditClick}>EDIT</button>
-      <button onClick={handleDeleteBoard}>DELETE</button>
+      <button onClick={handleEditClick}>Edit Board</button>
+      <button onClick={handleDeleteBoard}>Delete Board</button>
     </li>
     <CardList
     cards={cards}

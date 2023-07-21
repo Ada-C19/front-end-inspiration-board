@@ -72,7 +72,6 @@ const App = () => {
       .then((response) => {
 
         const newBoard = {
-          // changed boardId: to match a backend key
           boardId: response.data.board.id,
           title: formFields.title,
           owner: formFields.owner,
@@ -117,7 +116,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>This is a test </h1>
+        <h1>Don't judge me. I'm cute in my own way.</h1>
       </header>
       <main>
         <BoardList boards={boards} updateBoard={updateBoard} deleteBoard={deleteBoard} selectBoard={selectBoard}/>

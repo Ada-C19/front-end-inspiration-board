@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Board from './Board.js';
-// import './BoardList.css';
+import './BoardList.css';
 
 const BoardList = (props) => {
   console.log(props.boards);
@@ -16,7 +16,6 @@ const BoardList = (props) => {
           updateBoard={props.updateBoard}
           deleteBoard={props.deleteBoard}
           selectBoard={props.selectBoard}
-          // cards={board.cards}
           />
         ))}  
       </ul>
@@ -34,7 +33,6 @@ BoardList.propTypes = {
   updateBoard: PropTypes.func.isRequired,
   deleteBoard: PropTypes.func.isRequired,
   selectBoard: PropTypes.func.isRequired,
-  // sortCards: PropTypes.func.isRequired,
 }
 
 export default BoardList;
