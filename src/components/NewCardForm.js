@@ -31,11 +31,12 @@ const NewCardForm = ({ createCard, boardId }) => {
                 {/* <label htmlFor="cardMessage">Card Message:</label> */}
                 <input
                     name="message"
+                    maxLength="40"
                     value={formFields.message}
                     onChange={onMessageChange}
                     className="input-form"
                     placeholder='Card Message'
-                    required
+                    required ={true }
                     // max-length={40}
                 />
             </div>
