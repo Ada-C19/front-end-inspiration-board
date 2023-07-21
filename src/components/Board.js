@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import TrashIcon from "./TrashIcon";
 import CardList from "./CardList";
 import NewCardForm from "./NewCardForm";
-import SortCardRadio from "./SortCardRadio";
+import SortCardRadio from "./SortCardSelector";
 import './Board.css';
 
 const Board = ({
