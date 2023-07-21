@@ -1,0 +1,38 @@
+.card-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1vh;
+  word-wrap: break-word;
+  flex-wrap: wrap;
+}
+
+.card-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  word-wrap: break-word;
+  flex-wrap: wrap;
+}
+
+.card-form > * {
+  margin: .25rem;
+}
+
+.card-submit-button {
+  padding: .5rem;
+  border-radius: 10%;
+  border: 1px teal dotted;
+  background-color: turquoise;
+}
+
+.card-submit-button:hover {
+  background-color: lightseagreen;
+}
+
+.warning-message {
+  font-size: .5rem;
+  color:brown
+}

@@ -1,0 +1,38 @@
+.board-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  word-wrap: break-word;
+  flex-wrap: wrap;
+}
+
+.board-form > * {
+  margin: .25rem;
+}
+
+.board-submit-button {
+  padding: .5rem;
+  border-radius: 10%;
+  border: 1px teal dotted;
+  background-color: turquoise;
+}
+
+.board-submit-button:hover {
+  background-color: lightseagreen;
+}
+
+/* .new-board-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 400px;
+  row-gap: 20px;
+}
+
+.new-board-fields label {
+  font-size: 1.2em;
+}
+
+.new-board-submit {
+  grid-column: span 2;
+} */

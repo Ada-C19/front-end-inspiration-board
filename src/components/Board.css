@@ -1,0 +1,59 @@
+.card-container {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+    text-align: center;
+    padding-left: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: black;
+    font-size: 4.5vh;
+    font-weight: bolder;
+    font-stretch: ultra-expanded;
+    margin-top: 2vh;
+}
+
+.owner {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: black;
+    font-size: 2.4vh;
+    font-weight: normal;
+    font-stretch: ultra-expanded;
+    margin-top: 2vh;
+}
+
+.board {
+    /* border: purple solid 2px; */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-image: radial-gradient( rgb(195, 182, 255), #FFFFE0);
+    opacity: 0.9;
+    border-radius: 2vh;
+    margin: 2vh;
+    font: monospace;
+    min-height: 100vh;
+    border: black 2px solid;
+}
+
+.board-button {
+    width: 15%;
+    padding: 1px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: .5rem;
+    border-radius: 10%;
+    border: 1px teal dotted;
+    background-color: turquoise;
+}
