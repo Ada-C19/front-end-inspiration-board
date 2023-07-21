@@ -1,4 +1,5 @@
 import './App.css';
+import lantern from './lantern.png';
 import './components/CardList.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
