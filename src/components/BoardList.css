@@ -1,0 +1,36 @@
+.board-titles {
+    text-align: left;
+    bottom: 30px;
+}
+
+.board-list {
+    background-color: #FC5EAA;
+    height: 85vh;
+    color: white;
+    font-size: small;
+    font-weight: 900;
+    overflow-y: scroll;
+    position: static;
+}
+
+.board-titles h1 {
+    margin-bottom: 0px;
+}
+
+.add-board button {
+    border-radius: 100px;
+    font-size: xx-large;
+    height: 50px;
+    width: 50px;
+    color: #FC5EAA;
+    border: 2px #FC5EAA solid;
+    position: fixed;
+    bottom: 3px;
+    left: 165px;
+    font-weight: 900;
+}
+
+.add-board button:hover {
+    border-style: inset;
+    border: #d25793 2px solid;
+}

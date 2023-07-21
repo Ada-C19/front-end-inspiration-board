@@ -1,0 +1,180 @@
+
+#App {
+  text-align: center;
+  height: 100%;
+  display: flex;
+  font-family: 'Kanit', sans-serif;
+  letter-spacing: 1px;
+  background-color: #FC5EAA;
+  margin: auto;
+}
+
+.header {
+  height: 12.5vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #7EADFE;
+  font-size: large;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+.header h1 {
+  margin: 0;
+}
+.board h1 {
+  font-size: large;
+}
+
+.main-container {
+  background-color: #7EADFE;
+  height: 100%;
+  flex: 1;
+}
+
+.sidebar {
+  border: 10px solid #FC5EAA;
+  width: 30vw;
+  position: static;
+  height: 110%;
+}
+
+.sidebar div {
+  margin: 0;
+}
+
+.add-board .pink-plus{
+  bottom:7px;
+  left: 140px;
+}
+.hide-board-div{
+  background-color: #FC5EAA;
+  position: sticky;
+  bottom: 0;
+}
+
+.hide-forms-board{
+  margin: auto;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 10px;
+  color: #FC5EAA;
+  background-color: white;
+  font-size: small;
+  font-weight: bold;
+  bottom:15px;
+  left: 10px;
+  position:fixed;
+}
+
+.hide-forms-card{
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+  color: #7EADFE;
+  border: 1px solid white;
+  background-color: white;
+  font-size: small;
+  font-weight: bold;
+  bottom:15px;
+  right: 10px;
+  position: fixed;
+}
+
+.card-form-input {
+  font-size: medium;
+  /* position: static; */
+  
+  /* width: 150px; */
+  height:70px;
+  right: 50px;
+  /* bottom: 100px; */
+  /* gap: 20px; */
+  background-color: #7EADFE
+  /* margin-bottom: 20px; */
+}
+
+input {
+  text-align: center
+}
+
+.board-forms {
+  position: fixed;
+  width: 150px;
+  bottom: 40px;
+  gap: 20px;
+  font-size: 1rem;
+  background-color: #FC5EAA;
+  margin-bottom: 20px;
+  
+}
+
+
+.pink-plus{
+  margin-bottom: 0px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: xx-large;
+  height: 85vh;
+  width: 80vw;
+}
+
+.card-list {
+  flex-wrap: wrap;
+  
+}
+
+
+.add-card button {
+  border-radius: 100px;
+  font-size: xx-large;
+  height: 50px;
+  width: 50px;
+  color: #FC5EAA;
+  border: 2px #FC5EAA solid;
+  position: fixed;
+  bottom: 60px;
+  right: 11px;
+  font-weight: 900;
+}
+
+.add-card button:hover {
+  border-style: inset;
+  border: #4e81da 2px solid;
+}
+
+
+::placeholder {
+  text-align: center;
+}
+
+.card-forms {
+  position: fixed;
+  /* width: 150px;  */
+  
+  right: 90px;
+  /* bottom: 300px; */
+  width: 150px;
+  /* left:10px; */
+  bottom: 25px;
+  /* border: 2px black solid; */
+  /* gap: 20px; */
+  
+}
+
+
+.input-form {
+  border-radius: 100px;
+  border: 2px solid #FC5EAA;
+  font-size:medium;
+  left: 0px;
+
+}

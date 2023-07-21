@@ -1,0 +1,83 @@
+.card {
+    background-color: white;
+    border-radius: 10px;
+    height: 130px;
+    width: 130px;
+    padding: 10px;
+    color: #4e81da;
+    font-size: x-small;
+    margin: 20px;
+    border: 2px transparent solid;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.card .message {
+    padding: -1em;
+    margin: 0 -1em;
+    display: flex;
+    flex-wrap: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 2px dotted rgb(148, 196, 255);
+    /* height: 50px;
+    width: 50px; */
+}
+
+.card:hover {
+    border: 2px #4e81da solid
+}
+
+.likes {
+    display: flex;        
+    flex-direction: row;
+    justify-content: end;
+    font-size: small;
+    align-items: center;
+    gap: 5px;
+}
+
+.likes button {
+    border-radius: 100px;
+    height: 25px;
+    width: 25px;
+    color: #FC5EAA;
+    border: 1px #FC5EAA solid;
+    font-weight: 900;
+    font-size: 0.5rem
+}
+
+.likes button:hover,
+.deleteCard button:hover {
+    border: 2px #FC5EAA solid;
+}
+
+.message {
+    display: flex;
+    font-size: larger;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center
+}
+
+.deleteCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    /* font-size: small; */
+    align-items: center;
+    gap: 5px;
+}
+
+.deleteCard button {
+    border-radius: 100px;
+    height: 25px;
+    width: 25px;
+    color: #FC5EAA;
+    border: 1px #FC5EAA solid;
+    font-weight: 900;
+    font-size: 0.5rem
+}
