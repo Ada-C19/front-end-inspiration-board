@@ -6,7 +6,7 @@ import Board from './components/Board';
 import NewCardForm from './components/NewCardForm';
 import NewBoardForm from './components/NewBoardForm';
 import BoardSelectRadio from './components/BoardSelectRadio';
-import SortCardRadio from './components/SortCardSelector';
+import SortCardSelector from './components/SortCardSelector';
 
 const boardsURL = `${process.env.REACT_APP_BACKEND_URL}`
 
@@ -187,6 +187,7 @@ const App = () => {
         </div>
         {targetBoardId !== null && (
           <div>
+            <SortCardSelector onSortSelect={handleSortCard} />
             <Board
               board_id={currentBoard().id}
               title={currentBoard().title}
@@ -200,7 +201,6 @@ const App = () => {
               onSortSelect={handleSortCard}
               targetBoardId={setTargetBoardId}
               />
-            <SortCardRadio onSortSelect={handleSortCard} />
             <NewCardForm addCard={handleSubmitCard} />
           </div>
         )}
