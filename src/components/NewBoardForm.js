@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './NewBoardForm.css';
 
+
 const NewBoardForm = ({ createBoard }) => {
     const [formFields, setFormFields] = useState({
         title: '',
@@ -10,11 +11,12 @@ const NewBoardForm = ({ createBoard }) => {
 
     const onFormSubmit = (event) => {
         event.preventDefault()
-        createBoard(formFields)
-        setFormFields({
-            'title': '',
-            'owner': ''
-        })
+
+            createBoard(formFields)
+            setFormFields({
+                'title': '',
+                'owner': ''
+            })
     }
 
     const onTitleChange = (event) => {
@@ -37,20 +39,17 @@ const NewBoardForm = ({ createBoard }) => {
             <form id="add-board" onSubmit={onFormSubmit}>
 
                 <div className="board-form-input">
-                    {/*  <label htmlFor="boardTitle" data-error="Title is invalid">Type your email</label> */}
-                    {/* <label htmlFor="boardTitle">Board Title:</label> */}
                     <input
                         name="title"
                         value={formFields.title}
                         onChange={onTitleChange}
                         className="input-form"
                         placeholder='Board Title'
-                        // required name ='title'
+                        required
                     />
                 </div>
 
                 <div className="board-form-input">
-                    {/* <label htmlFor="owner">Owner:</label> */}
                     <input
                         name="owner"
                         value={formFields.owner}
@@ -62,13 +61,12 @@ const NewBoardForm = ({ createBoard }) => {
                 </div>
 
                 <div className="add-board">
-                    <button className='pink-plus' type="submit" form="add-board" onClick={onFormSubmit}>
+                    <button className='pink-plus' type="submit" form="add-board">
                         +
                     </button>
                 </div>
 
             </form>
-
         </div>
     )
 }
