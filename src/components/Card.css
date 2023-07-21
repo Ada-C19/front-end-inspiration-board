@@ -1,17 +1,10 @@
 .card-container {
-    /* align-items: center; */
-    /* background-color: coral; */
     background-image: url('./lantern.png');
     background-position: center;
-    background-size: 81%;
-    /* box-shadow: -10px 7px 7px #800000; */
-    /* display: flex; */
-    /* flex-direction: column; */
+    background-size: 80%;
     display: grid;
-    /* grid-template: 3.1fr 1fr / 1fr; */
-    /* grid-template: 3em 1em / 1fr; */
+    grid-template: 3fr 1fr / 1fr;
     font-family: Concert One,cursive;
-    /* justify-content: center; */
     min-height: 220px;
     padding: 1em;
     margin: 1em;
@@ -19,8 +12,6 @@
     width: 200px;
     background-repeat: no-repeat;
     color: black;
-    /* text-align: right; */
-    align-content: space-between;
 }
 
 
@@ -49,24 +40,17 @@
   .card-buttons {
     grid-row: 3;
     display: grid;
-    /* grid-template-columns: repeat(4, 1fr); */
-    /* grid-template-columns: 2fr 1fr 1fr 1fr; */
     grid-template-columns: 1fr 1fr 1fr;
-    /* text-align: bottom; */
-    /* vertical-align: text-bottom; */
-    
+    padding-bottom: 3%;
   }
 
   p {
     font-weight: lighter;
   }
 
-  /* .card-item__message {
-    /* color: green; */
-    /* width: auto; */
-    /* max-width: 70%; */
-    /* min-width: 70%; */
-    /* text-align: right; */
-    /* align-content: center; */
-    /* vertical-align: bottom; */
-  /* } */
+  #card-item__message {
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+    padding-top: 20%;
+  }
