@@ -45,7 +45,7 @@ function App() {
 
   useEffect(()=>{
     fetchBoards();
-  },[] );
+  }, );
 
 // board preview state
   const [selectedBoard, setSelectedBoard]= useState("Select a Board")
