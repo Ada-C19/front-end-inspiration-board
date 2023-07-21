@@ -1,15 +1,15 @@
 /* styles for Card component */
 .card {
   display: grid;
-    background-color: rgb(255, 225, 90);
-    height: 10rem;
-    width: 12rem;
-    box-shadow: 6px 5px 6px rgb(109, 111, 226);
-    margin: 5px;
-    grid-template-columns: 2fr 1fr 2fr;
-    grid-template-rows: 2fr 1fr 1fr 1fr;
+  background-color: rgb(255, 225, 90);
+  height: 10rem;
+  width: 12rem;
+  box-shadow: 6px 5px 6px rgb(109, 111, 226);
+  margin: 5px;
+  grid-template-columns: 2fr 1fr 2fr;
+  grid-template-rows: 2fr 1fr 1fr 1fr;
 }
-.card:hover{
+.card:hover {
   box-shadow: 6px 5px 20px rgb(0, 0, 0);
 }
 .delete:hover {
@@ -17,7 +17,7 @@
   cursor: pointer;
 }
 
-.delete{
+.delete {
   padding-top: 1rem;
   font-size: 0.7rem;
   margin: 0;
@@ -29,8 +29,8 @@
   grid-area: 1 / 1 / span 2 / span 3;
   word-wrap: break-word;
 }
-.message:hover{
-  cursor:default;
+.message:hover {
+  cursor: default;
 }
 
 .likes__count:hover {
@@ -38,14 +38,13 @@
 }
 
 .likes__count {
-  grid-area: 3 / 2/ span 1 / span 2;
+  grid-area: 3 / 2 / span 1 / span 2;
   margin: 0;
-
 }
 
-.like__button{
+.like__button {
   cursor: pointer;
   grid-area: 3 / 1 / span 1 / span 1;
-  margin:0;
+  margin: 0;
   font-size: larger;
 }

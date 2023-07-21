@@ -8,7 +8,6 @@ const kInitialFormData = {
 };
 
 const NewBoardForm = (props) => {
-    // props will need to pass down the handleSubmit function
     const [formData, setFormData] = useState(kInitialFormData);
 
     const handleChange = (event) => {
