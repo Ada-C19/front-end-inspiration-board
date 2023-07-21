@@ -20,7 +20,7 @@ const BoardList = (props) => {
 
     return (
         <section>
-            <h1>Board List</h1>
+            <h2>Board List</h2>
             <ol>{getBoardListJSX(props.boardData)}</ol>
         </section>
     );

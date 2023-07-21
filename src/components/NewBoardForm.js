@@ -40,6 +40,7 @@ const NewBoardForm = (props) => {
     return (
     <section className="newBoardForm">
         <form onSubmit={handleSubmit} className={hiddenClass}>
+            <h2>New Board Form</h2>
             <div>
             <label htmlFor="title">Title: </label>
             <input type="text" id="title" name="title" onChange={handleChange} value={boardFormData.title}></input>

@@ -23,13 +23,13 @@ const NewCardForm = (props) => {
           message: formData.message, 
           likes_count: 0,
         }
-        props.onHandleSubmit(newCard, props.selectedBoard[0].boardId);
+        props.onHandleSubmit(newCard);
         setFormData(cardDefaultState);
       };
 
     return (
         <form onSubmit={handleSubmit}>
-          <div>New Card Form</div>
+          <h2>New Card Form</h2>
           <div>
             <label htmlFor="message">Message: </label>
             <input type="text" id="message" name="message" onChange={handleChange} value={formData.message}></input>

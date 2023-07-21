@@ -8,14 +8,14 @@ const SelectedBoardCardList = (props) => {
     const getCardListJSX = (cards) => {
         return cards.map((card)=>{
             return (
-                <CardEntry
+                <div id="card"><CardEntry
                     cardId = {card.cardId}
                     message = {card.message}
                     likesCount = {card.likesCount}
                     key = {card.cardId}
                     onUnregister = {props.onUnregister}
                     onLikeCard = {props.onLikeCard}
-                />
+                /></div>
             );
         });
     };
@@ -23,9 +23,11 @@ const SelectedBoardCardList = (props) => {
     const boardCards = props.cardList ? props.cardList : [];
 
     return (
-        <section className="cards">
-            <h1>Selected Board Card List</h1>
-            <ol>{getCardListJSX(boardCards)}</ol>
+        <section>
+            <h2>Selected Board Card List</h2>
+            <div id="cards-grid">
+                {getCardListJSX(boardCards)}
+            </div>
         </section>
     );
 

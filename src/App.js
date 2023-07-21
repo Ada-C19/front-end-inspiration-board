@@ -2,7 +2,6 @@ import './App.css';
 import BoardList from './components/BoardList';
 import NewBoardForm from './components/NewBoardForm';
 import SelectedBoard from './components/SelectedBoard';
-import CardEntry from './components/CardEntry';
 import SelectedBoardCardList from './components/SelectedBoardCardList';
 import NewCardForm from './components/NewCardForm';
 import axios from 'axios';
@@ -67,8 +66,6 @@ const updateLikesCount = (cardId) => {
     });
 };
 
-
-
 const App = () => {
 
   const [boardState, setBoardState] = useState([]);
@@ -76,7 +73,7 @@ const App = () => {
   const [cardState, setCardState] = useState([]);
 
   const findBoardById = (boardId) => {
-    return boardState.filter((board) => {return board.boardId === boardId})
+    return boardState.find((board) => {return board.boardId === boardId})
   };
   
   const handleBoardSelection = (boardId) => {
@@ -104,8 +101,8 @@ const App = () => {
     fetchBoards();
   },[]);
 
-  const onHandleSubmit = (data, boardId) => {
-    axios.post(`${kBaseUrl}/boards/${boardId}/cards`, data)
+  const onHandleSubmit = (data) => {
+    axios.post(`${kBaseUrl}/boards/${selectedBoard.boardId}/cards`, data)
       .then((response) => {
         setCardState((prevCards) => [cardListFromApi(response.data), ...prevCards]);
       })
@@ -145,17 +142,17 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        Inspiration Board
+        <h1>Inspiration Board</h1>
       </header>
-      <main className="Main">
-        <section className="Right">
-          <BoardList boardData={boardState} onSelectBoard={handleBoardSelection}></BoardList>
-          <SelectedBoard boardState={selectedBoard}></SelectedBoard>
-          <NewBoardForm onHandleBoardSubmit={onHandleBoardSubmit}></NewBoardForm>
+      <main>
+        <section className="Boards-container">
+          <div className="Boards-list"><BoardList boardData={boardState} onSelectBoard={handleBoardSelection}></BoardList></div>
+          <div className="Selected-board"><SelectedBoard boardState={selectedBoard}></SelectedBoard></div>
+          <div className="New-board-form"><NewBoardForm onHandleBoardSubmit={onHandleBoardSubmit}></NewBoardForm></div>
         </section>
-        <section className="Left">
-          <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState} onUnregister={onUnregister} onLikeCard = {onLikeCard}></SelectedBoardCardList>
-          <NewCardForm selectedBoard={selectedBoard} onHandleSubmit={onHandleSubmit}></NewCardForm>
+        <section className="Cards-container">
+          <div className="Cards-list"><SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState} onUnregister={onUnregister} onLikeCard = {onLikeCard}></SelectedBoardCardList></div>
+          <div className="New-card-form"><NewCardForm selectedBoard={selectedBoard} onHandleSubmit={onHandleSubmit}></NewCardForm></div>
         </section>
       </main>
     </div>
