@@ -47,6 +47,19 @@ const handleBoardSubmit = (newBoardData) => {
     .catch((err) => console.log(`Failed to assign card to board. Error: ${err}`));
 };
 
+const chooseToggleButtonSize = 
+(toggleState) => {
+  let buttonStyle = 'toggleButtonToClose';
+
+  if (!toggleState) {
+    buttonStyle = 'toggleButtonToOpen';
+  } else {
+    buttonStyle = 'toggleButtonToClose';
+  }
+
+  return buttonStyle;
+}
+
 const handleCardSubmit = (newCardFormProps) => {
   // Handle UI after card has been created from the form
   return axios
@@ -101,7 +114,7 @@ const handleSortChange = (event) => {
 return (
   <div className="App">
     <div className="sidebar__container">
-      <button onClick={toggleSidebar}>≡</button>
+      <button onClick={toggleSidebar}  id={chooseToggleButtonSize(isSidebarShown)}>Show Menu</button>
       {isSidebarShown && <Sidebar 
         handleBoardSubmit={handleBoardSubmit} 
         handleCardSubmit={handleCardSubmit}/>}

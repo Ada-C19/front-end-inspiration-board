@@ -1,8 +1,8 @@
-import './SortOrder.css';
+import '../../App.css' 
 
 const SortOrder = props => {
     return (
-        <div className="sort-dropdown">
+        <div className="sort__dropdown">
             <label htmlFor="sort">Sort by:</label>
             <select id="sort" onChange={props.handleSortChange}>
                 <option value={undefined}>None</option>
