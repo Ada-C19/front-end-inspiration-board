@@ -8,14 +8,16 @@ const SelectedBoardCardList = (props) => {
     const getCardListJSX = (cards) => {
         return cards.map((card)=>{
             return (
-                <div id="card"><CardEntry
-                    cardId = {card.cardId}
-                    message = {card.message}
-                    likesCount = {card.likesCount}
-                    key = {card.cardId}
-                    onUnregister = {props.onUnregister}
-                    onLikeCard = {props.onLikeCard}
-                /></div>
+                <div id="card" key={card.cardId}>
+                    <CardEntry
+                        cardId = {card.cardId}
+                        message = {card.message}
+                        likesCount = {card.likesCount}
+                        key = {card.cardId}
+                        onUnregister = {props.onUnregister}
+                        onLikeCard = {props.onLikeCard}
+                    />
+                </div>
             );
         });
     };
@@ -34,13 +36,11 @@ const SelectedBoardCardList = (props) => {
 };
 
 SelectedBoardCardList.propTypes = {
-    selectedBoard: PropTypes.arrayOf(
-        PropTypes.shape({
+    selectedBoard: PropTypes.shape({
             boardId: PropTypes.number.isRequired,
             title: PropTypes.string.isRequired,
             owner: PropTypes.string.isRequired,
         })
-    ),
-}
+};
 
 export default SelectedBoardCardList;

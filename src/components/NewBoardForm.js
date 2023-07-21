@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import './NewBoardForm.css';
-
 
 const NewBoardForm = (props) => {
     const boardDefaultState = {

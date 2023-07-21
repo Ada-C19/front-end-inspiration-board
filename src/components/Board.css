@@ -1,0 +1,13 @@
+#button {
+    border: none;
+    background-color: inherit;
+    color: black;
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Gill Sans", sans-serif;
+}
+
+#button:hover {
+    background: pink;
+}
