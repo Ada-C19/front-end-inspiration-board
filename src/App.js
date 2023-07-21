@@ -153,8 +153,8 @@ const App = () => {
       .then(res => console.log("Card Liked!", res.data))
       .catch(err => console.log("Error in liking card!", err.message))
     }
-
-    likeCard(cardId).then( () => fetchCards());
+    // likeCard(cardId);
+    likeCard(cardId).then( () => fetchCards(targetBoardId));
   }
 
   const toggleBoardDisplay = () => {
