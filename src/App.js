@@ -66,8 +66,6 @@ const updateLikesCount = (cardId) => {
     });
 };
 
-
-
 const App = () => {
 
   const [boardState, setBoardState] = useState([]);
@@ -144,21 +142,21 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        Inspiration Board
+        <h1>Inspiration Board</h1>
       </header>
       <main>
-        <section>
-          <BoardList boardData={boardState} onSelectBoard={handleBoardSelection}></BoardList>
-          <SelectedBoard boardState={selectedBoard}></SelectedBoard>
-          <NewBoardForm onHandleBoardSubmit={onHandleBoardSubmit}></NewBoardForm>
+        <section className="Boards-container">
+          <div className="Boards-list"><BoardList boardData={boardState} onSelectBoard={handleBoardSelection}></BoardList></div>
+          <div className="Selected-board"><SelectedBoard boardState={selectedBoard}></SelectedBoard></div>
+          <div className="New-board-form"><NewBoardForm onHandleBoardSubmit={onHandleBoardSubmit}></NewBoardForm></div>
         </section>
-        <section>
-          <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState} onUnregister={onUnregister} onLikeCard = {onLikeCard}></SelectedBoardCardList>
-          <NewCardForm selectedBoard={selectedBoard} onHandleSubmit={onHandleSubmit}></NewCardForm>
+        <section className="Cards-container">
+          <div className="Cards-list"><SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState} onUnregister={onUnregister} onLikeCard = {onLikeCard}></SelectedBoardCardList></div>
+          <div className="New-card-form"><NewCardForm selectedBoard={selectedBoard} onHandleSubmit={onHandleSubmit}></NewCardForm></div>
         </section>
       </main>
     </div>
   );
-}}
+}
 
 export default App;
