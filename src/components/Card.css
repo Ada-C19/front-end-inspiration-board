@@ -44,6 +44,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     text-align: left;
+    vertical-align: text-bottom;
   }
 
   p {
