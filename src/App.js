@@ -114,7 +114,7 @@ const handleSortChange = (event) => {
 return (
   <div className="App">
     <div className="sidebar__container">
-      <button onClick={toggleSidebar}  id={chooseToggleButtonSize(isSidebarShown)}>Show Menu</button>
+      <button onClick={toggleSidebar}  id={chooseToggleButtonSize(isSidebarShown)}>≡</button>
       {isSidebarShown && <Sidebar 
         handleBoardSubmit={handleBoardSubmit} 
         handleCardSubmit={handleCardSubmit}/>}

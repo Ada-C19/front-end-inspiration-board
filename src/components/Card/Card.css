@@ -7,7 +7,7 @@
     box-shadow: 6px 5px 6px rgb(109, 111, 226);
     margin: 5px;
     grid-template-columns: 2fr 1fr 2fr;
-    grid-template-rows: 2fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr;
 }
 .card:hover{
   box-shadow: 6px 5px 20px rgb(0, 0, 0);
@@ -22,10 +22,12 @@
   font-size: 0.7rem;
   margin: 0;
 }
+
 .message {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  grid-area: 1 / 1 / span 1 / span 3;
+  grid-area: 1 / 1 / span 2 / span 3;
+  word-wrap: break-word;
 }
 .message:hover{
   cursor:default;
@@ -36,13 +38,14 @@
 }
 
 .likes__count {
-  grid-area: 2 / 2/ span 1 / span 2;
+  grid-area: 3 / 2/ span 1 / span 2;
   margin: 0;
+
 }
 
 .like__button{
   cursor: pointer;
-  grid-area: 2 / 1 / span 1 / span 1;
+  grid-area: 3 / 1 / span 1 / span 1;
   margin:0;
   font-size: larger;
 }

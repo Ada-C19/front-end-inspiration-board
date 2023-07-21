@@ -1,27 +1,4 @@
-/* styles for NewCardForm component */
-
-.form-container {
-    /* Your CSS styles for the form container */
-
-}
-
-.label {
-    /* Your CSS styles for the label */
-}
-
 input {
-    /* Your CSS styles for the input field */
     margin-bottom: 10px;
 }
 
-/* .submit-button {
-    /* Your CSS styles for the submit button */
-    /* border-radius: 8px; */
-    /* color: black; */
-    /* background-color: rgb(147, 121, 121); */
-/* } */
-
-/* .submit-button:hover { */
-    /* Your CSS styles for the submit button on hover */
-    /* background-color: pink; */
-/* } */

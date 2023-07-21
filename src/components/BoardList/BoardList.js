@@ -18,10 +18,13 @@ const BoardList = (props) => {
   };
 
   return (
-      <select onChange={handleBoardSelect}>
+    <div className="sort__dropdown">
+      <label htmlFor="board-select">Select Board: </label>
+      <select id="board-select" onChange={handleBoardSelect}>
         <option>Select a board</option>
         {boardItems}
       </select>
+    </div>
     );
 };
 
