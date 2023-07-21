@@ -6,7 +6,7 @@ const SelectedBoard = (props) => {
 
     return (
         <main className="selectedBoard">
-            <h3>Current Selected Board:</h3>
+            <h2>Current Selected Board:</h2>
             <h3>{props.boardState ? props.boardState.title : 'None Selected'}</h3>
         </main>
     );
