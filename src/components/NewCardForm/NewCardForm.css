@@ -5,3 +5,6 @@ input {
 .form {
     border: none;
 }
+.submit-button:disabled {
+    background-color: rgb(182, 182, 182);
+}
