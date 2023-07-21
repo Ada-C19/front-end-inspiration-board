@@ -85,14 +85,14 @@ const App = () => {
 
   const fetchBoards = () =>{
     getAllBoards().then((boards)=>{
-      // console.log(boards);
+      console.log(boards);
       setBoardState(boards);
     })
   }
 
   const fetchCards = (boardId) =>{
     getAllCardsOneBoard(boardId).then((cards)=>{
-      // console.log(cards);
+      console.log(cards);
       setCardState(cards);
     })
   }
@@ -116,7 +116,7 @@ const App = () => {
       })
       .catch((e) => console.log(e));
   };
- 
+
   const onUnregister = (cardId) => {
     deleteCard(cardId).then(() => {
       setCardState((oldData) => {

@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-
 
 const NewCardForm = (props) => {
     const cardDefaultState = {
