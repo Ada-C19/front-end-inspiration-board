@@ -1,0 +1,15 @@
+/************* Select Options to Sort Cards *************/
+
+.sort-select {
+    background-color: #ffff;
+    color: black;
+    border: 0.1rem solid black;
+    width: 10rem;
+    height: 2rem;
+    margin: 1rem 0rem;
+    transition: 0.4s;
+}
+
+.sort-select:hover {
+    border: 0.1rem solid #EB418B;
+}

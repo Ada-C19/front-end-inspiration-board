@@ -1,0 +1,7 @@
+.list-boards {
+    border: solid black;
+    overflow-block: scroll;
+    scroll-behavior: smooth;
+    max-height: 12rem;
+    max-width: 15rem;
+}

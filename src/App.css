@@ -1,0 +1,135 @@
+* {
+    text-align: center;
+    font-family: 'PT Sans', sans-serif;
+}
+
+/************* GRID *************/
+
+.grid-container {
+    display: grid;
+    height: 100vh;
+    max-width: 100vw;
+    grid-template-columns: repeat(3, 33.33%);
+    grid-template-rows: 0.5fr 1fr 2fr;
+}
+
+.App-header {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.board-list {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selected-board {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.board-form {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cards-list {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+}
+
+.card-form {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/************* Page Heading *************/
+
+.heading {
+    background-color: #ffff00;
+    height: 3rem;
+    padding: 1rem;
+    font-size: 2rem;
+    font-family: 'Permanent Marker', cursive;
+    transform: rotate(-5deg) skew(-10deg, -5deg);
+}
+
+/************* Section Headings *************/
+
+.sect-heading {
+    border: solid black;
+    background-color: white;
+    padding: 1rem 1rem;
+    margin: 1rem 3rem;
+    box-shadow: -0.5rem 0.5rem;
+    font-size: 1.2em;
+    font-family: 'Permanent Marker', cursive;
+}
+
+/************* Buttons *************/
+
+.btn {
+    background-color: #ffff;
+    color: black;
+    border: 0.1rem solid black;
+    width: 6rem;
+    height: 2rem;
+    margin: 1rem 0rem;
+    transition: 0.4s;
+}
+
+.btn:hover {
+    background-color: black;
+    color: #fff;
+    border: 0.1rem solid #EB418B;
+}
+
+/************* Forms *************/
+
+.form {
+    height: 15rem;
+    max-width: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/************* Form Inputs *************/
+
+.board-input {
+    display: inline-block;
+    padding: 0.2rem;
+    outline: none;
+    text-align: start;
+    -webkit-transition: 0.5s;
+    transition: 0.4s;
+}
+
+.board-input:focus {
+    border: 0.1rem solid #EB418B;
+}
+
+/************* Selected Board Section *************/
+
+.selected-board p {
+    text-decoration: underline;
+    font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
+}
