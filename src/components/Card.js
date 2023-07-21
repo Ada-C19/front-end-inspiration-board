@@ -10,13 +10,13 @@ import lantern from './lantern.png';
 const Card = ({card, deleteCard, addOneLikeToCard, removeOneLikeToCard}) => {
     
     return (<div className="card-container" id="swaying-image">
-            <h3 className='card-item__message'>{card.message}</h3>
-            <section className='card-buttons'>
-                <span><p>{card.likes_count}  likes</p></span>
-                <span onClick={() => addOneLikeToCard(card)}>   ❤️   </span>
-                <span onClick={() => removeOneLikeToCard(card)}>    💔   </span>
-                <span onClick={() => deleteCard(card)}>  🗑️   </span>
-            </section>
+                <h3 className='card-item__message'>{card.message}</h3>
+                <section className='card-buttons'>
+                    <span><p>{card.likes_count}  likes</p></span>
+                    <span onClick={() => addOneLikeToCard(card)}>   ❤️   </span>
+                    <span onClick={() => removeOneLikeToCard(card)}>    💔   </span>
+                    <span onClick={() => deleteCard(card)}>  🗑️   </span>
+                </section>
             </div>);
 };
 
