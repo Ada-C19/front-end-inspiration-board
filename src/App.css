@@ -1,0 +1,88 @@
+  @import url('https://fonts.googleapis.com/css2?family=Lumanosimo&family=Rubik:wght@400;600;900&display=swap');
+
+.App {
+  width: 100vw;
+  display: flex;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: hsla(233, 93%, 27%, 0.2);
+}
+
+.App-header {
+  font-size: 40px;
+  font-family: 'Lumanosimo', cursive;
+  text-align: center;
+  vertical-align: middle;
+  color:rgb(89, 91, 215)
+}
+
+.board-container {
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.board-container>select {
+  display: flex;
+  justify-content: left;
+  margin-left: 10px;
+}
+
+#sort {
+  display: flex;
+  justify-content: left;
+  margin-left: 10px;
+
+}
+.body__container {
+  flex:1;
+}
+
+.sidebar__container{
+  background-color: rgb(89, 91, 215);
+  border-right: 1px solid black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.submit-button{
+  border-radius: 8px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(178, 117, 251);
+  padding: 10px;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.submit-button:hover {
+  /* Your CSS styles for the submit button on hover */
+  background-color: pink;
+  color: rgb(142, 150, 0);
+}
+
+.board__container{
+  justify-content: flex-start;
+}
+
+.sort__dropdown {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 11px;
+}
+
+#toggleButtonToOpen {
+  width: 100%;
+  font-size: 2rem;
+  background-color: pink;
+}
+
+#toggleButtonToClose {
+  max-width: 20%;
+  font-size: 2rem;
+  background-color: pink;
+}
