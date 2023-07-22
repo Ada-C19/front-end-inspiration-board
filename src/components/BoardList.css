@@ -25,3 +25,12 @@ ul{
 ul {
     list-style-type: '⭐️';
 }
+@media screen and (max-width:1024px) {
+    .board{
+        width: 250%;
+       }
+    .board-heading{
+        width: fit-content;
+    }
+   
+    }

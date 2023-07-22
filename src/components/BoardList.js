@@ -20,7 +20,7 @@ const BoardList = (props) => {
 
     return (
         <section>
-            <h2>Boards</h2>
+            <h2 className='board-heading'>Boards</h2>
             <ul className='board'>{getBoard}</ul>
         </section>
     );
