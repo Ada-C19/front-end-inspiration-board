@@ -1,0 +1,50 @@
+.new-board-form {
+    margin: 3rem;
+    color: darkslateblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+    padding: 3rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    height: 250px;
+    background-image: url('../images/wp4465167.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 10px solid transparent;
+    border-image-source: url('../images/gold-picture-frame-1.png');
+    border-image-slice: 250;
+    border-image-width: 50px;
+    background-size: calc(100% - 20px) calc(100% - 20px);
+}
+
+.new-board-form div {
+    margin-bottom: 1rem;
+}
+
+.new-board-form h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.new-board-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.new-board-form input[type='text'] {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.new-board-form input[type='submit'] {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.new-board-form input[type='submit']:hover {
+    background-color: #555;
+}

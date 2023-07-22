@@ -1,0 +1,9 @@
+.trash-icon {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+}
+
+.trash-icon:hover {
+    transform: scale(1.2);
+}

@@ -1,0 +1,9 @@
+.plus-icon {
+   position: absolute;
+   top: 30px;
+   left: 40px;
+}
+
+.plus-icon:hover {
+   transform: scale(1.2);
+}

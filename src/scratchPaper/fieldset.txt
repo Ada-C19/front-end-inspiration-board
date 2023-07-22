@@ -1,0 +1,10 @@
+// started working on this but not sure if it is
+// the direction I want to go in
+
+<fieldset>
+<legend>Which boards shall I display?:</legend>
+  <div>
+    <input type="checkbox" id="board1" name="board1"/>
+    <label for="board1">Board 1</label>
+  </div>
+</fieldset>

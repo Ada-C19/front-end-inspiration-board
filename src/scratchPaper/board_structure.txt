@@ -1,0 +1,18 @@
+{
+    "id": 1,
+    "title": "Practice"
+    "cards": [
+        {
+            "board_id": 1,
+            "card_id": 1,
+            "likes_count": 10,
+            "message": "Testing Inspo Board"
+        },
+        {
+            "board_id": 1,
+            "card_id": 2,
+            "likes_count": 10,
+            "message": "Testing Inspo Board"
+        }
+    ],
+}
