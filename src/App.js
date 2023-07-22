@@ -45,7 +45,7 @@ function App() {
 
   useEffect(()=>{
     fetchBoards();
-  }, );
+  }, []);
 
 // board preview state
   const [selectedBoard, setSelectedBoard]= useState("Select a Board")
@@ -146,8 +146,10 @@ function App() {
     const onDeleteBoard = (id) =>{
     deleteBoard(id)
     .then(res =>{
-    const newBoardList = boardData.filter((ele) => ele.board_id !== id);
-    setBoardData(newBoardList);
+  
+    setBoardData((old_data)=>{
+      return old_data.filter((ele) => ele.board_id !== id)
+    });
     });
   };
 
