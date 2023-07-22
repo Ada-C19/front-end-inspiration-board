@@ -128,9 +128,11 @@ function App() {
     const deleteCard = (id) =>{
     toDelete(id)
     .then(res =>{
-    const newCardList = cardData.filter((ele) => ele.card_id !== id);
-    setCardData(newCardList);
-    });
+  
+      setCardData((old_data)=>{
+        return old_data.filter((ele) => ele.card_id !== id)
+      });
+      });
   };
   const deleteBoard = (id) =>{
     return axios
