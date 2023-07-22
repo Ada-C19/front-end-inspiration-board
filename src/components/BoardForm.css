@@ -50,9 +50,9 @@ input:invalid {
   box-shadow: 0 0 12px rgb(255, 0, 0);
    
    }
-   @media screen and (max-width:1024px){
+@media screen and (max-width:1024px){
     .button{
         width: fit-content;
     }
-   }
+}
 
