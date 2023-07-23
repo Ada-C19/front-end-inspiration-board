@@ -6,7 +6,8 @@ const Board = ({ board_id, title, cards}) => {
     <select onChange={handleBoardChange}>
     </select>
   )
-
+  }
+  
 export default Board;
 
 // class Board(db.Model):
