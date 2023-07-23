@@ -1,10 +1,12 @@
 import React from 'react';
 
-const Board = ({ board_id, title, cards}) => {
+const Board = ({ board_id, title}) => {
 
   return (
-    <select onChange={handleBoardChange}>
-    </select>
+    <div>
+      {title}
+      {board_id}
+    </div>
   )
   }
   
