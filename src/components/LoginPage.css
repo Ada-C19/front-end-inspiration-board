@@ -1,0 +1,485 @@
+/* BARBIE STYLING */
+/* container positioning and animation */
+.barbie-main {
+    margin: 0;
+    width: 800px;
+    height: 100%;
+    padding-left: 5%;
+}
+
+.barbie-login-container {
+    margin: 0;
+    display: block;
+    text-align:center;
+    animation: myAnim 2s ease 0s 1 normal forwards;
+} 
+
+@keyframes myAnim {
+	0% {
+		transform: scale3d(1, 1, 1);
+	}
+
+	30% {
+		transform: scale3d(1.25, 0.75, 1);
+	}
+
+	40% {
+		transform: scale3d(0.75, 1.25, 1);
+	}
+
+	50% {
+		transform: scale3d(1.15, 0.85, 1);
+	}
+
+	65% {
+		transform: scale3d(0.95, 1.05, 1);
+	}
+
+	75% {
+		transform: scale3d(1.05, 0.95, 1);
+	}
+
+	100% {
+		transform: scale3d(1, 1, 1);
+	}
+} 
+
+/* inspo board header  */
+
+.flicker-slow{
+    animation: flicker 3s linear infinite;
+}
+
+.flicker-fast{
+animation: flicker 1s linear infinite;
+}
+
+@keyframes flicker {
+    0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+        /* text-shadow: none; */
+        opacity: .99;
+        
+    }
+    20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+        opacity: 0.4;
+    }
+}
+
+/* login header */
+
+.barbie-new-user-heading {
+    padding-top: 5% !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 30px;
+    font-size: 70px !important;
+    color: white !important;
+    text-shadow: 6px 1px #E10686 !important;
+}
+.barbie-login-container h2 {
+    color:#E10686;
+    padding-top: 0;
+    margin-top: 0;
+    font-size: 50px;
+}
+
+.barbie-login-container h1 {
+    color:#E10686;
+    margin: 0;
+    padding-top: 15%;
+    padding-bottom: 5%;
+    margin-top: 0;
+    line-height: 40px;
+    font-size: 100px;
+    font-weight: bold;
+    color: white;
+    /* color: #E10686; */
+    text-align: center;
+    text-shadow: 6px 1px #E10686;
+    border-radius: 3px 3px 0 0;
+    height: 100%;
+
+}
+
+/* switch between login + registration section */
+.barbie-login-help {
+    margin: 20px 0;
+    font-size: 30px;
+    color: #E10686;
+    text-align: center;
+    text-shadow: 0 1px #2a85a1;
+}
+
+
+:-moz-placeholder {
+    color: #2a85a1 !important;
+    font-size: 20px;
+}
+
+::-webkit-input-placeholder {
+    color: #2a85a1;
+    font-size: 20px;
+}
+
+/* input styling */
+.barbie-login-container label {
+    font-size: 20px;
+    font-style: bold;
+    color: white;
+    padding-bottom: 20%;
+    text-shadow: 3px 0px #E10686;
+}
+.barbie-login-container input[type=text], .barbie-login-container input[type=password] {
+    margin: 5px;
+    font-size: 30px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 40px;
+    color: #E10686;
+    background: #9bcfca50;
+    border: 1px solid;
+    border-color: #E10686;
+    border-radius: 2px;
+    outline: 5px solid #E10686;
+    -moz-outline-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+.barbie-login-container input:required {
+    color: #E10686;
+}
+
+.barbie-registration-container input:required {
+    color: #E10686;
+}
+
+
+/* buttons */
+.barbie-button {
+    font-size: 20px;
+    /* color: #2a85a1; */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 4px;
+    margin-top: 10px !important;
+    font-family: 'barbiemediumitalic';
+    background-color: #E10686 !important;
+}
+
+.barbie-glow-on-hover {
+    width: 150px;
+    height: 35px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    margin-left: 5px;
+}
+
+.barbie-glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.barbie-glow-on-hover:active {
+    color:  #E10686;
+}
+
+.barbie-glow-on-hover:active:after {
+    background: transparent;
+}
+
+.barbie-glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.barbie-glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:  #E10686;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.barbie-response {
+    color: rgb(0, 0, 0);
+    position: center;
+    font-size: 14px; /* Adjust the font size as needed */
+}
+
+
+/* OPPENHEIMER STYLING */
+
+/* container positioning and animation */
+.oppenheimer-main {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 0;
+    font-family: 'Inter', sans-serif; letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.oppenheimer-login-container {
+    margin: 0;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    text-align:center;
+    animation: skew-x-shake 3s infinite;
+} 
+
+
+@keyframes skew-x-shake {
+    0% { transform: skewX(-15deg); }
+    5% { transform: skewX(15deg); }
+    10% { transform: skewX(-15deg); }
+    15% { transform: skewX(15deg); }
+    20% { transform: skewX(0deg); }
+    100% { transform: skewX(0deg); }  
+}
+
+
+/* login header */
+
+.oppenheimer-new-user-heading {
+    padding-top: 0%;
+    padding-bottom: 0;
+    margin-bottom: 10px;
+    font-style: normal;
+    font-size: 70px;
+    color: #e3592e;
+    text-shadow: 3px 0px black;
+    width: 100%;
+    line-height: 100px;
+    text-align: center;
+    font-weight: normal;
+    border-radius: 3px 3px 0 0;
+}
+/* .oppenheimer-login-container h2 {
+    color:#E10686;
+    padding-top: 0;
+    margin-top: 0;
+    font-size: 50px;
+} */
+
+.oppenheimer-login-container h1 {
+    /* color:black; */
+    color: #e3592e;
+    text-shadow: 3px 0px black;
+    margin: 0;
+    width: 100%;
+    padding-top: 7%;
+    padding-bottom: 5%;
+    margin-top: 0;
+    line-height: 100px;
+    font-size: 70px;
+    font-stretch: expanded;
+    text-align: center;
+    font-weight: 100;
+    border-radius: 3px 3px 0 0;
+}
+
+.oppenheimer-login-form {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr .1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin: 0;
+    padding: 0;
+    place-items: center;
+}
+
+.label1 { grid-area: 1 / 1 / 2 / 3; margin: 0;}
+.label2 { grid-area: 1 / 4 / 2 / 6; }
+.label3 { grid-area: 2 / 1 / 3 / 6; margin: 0; }
+.login-submit-button { grid-area: 2 / 1 / 3 / 6; margin: 0; padding: 0;}
+
+.oppenheimer-registration-form {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 40%) .1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    padding: 0;
+    margin: 0;
+    place-items: center;
+    height: 457px !important;
+}
+
+.firstName { grid-area: 1 / 1 / 2 / 3; padding: 0; margin: 0;}
+.lastName { grid-area: 2 / 1 / 3 / 3; }
+.username { grid-area: 1 / 4 / 2 / 6; }
+.password { grid-area: 2 / 4 / 3 / 6; }
+.submit-button {grid-area: 3 / 1 / 4 / 6; height: 20px;}
+/* .registration-login-help { grid-area: 3 / 1 / 4 / 6; } */
+
+/* switch between login + registration section */
+.oppenheimer-login-help {
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+    color: #e3592e;
+    text-align: center;
+    text-shadow: 3px 0px black;
+}
+
+
+:-moz-placeholder {
+    color: #4c5358 !important;
+    font-size: 20px;
+}
+
+::-webkit-input-placeholder {
+    color: #4c5358;
+    font-size: 20px;
+}
+
+.oppenheimer-login-container input:required {
+    color: black;
+}
+
+
+/* input styling */
+.oppenheimer-login-container label {
+    font-size: 20px;
+    font-style: bold;
+    color: #e3592e;
+    padding-bottom: 20%;
+    text-shadow: 3px 0px black;
+}
+.oppenheimer-login-container input[type=text], .oppenheimer-login-container input[type=password] {
+    margin: 5px;
+    font-size: 30px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 40px;
+    color: #383b3d;
+    background: #F5D096;
+    border: 1px solid;
+    border-color: #e3592e;
+    border-radius: 2px;
+    outline: 5px solid #e3592e;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+/* buttons */
+.oppenheimer-button {
+    font-size: 20px;
+    /* color: #2a85a1; */
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding-left: 5px;
+    margin-top: 10px !important;
+    margin-left: 5px;
+    font-family: 'Inter', sans-serif; letter-spacing: 5px;
+    font-style: bold !important;
+    background-color: #e3592e !important;
+    text-transform: uppercase;
+}
+.oppenheimer-button:hover {
+	background-color: black !important;
+	color: white;
+}
+
+.oppenheimer-glow-on-hover {
+    width: 170px;
+    height: 35px;
+    border: none;
+    outline: none;
+    color:black;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 0;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.oppenheimer-glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, gray, black, grey, black, grey, black);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 0px;
+}
+
+.oppenheimer-glow-on-hover:active {
+    color:  #e3592e;
+}
+
+.oppenheimer-glow-on-hover:active:after {
+    background: transparent;
+}
+
+.oppenheimer-glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.oppenheimer-glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:  #e3592e;
+    left: 0;
+    top: 0;
+    border-radius: 0px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.oppenheimer-button .oppenheimer-response {
+    color: rgb(0, 0, 0);
+    position: center;
+    font-size: 14px; /* Adjust the font size as needed */
+}
+

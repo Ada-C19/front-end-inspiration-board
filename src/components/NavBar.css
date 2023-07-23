@@ -1,0 +1,228 @@
+/* SHARED STYLES */
+.barbie-nav, 
+.oppenheimer-nav {
+    margin-bottom: 10px;
+}
+
+
+/* BARBIE THEME */
+.barbie-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 50px;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: 'barbiemediumitalic';
+    font-size: 30px;
+}
+
+.barbie-nav h1,
+.barbie-nav h4 {
+    margin: 0;
+}
+
+.barbie-nav h1 {
+    font-size: 60px;
+    font-weight: bolder;
+    color: #E10686;
+    width: fit-content;
+    text-shadow:3px 0px 4px #FFD5FF, 2px 0px 3px #D42CCA, 2px 3px 15px #D42CCA
+}
+
+.barbie-nav .barbie-flicker-slow{
+    animation: flicker 3s linear infinite;
+}
+
+.barbie-nav .barbie-flicker-fast{
+animation: flicker 1s linear infinite;
+}
+
+@keyframes flicker {
+    0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+        opacity: .99;
+        
+    }
+    20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+        opacity: 0.4;
+    }
+}
+
+.barbie-nav h4 {
+    padding: 10px;
+}
+
+.barbie-dropdown {
+    width: 300px;
+    background-color: #E10686;
+    color: #F7E5E5;
+    border: 2px solid white;
+    border-radius: 5px;
+    text-align: right;
+}
+
+.barbie-dropdown:hover {
+    cursor: pointer;
+}
+
+.barbie-dropdown-content {
+    position: absolute;
+    top: 120px;
+    width: inherit;
+    z-index: 3;
+    opacity: 0;
+    transform-origin: top;
+}
+
+.barbie-dropdown:hover .barbie-dropdown-content {
+    display: block;
+    margin-top: 40px;
+    line-height: 30px;
+    opacity: 1;
+    transition: all .7s ease;
+}
+
+
+.barbie-dropdown-content li {
+    position: relative;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    width: initial;
+    right: 40px;
+    padding: 5px 10px;
+    border: 2px solid white;
+    z-index: 3;
+    background-color: #E10686;
+    list-style-type: none; 
+}
+
+.barbie-dropdown-content li:hover, 
+.barbie-boards-list-item-delete:hover {
+    cursor: pointer;
+    background-color: #f29ad883;
+    transform: scale(1.03);
+
+}
+
+.barbie-boards-list-item, 
+.barbie-boards-list-item-delete {
+    border: none;
+    padding: 0;
+    font-size: 0.7em;
+    background-color: transparent;
+}
+
+.barbie-boards-list-item-delete:hover {
+    color: #F7E5E5;
+    transform: scale(1.09);
+    background-color: transparent;
+    
+}
+
+/* OPPENHEIMER THEME */
+.oppenheimer-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 50px;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: 'Inter', sans-serif; letter-spacing: 5px;
+    font-size: 30px;
+    font-weight: lighter;
+
+}
+
+.oppenheimer-nav h1,
+.oppenheimer-nav h4 {
+    margin: 0;
+}
+
+.oppenheimer-nav h1 {
+    font-size: 40px;
+    font-weight: lighter;
+    color: black;
+    width: fit-content;
+    text-shadow: 2px 2px #f8eed8;
+
+}
+
+.oppenheimer-nav h4 {
+    padding: 10px;
+}
+
+.oppenheimer-dropdown {
+    width: 300px;
+    background-color:#4c5358;
+    color: #f8eed8;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: right;
+    font-weight: lighter;
+}
+
+.oppenheimer-dropdown h4 {
+    background-color: black;
+}
+
+.oppenheimer-dropdown:hover {
+    cursor: pointer;
+}
+
+.oppenheimer-dropdown-content {
+    position: absolute;
+    top: 130px;
+    width: inherit;
+    z-index: 3;
+    opacity: 0;
+    transform-origin: top;
+}
+
+.oppenheimer-dropdown:hover .oppenheimer-dropdown-content {
+    display: block;
+    margin-top: 40px;
+    line-height: 30px;
+    opacity: 1;
+    transition: all .7s ease;
+}
+
+
+.oppenheimer-dropdown-content li {
+    position: relative;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    width: initial;
+    right: 40px;
+    padding: 5px 10px;
+    border: 2px solid black;
+    z-index: 3;
+    background-color: #f8eed8;
+    list-style-type: none; 
+}
+
+.oppenheimer-dropdown-content li:hover, 
+.oppenheimer-boards-list-item-delete:hover {
+    cursor: pointer;
+    background-color: #f5d19678;
+    transform: scale(1.03);
+
+}
+
+.oppenheimer-boards-list-item, 
+.oppenheimer-boards-list-item-delete {
+    border: none;
+    padding: 0;
+    font-size: 0.7em;
+    background-color: transparent;
+}
+
+.oppenheimer-boards-list-item-delete:hover {
+    color: #F7E5E5;
+    transform: scale(1.09);
+    background-color: transparent;
+    
+}

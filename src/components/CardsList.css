@@ -1,0 +1,51 @@
+.barbie-display-cards-list {
+  border-radius: 10px;
+  grid-area: cl;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  height: 100px;
+}
+
+
+.barbie-display-card {
+  background-color: rgb(248, 124, 192);
+  border: none;
+  margin: 5px;
+  border-radius: 5px;
+  display: flex;
+  transition: transform 0.3s ease;
+  
+}
+
+.barbie-display-card:hover {
+  transform: scale(1.5);
+}
+
+
+/*------------------- oppenheimer ------------------------------ */
+
+.oppenheimer-display-cards-list {
+  border-radius: 10px;
+  grid-area: cl;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  height: 100px;
+}
+
+
+.oppenheimer-display-card {
+  background-color: rgb(136, 135, 136);
+  border: none;
+  margin: 5px;
+  border-radius: 5px;
+  display: flex;
+  transition: transform 0.3s ease;
+  color: white;
+  
+}
+
+.oppenheimer-display-card:hover {
+  transform: scale(1.5);
+}

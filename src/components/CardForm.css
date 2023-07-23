@@ -1,0 +1,161 @@
+* {
+    border-radius: 4px;
+}
+
+.barbie-new-card-fields, 
+.oppenheimer-new-card-fields {
+    font-size: 16px;
+}
+
+.barbie-new-card-form,
+.oppenheimer-new-card-form {
+    border-radius: 10px;
+}
+
+.barbie-new-card-form {
+    border: 3px solid rgb(255, 0, 174);
+    grid-area: cf;
+    margin: 0 auto;
+    height: fit-content;
+    background-color: white;
+    color: #E10686;
+}
+
+.barbie-new-card-form h2 {
+    position: relative;
+    right: 5px;
+    color: #E10686;
+}
+
+.barbie-new-card-fields {
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+.barbie-new-card-fields div,
+textarea {
+    padding: 10px;
+}
+
+.new-card-submit {
+    position: relative;
+    left: 25%;
+    padding: 4px;
+
+}
+
+.barbie-new-card-fields div label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.barbie-new-card-fields textarea {
+    width: 18vw;
+    padding: 10px;
+    border: 1.5px solid #E10686;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.barbie-new-card-form label [for='preview'] {
+    font-weight: bold;
+    color: #E10686;
+}
+
+.barbie-new-card-form label[for='message'] {
+    font-weight: bold;
+    color: #E10686
+}
+
+.barbie-new-card-form label[for='message'] {
+    font-weight: bold;
+    color: #E10686
+}
+
+.toggleShow {
+    position: relative;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    font-size: 14px;
+}
+
+.barbie-new-card-fields .toggleShow {
+    color: #E10686;
+    border-bottom: 2px solid #E10686;
+}
+
+.oppenheimer-new-card-fields .toggleShow {
+    color: white;
+    border-bottom: 2px solid white;
+}
+
+
+
+/* -------------------- oppenheimer ---------------------*/
+.oppenheimer-new-card-form h2 {
+    position: relative;
+    left: 20px;
+}
+
+
+.oppenheimer-new-card-form {
+    border: 3px solid rgb(244, 192, 49);
+    grid-area: cf;
+    margin: 0 auto;
+    padding: 0;
+    height: fit-content;
+    background-color: black;
+    color: white;
+}
+
+.oppenheimer-new-card-form h2 {
+    position: relative;
+    left: 10px;
+    color: white
+}
+.oppenheimer-new-card-fields {
+    margin-bottom: 5px;
+    padding: 10px;
+    color: white;
+}
+
+.oppenheimer-new-card-fields div,
+textarea {
+    padding: 10px;
+    color: white;
+}
+
+.oppenheimer-new-card-submit {
+    position: relative;
+    left: 35%;
+    padding: 4px;
+
+}
+
+.oppenheimer-new-card-fields div label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+.oppenheimer-new-card-fields textarea {
+    width: 18vw;
+    padding: 10px;
+    border: 1.5px solid orange;
+    border-radius: 5px;
+    background-color: transparent;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+} 
+
+.oppenheimer-new-card-form label [for='preview'] {
+    font-weight: bold;
+    color: white;
+}
+
+.oppenheimer-new-card-form label[for='message'] {
+    font-weight: bold;
+    color: white;
+}

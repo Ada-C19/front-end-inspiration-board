@@ -1,0 +1,48 @@
+:root {
+    --primary: #fff;
+}
+
+.btn {
+    padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn--heimer {
+    background-color: rgb(73, 30, 8);
+    color:#242424;
+    padding: 8px 20px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease-out;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 5px;
+}
+
+.btn--barbie {
+    background-color: #f039b1;
+    color:#fff;
+    padding: 8px 20px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease-out;
+    font-family: 'barbiemediumitalic';
+    margin-right: 10px;
+}
+
+.btn--medium {
+    padding: 8px 20px;
+    font-size: 20px;
+}
+
+.btn--large {
+    padding: 12px 26px;
+    font-size: 30px;
+}
+
+.btn--medium:hover, .btn--large:hover {
+    background: #fff;
+    color: #242424;
+    transition: all 0.3s ease-out;
+}
+

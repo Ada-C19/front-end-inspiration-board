@@ -1,0 +1,180 @@
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.barbie-new-board-fields {
+    position: relative;
+    left: 8%;
+    font-size: 16px;
+}
+
+.oppenheimer-new-board-fields {
+    position: relative;
+    left: 10%;
+    font-size: 16px;
+}
+
+
+
+.barbie-new-board-fields input {
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.barbie-new-board-form {
+    grid-area: bf;
+    height: fit-content;
+    border: 5px solid #30CDB1;
+    background-color:white;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 2px solid #E10686;
+    color: #E10686;
+
+}
+
+.barbie-new-board-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+.toggleShow {
+    position: relative;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid #E10686;
+    color:#E10686;
+}
+
+.barbie-new-board-header .toggleShow {
+    top: 25px;
+    font-family: 'barbiemediumitalic';
+}
+
+
+.barbie-new-board-header button:hover {
+    border-bottom: 2px solid #E10686;
+    color: #E10686;
+    cursor: pointer;
+}
+
+.barbie-inputs {
+    width: 18vw;
+    margin-left: 10px;
+}
+
+.barbie-new-board-fields {
+    padding: 10px;
+}
+
+.barbie-new-board-fields div {
+    margin-bottom: 5px;
+    padding: 10px 0;
+}
+
+.barbie-new-board-fields div label {
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #E10686;
+}
+
+.barbie-new-board-fields input {
+    background-color: transparent;
+    width: 16vw;
+    border: none;
+}
+
+.barbie-new-board-fields input:required {
+    border-bottom: 1.5px solid #E10686;
+}
+
+.barbie-new-board-submit {
+    position: relative;
+    left: 25%;
+    padding: 4px;
+}
+
+
+.oppenheimer-new-board-fields input {
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.oppenheimer-new-board-form { 
+        color: white;       
+        grid-area: bf;
+        height: fit-content;
+        border: 5px solid #b75f13;
+        background-color:black;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        border: 2px solid rgb(224, 88, 4);
+    }
+
+.oppenheimer-new-board-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Inter', sans-serif; letter-spacing: 3px;
+    margin-top: 5px;
+    font-size: 13px;
+    color: white;
+}
+
+.oppenheimer-new-board-header .toggleShow {
+    top: 15px;
+    color: white;
+    border-bottom: white;
+}
+
+.oppenheimer-new-board-header button:hover {
+    border-bottom: 2px solid rgb(6, 0, 0);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.oppenheimer-inputs {
+    width: 18vw;
+}
+
+.oppenheimer-new-board-fields {
+    padding: 10px;
+}
+
+.oppenheimer-new-board-fields div {
+    margin-bottom: 5px;
+    padding: 10px 0;
+}
+
+.oppenheimer-new-board-fields div label {
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+.oppenheimer-new-board-fields input {
+    background-color: transparent;
+    width: 16vw;
+    border: none;
+    color: white;
+}
+
+.oppenheimer-new-board-fields input:required {
+    border-bottom: 1.5px solid rgb(178, 99, 25);
+}
+
+.oppenheimer-new-board-submit {
+    position: relative;
+    left: 25%;
+    padding: 4px;
+}

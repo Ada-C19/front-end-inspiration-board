@@ -1,0 +1,31 @@
+.team-section {
+    grid-area: barbie;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: auto;
+    margin-bottom: 20px;
+    gap: 15px;
+    border-radius: 5px;
+}
+.team-section.barbie {
+    border-right: 4px solid #E10686;
+    border-left: 4px solid #E10686;
+}
+
+.team-section.oppenheimer {
+    border-right: 4px solid #f8eed8;
+    border-left: 4px solid #f8eed8;
+}
+
+.barbie img,
+.oppenheimer img {
+    width: 8%;
+    object-fit: contain;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.oppenheimer img {
+    filter: grayscale(1);
+}

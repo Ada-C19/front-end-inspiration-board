@@ -1,0 +1,100 @@
+.barbie-single-card-section {
+  background-color: #fa3d82c6;
+  border-radius: 8px;
+  width: 100px;
+  padding: 10px;
+  grid-column-end: 2;
+  margin: 5px;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.barbie-single-card-section:hover {
+  transform: scale(1.1);
+}
+.barbie-single-card-section p {
+  padding-left: 1px;
+  padding-bottom: 30px;
+  font-size: 16px;
+  overflow-wrap: break-word;
+
+}
+
+.barbie-card-interactions-div{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.barbie-card-interactions-div p {
+  border-radius: 4px;
+  width: 45px;
+  padding-left: 2px;
+  padding-bottom: 10px;
+  display: grid;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.barbie-card-interactions-div-button {
+  background-color: #ff69b4;
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  margin-left: 4px;
+  margin-top: 80%;
+  padding-top: 90px;
+  
+}
+
+/* -------------------------- oppenheimer --------------------- */
+.oppenheimer-single-card-section {
+  background-color: #F8EED8;
+  border-radius: 8px;
+  width: 100px;
+  padding: 10px;
+  grid-column-end: 2;
+  margin: 5px;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.oppenheimer-single-card-section:hover {
+  transform: scale(1.1);
+} 
+ .oppenheimer-single-card-section p {
+  padding-left: 1px;
+  padding-bottom: 30px;
+  font-size: 16px;
+  overflow-wrap: break-word;
+  color: black;
+  font-weight: bold;
+}
+
+.oppenheimer-card-interactions-div{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.oppenheimer-card-interactions-div p {
+  border-radius: 4px;
+  width: 45px;
+  padding-top: 0px;
+  padding-bottom: 12px;
+  display: grid;
+  position: absolute;
+  bottom: 0;
+  left: 60%;
+  color: orange;
+  text-align: right;
+}
+
+.oppenheimer-card-interactions-div button {
+  background-color: #de8f29;
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  margin-left: 4px;
+  margin-top: 90%;
+
+}

@@ -1,0 +1,53 @@
+.barbie-display-selected-board {
+    border: 3px solid rgb(255, 0, 174);
+    border-radius: 4px;
+    grid-area: sb;
+    margin-right: 2px;
+    margin-bottom: 10px;
+    height: fit-content;
+    padding: 5px;
+    text-align: center;
+    background-color: white;
+    color: rgb(235, 91, 194);
+  }
+  
+  .barbie-display-selected-board h2 {
+    animation: bounce 3s infinite; /* Apply the bounce animation to the element */
+
+  }
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0); /* Start and end position (no vertical movement) */
+    }
+    50% {
+      transform: translateY(-5px); /* Bounce up 5 pixels at 50% of the animation */
+    }
+  }
+
+
+  .oppenheimer-display-selected-board {
+    border: 3px solid #e3592e;
+    border-radius: 4px;
+    grid-area: sb;
+    margin-right: 2px;
+    margin-bottom: 10px;
+    height: fit-content;
+    padding: 5px;
+    text-align: center;
+    background-color:#000000;
+    color:  rgb(255, 255, 255);
+  }
+  
+  .oppenheimer-display-selected-board h2 {
+    animation: bounce 3s infinite; /* Apply the bounce animation to the element */
+
+  }
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0); /* Start and end position (no vertical movement) */
+    }
+    50% {
+      transform: translateY(-5px); /* Bounce up 5 pixels at 50% of the animation */
+    }
+  }
+

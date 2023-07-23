@@ -1,0 +1,48 @@
+
+html, body {
+    margin:0;
+    width: 100%;
+    height: 100%;
+}
+
+.barbie-container { 
+    background: url(../../public/barbie-movie-ryan-gosling-margot-robbie-hd-wallpaper-uhdpaper.com-905@1@k.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: inherit;
+    height: 100vh;
+} 
+
+.oppenheimer-container {
+    background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)), url(../../public/8881280.jpg) no-repeat center center fixed;
+    /* background: url(../public/barbie-movie-ryan-gosling-margot-robbie-hd-wallpaper-uhdpaper.com-905@1@k.jpg) no-repeat center center fixed;  */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0px;
+    padding: 0px;
+	height: 100vh;
+    box-sizing: inherit;
+	text-transform: uppercase;
+	font-weight: lighter;
+}
+
+
+.barbie-footer {
+    position: fixed;
+    bottom: 0px;
+    color: #E10686;
+	left: 40%;
+}
+
+.oppenheimer-footer {
+	position: fixed;
+    bottom: 0px;
+    color: #383b3d;
+	left: 40%;
+}
