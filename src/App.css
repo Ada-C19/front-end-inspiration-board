@@ -1,0 +1,352 @@
+@font-face {
+  font-family: mainFamily;
+  src: url(fonts/ArchitectsDaughter-Regular.ttf);
+
+}
+
+@font-face {
+  font-family: secondFamily;
+  src: url(fonts/SedgwickAve-Regular.ttf);
+}
+
+* {
+  font-family: mainFamily;
+}
+
+.App {
+  /* text-align: center; */
+  background-color: #fdd195;
+
+}
+
+.App-header {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(5px + 2vmin);
+  color: white;
+}
+
+.menu-container {
+  margin-top: 10vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 100vh;
+}
+
+.menu-item {
+  position: relative;
+  z-index: 1;
+}
+
+.menu-item button{
+  background-color: #f4ecb8;
+  color: black;
+  font-size: 20px;
+  padding: 12px 16px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index:1;
+}
+
+.menu-item button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f4ecb8;
+  opacity: 1;
+  z-index: -1;
+}
+
+.menu-item button::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: -2;
+}
+
+.slanted-text {
+  color: black;
+  padding: 20px;
+  transform: skewY(-8deg); /* apply a skew transformation to slant the text*/
+}
+
+.slanted-text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f4ecb8;
+  transform: skewY(-8deg);
+  z-index: -1;
+}
+.slanted-text::after {
+  content: "";
+  position: absolute;
+  top: 15px; /* Adjust the top positioning to control the shadow effect */
+  left: -15px; /* Adjust the left positioning to control the shadow effect */
+  width: 100%;
+  height: 100%;
+  background-color: black; /* Change the background color to black for the shadow effect */
+  transform: skewY(-8deg);
+  opacity: 0.8; /* Adjust the opacity as desired */
+  z-index: -2;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.popup-content {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  padding: 20px;
+  border:10px solid #293041;
+
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.popup-content input[type="text"] {
+  background-color:  #f4ecb8;
+  color: #293041;
+  padding: 8px;
+  border: 15px;
+  margin-bottom: 10px;
+}
+
+.popup-content label {
+  background-color: white;
+  padding: 8px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.popup-content input[type="submit"] {
+  background-color: #204376;
+  color: #f4ecb8;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup-content input[type="submit"]:hover {
+  background-color: #f4ecb8;
+  color:#204376;
+}
+
+.close-btn {
+  background-color: #d34040;
+  color: black;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  position: relative;
+  top: 10px;
+  left: 34vh;
+}
+
+.board-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+}
+
+.left-column {
+  grid-column: 1 / span 1;
+  grid-row: span 3;
+  padding-left: 10px;
+}
+
+.board-name-displayed {
+  color: white;
+  padding: 10px;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.board-name-displayed::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #204376;
+  opacity: 1;
+  z-index: -1;
+}
+
+.board-name-displayed::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: -2;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  padding: 40px;
+}
+
+.card h2 {
+  font-family: secondFamily;
+}
+
+.selected-board {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.selected-board-headline {
+  background-color: #f4ecb8;
+  padding: 10px;
+  grid-column: 2/span 1;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.selected-board-headline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f4ecb8;
+  opacity: 1;
+  z-index: -1;
+}
+.selected-board-headline::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: -2;
+}
+
+.menu-card button{
+  color:white;
+  margin: 10px;
+}
+.menu-card button::before{
+  background-color: #4A929F;
+}
+
+.footer {
+  text-align: center;
+  font-size: 10px;
+  padding-top: 20px;
+}
+@media screen and (max-width: 768px) {
+  .menu-container {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .menu-container {
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .close-btn {
+    background-color: #d34040;
+    color: black;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+    position: relative;
+    top: 10px;
+    left: 27vh;
+  }
+
+}
+
+.delete-menu button{
+  background-color: red;
+  color: white;
+  margin: 15px;
+}
+
+.delete-menu button::after{
+  background-color: black;
+}
+
+.delete-menu button::before{
+  background-color: red;
+}
+
+.delete-button {
+  background-color: #d34040;
+  color: white;
+  /* padding: 8px 16px; */
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-button {
+  background-color: #204376;
+  color: #f4ecb8;
+  /* padding: 8px 16px; */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
