@@ -1,0 +1,478 @@
+/* style.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #292524;
+  color: #fafaf9;
+  font-family: "Montserrat Alternates", sans-serif;
+  padding: 48px 64px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 48px;
+}
+
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 68px;
+  height: 68px;
+}
+
+h1 {
+  font-size: 42px;
+  text-transform: uppercase;
+  font-family: "Tillana", sans-serif;
+  line-height: 1;
+  margin-top: 6px;
+}
+
+.board {
+  margin-bottom: 16px;
+}
+
+.card {
+  font-size: 20px;
+  line-height: 1.4;
+  background-color: #44403c;
+  margin-bottom: 16px;
+  padding: 16px 24px;
+  letter-spacing: -1px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+@media (max-width: 1200px) {
+  .card {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+  }
+}
+
+.tag {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: "Montserrat Alternates", sans-serif;
+  padding-top: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 100px;
+}
+
+.vote-buttons {
+  margin-left: auto;
+  flex-shrink: 0;
+  display: flex;
+  gap: 8px;
+}
+
+.vote-buttons button {
+  background-color: #78716c;
+  border: none;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  color: inherit;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.vote-buttons button:hover {
+  background-color: #292524;
+  transform: translateY(0.25em);
+  transition: all 0.25s ease-out;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+.source:link,
+.source:visited {
+  color: #a8a29e;
+  text-decoration: none;
+  margin-left: 12px;
+  transition: 0.025s;
+}
+
+.source:hover,
+.source:active {
+  color: #3b82f6;
+}
+
+.btn {
+  border: none;
+  font-family: "Montserrat Alternates", sans-serif;
+  line-height: 1;
+  text-transform: uppercase;
+  font-size: 17px;
+  padding: 16px 0 13px;
+  background-image: linear-gradient(135deg, #f80f0b, rgb(255, 0, 208), #8c07c9);
+  color: inherit;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-large {
+  font-size: 20px;
+  padding: 20px 32px 17px;
+}
+
+.btn-all-boards {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.btn-board {
+  width: 100%;
+  background-image: none;
+  width:150px;
+}
+
+.btn-category {
+  width: 100%;
+  background-image: none;
+}
+
+.btn:hover {
+  border-color: #fdfcfd;
+  box-shadow: 0 1em 1em -0.4em #fefcfe;
+  transform: translateY(-0.25em);
+  transition: all 0.25s ease-out;
+  cursor: pointer;
+}
+
+.board-filter {
+  background-color: #292524;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.board-filter ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.board-filter li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.board-filter .btn-board {
+  width: 100%;
+}
+
+.board-filter .btn-board:hover {
+  background-color: #3b82f6;
+}
+
+@media (max-width: 1000px) {
+  body {
+    padding: 32px 48px;
+  }
+}
+
+@media (max-width: 700px) {
+  .main {
+    display: block;
+  }
+}
+
+.card-form {
+  background-color: #44403c;
+  margin-bottom: 40px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-radius: 16px;
+}
+
+.card-form input,
+.card-form select {
+  width: 220px;
+  background-color: #78716c;
+  border: none;
+  border-radius: 100px;
+  padding: 16px;
+  font-size: 18px;
+  color: inherit;
+  font-family: inherit;
+}
+
+.card-form input::placeholder {
+  color: #a8a29e;
+}
+
+.card-form input:first-child {
+  flex-grow: 1;
+}
+
+.card-form span {
+  font-weight: 500;
+  font-size: 18px;
+  margin-right: 18px;
+}
+
+@media (max-width: 1000px) {
+  .card-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.card-form input,
+.card-form select {
+  width: auto;
+}
+
+.add-board-form {
+  background-color: #44403c;
+  margin-bottom: 40px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-radius: 16px;
+  display: none;
+}
+
+.add-board-form.show {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-board-form input {
+  width: 220px;
+  background-color: #78716c;
+  border: none;
+  border-radius: 100px;
+  padding: 16px;
+  font-size: 18px;
+  color: inherit;
+  font-family: inherit;
+}
+
+.add-board-form input::placeholder {
+  color: #a8a29e;
+}
+
+.add-board-form button {
+  border: none;
+  font-family: "Montserrat Alternates", sans-serif;
+  line-height: 1;
+  text-transform: uppercase;
+  font-size: 17px;
+  padding: 16px 0 13px;
+  background-image: linear-gradient(135deg, #f80f0b, rgb(255, 0, 208), #8c07c9);
+  color: inherit;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-board-form button:hover {
+  border-color: #fdfcfd;
+  box-shadow: 0 1em 1em -0.4em #fefcfe;
+  transform: translateY(-0.25em);
+  transition: all 0.25s ease-out;
+  cursor: pointer;
+}
+
+.help-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.help-container h2 {
+  margin-left: 16px;
+}
+
+@media (max-width: 700px) {
+  .help-container {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+  }
+
+  .help-container h2 {
+    margin-top: 16px;
+    margin-left: 0;
+  }
+}
+
+.advice {
+  background-color: #44403c;
+  margin-bottom: 40px;
+  padding: 16px 24px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.advice-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.advice-right {
+  display: flex;
+  flex-direction: row;
+  color:#b940f0;
+  gap: 16px;
+}
+
+.advice-button {
+  flex-shrink: 0;
+  width: 150px;
+  margin-left: auto;
+}
+
+.confirmation-dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.25s ease;
+}
+
+.confirmation-dialog.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.confirmation-content {
+  background-color: #fafaf9;
+  border-radius: 8px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.confirmation-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.btn-delete,
+.btn-cancel {
+  border: none;
+  font-family: "Montserrat Alternates", sans-serif;
+  line-height: 1;
+  text-transform: uppercase;
+  font-size: 17px;
+  padding: 16px 32px;
+  background-color: #f80f0b;
+  color: #fafaf9;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-delete:hover,
+.btn-cancel:hover {
+  background-color: #e00d09;
+}
+.confirmation-dialog {
+  background-color: black !important
+}
+
+.confirmation-content {
+  color: hotpink;
+}
+
+.card-list{
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sort-options{
+  display:flex;
+  gap: 16px;
+}
+
+.sort-options button,
+.sort-options select {
+  width: 150px; 
+}
+
+
+.sort-options select{
+  background-color: #b940f0;
+  color: inherit;
+  font-family: inherit;
+  border: none;
+  border-radius: 100px;
+  width: 150px;
+  padding: 16px 0 13px;
+  font-size: 18px;
+  margin-top: 8px;
+}
+
+.count{
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 18px;
+  margin-left: auto;
+}
+
+.select-menu {
+  text-align: center;
+}
