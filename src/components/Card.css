@@ -1,0 +1,55 @@
+.card-container {
+    background-image: url('./lantern.png');
+    opacity: 0.7;
+    background-position: center;
+    background-size: 80%;
+    display: grid;
+    grid-template: 3fr 1fr / 1fr;
+    font-family: Concert One,cursive;
+    min-height: 220px;
+    padding: 1em;
+    margin: 1em;
+    border-radius:20px;
+    width: 200px;
+    background-repeat: no-repeat;
+    color: black;
+}
+
+#swaying-image {
+    animation: sway 4s infinite ease-in-out alternate;
+  }
+  
+  @keyframes sway {
+    0% {
+      transform: rotateZ(0deg);
+    }
+    50% {
+      transform: rotateZ(10deg);
+    }
+    100% {
+      transform: rotateZ(0deg);
+    }
+  }
+  
+  .lantern_img {
+    width: 10%;
+    height: 10%;
+  }
+  
+  .card-buttons {
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-bottom: 3%;
+  }
+
+  p {
+    font-weight: lighter;
+  }
+
+  #card-item__message {
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+    padding-top: 20%;
+  }

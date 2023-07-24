@@ -1,0 +1,52 @@
+.new-board-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.form-row label {
+    margin-right: 10px;
+}
+
+.form-row input {
+    border: none;
+    padding: 8px;
+    opacity: 1;
+    border-radius: 5px;
+}
+
+.form-row button {
+    margin-top: 10px;
+}
+
+
+.invalid-form-input {
+    border: 1px solid red;
+    box-shadow: 0 0 7px red;
+}
+
+.submit-button {
+    background-color: rgb(253, 147, 109);
+    font-family:  'Bradley Hand', cursive;
+}
+
+#message {
+    border: none;
+    padding: 8px;
+    opacity: 1;
+    border-radius: 5px;
+    margin-left: 5%;
+    padding-left: 5%;
+}
+
+.preview-message {
+    text-shadow: 6px 6px 3px  black;
+    font-weight: bolder;
+}
