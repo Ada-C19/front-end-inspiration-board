@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import BoardList from './components/BoardList';
 import Board from './components/Board';
 import CardList from './components/CardList';
+import NewCardForm from './components/NewCardForm';
 import './App.css';
 import axios from 'axios';
 
-// click on a board and have cards change to reflect cards for that board
 
 const App = () => {
   const [boards, setBoards] = useState([]); 
@@ -36,6 +36,7 @@ const App = () => {
       </Board>
       <CardList cards= {selectedCards}>
       </CardList>
+      <NewCardForm onSubmit={handleAddCard} />
     </div>
   );
 }
@@ -57,9 +58,16 @@ const fetchCardData = (board_id) => {
   )
 }
 
+const handleAddCard = (newMessage) => {
+  console.log('New card message:', newMessage);
+}
+
 // Event handler to update the selected board
 //   const handleBoardChange = (event) => {
 //     const selectedBoardId = event.target.value;
 //     const selectedBoard = boards.find((board) => board.board_id === selectedBoardId);
 //     setSelectedBoard(selectedBoard);
 //   };
+
+
+// click on a board and have cards change to reflect cards for that board
