@@ -4,9 +4,6 @@ const BoardList = ({ boards, onSelectBoard }) => {
     const handleSelectBoard = (event) => {
       const selectedBoardId = Number(event.target.value);
       const selectedBoard = boards.find((board) => board.board_id === selectedBoardId);
-    //   console.log(selectedBoard)
-    //   console.log(boards)
-    //   console.log(selectedBoardId)
       onSelectBoard(selectedBoard);
     };
   
