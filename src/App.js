@@ -26,7 +26,7 @@ const App = () => {
   }, [selectedBoard])
   
 
-  
+
   // const handleAddCard = (newMessage) => {
   //   const updatedCards = [...selectedCards];
   //   updatedCards.push(response.data);
@@ -42,6 +42,7 @@ const App = () => {
         const updatedCards = [...selectedCards, newCard];
         setSelectedCards(updatedCards);
       })
+  }
 
 
 // const updatedCards = [...selectedCards];
@@ -93,9 +94,11 @@ const fetchCardData = (board_id) => {
 }
 
 // or should I rename this one?
-const handleAddCard = (newMessage) => {
-  axios.post(`${process.env.REACT_APP_BACKEND_URL}/boards/${selectedBoard.board_id}/cards`, {message: newMessage})
+const addCardToBoard = (board_id, newMessage) => {
+  return (
+  axios.post(`${process.env.REACT_APP_BACKEND_URL}/boards/${board_id}/cards`, {message: newMessage})
     .then((response)  => {return response.data})
+    )
   }
 
 // --- I need to break up this code into two parts ---
