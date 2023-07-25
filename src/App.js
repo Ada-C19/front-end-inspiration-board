@@ -58,5 +58,10 @@ const fetchCardData = (board_id) => {
 }
 
 const handleAddCard = (newMessage) => {
-  console.log('New card message:', newMessage);
-}
+  axios.post(`${process.env.REACT_APP_BACKEND_URL}/boards/${selectedBoard.board_id}/cards`, {message: newMessage})
+    .then((response) => {
+      const updatedCards = [...selectedCards];
+      updatedCards.push(response.data);
+      setSelectedCards(updatedCards);
+    })
+};
