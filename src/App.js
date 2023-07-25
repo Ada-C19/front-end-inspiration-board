@@ -30,7 +30,6 @@ const App = () => {
   return (
     <div className="App">
       <BoardList boards={boards} onSelectBoard= {setSelectedBoard}> 
-      
       </BoardList>
       <Board title= {selectedBoard.title} board_id={selectedBoard.board_id}> 
       </Board>
@@ -61,13 +60,3 @@ const fetchCardData = (board_id) => {
 const handleAddCard = (newMessage) => {
   console.log('New card message:', newMessage);
 }
-
-// Event handler to update the selected board
-//   const handleBoardChange = (event) => {
-//     const selectedBoardId = event.target.value;
-//     const selectedBoard = boards.find((board) => board.board_id === selectedBoardId);
-//     setSelectedBoard(selectedBoard);
-//   };
-
-
-// click on a board and have cards change to reflect cards for that board
