@@ -1,0 +1,26 @@
+.card {
+    font-family: 'Concert One', cursive;
+    background-color: rgb(255, 248, 165);
+    box-shadow: -10px 7px 7px lightgrey;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    flex-direction: column;
+  }
+
+  .card__actions {
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .action-btn {
+    background-color: inherit;
+    border: none;
+    font-family: 'Concert One', cursive;
+    font-size: 1rem;
+    cursor: pointer;
+  }
