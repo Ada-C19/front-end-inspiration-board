@@ -1,0 +1,18 @@
+.card-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: space-between;
+    gap: 70px;
+    margin-bottom: 15rem;
+}
+
+.cards-for-label {
+    font-size: 80px;
+    position: relative;
+    bottom: 10px;
+    /* background-color: #edc1f5; */
+    /* padding: 7px 12px 7px */
+}

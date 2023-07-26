@@ -1,0 +1,46 @@
+.polaroid {
+    background-color: #fff;
+    padding: 1rem 1rem 4rem;
+    filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.4));
+    border-radius: 7px;
+    list-style-type: none;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    max-width: 350px;
+}
+
+.polaroid:hover {
+    transform: scale(1.1);
+}
+
+.polaroid .dog-image {
+    width: 90%;
+    height: auto;
+    padding: 2vh;
+    border-radius: 10%;
+}
+
+
+figcaption {
+    color: #000;
+    text-align: center;
+}
+
+.board-label {
+    font-family: 'Amatic SC', cursive;
+    font-size: 35px;
+}
+
+.board-delete-button {
+    position: absolute;
+    /* z-index: 100; */
+    bottom: 5px;
+    right: 5px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: auto;
+    font-size: 20px;
+}
