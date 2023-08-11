@@ -7,7 +7,7 @@ import CardList from './components/CardList';
 import AddBoard from './components/BoardForm';
 import AddCard from './components/CardForm'
 
-const baseUrl = 'https://inspiration-board-api-m6he.onrender.com';
+const baseUrl = 'https://inspiration-board-api-gxm3.onrender.com';
 
 // gets all boards from backend
 const getAllBoards = () =>{
