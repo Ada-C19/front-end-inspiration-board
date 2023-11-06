@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import FormFieldError from './FormFieldError';
 import './NewBoardForm.css';
 
 const NewBoardForm = (props) => {
@@ -23,10 +24,12 @@ const NewBoardForm = (props) => {
     const newBoard = {
         title: boardFormData.title, 
         owner: boardFormData.owner,
-    }
+    };
+
     props.onHandleBoardSubmit(newBoard);
     setBoardFormData(boardDefaultState);
-    };
+    
+};
 
     const toggleHiddenForm = () => {
         setIsHidden(!isHidden);
@@ -37,15 +40,19 @@ const NewBoardForm = (props) => {
 
     return (
     <section className="newBoardForm">
-        <form onSubmit={handleSubmit} className={hiddenClass}>
+        <form onSubmit={handleSubmit}>
             <h2>New Board Form</h2>
+            <div className={hiddenClass}>
             <div>
             <label htmlFor="title">Title: </label>
             <input type="text" id="title" name="title" onChange={handleChange} value={boardFormData.title}></input>
+            <FormFieldError message={props.error?.title} />
             </div>
             <div>
             <label htmlFor="owner"> Owner: </label>
             <input type="text" id="owner" name="owner" onChange={handleChange} value={boardFormData.owner}></input>
+            <FormFieldError message={props.error?.owner} />
+            </div>
             </div>
             <div>
             <input type="submit" value="Add a Board"></input>
@@ -56,4 +63,4 @@ const NewBoardForm = (props) => {
     );
 };
     
-    export default NewBoardForm;
+export default NewBoardForm;

@@ -16,6 +16,7 @@ const SelectedBoardCardList = (props) => {
                         key = {card.cardId}
                         onUnregister = {props.onUnregister}
                         onLikeCard = {props.onLikeCard}
+                        onUpdateMessage = {props.onUpdateMessage}
                     />
                 </div>
             );

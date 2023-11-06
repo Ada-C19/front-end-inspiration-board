@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import FormFieldError from './FormFieldError';
 
 const NewCardForm = (props) => {
     const cardDefaultState = {
@@ -21,7 +22,7 @@ const NewCardForm = (props) => {
           message: formData.message, 
           likes_count: 0,
         }
-        props.onHandleSubmit(newCard);
+        props.onHandleCardSubmit(newCard);
         setFormData(cardDefaultState);
       };
 
@@ -30,7 +31,14 @@ const NewCardForm = (props) => {
           <h2>New Card Form</h2>
           <div>
             <label htmlFor="message">Message: </label>
-            <input type="text" id="message" name="message" onChange={handleChange} value={formData.message}></input>
+            <input 
+            type="text" 
+            id="message" 
+            name="message" 
+            onChange={handleChange} 
+            value={formData.message}
+            ></input>
+            <FormFieldError message={props.error?.cardMessage} />
           </div>
           <div>
             <input type="submit" value="Add Card"></input>
