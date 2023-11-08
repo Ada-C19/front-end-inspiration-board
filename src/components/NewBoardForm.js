@@ -39,26 +39,45 @@ const NewBoardForm = (props) => {
     const hiddenFormText = isHidden ? 'Show Board Form' : 'Hide Board Form';
 
     return (
-    <section className="newBoardForm">
+    <section className="form">
         <form onSubmit={handleSubmit}>
-            <h2>New Board Form</h2>
+            <h2>Create New Board</h2>
             <div className={hiddenClass}>
-            <div>
-            <label htmlFor="title">Title: </label>
-            <input type="text" id="title" name="title" onChange={handleChange} value={boardFormData.title}></input>
+            <div className="title-owner">
+            <input 
+            type="text" 
+            id="title" 
+            name="title" 
+            placeholder='Board Title'
+            onChange={handleChange} 
+            value={boardFormData.title} 
+            />
             <FormFieldError message={props.error?.title} />
             </div>
-            <div>
-            <label htmlFor="owner"> Owner: </label>
-            <input type="text" id="owner" name="owner" onChange={handleChange} value={boardFormData.owner}></input>
+            <div className="title-owner">
+            <input 
+            type="text" 
+            id="owner" 
+            name="owner" 
+            placeholder='Board Owner'
+            onChange={handleChange} 
+            value={boardFormData.owner} 
+            />
             <FormFieldError message={props.error?.owner} />
             </div>
             </div>
-            <div>
-            <input type="submit" value="Add a Board"></input>
+            <div className="board-submit">
+            <input 
+            type="submit" 
+            value="Add Board" 
+            className="board-form"
+            />
             </div>
         </form>
-        <button onClick={toggleHiddenForm}>{hiddenFormText}</button>
+        <hr/>
+        <div className="hide-board">
+        <button className="board-form" onClick={toggleHiddenForm}>{hiddenFormText}</button>
+        </div>
     </section>
     );
 };

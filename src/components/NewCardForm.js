@@ -30,14 +30,14 @@ const NewCardForm = (props) => {
         <form onSubmit={handleSubmit}>
           <h2>New Card Form</h2>
           <div>
-            <label htmlFor="message">Message: </label>
             <input 
             type="text" 
             id="message" 
             name="message" 
             onChange={handleChange} 
             value={formData.message}
-            ></input>
+            placeholder='Message'
+            />
             <FormFieldError message={props.error?.cardMessage} />
           </div>
           <div>

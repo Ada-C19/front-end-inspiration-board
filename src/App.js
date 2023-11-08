@@ -182,19 +182,23 @@ const App = () => {
 
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Inspiration Board</h1>
+    <div className="container">
+      <header className="header">
+        <h1>Welcome to Inspiration Board</h1>
+        <p>Create and view boards of inspiration && capture your inspirations in detail by adding, editing, and deleting cards as well as giving them a boost of likes.</p>
       </header>
-      <main>
-        <section className="Boards-container">
-          <div className="Boards-list"><BoardList boardData={boardState} onSelectBoard={handleBoardSelection}></BoardList></div>
-          <div className="Selected-board"><SelectedBoard boardState={selectedBoard}></SelectedBoard></div>
-          <div className="New-board-form"><NewBoardForm onHandleBoardSubmit={onHandleBoardSubmit} error={error}></NewBoardForm></div>
-        </section>
-        <section className="Cards-container">
-          <div className="Cards-list"><SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState} onUnregister={onUnregister} onLikeCard={onLikeCard} onUpdateMessage={onUpdateMessage}></SelectedBoardCardList></div>
-          {selectedBoard && (<div className="New-card-form"><NewCardForm selectedBoard={selectedBoard} onHandleCardSubmit={onHandleCardSubmit} error={error}></NewCardForm></div>)}
+      <section className="sidebar">
+        <p className="inspo">Inspiration Board</p>
+        <img src="https://www.svgrepo.com/show/490955/folder.svg" alt="inspo logo" /> 
+        <div className="new-board-form"><NewBoardForm onHandleBoardSubmit={onHandleBoardSubmit} error={error}></NewBoardForm></div>
+      </section>
+      <main className="content">
+        <section className="app-section">
+          <div className="boards-list"><BoardList boardData={boardState} onSelectBoard={handleBoardSelection}></BoardList></div>
+          <div className="selected-board"><SelectedBoard boardState={selectedBoard}></SelectedBoard></div>        </section>
+        <section className="cards-container">
+          <div className="cards-list"><SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState} onUnregister={onUnregister} onLikeCard={onLikeCard} onUpdateMessage={onUpdateMessage}></SelectedBoardCardList></div>
+          {selectedBoard && (<div className="new-card-form"><NewCardForm selectedBoard={selectedBoard} onHandleCardSubmit={onHandleCardSubmit} error={error}></NewCardForm></div>)}
         </section>
       </main>
     </div>
