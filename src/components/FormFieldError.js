@@ -12,13 +12,13 @@ const FormFieldError = ({ message }) => {
         {Array.isArray(message) ? (
             <>
             {message.map((err, index) => (
-                <li key={index}>
+                <li className="error-message" key={index}>
                     {err}
                 </li>
         ))}
         </>
     ) : (
-        <li>{message}</li>
+        <li className="error-message">{message}</li>
     )}
     </>
     );

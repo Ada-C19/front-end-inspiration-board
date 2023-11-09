@@ -27,8 +27,7 @@ const SelectedBoardCardList = (props) => {
 
     return (
         <section>
-            <h2>Selected Board Card List</h2>
-            <div id="cards-grid">
+            <div className="cards-container">
                 {getCardListJSX(boardCards)}
             </div>
         </section>

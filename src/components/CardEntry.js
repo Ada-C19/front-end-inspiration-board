@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import './CardEntry.css';
 
 const CardEntry = (props) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -37,11 +38,11 @@ const CardEntry = (props) => {
         </div>
       ) : (
         <div>
-          <h3>Card message: {props.message}</h3>
-          <button onClick={() => handleLike(true)}>Like 💕 {props.likesCount}</button>
-          <button onClick={() => handleLike(false)}>Dislike 👎🏽</button>
-          <button onClick={() => setIsEditing(!isEditing)}>Edit ✏️</button>
-          <button onClick={() => props.onUnregister(props.cardId)}>Delete ❌</button>
+          <h4>{props.message}</h4>
+          <button className="card-button" onClick={() => handleLike(true)}>Like 💕 {props.likesCount}</button>
+          <button className="card-button" onClick={() => handleLike(false)}>Dislike 👎🏽</button>
+          <button className="card-button" onClick={() => setIsEditing(!isEditing)}>Edit ✏️</button>
+          <button className="card-button" onClick={() => props.onUnregister(props.cardId)}>Delete ❌</button>
         </div>
       )}
     </div>

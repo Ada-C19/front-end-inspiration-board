@@ -9,9 +9,11 @@ const Board = (props) => {
     };
 
     return (
-        <li>
-            <button id="button" onClick={handleBoardClick}>{props.title}</button>
-        </li>
+        <div>
+            <li>
+                <button id="board-button" onClick={handleBoardClick}>{props.title}</button>
+            </li>
+        </div>
     );
 };
 

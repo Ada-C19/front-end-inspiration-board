@@ -6,11 +6,10 @@ const SelectedBoard = (props) => {
 
     return (
         <main className="selectedBoard">
-            <h2>Current Selected Board</h2>
-            <h3>{props.boardState ? props.boardState.title : 'None Selected'}</h3>
+            <h3>{props.boardState ? `${props.boardState.title} Cards`: ""}</h3>
         </main>
     );
-};
+}
 
 SelectedBoard.propTypes = {
     boardState: PropTypes.shape({

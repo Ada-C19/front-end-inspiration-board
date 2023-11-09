@@ -52,7 +52,7 @@ const NewBoardForm = (props) => {
             onChange={handleChange} 
             value={boardFormData.title} 
             />
-            <FormFieldError message={props.error?.title} />
+            <FormFieldError className="error" message={props.error?.title} />
             </div>
             <div className="title-owner">
             <input 

@@ -1,23 +1,29 @@
 body {
   margin: 40px;
+  font-size: 16px;
 }
 
+/* app grid layout */
 .sidebar {
   grid-area: sidebar;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0 20px;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(114, 164, 217, 1) 0%, rgba(233, 251, 255, 1) 100%);
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(114,164,217,0.5522855987055016) 0%, rgba(233,251,255,1) 100%);
 }
 
 .content {
   grid-area: content;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: red;
+  align-items: center; */
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.3)
+  ),
+    url(https://wallpapers.com/images/high/bulletin-board-background-1600-x-1200-1ohnx4m90qij6ks1.webp);
 }
 
 .header {
@@ -25,12 +31,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: purple;
-}
-
-.footer {
-  grid-area: footer;
-  background-color: pink;
 }
 
 .container {
@@ -38,15 +38,23 @@ body {
   grid-gap: 10px;
   grid-template-columns: 25%;
   grid-template-areas:
-  "sidebar header header"
-  "sidebar content content"
-  "footer footer footer";
+    "sidebar header header"
+    "sidebar content content";
   height: 100vh;
+}
+
+
+/* text */
+h1 {
+  font-family: Impact, Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif; 
+  text-align: center;
+  color: rgb(48, 127, 169);
+  font-size: 3em;
 }
 
 .inspo {
   font-family: Impact, Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif; 
-  font-size: 40px;
+  font-size: 2em;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -57,19 +65,52 @@ body {
 
 h2 {
   color:rgb(48, 127, 169);
+  font-size: 1em;
   text-align: center;
   margin-top: 0;
 }
 
+p {
+  text-align: center;
+  font-weight: bold;
+}
 
+.error-message{
+  font-size: 12px;
+  padding: 3px;
+  color: red;
+  text-align: start;
+  list-style-type: none;
+  list-style-type: "⚠";
+}
+
+h3 {
+color: rgb(48, 127, 169);
+font-size: 2.5em;
+-webkit-text-stroke-color: blue;
+-webkit-text-stroke-width: 1px;
+text-align: center;
+margin-top: 40px;
+}
+
+/* smaller screens- mobile */
 @media (max-width: 768px) {
-  .sidebar {
-    width: 100%; 
+  body {
+    margin: 20px;
+  }
+
+  .container {
+    grid-template-columns: 35%;
   }
 
   .inspo {
-    font-size: 30px;
+    font-size: 1.5rem;
   }
-    
+
+  h2 {
+    font-size: 1rem;
+  } 
+
+
 }
   

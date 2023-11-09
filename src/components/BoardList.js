@@ -21,9 +21,8 @@ const BoardList = (props) => {
 
     return (
         <section>
-            <h2>Board List</h2>
-            <h3 className='selectBoard'>Select a Board:</h3>
-            <ul>{getBoardListJSX(props.boardData)}</ul>
+            <h3 className='selectBoard'>Select a Board</h3>
+            <ul className="board-list">{getBoardListJSX(props.boardData)}</ul>
         </section>
     );
 };
