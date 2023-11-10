@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import FormFieldError from './FormFieldError';
+import './NewCardForm.css';
 
 const NewCardForm = (props) => {
     const cardDefaultState = {
@@ -27,23 +28,31 @@ const NewCardForm = (props) => {
       };
 
     return (
+      <section className="form">
         <form onSubmit={handleSubmit}>
           <h2>New Card Form</h2>
-          <div>
+          <div className="message-input-container">
             <input 
             type="text" 
             id="message" 
             name="message" 
             onChange={handleChange} 
             value={formData.message}
-            placeholder='Message'
+            placeholder='Card Message'
             />
-            <FormFieldError message={props.error?.cardMessage} />
+            <FormFieldError 
+            message={props.error?.cardMessage}
+            />
           </div>
-          <div>
-            <input type="submit" value="Add Card"></input>
+          <div className='card-submit'>
+            <input 
+              type="submit" 
+              value="Add Card"
+              className="card-form-button"
+            />
           </div>
         </form>
+      </section>
       );
 };
 

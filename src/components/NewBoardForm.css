@@ -2,61 +2,6 @@
     display: none;
   }
 
-.form {
-  background-color: white;
-  padding: 8px;
-  border-radius: 10px;
-}
-
-.board-form {
-  width: 100%;
-  height: 40px;
-  border: hidden;
-  border-radius: 5px;
-  background-color: blue;
-  color: white;
-  font-weight: bold;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.title-owner {
-  text-align: center;
-  padding: 5px 0 5px 0;
-}
-
-#title, #owner {
-  font-size: 14px;
-  padding-left: 5px;
-  border-radius: 5px;
-  
-}
-
-.board-submit, .hide-board {
-  padding: 5px 0 5px 0;
-}
-
-input {
-  width: 95%;
-  height: 30px;
-  border: 1px solid grey;
-} 
-
-@media (max-width: 768px) {
-  .board-form {
-    font-size: 10px;
-  }
-
-  #title, #owner {
-    font-size: 10px;
-    padding-left: 2px;
-  }
-
-  hr {
-    margin: 5px 0 ;
-  }
-}
-
 
 
 

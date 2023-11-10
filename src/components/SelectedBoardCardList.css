@@ -1,11 +1,12 @@
 .cards-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
 #card {
-    background-color:rgba(246, 170, 56, 0.679);
+    background-color:rgba(246, 170, 56, 0.902);
     border-radius: 5%;
-    width: 28%;
+    width: 45%;
+    margin-bottom: 5%;
 }

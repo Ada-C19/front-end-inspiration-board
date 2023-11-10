@@ -43,40 +43,44 @@ const NewBoardForm = (props) => {
         <form onSubmit={handleSubmit}>
             <h2>Create New Board</h2>
             <div className={hiddenClass}>
-            <div className="title-owner">
-            <input 
-            type="text" 
-            id="title" 
-            name="title" 
-            placeholder='Board Title'
-            onChange={handleChange} 
-            value={boardFormData.title} 
-            />
-            <FormFieldError className="error" message={props.error?.title} />
+            <div className="title-owner-container">
+                <input 
+                    type="text" 
+                    id="title" 
+                    name="title" 
+                    placeholder='Board Title'
+                    onChange={handleChange} 
+                    value={boardFormData.title} 
+                />
+                <FormFieldError 
+                    className="error" 
+                    message={props.error?.title} 
+                />
             </div>
-            <div className="title-owner">
-            <input 
-            type="text" 
-            id="owner" 
-            name="owner" 
-            placeholder='Board Owner'
-            onChange={handleChange} 
-            value={boardFormData.owner} 
-            />
-            <FormFieldError message={props.error?.owner} />
+            <div className="title-owner-container">
+                <input 
+                type="text" 
+                id="owner" 
+                name="owner" 
+                placeholder='Board Owner'
+                onChange={handleChange} 
+                value={boardFormData.owner} 
+                />
+                <FormFieldError message={props.error?.owner} />
             </div>
             </div>
             <div className="board-submit">
-            <input 
-            type="submit" 
-            value="Add Board" 
-            className="board-form"
-            />
+                <input 
+                type="submit" 
+                value="Add Board" 
+                className="board-form-button"
+                />
             </div>
         </form>
         <hr/>
         <div className="hide-board">
-        <button className="board-form" onClick={toggleHiddenForm}>{hiddenFormText}</button>
+        <button 
+            className="board-form-button" onClick={toggleHiddenForm}>{hiddenFormText}</button>
         </div>
     </section>
     );

@@ -27,23 +27,28 @@ const CardEntry = (props) => {
   return (
     <div className={props.cardId}>
       {isEditing ? (
-        <div>
+        <div className='edit-card-container'>
           <input
             type="text"
+            id="edit-card"
             value={editedMessage}
             onChange={(e) => setEditedMessage(e.target.value)}
           />
-          <button onClick={handleSaveEdit}>Save</button>
-          <button onClick={handleCancelEdit}>Cancel</button>
+          <span className="save-cancel-container">
+            <button className="card-button save" onClick={handleSaveEdit}>Save</button>
+            <button className="card-button" onClick={handleCancelEdit}>Cancel</button>
+          </span>
         </div>
       ) : (
         <div>
           <h4>{props.message}</h4>
-          <button className="card-button" onClick={() => handleLike(true)}>Like 💕 {props.likesCount}</button>
-          <button className="card-button" onClick={() => handleLike(false)}>Dislike 👎🏽</button>
-          <button className="card-button" onClick={() => setIsEditing(!isEditing)}>Edit ✏️</button>
-          <button className="card-button" onClick={() => props.onUnregister(props.cardId)}>Delete ❌</button>
+          <div className="card-button-container">
+            <button className="card-button" onClick={() => handleLike(true)}>👍🏽 Like {props.likesCount > 0 && <span>({props.likesCount})</span>}</button>
+            <button className="card-button" onClick={() => handleLike(false)}>👎🏽 Dislike</button>
+            <button className="card-button" onClick={() => setIsEditing(!isEditing)}>✏️ Edit</button>
+            <button className="card-button" onClick={() => props.onUnregister(props.cardId)}>❌ Delete</button>
         </div>
+       </div>
       )}
     </div>
   );

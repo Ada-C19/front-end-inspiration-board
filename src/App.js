@@ -7,6 +7,7 @@ import SelectedBoardCardList from './components/SelectedBoardCardList';
 import NewCardForm from './components/NewCardForm';
 import getResponseError from './errorUtils.js';
 import './App.css';
+import inspoicon from "./inspoicon.svg"
 
 
 const kBaseUrl = "http://127.0.0.1:5000";
@@ -193,7 +194,9 @@ const App = () => {
       </header>
       <section className="sidebar">
         <p className="inspo">Inspiration Board</p>
-        <img src="https://www.svgrepo.com/show/490955/folder.svg" alt="inspo logo" /> 
+        <div className="img-container">
+          <img src={inspoicon} alt="inspo logo" /> 
+        </div>
         <div>
           <NewBoardForm onHandleBoardSubmit={onHandleBoardSubmit} error={error} />
         </div>
