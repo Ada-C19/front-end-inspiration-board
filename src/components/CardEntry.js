@@ -25,7 +25,7 @@ const CardEntry = (props) => {
   };
 
   return (
-    <div className={props.cardId}>
+    <div>
       {isEditing ? (
         <div className='edit-card-container'>
           <input
@@ -34,7 +34,7 @@ const CardEntry = (props) => {
             value={editedMessage}
             onChange={(e) => setEditedMessage(e.target.value)}
           />
-          <span className="save-cancel-container">
+          <span>
             <button className="card-button save" onClick={handleSaveEdit}>Save</button>
             <button className="card-button" onClick={handleCancelEdit}>Cancel</button>
           </span>
@@ -47,8 +47,8 @@ const CardEntry = (props) => {
             <button className="card-button" onClick={() => handleLike(false)}>👎🏽 Dislike</button>
             <button className="card-button" onClick={() => setIsEditing(!isEditing)}>✏️ Edit</button>
             <button className="card-button" onClick={() => props.onUnregister(props.cardId)}>❌ Delete</button>
+          </div>
         </div>
-       </div>
       )}
     </div>
   );

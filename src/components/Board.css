@@ -4,9 +4,6 @@
     margin: 0;
     cursor: pointer;
     border: none;
-  }
-
-#board-button {
     --s: .25em; 
     padding: .4em .5em;
     background-color: #9CDAD8;

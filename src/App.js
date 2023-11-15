@@ -124,6 +124,7 @@ const App = () => {
     axios.post(`${kBaseUrl}/boards/${selectedBoard.boardId}/cards`, data)
       .then((response) => {
         setCardState((prevCards) => [cardListFromApi(response.data), ...prevCards]);
+        setError(null);
       })
       .catch((e) => {
         console.log("this is the error for onHandleCardSubmit:", e)
@@ -202,7 +203,7 @@ const App = () => {
         </div>
       </section>
       <main className="content">
-        <section className="app-section">
+        <section>
           <div>
             <BoardList boardData={boardState} onSelectBoard={handleBoardSelection} />
           </div>
@@ -210,15 +211,13 @@ const App = () => {
             <SelectedBoard boardState={selectedBoard} />
           </div>       
         </section>
-        <section className="cards-container">
           <div>
             <SelectedBoardCardList selectedBoard={selectedBoard} cardList={cardState} onUnregister={onUnregister} onLikeCard={onLikeCard} onUpdateMessage={onUpdateMessage} />
           </div>
             {selectedBoard && 
-            (<div>
+            (<div className="card-form-container">
               <NewCardForm selectedBoard={selectedBoard} onHandleCardSubmit={onHandleCardSubmit} error={error} />
             </div>)}
-        </section>
       </main>
     </div>
   );

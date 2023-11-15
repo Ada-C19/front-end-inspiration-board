@@ -4,7 +4,7 @@ ul {
 
 .board-list {
     display: flex;
-    flex-direction: row;
-    justify-content:space-around; 
+    justify-content: space-evenly;
+    flex-wrap: wrap;
     padding: 0 20px;
 }

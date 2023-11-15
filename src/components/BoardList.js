@@ -21,7 +21,7 @@ const BoardList = (props) => {
 
     return (
         <section>
-            <h3 className='selectBoard'>Select a Board</h3>
+            {props.boardData && props.boardData.length > 0 && (<h3 className='selectBoard'>Select a Board</h3>)}
             <ul className="board-list">{getBoardListJSX(props.boardData)}</ul>
         </section>
     );
