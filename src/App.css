@@ -74,6 +74,12 @@ p {
   font-size: 1em;
 }
 
+.board-owner {
+  margin: 0;
+  margin-bottom: 1%;
+  color: rgb(48, 127, 169);
+}
+
 .error-message{
   font-size: 12px;
   padding: 3px;
@@ -89,6 +95,7 @@ font-size: 2.5em;
 -webkit-text-stroke-color: blue;
 -webkit-text-stroke-width: 1px;
 text-align: center;
+margin: 0;
 margin-top: 5%;
 }
 
@@ -146,6 +153,7 @@ hr {
 .img-container {
   text-align: center;
 }
+
 /* smaller screens- mobile */
 @media (max-width: 768px) {
   .container {
@@ -158,8 +166,9 @@ hr {
   }
 }
 
+/* larger screens */
 @media (min-width: 768px) {
   .container {
     margin: 40px;
   }
-  }
+}

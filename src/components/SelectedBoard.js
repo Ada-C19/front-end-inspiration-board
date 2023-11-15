@@ -7,6 +7,9 @@ const SelectedBoard = (props) => {
     return (
         <main className="selectedBoard">
             <h3>{props.boardState ? `${props.boardState.title} Cards`: ""}</h3>
+            <div className="board-owner-container">
+            <p className="board-owner">{props.boardState ? `Owner: ${props.boardState.owner}`: ""}</p>
+            </div>
         </main>
     );
 }

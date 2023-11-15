@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import FormFieldError from './FormFieldError';
-import './NewCardForm.css';
 
 const NewCardForm = (props) => {
     const cardDefaultState = {
