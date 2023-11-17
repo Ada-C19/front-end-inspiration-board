@@ -15,15 +15,15 @@
     --_g2: #0000 99%,#000 101%;
     --mask:
       radial-gradient(var(--_r) top    calc(var(--s)* 1.9),var(--_g1)) 
-       calc(50% - 2*var(--s) - var(--_i,0px)) 0/var(--_s),
+        calc(50% - 2*var(--s) - var(--_i,0px)) 0/var(--_s),
       radial-gradient(var(--_r) top    calc(var(--s)*-0.9),var(--_g2)) 
-       calc(50% - var(--_i,0px)) var(--s)/var(--_s),
+        calc(50% - var(--_i,0px)) var(--s)/var(--_s),
       radial-gradient(var(--_r) bottom calc(var(--s)* 1.9),var(--_g1)) 
-       calc(50% - 2*var(--s) + var(--_i,0px)) 100%/var(--_s),
+        calc(50% - 2*var(--s) + var(--_i,0px)) 100%/var(--_s),
       radial-gradient(var(--_r) bottom calc(var(--s)*-0.9),var(--_g2)) 
-       calc(50% + var(--_i,0px)) calc(100% - var(--s))/var(--_s);
+        calc(50% + var(--_i,0px)) calc(100% - var(--s))/var(--_s);
     -webkit-mask: var(--mask);
-            mask: var(--mask);
+      mask: var(--mask);
     clip-path: polygon(
       calc(2*var(--s) - var(--_i,0px)) 0,
       calc(100%       - var(--_i,0px)) 0, 

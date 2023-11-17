@@ -55,7 +55,7 @@ const CardEntry = (props) => {
 };
 
 CardEntry.propTypes = {
-  cardState: PropTypes.arrayOf(
+  cardList: PropTypes.arrayOf(
     PropTypes.shape({
       cardId: PropTypes.number.isRequired,
       message: PropTypes.string.isRequired,
