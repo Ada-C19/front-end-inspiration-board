@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import BoardList from './components/BoardList';
-import NewBoardForm from './components/NewBoardForm';
-import SelectedBoard from './components/SelectedBoard';
-import SelectedBoardCardList from './components/SelectedBoardCardList';
-import NewCardForm from './components/NewCardForm';
-import getResponseError from './errorUtils.js';
-import './App.css';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import BoardList from "./components/BoardList";
+import NewBoardForm from "./components/NewBoardForm";
+import SelectedBoard from "./components/SelectedBoard";
+import SelectedBoardCardList from "./components/SelectedBoardCardList";
+import NewCardForm from "./components/NewCardForm";
+import getResponseError from "./errorUtils.js";
+import "./App.css";
 import inspoicon from "./inspoicon.svg"
 
 
@@ -22,11 +22,9 @@ const getAllBoards = () => {
   return axios
     .get(`${kBaseUrl}/boards`)
     .then((response) => {
-      console.log("this is response data for get all boards",  response.data);
       return response.data.map(convertFromApi);
     })
     .catch((error) => {
-      console.log("this is the error for get all boards:", error);
     });
 };
 
@@ -40,11 +38,9 @@ const getAllCardsOneBoard = (boardId) => {
   return axios
   .get(`${kBaseUrl}/boards/${boardId}/cards`)
   .then((response) => {
-    console.log("this is response data for get all cards for one board:", response.data)
     return response.data.map(cardListFromApi);
   })
   .catch((error) => {
-    console.log("this is the error for get all cards for one board:", error);
   });
 };
 
@@ -54,11 +50,9 @@ const updateLikesCount = (cardId, likeStatus) => {
     .patch(`${kBaseUrl}/cards/${cardId}/${endpoint}`)
     .then((response) => {
       const updatedCard = cardListFromApi(response.data);
-      console.log("Updated Card:", updatedCard); 
         return updatedCard
     })
     .catch((error) => {
-      console.log("this is error for updated card", error);
     });
 };
 
@@ -67,11 +61,9 @@ const updateCardMessage = (cardId, data) => {
   .patch(`${kBaseUrl}/cards/${cardId}`, data)
   .then((response) => {
     const updatedCard = cardListFromApi(response.data);
-    console.log("Updated Card:", updatedCard); 
       return updatedCard
   })
   .catch((error) => {
-    console.log("this is error for updated card", error);
   });
 }
 
@@ -79,7 +71,6 @@ const deleteCard = (cardId) => {
   return axios 
   .delete(`${kBaseUrl}/cards/${cardId}`)
   .catch((error) => {
-    console.log("this is the error for deleting a card:", error)
   });
 };
 
@@ -92,7 +83,6 @@ const App = () => {
 
   const fetchBoards = () =>{
     getAllBoards().then((boards)=>{
-      console.log("these are the boards:", boards);
       setBoardState(boards);
     })
   }
@@ -107,17 +97,14 @@ const App = () => {
 
   const fetchCards = (boardId) =>{
     getAllCardsOneBoard(boardId).then((cards)=>{
-      console.log("these are the cards:", cards);
       setCardState(cards);
     })
   }
 
   const handleBoardSelection = (boardId) => {
     let board = findBoardById(boardId);
-    console.log("FOUND BOARD:", board)
     setSelectedBoard(board);
     fetchCards(boardId);
-    console.log("this is the selected board:", selectedBoard)
   };
 
   const onHandleCardSubmit = (data) => {
@@ -127,10 +114,8 @@ const App = () => {
         setError(null);
       })
       .catch((e) => {
-        console.log("this is the error for onHandleCardSubmit:", e)
         const errorMessage = getResponseError(e);
         setError(errorMessage);
-        console.log('errorMessage:', errorMessage)
       });
   };
 
@@ -141,10 +126,8 @@ const App = () => {
         setError(null);
       })
       .catch((e) => {
-        console.log("this is the error for onhandleBoardsubmit:",e);
         const errorMessage = getResponseError(e);
         setError(errorMessage);
-        console.log('errorMessage:', errorMessage);
   });
 }
   
@@ -186,7 +169,7 @@ const App = () => {
   return (
     <div className="container">
       <header className="header">
-        <div className="header-container">
+        <div>
           <h1>Welcome to Inspiration Board</h1>
           <hr/>
           <p>Create and view boards of inspiration && capture your inspirations in detail </p>

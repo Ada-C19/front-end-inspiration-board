@@ -5,11 +5,9 @@ import './SelectedBoard.css';
 const SelectedBoard = (props) => {
 
     return (
-        <main className="selectedBoard">
+        <main>
             <h3>{props.boardState ? `${props.boardState.title} Cards`: ""}</h3>
-            <div className="board-owner-container">
-            <p className="board-owner">{props.boardState ? `Owner: ${props.boardState.owner}`: ""}</p>
-            </div>
+            {props.boardState &&(<hr className="board-title-divider" />)}
         </main>
     );
 }

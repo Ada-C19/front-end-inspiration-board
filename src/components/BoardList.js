@@ -1,7 +1,7 @@
-import React from 'react';
-import Board from './Board';
-import PropTypes from 'prop-types';
-import './BoardList.css';
+import React from "react";
+import Board from "./Board";
+import PropTypes from "prop-types";
+import "./BoardList.css";
 
 const BoardList = (props) => {
     const getBoardListJSX = (boards) => {
@@ -21,7 +21,8 @@ const BoardList = (props) => {
 
     return (
         <section>
-            {props.boardData && props.boardData.length > 0 && (<h3 className='selectBoard'>Select a Board</h3>)}
+            {props.boardData && props.boardData.length > 0 && 
+            (<h3 className="selectBoard">Select a Board</h3>)}
             <ul className="board-list">{getBoardListJSX(props.boardData)}</ul>
         </section>
     );

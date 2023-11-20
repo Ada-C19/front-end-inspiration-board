@@ -1,4 +1,6 @@
-.board-owner-container {
+.board-title-divider{
+    height:18px;
+    border-width: 0;
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(114,164,217,0.5522855987055016) 0%, rgba(233,251,255,1) 100%);
 }

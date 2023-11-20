@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import './CardEntry.css';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import "./CardEntry.css";
 
 const CardEntry = (props) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -17,7 +17,7 @@ const CardEntry = (props) => {
 
   const handleSaveEdit = () => {
     const theEditedMessage = {
-        message : editedMessage
+      message : editedMessage
     };
 
     props.onUpdateMessage(props.cardId, theEditedMessage);
@@ -27,7 +27,7 @@ const CardEntry = (props) => {
   return (
     <div>
       {isEditing ? (
-        <div className='edit-card-container'>
+        <div className="edit-card-container">
           <input
             type="text"
             id="edit-card"

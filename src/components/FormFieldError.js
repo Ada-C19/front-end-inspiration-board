@@ -1,11 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const FormFieldError = ({ message }) => {
     if (message === undefined || message === null) {
         return <></>;
     }
-
-    console.log('message', message)
 
     return (
         <>
