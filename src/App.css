@@ -1,0 +1,168 @@
+body {
+  font-size: 16px;
+}
+
+/* app grid layout */
+.sidebar {
+  grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 60px;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(114,164,217,0.5522855987055016) 0%, rgba(233,251,255,1) 100%);
+}
+
+.content {
+  grid-area: content;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.318),
+    rgba(255, 255, 255, 0.227)
+  ),
+    url(https://cdn.pixabay.com/photo/2012/12/24/08/39/background-72250_1280.jpg);
+}
+
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "sidebar header header"
+    "sidebar content content";
+  min-height: 100vh;
+}
+
+
+/* text */
+h1 {
+  font-family: Impact, Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif; 
+  text-align: center;
+  color: rgb(48, 127, 169);
+  font-size: 3em;
+}
+
+.inspo {
+  font-family: Impact, Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif; 
+  font-size: 2em;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color:rgb(48, 127, 169);
+}
+
+h2 {
+  color:rgb(48, 127, 169);
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 0;
+}
+
+p {
+  text-align: center;
+  text-wrap: balance;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.error-message{
+  font-size: 0.75em;
+  padding: 3px;
+  color: red;
+  text-align: start;
+  list-style-type: none;
+  list-style-type: "⚠";
+}
+
+h3 {
+color: rgb(48, 127, 169);
+font-size: 2.5em;
+-webkit-text-stroke-color: blue;
+-webkit-text-stroke-width: 1px;
+text-align: center;
+margin: 0;
+margin-top: 5%;
+}
+
+/* board and card forms */
+.card-form-container {
+  display: flex;
+  justify-content: center;
+  margin: 2%;
+}
+
+.form {
+  background-color: white;
+  padding: 8px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.board-form-button, .card-form-button {
+  width: 100%;
+  height: 40px;
+  border: hidden;
+  border-radius: 5px;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+#title, #owner, #message {
+  font-size: 1em;
+  padding-left: 5px;
+  border-radius: 5px;
+}
+
+.title-owner-container, .message-input-container {
+  text-align: center;
+  padding: 5px 0 5px 0;
+}
+
+input {
+  width: 95%;
+  height: 30px;
+  border: 1px solid grey;
+}  
+
+.board-submit, .hide-board, .card-submit {
+  padding: 5px 0;
+} 
+
+hr {
+  margin: 5px 0 ;
+}
+
+.img-container {
+  text-align: center;
+}
+
+/* smaller screens- mobile */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header"
+      "content"
+      "sidebar"; 
+  }
+}
+
+/* larger screens */
+@media (min-width: 768px) {
+  .container {
+    margin: 40px;
+  }
+}
