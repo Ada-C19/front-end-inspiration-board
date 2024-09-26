@@ -1,0 +1,11 @@
+
+
+li:hover{
+    color: green;
+}
+
+.del{
+    border-radius: 7px;
+    background-color: aqua;
+    color: red;
+}

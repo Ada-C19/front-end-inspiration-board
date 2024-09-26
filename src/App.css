@@ -1,0 +1,100 @@
+.root{
+  display: flex;
+  flex-direction: column;
+}
+
+.boardsContainer {
+display: flex;
+justify-content: space-around;
+max-height: 85vh;
+min-height: fit-content;
+justify-content: space-between;
+
+}
+.cardsContainer {
+ justify-content: space-between;
+  display: flex;
+}
+@media screen and (max-width:1024px){
+  .cardsContainer{
+    margin-top: 12.0px;
+  }
+}
+
+.card-heading{
+  font-size: 22px;
+  border: solid 3px rgb(89, 230, 237);
+  background-color: lightcyan;
+  border-radius: 12px;
+  font-weight: 800;
+  padding: 9px;
+  max-width: 20vw;
+}
+
+.boardList {
+  height: fit-content;
+  margin: 15px;
+  width: 20%;
+}
+.selectedBoard {
+  border: solid;
+  border-width: 5px;
+  border-color: rgb(89, 230, 237);
+  padding: 10px;
+  background-color: lightcyan;
+  border-radius: 20px;
+  height: 30px;
+  margin-top: 40px;
+  margin-right: 15px;
+  width: 20%;
+}
+@media screen and (max-width:1024px){
+  .selectedBoard{
+    width: fit-content;
+    height: fit-content;
+    margin-left: 180px;
+  }
+}
+.createBoard {
+ margin-top: 15px;
+  margin-left: 15px;
+  padding-left: 100px;
+  width: 30%;
+  margin: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  
+}
+
+body{
+  margin: 0;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 40px;
+  color: navy;
+  font-size: 1.3rem;
+  line-height: 1.5;
+ 
+  
+}
+html{
+  background-color:blue;
+  background-image: url("images/background.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100%;
+}
+
+
+#heading{
+  text-align: center;
+  border-style: ridge;
+  background-color: lightcyan;
+  border: solid 3px rgb(89, 230, 237);
+  border-radius: 20px;
+  width: 90vh;
+  margin: auto;
+}
+
+
+

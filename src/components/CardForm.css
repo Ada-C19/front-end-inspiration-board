@@ -1,0 +1,14 @@
+.card-info{
+    border: solid 3px rgb(89, 230, 237);
+    background-color: lightcyan;
+    margin: 20px;
+    margin-right: 8vw;
+    padding: 20px;
+}
+input:invalid {
+    border: 1px solid red;
+    box-shadow: 0 0 12px rgb(255, 0, 0);
+     
+     }
+ 
+ 

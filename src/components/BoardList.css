@@ -1,0 +1,36 @@
+.board {
+    border: solid;
+    border-width: 5px;
+    border-color: rgb(89, 230, 237);
+    padding-bottom: 10vh;
+    padding-left: 5vh;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+h2{
+    border: solid;
+    border-width: 5px;
+    border-color: rgb(89, 230, 237);
+    padding: 10px;
+    background-color: lightcyan;
+    border-radius: 20px;
+  
+}
+
+ul{
+    background: lightcyan;
+}
+
+ul {
+    list-style-type: '⭐️';
+}
+@media screen and (max-width:1024px) {
+    .board{
+        width: 250%;
+       }
+    .board-heading{
+        width: fit-content;
+    }
+   
+    }
